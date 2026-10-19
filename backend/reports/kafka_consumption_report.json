@@ -1,0 +1,516 @@
+{
+  "additional_checks": {
+    "backend_suite": {
+      "passed": 59,
+      "skipped_spark_runtime_tests": 4,
+      "tests_run": 63
+    },
+    "spark_streaming_wrapper": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "2": 2
+      },
+      "committed_records": 2,
+      "deadletters_published": 0,
+      "deduplicated": 0,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 41.661184047999996,
+      "engine": "spark",
+      "finished_at": "2026-10-19T13:30:49.051111Z",
+      "group_id": "opsyntra-step7-spark-stream-check",
+      "inference_batches": 1,
+      "invocation_id": "79732f60-5854-4309-9fe4-b6270bbd6da0",
+      "max_messages": 2,
+      "mode": "streaming",
+      "model_loads": 1,
+      "model_sha256": "19f785213b58d38ee707f4dbd481748d5cf58a81aa4dfa2b563296fcd22a2281",
+      "model_version": "6172478f6bdcb515",
+      "predictions_published": 2,
+      "reason": "message_limit",
+      "received_records": 2,
+      "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/consumer_state/e1e7bc2bacdd19639abae284.sqlite3",
+      "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/consumer_runs/79732f60-5854-4309-9fe4-b6270bbd6da0",
+      "started_at": "2026-10-19T13:30:05.539189Z",
+      "status": "completed"
+    }
+  },
+  "broker": {
+    "bootstrap_servers": "127.0.0.1:9092",
+    "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+    "topics": {
+      "telco.churn.predictions": {
+        "partitions": 3,
+        "replication_factor": 1
+      },
+      "telco.deadletter": {
+        "partitions": 3,
+        "replication_factor": 1
+      },
+      "telco.raw.customers": {
+        "partitions": 3,
+        "replication_factor": 1
+      }
+    }
+  },
+  "calls": {
+    "batch_completed_window": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {},
+      "committed_records": 0,
+      "deadletters_published": 0,
+      "deduplicated": 0,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.1971536999917589,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:23.854888Z",
+      "group_id": "opsyntra-check-batch-f4d4711e9e29",
+      "inference_batches": 0,
+      "invocation_id": "33c084e9-8836-4b65-8258-802eddce267b",
+      "max_messages": null,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11085
+          },
+          "1": {
+            "end": 11154,
+            "start": 11150
+          },
+          "2": {
+            "end": 10948,
+            "start": 10940
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 0,
+      "reason": "offset_window_exhausted",
+      "received_records": 0,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\fd8ae2d92beb6370b1398e22.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\33c084e9-8836-4b65-8258-802eddce267b",
+      "started_at": "2026-10-19T13:27:23.657760Z",
+      "status": "completed"
+    },
+    "batch_count": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "0": 11087,
+        "1": 11153
+      },
+      "committed_records": 5,
+      "deadletters_published": 2,
+      "deduplicated": 0,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.6131746000028215,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:17.995173Z",
+      "group_id": "opsyntra-check-batch-f4d4711e9e29",
+      "inference_batches": 1,
+      "invocation_id": "7e64ad19-a2b1-4388-8555-8624ddde9707",
+      "max_messages": 5,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11085
+          },
+          "1": {
+            "end": 11154,
+            "start": 11150
+          },
+          "2": {
+            "end": 10948,
+            "start": 10940
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 3,
+      "reason": "message_limit",
+      "received_records": 5,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\fd8ae2d92beb6370b1398e22.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\7e64ad19-a2b1-4388-8555-8624ddde9707",
+      "started_at": "2026-10-19T13:27:17.382012Z",
+      "status": "completed"
+    },
+    "batch_resume_window": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "1": 11154,
+        "2": 10948
+      },
+      "committed_records": 9,
+      "deadletters_published": 5,
+      "deduplicated": 1,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.8802805000013905,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:21.193853Z",
+      "group_id": "opsyntra-check-batch-f4d4711e9e29",
+      "inference_batches": 1,
+      "invocation_id": "b573480c-57fa-49e0-84a4-500c1aa553e2",
+      "max_messages": null,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11085
+          },
+          "1": {
+            "end": 11154,
+            "start": 11150
+          },
+          "2": {
+            "end": 10948,
+            "start": 10940
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 3,
+      "reason": "offset_window_exhausted",
+      "received_records": 9,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\fd8ae2d92beb6370b1398e22.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\b573480c-57fa-49e0-84a4-500c1aa553e2",
+      "started_at": "2026-10-19T13:27:20.313567Z",
+      "status": "completed"
+    },
+    "crash_after_ledger_commit": {
+      "crash_stage": "after_ledger_commit",
+      "exit_code": 86,
+      "group_id": "opsyntra-check-crash-bce20b3639b9"
+    },
+    "crash_after_output_ack": {
+      "crash_stage": "after_output_ack",
+      "exit_code": 86,
+      "group_id": "opsyntra-check-crash-f1028dd43d41"
+    },
+    "duplicate_replay": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "2": 10950
+      },
+      "committed_records": 2,
+      "deadletters_published": 0,
+      "deduplicated": 2,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.6877717999886954,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:27.029996Z",
+      "group_id": "opsyntra-check-batch-f4d4711e9e29",
+      "inference_batches": 0,
+      "invocation_id": "317a4dd4-184b-4390-94ed-c74a41f69184",
+      "max_messages": null,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11087
+          },
+          "1": {
+            "end": 11154,
+            "start": 11154
+          },
+          "2": {
+            "end": 10950,
+            "start": 10948
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 0,
+      "reason": "offset_window_exhausted",
+      "received_records": 2,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\fd8ae2d92beb6370b1398e22.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\317a4dd4-184b-4390-94ed-c74a41f69184",
+      "started_at": "2026-10-19T13:27:26.342236Z",
+      "status": "completed"
+    },
+    "restart_after_ledger_commit": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "2": 10954
+      },
+      "committed_records": 1,
+      "deadletters_published": 0,
+      "deduplicated": 1,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.7417930000083288,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:36.279417Z",
+      "group_id": "opsyntra-check-crash-bce20b3639b9",
+      "inference_batches": 0,
+      "invocation_id": "292adc77-a8ac-4042-90e8-a3724f3e67f9",
+      "max_messages": null,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11087
+          },
+          "1": {
+            "end": 11154,
+            "start": 11154
+          },
+          "2": {
+            "end": 10954,
+            "start": 10953
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 0,
+      "reason": "offset_window_exhausted",
+      "received_records": 1,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\489bcf369d1ed5f51b181488.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\292adc77-a8ac-4042-90e8-a3724f3e67f9",
+      "started_at": "2026-10-19T13:27:35.537640Z",
+      "status": "completed"
+    },
+    "restart_after_output_ack": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "2": 10955
+      },
+      "committed_records": 1,
+      "deadletters_published": 0,
+      "deduplicated": 0,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.8411801000038395,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:43.413092Z",
+      "group_id": "opsyntra-check-crash-f1028dd43d41",
+      "inference_batches": 0,
+      "invocation_id": "aa8a14dc-be09-4d31-be01-dbc39fddb1b2",
+      "max_messages": null,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11087
+          },
+          "1": {
+            "end": 11154,
+            "start": 11154
+          },
+          "2": {
+            "end": 10955,
+            "start": 10954
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 1,
+      "reason": "offset_window_exhausted",
+      "received_records": 1,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\159687b56486c1fa6344e143.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\aa8a14dc-be09-4d31-be01-dbc39fddb1b2",
+      "started_at": "2026-10-19T13:27:42.571927Z",
+      "status": "completed"
+    },
+    "spark_batch": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "2": 10956
+      },
+      "committed_records": 1,
+      "deadletters_published": 0,
+      "deduplicated": 0,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 51.59463287899962,
+      "engine": "spark",
+      "finished_at": "2026-10-19T13:28:51.051984Z",
+      "group_id": "opsyntra-check-spark-a5fe010bb76b",
+      "inference_batches": 1,
+      "invocation_id": "88ae43a2-77b8-41a9-9e29-76fdc46fc25a",
+      "max_messages": null,
+      "mode": "batch",
+      "model_loads": 1,
+      "model_sha256": "19f785213b58d38ee707f4dbd481748d5cf58a81aa4dfa2b563296fcd22a2281",
+      "model_version": "6172478f6bdcb515",
+      "offset_window": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "partitions": {
+          "0": {
+            "end": 11087,
+            "start": 11087
+          },
+          "1": {
+            "end": 11154,
+            "start": 11154
+          },
+          "2": {
+            "end": 10956,
+            "start": 10955
+          }
+        },
+        "topic": "telco.raw.customers"
+      },
+      "predictions_published": 1,
+      "reason": "offset_window_exhausted",
+      "received_records": 1,
+      "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/consumer_state/687a9a67074874b696c59405.sqlite3",
+      "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/consumer_runs/88ae43a2-77b8-41a9-9e29-76fdc46fc25a",
+      "started_at": "2026-10-19T13:27:57.080613Z",
+      "status": "completed"
+    },
+    "streaming": {
+      "batch_size": 100,
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "committed_offsets": {
+        "2": 10953
+      },
+      "committed_records": 3,
+      "deadletters_published": 0,
+      "deduplicated": 0,
+      "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+      "elapsed_seconds": 0.4358882999949856,
+      "engine": "sklearn",
+      "finished_at": "2026-10-19T13:27:30.178279Z",
+      "group_id": "opsyntra-check-stream-1d4d5a7a926a",
+      "inference_batches": 1,
+      "invocation_id": "fa2213ee-9829-4721-84bd-b32e4b2e763d",
+      "max_messages": 3,
+      "mode": "streaming",
+      "model_loads": 1,
+      "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+      "model_version": "d9a13b4cf6839ed4",
+      "predictions_published": 3,
+      "reason": "message_limit",
+      "received_records": 3,
+      "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\6e6813ffef61074324d7b06f.sqlite3",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\fa2213ee-9829-4721-84bd-b32e4b2e763d",
+      "started_at": "2026-10-19T13:27:29.742370Z",
+      "status": "completed"
+    }
+  },
+  "check_directory": "artifacts/kafka/consumer_checks/25d9eb60faf14bd591954e9e581c39da",
+  "checked_at": "2026-10-19T13:28:53.992527Z",
+  "checks": {
+    "ack_window_replay_preserves_complete_payload": true,
+    "completed_window_noop": true,
+    "count_bound_and_window_resume": true,
+    "duplicate_event_ids_suppressed": true,
+    "malformed_records_deadlettered_without_blocking_valid_records": true,
+    "one_model_load_per_consumer_process": true,
+    "predictions_match_direct_saved_pipeline": true,
+    "real_hard_exit_and_restart_after_ledger": true,
+    "real_hard_exit_and_restart_after_output_ack": true,
+    "unlabelled_events_and_null_total_charges": true
+  },
+  "guarantee": "At-least-once Kafka output with durable local deduplication. The tested ack-before-ledger crash window can produce identical duplicate predictions; prediction_id/event_id+model_version supports downstream deduplication. No end-to-end exactly-once claim.",
+  "observed": {
+    "ack_before_ledger_crash_physical_outputs": 2,
+    "duplicates_suppressed_after_restart": 2,
+    "ledger_crash_physical_outputs": 1,
+    "normal_batch_deadletters": 7,
+    "normal_batch_predictions": 6,
+    "sklearn_physical_outputs": 12,
+    "sklearn_unique_prediction_ids": 11,
+    "spark_predictions": 1,
+    "streaming_predictions": 3
+  },
+  "sample_deadletter": {
+    "key": "425ae5a6-02be-5198-b553-92cb3834b0d0",
+    "offset": 0,
+    "partition": 0,
+    "value": {
+      "customerID": "7590-VHVEG",
+      "error": {
+        "message": "event_id was already used with different customer/event contents",
+        "type": "invalid_record"
+      },
+      "event_id": "425ae5a6-02be-5198-b553-92cb3834b0d0",
+      "original_event_id": "6eb9093a-8cc2-5573-93c0-32863021ba4d",
+      "processed_ts": "2026-10-19T13:27:20.976474Z",
+      "raw_key_base64": "NzU5MC1WSFZFRw==",
+      "raw_key_is_null": false,
+      "raw_key_truncated": false,
+      "raw_value_base64": "eyJjdXN0b21lcklEIjogIjc1OTAtVkhWRUciLCAiZ2VuZGVyIjogIkZlbWFsZSIsICJTZW5pb3JDaXRpemVuIjogMCwgIlBhcnRuZXIiOiAiWWVzIiwgIkRlcGVuZGVudHMiOiAiTm8iLCAidGVudXJlIjogMSwgIlBob25lU2VydmljZSI6ICJObyIsICJNdWx0aXBsZUxpbmVzIjogIk5vIHBob25lIHNlcnZpY2UiLCAiSW50ZXJuZXRTZXJ2aWNlIjogIkRTTCIsICJPbmxpbmVTZWN1cml0eSI6ICJObyIsICJPbmxpbmVCYWNrdXAiOiAiWWVzIiwgIkRldmljZVByb3RlY3Rpb24iOiAiTm8iLCAiVGVjaFN1cHBvcnQiOiAiTm8iLCAiU3RyZWFtaW5nVFYiOiAiTm8iLCAiU3RyZWFtaW5nTW92aWVzIjogIk5vIiwgIkNvbnRyYWN0IjogIk1vbnRoLXRvLW1vbnRoIiwgIlBhcGVybGVzc0JpbGxpbmciOiAiWWVzIiwgIlBheW1lbnRNZXRob2QiOiAiRWxlY3Ryb25pYyBjaGVjayIsICJNb250aGx5Q2hhcmdlcyI6IDM5Ljg1LCAiVG90YWxDaGFyZ2VzIjogMjkuODUsICJzY2hlbWFfdmVyc2lvbiI6IDEsICJldmVudF9pZCI6ICI2ZWI5MDkzYS04Y2MyLTU1NzMtOTNjMC0zMjg2MzAyMWJhNGQiLCAicnVuX2lkIjogIjlkYTUyYjVhLTk3MGMtNDRkMi04MjdlLTY2N2QxMDE2ZWExYyIsICJtb2RlIjogImJhdGNoIiwgInNvdXJjZV9yb3ciOiAwLCAic291cmNlX3NoYTI1NiI6ICI4OGJlNGI5M2ZiZTBjYzgzNDIxYWYxYzUwMzc5NGM5N2MzNDJlY2E5MTRjMTU3NmRiN2MyNzZlNjFkNjEzNThhIiwgImV2ZW50X3RzIjogIjIwMjYtMTAtMTlUMTM6Mjc6MTQuNDU5NTI0WiJ9",
+      "raw_value_is_null": false,
+      "raw_value_sha256": "bccae04958c4e084822e4bd8dfc2370cb838d8d4ac96ad32665e1195255b288b",
+      "raw_value_truncated": false,
+      "schema_version": 1,
+      "source": {
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "offset": 10947,
+        "partition": 2,
+        "topic": "telco.raw.customers"
+      }
+    }
+  },
+  "sample_prediction": {
+    "key": "4472-LVYGI",
+    "offset": 0,
+    "partition": 0,
+    "value": {
+      "churn_probability": 0.11529421883248173,
+      "customerID": "4472-LVYGI",
+      "engine": "sklearn",
+      "event_id": "32e561f1-9918-5d04-a084-442d4ac149dd",
+      "event_ts": "2026-10-19T13:27:14.460968Z",
+      "model_version": "d9a13b4cf6839ed4",
+      "prediction": "No",
+      "prediction_id": "42a4b73aae1b10630f6cbd1f4a30f4aa81eb6dbaff8eec21470bf24f5be4915d",
+      "processed_ts": "2026-10-19T13:27:17.840179Z",
+      "schema_version": 1
+    }
+  },
+  "sample_spark_prediction": {
+    "key": "7590-VHVEG",
+    "offset": 14,
+    "partition": 2,
+    "value": {
+      "churn_probability": 0.6359492135878617,
+      "customerID": "7590-VHVEG",
+      "engine": "spark",
+      "event_id": "5ac1c175-7540-58a0-a55b-7b3d5d5954a0",
+      "event_ts": "2026-10-19T13:27:43.839905Z",
+      "model_version": "6172478f6bdcb515",
+      "prediction": "Yes",
+      "prediction_id": "e27673c3fb546ebceb550148c0f2523682c1276d10b69918760f30724c755957",
+      "processed_ts": "2026-10-19T13:28:50.270903Z",
+      "schema_version": 1
+    }
+  },
+  "status": "PASS"
+}

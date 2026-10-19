@@ -1,6 +1,6 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
-This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–6 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. The required eight-task Airflow DAG is implemented for both engines; Kafka publishing is implemented; the prediction consumer and later phases remain planned.
+This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–7 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. The required eight-task Airflow DAG is implemented for both engines; Kafka publishing is implemented; prediction consumption and tested recovery are implemented, with further evidence and bonus Kafka DAG work remaining.
 
 ## 1. Requirements and priorities
 
@@ -57,7 +57,7 @@ Start with Docker Compose for local services and a pinned Linux runtime for Spar
 
 The repository separates the Next.js frontend from the Python API and ML workflows.
 Python source names and paths in the later build phases are relative to `backend/`.
-MLflow tracking and local Spark workflows are implemented. Airflow orchestration and Kafka publishing are implemented; consumer and bonus Kafka DAG work remain planned.
+MLflow tracking and local Spark workflows are implemented. Airflow orchestration and Kafka publishing are implemented; consumer prediction/recovery is implemented; bonus Kafka DAG work remains planned.
 
 ```text
 Opsyntra/
@@ -214,6 +214,15 @@ Implement one producer.py with:
 Done when: both modes publish valid records, an interrupted batch resumes, and logs show acknowledged counts and checkpoint progress.
 
 ### Phase 7: Kafka consumer and recovery
+
+Implemented: one consumer.py for batch/count, fixed offset windows and continuous
+streaming; sklearn and native Spark models are loaded once per process. Valid
+records produce predictions and malformed/conflicting records go to deadletter.
+A durable SQLite outbox/ledger precedes manual input commits. Stable prediction
+IDs support replay handling. Real hard exits demonstrated both durable-ledger
+deduplication and the remaining ack-before-ledger duplicate window, with no
+end-to-end exactly-once claim. See `backend/KAFKA.md` and
+`backend/reports/kafka_consumption_report.md` for commands and evidence.
 
 Implement one consumer.py with:
 

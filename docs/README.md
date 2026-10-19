@@ -87,5 +87,18 @@ The broker check published the complete source CSV through a pause/resume
 sequence and 30 sampled streaming events. A diagnostic reader validated the
 actual raw-topic messages, keys, numeric/null types, event IDs and source values.
 Command logs and the acknowledged batch checkpoint are linked from the report.
-Prediction-topic production and dead-letter routing belong to the next consumer
-phase.
+Prediction-topic production and dead-letter routing are implemented in Step 7.
+
+## Kafka prediction and recovery evidence
+
+- [Consumer commands, output contract and recovery limits](../backend/KAFKA.md#prediction-consumer-step-7)
+- [Real-broker prediction and crash/restart report](../backend/reports/kafka_consumption_report.md)
+- [Group/run IDs, model hashes and actual prediction/dead-letter samples](../backend/reports/kafka_consumption_report.json)
+
+The check exercised malformed records, count/window bounds, resumed groups, event
+ID conflicts, duplicate suppression and hard process exits at both delivery/ledger
+boundaries. Sklearn output matched direct saved-model inference. Native Spark
+batch and bounded streaming also published real predictions. The message viewer
+lets you inspect output JSON for terminal screenshots without changing application
+offsets: `python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5`
+from the repository root.

@@ -1,5 +1,5 @@
 param(
-    [ValidateSet("setup", "start", "stop", "status", "topics", "verify")]
+    [ValidateSet("setup", "start", "stop", "status", "topics", "verify", "verify-consumer")]
     [string]$Task = "start"
 )
 $ErrorActionPreference = "Stop"
@@ -8,10 +8,11 @@ if ($Task -eq "setup") {
     & python -m pip install -r (Join-Path $backendDirectory "requirements/kafka.txt")
     if ($LASTEXITCODE -ne 0) { throw "Kafka Python dependency setup failed." }
 }
-if ($Task -in @("topics", "verify")) {
+if ($Task -in @("topics", "verify", "verify-consumer")) {
     Push-Location $backendDirectory
     try {
         if ($Task -eq "topics") { & python -m pipelines.kafka_topics }
+        elseif ($Task -eq "verify-consumer") { & python -m pipelines.kafka_consumption_check }
         else { & python -m pipelines.kafka_publishing_check }
         if ($LASTEXITCODE -ne 0) { throw "Kafka $Task failed; inspect the output above." }
     } finally { Pop-Location }

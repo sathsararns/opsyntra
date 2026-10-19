@@ -31,7 +31,8 @@ Opsyntra/
   start-mlflow.ps1          Opens the local experiment tracking UI
   start-spark.ps1           Runs Spark setup, training, inference and checks in Ubuntu WSL
   start-airflow.ps1         Starts Airflow and runs the complete ML DAG in Ubuntu WSL
-  start-kafka.ps1           Starts the local Kafka broker, creates topics and verifies publishing
+  start-kafka.ps1           Starts Kafka, creates topics and verifies publishing/consumption
+  start-consumer.ps1        Runs sklearn or native Spark Kafka prediction consumers
 ```
 
 The Git repository remains at this root. `.review-tools/` is an ignored local
@@ -43,6 +44,7 @@ Install dependencies from the repository root:
 
 ```powershell
 python -m pip install -r backend/requirements/web.txt
+python -m pip install -r backend/requirements/kafka.txt
 npm --prefix frontend ci
 ```
 
@@ -165,7 +167,7 @@ Data preparation, sklearn training/inference, and the local interface are
 implemented, including MLflow tracking and validation threshold selection.
 PySpark training, persistence, inference and engine comparison are implemented.
 The required Airflow ML DAG is implemented for both engines. Kafka publishing in
-batch and streaming modes is implemented; prediction consumption is next.
+batch and streaming modes is implemented, with model prediction consumers and durable recovery.
 
 ## Airflow ML workflow
 
@@ -211,3 +213,31 @@ See [Kafka setup, event schema and resume guarantees](backend/KAFKA.md) and
 [real publishing evidence](backend/reports/kafka_publishing_report.md). The check
 published all 7,043 customers across a pause/resume plus 30 streaming events,
 then validated the actual messages read back from Kafka.
+
+## Kafka prediction and recovery
+
+From the repository root:
+
+```powershell
+.\start-kafka.ps1 -Task start
+python backend/consumer.py --mode batch --max-messages 1000
+python backend/consumer.py --mode streaming
+```
+
+Use Ctrl+C to stop streaming. The default sklearn group resumes committed Kafka
+offsets and reuses its durable outbox/deduplication ledger. Predictions include
+customerID, probability, label, event/processing timestamps, event ID and model
+version. Invalid inputs go to `telco.deadletter`. Output delivery is confirmed
+and recorded before input offsets are committed. The documented ack-before-ledger
+crash window can still produce identical duplicate prediction IDs.
+
+View actual output messages:
+
+```powershell
+python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5
+```
+
+Native Spark is supported through
+`.\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
+See [consumer commands and recovery guarantees](backend/KAFKA.md#prediction-consumer-step-7)
+and [real crash/restart evidence](backend/reports/kafka_consumption_report.md).

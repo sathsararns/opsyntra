@@ -2,7 +2,7 @@
 
 Telco customer churn prediction and streaming ML project.
 
-## Implemented: Steps 1–6
+## Implemented: Steps 1–7
 
 - Original dataset import from the supplied ZIP without changing its contents.
 - Schema, customer ID, label, category, numeric and missing-value validation.
@@ -32,6 +32,7 @@ Airflow uses its own constrained Python environment in Ubuntu WSL.
 
 ```powershell
 python -m pip install -r requirements/web.txt
+python -m pip install -r requirements/kafka.txt
 
 # First run: copy only the configured CSV from your ZIP.
 python -m pipelines.data_pipeline --archive "C:\Users\SATHSARA\Downloads\archive.zip"
@@ -193,7 +194,7 @@ Reusable code is in `src/opsyntra/`; `pipelines/` contains runnable workflows.
 `notebooks/` is reserved for exploration; `dags/` contains the working eight-task ML DAG.
 `tests/` verifies the implemented data workflow and `reports/` stores evidence.
 
-Airflow orchestration and Kafka publishing are implemented; the Kafka prediction consumer is next. The complete project plan
+Airflow, Kafka publishing, prediction consumption and durable recovery are implemented. The complete project plan
 is in [OPSYNTRA_ROADMAP.md](../OPSYNTRA_ROADMAP.md). Shared frontend screenshots
 are in [docs/screenshots/](../docs/screenshots/).
 
@@ -375,3 +376,27 @@ consumer deduplication across the delivery/checkpoint crash window.
 
 See [Kafka runtime, CLI examples and delivery semantics](KAFKA.md) and
 [verified live-broker evidence](reports/kafka_publishing_report.md).
+
+## Kafka prediction consumer
+
+One `consumer.py` supports batch/count or offset-window consumption and continuous
+streaming. Each process loads the selected complete pipeline once. From this
+backend directory:
+
+```powershell
+..\start-kafka.ps1 -Task start
+python consumer.py --mode batch --max-messages 1000
+python consumer.py --mode streaming
+python -m pipelines.kafka_messages --topic predictions --max-messages 5
+```
+
+Restart with the same group ID and state directory to resume. Predictions and
+deadletters are acknowledged and recorded in a durable local ledger before input
+offsets are synchronously committed. An outbox preserves pending payloads.
+The remaining output-ack/local-ledger crash window is documented and tested;
+downstream duplicate handling uses stable prediction IDs.
+
+For native Spark use
+`..\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
+See [consumer setup, batch windows and recovery limits](KAFKA.md#prediction-consumer-step-7)
+and [the completed live-broker checkpoint](reports/kafka_consumption_report.md).
