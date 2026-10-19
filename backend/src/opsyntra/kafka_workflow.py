@@ -230,6 +230,7 @@ class KafkaWorkflow:
             result = run_consumer(settings, mode="streaming", engine=self.engine, group_id=self.group,
                                   model_path=manifest["model_path"], stop=stop, progress_callback=progress)
             atomic_json(self.run / "consumer_result.json", result)
+            atomic_json(self.run / "consumer_heartbeat.json", {**result, "heartbeat_at": utc_now(), "stop_file": str(stop_path)})
             if result["status"] != "stopped":
                 raise ValueError("Streaming consumer did not stop gracefully")
             return result

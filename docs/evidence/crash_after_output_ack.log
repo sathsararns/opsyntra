@@ -1,0 +1,3 @@
+2026-10-19 18:57:39,211 INFO Loaded sklearn model once: version=d9a13b4cf6839ed4 group=opsyntra-check-crash-f1028dd43d41
+2026-10-19 18:57:39,946 ERROR TEST ONLY: hard exit at after_output_ack before input offset commit
+

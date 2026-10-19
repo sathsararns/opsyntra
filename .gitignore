@@ -29,6 +29,9 @@ derby.log
 metastore_db/
 logs/
 *.log
+!backend/reports/test_results.log
+!backend/reports/test_results_spark.log
+!docs/evidence/*.log
 .DS_Store
 node_modules/
 .next/

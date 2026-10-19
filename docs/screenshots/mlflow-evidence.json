@@ -1,12 +1,12 @@
 {
-  "captured_at": "2026-10-19T07:01:37.509Z",
-  "batch_id": "e9ff7cc485d94719b8f40ac9e98975c7",
+  "captured_at": "2026-10-19T15:32:33.840Z",
+  "batch_id": "9f64a429df7f42b3a72bedc1b8b29b20",
   "experiment_id": "1",
   "runs": {
-    "dummy": "b069db745a834e93957a19a4a7461bfb",
-    "logistic_regression": "f8271f72222d4315bef4b3f375b2655b",
-    "random_forest": "2bdb3c5badfc44f594eb7f963ad13fbd",
-    "xgboost": "bd5f72803c5146979c30e506eac9da21"
+    "dummy": "cefaf3f3b2e348da88b1f4990cfb7ad8",
+    "logistic_regression": "323af2b49c2a4a58bb30ba078dc70d1f",
+    "random_forest": "b877c5c27d884d2fb81dab882ee74592",
+    "xgboost": "620bd29aef8840ffb10e718964ea8ce9"
   },
   "selected_model": "random_forest",
   "model_version": "d9a13b4cf6839ed4",

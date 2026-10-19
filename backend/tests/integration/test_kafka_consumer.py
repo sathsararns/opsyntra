@@ -300,6 +300,7 @@ class KafkaConsumerTests(unittest.TestCase):
         from opsyntra.model_inference import predict_records
         raw = sample_data(100)
         pipeline = build_model_pipeline("logistic_regression", jobs=1).fit(raw, raw.Churn.map({"No": 0, "Yes": 1}))
+        pipeline.opsyntra_metadata_ = {"model_version": "unseen-fixture"}
         event = {**self.events[0], "PaymentMethod": "Future payment method"}
         result = predict_records(pipeline, [event])
         self.assertTrue(np.isfinite(result.iloc[0].churn_probability))

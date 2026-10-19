@@ -1,10 +1,10 @@
 {
-  "captured_at": "2026-10-19T11:10:56.200Z",
+  "captured_at": "2026-10-19T15:33:37.799Z",
   "source": "Actual local Airflow UI and scheduler CLI",
   "runs": [
     {
       "dag_id": "opsyntra_ml_workflow",
-      "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+      "run_id": "manual__opsyntra_sklearn_20261019T111944416960Z",
       "engine": "sklearn",
       "state": "success",
       "tasks": [
@@ -13,77 +13,77 @@
           "logical_date": "",
           "task_id": "validate_data",
           "state": "success",
-          "start_date": "2026-10-19T10:56:44.424156+00:00",
-          "end_date": "2026-10-19T10:56:58.924478+00:00"
+          "start_date": "2026-10-19T11:19:46.546373+00:00",
+          "end_date": "2026-10-19T11:19:55.492371+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "prepare_splits",
           "state": "success",
-          "start_date": "2026-10-19T10:57:00.014860+00:00",
-          "end_date": "2026-10-19T10:57:07.542415+00:00"
+          "start_date": "2026-10-19T11:19:56.254876+00:00",
+          "end_date": "2026-10-19T11:20:04.097545+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "tune_and_train",
           "state": "success",
-          "start_date": "2026-10-19T10:57:08.049263+00:00",
-          "end_date": "2026-10-19T10:57:25.635320+00:00"
+          "start_date": "2026-10-19T11:20:05.086774+00:00",
+          "end_date": "2026-10-19T11:20:24.559877+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "evaluate",
           "state": "success",
-          "start_date": "2026-10-19T10:57:25.921903+00:00",
-          "end_date": "2026-10-19T10:57:35.331771+00:00"
+          "start_date": "2026-10-19T11:20:25.125951+00:00",
+          "end_date": "2026-10-19T11:20:33.992941+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "validate_candidate",
           "state": "success",
-          "start_date": "2026-10-19T10:57:35.701833+00:00",
-          "end_date": "2026-10-19T10:57:42.622995+00:00"
+          "start_date": "2026-10-19T11:20:34.945411+00:00",
+          "end_date": "2026-10-19T11:20:42.847478+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "save_selected_model",
           "state": "success",
-          "start_date": "2026-10-19T10:57:42.858869+00:00",
-          "end_date": "2026-10-19T10:57:50.024223+00:00"
+          "start_date": "2026-10-19T11:20:43.336720+00:00",
+          "end_date": "2026-10-19T11:20:52.191107+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "predict",
           "state": "success",
-          "start_date": "2026-10-19T10:57:50.821293+00:00",
-          "end_date": "2026-10-19T10:57:58.923547+00:00"
+          "start_date": "2026-10-19T11:20:52.931182+00:00",
+          "end_date": "2026-10-19T11:21:00.829128+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "save_results",
           "state": "success",
-          "start_date": "2026-10-19T10:57:59.809330+00:00",
-          "end_date": "2026-10-19T10:58:08.667509+00:00"
+          "start_date": "2026-10-19T11:21:01.093236+00:00",
+          "end_date": "2026-10-19T11:21:08.632373+00:00"
         }
       ],
       "dag_run": {
         "dag_id": "opsyntra_ml_workflow",
-        "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+        "run_id": "manual__opsyntra_sklearn_20261019T111944416960Z",
         "state": "success",
-        "run_after": "2026-10-19T10:56:43.879363+00:00",
+        "run_after": "2026-10-19T11:19:45.834753+00:00",
         "logical_date": "",
-        "start_date": "2026-10-19T10:56:44.297236+00:00",
-        "end_date": "2026-10-19T10:58:09.499480+00:00"
+        "start_date": "2026-10-19T11:19:46.103521+00:00",
+        "end_date": "2026-10-19T11:21:09.044407+00:00"
       },
       "airflow_version": "3.3.2",
-      "url": "http://localhost:8080/dags/opsyntra_ml_workflow/runs/manual__opsyntra_sklearn_20261019T105642410638Z",
+      "url": "http://localhost:8080/dags/opsyntra_ml_workflow/runs/manual__opsyntra_sklearn_20261019T111944416960Z",
       "screenshots": [
         "airflow-grid-sklearn.png",
         "airflow-graph-sklearn.png",
@@ -92,7 +92,7 @@
     },
     {
       "dag_id": "opsyntra_ml_workflow",
-      "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+      "run_id": "manual__opsyntra_spark_20261019T112137235065Z",
       "engine": "spark",
       "state": "success",
       "tasks": [
@@ -101,77 +101,77 @@
           "logical_date": "",
           "task_id": "validate_data",
           "state": "success",
-          "start_date": "2026-10-19T10:59:15.422119+00:00",
-          "end_date": "2026-10-19T10:59:27.779249+00:00"
+          "start_date": "2026-10-19T11:21:40.004518+00:00",
+          "end_date": "2026-10-19T11:21:48.385000+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "prepare_splits",
           "state": "success",
-          "start_date": "2026-10-19T10:59:28.377491+00:00",
-          "end_date": "2026-10-19T10:59:43.353604+00:00"
+          "start_date": "2026-10-19T11:21:48.992055+00:00",
+          "end_date": "2026-10-19T11:21:58.431371+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "tune_and_train",
           "state": "success",
-          "start_date": "2026-10-19T10:59:44.424533+00:00",
-          "end_date": "2026-10-19T11:04:18.747507+00:00"
+          "start_date": "2026-10-19T11:21:58.866726+00:00",
+          "end_date": "2026-10-19T11:25:44.983113+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "evaluate",
           "state": "success",
-          "start_date": "2026-10-19T11:04:19.388133+00:00",
-          "end_date": "2026-10-19T11:06:48.420692+00:00"
+          "start_date": "2026-10-19T11:25:45.803486+00:00",
+          "end_date": "2026-10-19T11:27:44.424803+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "validate_candidate",
           "state": "success",
-          "start_date": "2026-10-19T11:06:48.919557+00:00",
-          "end_date": "2026-10-19T11:06:59.674552+00:00"
+          "start_date": "2026-10-19T11:27:45.125473+00:00",
+          "end_date": "2026-10-19T11:27:54.356641+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "save_selected_model",
           "state": "success",
-          "start_date": "2026-10-19T11:06:59.881238+00:00",
-          "end_date": "2026-10-19T11:07:12.507145+00:00"
+          "start_date": "2026-10-19T11:27:55.075045+00:00",
+          "end_date": "2026-10-19T11:28:05.691963+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "predict",
           "state": "success",
-          "start_date": "2026-10-19T11:07:12.722234+00:00",
-          "end_date": "2026-10-19T11:07:58.156930+00:00"
+          "start_date": "2026-10-19T11:28:06.627840+00:00",
+          "end_date": "2026-10-19T11:28:42.801983+00:00"
         },
         {
           "dag_id": "opsyntra_ml_workflow",
           "logical_date": "",
           "task_id": "save_results",
           "state": "success",
-          "start_date": "2026-10-19T11:07:59.165527+00:00",
-          "end_date": "2026-10-19T11:08:11.090955+00:00"
+          "start_date": "2026-10-19T11:28:43.826320+00:00",
+          "end_date": "2026-10-19T11:28:51.737904+00:00"
         }
       ],
       "dag_run": {
         "dag_id": "opsyntra_ml_workflow",
-        "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+        "run_id": "manual__opsyntra_spark_20261019T112137235065Z",
         "state": "success",
-        "run_after": "2026-10-19T10:59:14.998574+00:00",
+        "run_after": "2026-10-19T11:21:38.739975+00:00",
         "logical_date": "",
-        "start_date": "2026-10-19T10:59:15.367681+00:00",
-        "end_date": "2026-10-19T11:08:11.468686+00:00"
+        "start_date": "2026-10-19T11:21:39.958442+00:00",
+        "end_date": "2026-10-19T11:28:51.777340+00:00"
       },
       "airflow_version": "3.3.2",
-      "url": "http://localhost:8080/dags/opsyntra_ml_workflow/runs/manual__opsyntra_spark_20261019T105913309419Z",
+      "url": "http://localhost:8080/dags/opsyntra_ml_workflow/runs/manual__opsyntra_spark_20261019T112137235065Z",
       "screenshots": [
         "airflow-grid-spark.png",
         "airflow-graph-spark.png",

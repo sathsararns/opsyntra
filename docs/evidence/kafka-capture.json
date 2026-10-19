@@ -1,0 +1,151 @@
+{
+  "captured_at": "2026-10-19T15:31:15.837887+00:00",
+  "source": "Real local Kafka CLI and recorded hard-process-exit checks",
+  "captures": [
+    {
+      "kind": "raw",
+      "command": "python backend/pipelines/kafka_messages.py --topic raw --max-messages 2",
+      "file": "kafka-raw.txt",
+      "topic": "telco.raw.customers",
+      "note": "Read-only historical samples, not necessarily latest; application offsets unchanged"
+    },
+    {
+      "kind": "predictions",
+      "command": "python backend/pipelines/kafka_messages.py --topic predictions --max-messages 3",
+      "file": "kafka-predictions.txt",
+      "topic": "telco.churn.predictions",
+      "note": "Read-only historical samples, not necessarily latest; application offsets unchanged"
+    },
+    {
+      "kind": "deadletter",
+      "command": "python backend/pipelines/kafka_messages.py --topic deadletter --max-messages 3",
+      "file": "kafka-deadletter.txt",
+      "topic": "telco.deadletter",
+      "note": "Read-only historical samples, not necessarily latest; application offsets unchanged"
+    },
+    {
+      "kind": "recovery",
+      "file": "crash_after_ledger_commit.log",
+      "source": "backend/artifacts/kafka/consumer_checks/25d9eb60faf14bd591954e9e581c39da/crash_after_ledger_commit.log",
+      "result": {
+        "crash_stage": "after_ledger_commit",
+        "exit_code": 86,
+        "group_id": "opsyntra-check-crash-bce20b3639b9"
+      }
+    },
+    {
+      "kind": "recovery",
+      "file": "restart_after_ledger_commit.log",
+      "source": "backend/artifacts/kafka/consumer_checks/25d9eb60faf14bd591954e9e581c39da/restart_after_ledger_commit.log",
+      "result": {
+        "batch_size": 100,
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "committed_offsets": {
+          "2": 10954
+        },
+        "committed_records": 1,
+        "deadletters_published": 0,
+        "deduplicated": 1,
+        "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+        "elapsed_seconds": 0.7417930000083288,
+        "engine": "sklearn",
+        "finished_at": "2026-10-19T13:27:36.279417Z",
+        "group_id": "opsyntra-check-crash-bce20b3639b9",
+        "inference_batches": 0,
+        "invocation_id": "292adc77-a8ac-4042-90e8-a3724f3e67f9",
+        "max_messages": null,
+        "mode": "batch",
+        "model_loads": 1,
+        "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+        "model_version": "d9a13b4cf6839ed4",
+        "offset_window": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "partitions": {
+            "0": {
+              "end": 11087,
+              "start": 11087
+            },
+            "1": {
+              "end": 11154,
+              "start": 11154
+            },
+            "2": {
+              "end": 10954,
+              "start": 10953
+            }
+          },
+          "topic": "telco.raw.customers"
+        },
+        "predictions_published": 0,
+        "reason": "offset_window_exhausted",
+        "received_records": 1,
+        "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\489bcf369d1ed5f51b181488.sqlite3",
+        "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\292adc77-a8ac-4042-90e8-a3724f3e67f9",
+        "started_at": "2026-10-19T13:27:35.537640Z",
+        "status": "completed"
+      }
+    },
+    {
+      "kind": "recovery",
+      "file": "crash_after_output_ack.log",
+      "source": "backend/artifacts/kafka/consumer_checks/25d9eb60faf14bd591954e9e581c39da/crash_after_output_ack.log",
+      "result": {
+        "crash_stage": "after_output_ack",
+        "exit_code": 86,
+        "group_id": "opsyntra-check-crash-f1028dd43d41"
+      }
+    },
+    {
+      "kind": "recovery",
+      "file": "restart_after_output_ack.log",
+      "source": "backend/artifacts/kafka/consumer_checks/25d9eb60faf14bd591954e9e581c39da/restart_after_output_ack.log",
+      "result": {
+        "batch_size": 100,
+        "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+        "committed_offsets": {
+          "2": 10955
+        },
+        "committed_records": 1,
+        "deadletters_published": 0,
+        "deduplicated": 0,
+        "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+        "elapsed_seconds": 0.8411801000038395,
+        "engine": "sklearn",
+        "finished_at": "2026-10-19T13:27:43.413092Z",
+        "group_id": "opsyntra-check-crash-f1028dd43d41",
+        "inference_batches": 0,
+        "invocation_id": "aa8a14dc-be09-4d31-be01-dbc39fddb1b2",
+        "max_messages": null,
+        "mode": "batch",
+        "model_loads": 1,
+        "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+        "model_version": "d9a13b4cf6839ed4",
+        "offset_window": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "partitions": {
+            "0": {
+              "end": 11087,
+              "start": 11087
+            },
+            "1": {
+              "end": 11154,
+              "start": 11154
+            },
+            "2": {
+              "end": 10955,
+              "start": 10954
+            }
+          },
+          "topic": "telco.raw.customers"
+        },
+        "predictions_published": 1,
+        "reason": "offset_window_exhausted",
+        "received_records": 1,
+        "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\159687b56486c1fa6344e143.sqlite3",
+        "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\aa8a14dc-be09-4d31-be01-dbc39fddb1b2",
+        "started_at": "2026-10-19T13:27:42.571927Z",
+        "status": "completed"
+      }
+    }
+  ]
+}

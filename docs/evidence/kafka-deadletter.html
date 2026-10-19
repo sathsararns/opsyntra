@@ -1,0 +1,95 @@
+<!doctype html><html><meta charset="utf-8"><title>Malformed messages routed to deadletter</title><style>body{margin:0;padding:32px;background:#101820;color:#e0eced;font:16px/1.5 Consolas,monospace}h1{font:600 28px system-ui;color:#40d99d}p{color:#a7c1c5}section{background:#182630;padding:20px;margin:20px 0;border:1px solid #35505b;border-radius:8px}h2{font-size:18px;color:#62dbb3}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;margin:0}</style><h1>Malformed messages routed to deadletter</h1><p>Recorded CLI output · actual local broker / recovery checks · this transcript view is not a Kafka administration UI.</p><section><h2>kafka-deadletter.txt</h2><pre>$ python backend/pipelines/kafka_messages.py --topic deadletter --max-messages 3
+
+{
+  "topic": "telco.deadletter",
+  "messages": [
+    {
+      "key": "88725c47-2c4b-5f88-99f0-44ade4906257",
+      "partition": 2,
+      "offset": 0,
+      "value": {
+        "customerID": null,
+        "error": {
+          "message": "Event schema is incomplete or has unexpected fields",
+          "type": "invalid_record"
+        },
+        "event_id": "88725c47-2c4b-5f88-99f0-44ade4906257",
+        "original_event_id": null,
+        "processed_ts": "2026-10-19T13:27:17.598891Z",
+        "raw_key_base64": "bWlzc2luZy1maWVsZHM=",
+        "raw_key_is_null": false,
+        "raw_key_truncated": false,
+        "raw_value_base64": "eyJjdXN0b21lcklEIjoibWlzc2luZy1maWVsZHMifQ==",
+        "raw_value_is_null": false,
+        "raw_value_sha256": "9ef2d037c5e3c594611b78e28ec3add392b9e0f16ad32c1b38b3a2459832a65e",
+        "raw_value_truncated": false,
+        "schema_version": 1,
+        "source": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "offset": 11086,
+          "partition": 0,
+          "topic": "telco.raw.customers"
+        }
+      }
+    },
+    {
+      "key": "7c3bfc21-843c-5b63-ab9c-2247a5a85466",
+      "partition": 2,
+      "offset": 1,
+      "value": {
+        "customerID": null,
+        "error": {
+          "message": "Customer event needs a value and a customerID key; tombstones are not prediction requests",
+          "type": "invalid_record"
+        },
+        "event_id": "7c3bfc21-843c-5b63-ab9c-2247a5a85466",
+        "original_event_id": null,
+        "processed_ts": "2026-10-19T13:27:17.599289Z",
+        "raw_key_base64": "dG9tYnN0b25l",
+        "raw_key_is_null": false,
+        "raw_key_truncated": false,
+        "raw_value_base64": "",
+        "raw_value_is_null": true,
+        "raw_value_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_value_truncated": false,
+        "schema_version": 1,
+        "source": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "offset": 11152,
+          "partition": 1,
+          "topic": "telco.raw.customers"
+        }
+      }
+    },
+    {
+      "key": "24359b74-6e31-5d11-b7c2-e04bffdd5220",
+      "partition": 2,
+      "offset": 2,
+      "value": {
+        "customerID": null,
+        "error": {
+          "message": "Expecting value: line 1 column 1 (char 0)",
+          "type": "invalid_record"
+        },
+        "event_id": "24359b74-6e31-5d11-b7c2-e04bffdd5220",
+        "original_event_id": null,
+        "processed_ts": "2026-10-19T13:27:20.975723Z",
+        "raw_key_base64": "YmFkLWpzb24=",
+        "raw_key_is_null": false,
+        "raw_key_truncated": false,
+        "raw_value_base64": "bm90LWpzb24=",
+        "raw_value_is_null": false,
+        "raw_value_sha256": "0c21a879c732a67910d80988df4919d794f6a070aab610ef865032a28046b021",
+        "raw_value_truncated": false,
+        "schema_version": 1,
+        "source": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "offset": 10944,
+          "partition": 2,
+          "topic": "telco.raw.customers"
+        }
+      }
+    }
+  ]
+}
+</pre></section></html>

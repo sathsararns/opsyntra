@@ -164,6 +164,7 @@ def run_kafka(kind, engine, duration, demo_events, events_per_sec):
     # the initial state. New bonus DAGs start paused to avoid unsolicited replay.
     rows = parse_json(cli("dags", "list", "--output", "json").stdout)
     was_paused = next(r for r in rows if r["dag_id"] == dag_id).get("is_paused", True)
+    was_paused = str(was_paused).lower() == "true"
     run_id = f"manual__opsyntra_kafka_{kind}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}"
     conf = json.dumps({"engine": engine, "duration_seconds": duration, "demo_events": demo_events, "events_per_sec": events_per_sec})
     cli("dags", "trigger", dag_id, "--run-id", run_id, "--conf", conf, "--output", "json")

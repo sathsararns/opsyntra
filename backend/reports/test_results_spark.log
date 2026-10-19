@@ -1,0 +1,9 @@
+test_all_three_real_estimators_can_fit_and_persist (tests.integration.test_spark_workflow.SparkWorkflowTests.test_all_three_real_estimators_can_fit_and_persist) ... ok
+test_bad_numeric_and_missing_feature_columns_fail (tests.integration.test_spark_workflow.SparkWorkflowTests.test_bad_numeric_and_missing_feature_columns_fail) ... ok
+test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes (tests.integration.test_spark_workflow.SparkWorkflowTests.test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes) ... ok
+test_training_statistics_unknown_categories_and_complete_model_reload (tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 263.887s
+
+OK

@@ -1,0 +1,136 @@
+<!doctype html><html><meta charset="utf-8"><title>Kafka input and model predictions</title><style>body{margin:0;padding:32px;background:#101820;color:#e0eced;font:16px/1.5 Consolas,monospace}h1{font:600 28px system-ui;color:#40d99d}p{color:#a7c1c5}section{background:#182630;padding:20px;margin:20px 0;border:1px solid #35505b;border-radius:8px}h2{font-size:18px;color:#62dbb3}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;margin:0}</style><h1>Kafka input and model predictions</h1><p>Recorded CLI output · actual local broker / recovery checks · this transcript view is not a Kafka administration UI.</p><section><h2>kafka-raw.txt</h2><pre>$ python backend/pipelines/kafka_messages.py --topic raw --max-messages 2
+
+{
+  "topic": "telco.raw.customers",
+  "messages": [
+    {
+      "key": "7590-VHVEG",
+      "partition": 2,
+      "offset": 0,
+      "value": {
+        "customerID": "7590-VHVEG",
+        "gender": "Female",
+        "SeniorCitizen": 0,
+        "Partner": "Yes",
+        "Dependents": "No",
+        "tenure": 1,
+        "PhoneService": "No",
+        "MultipleLines": "No phone service",
+        "InternetService": "DSL",
+        "OnlineSecurity": "No",
+        "OnlineBackup": "Yes",
+        "DeviceProtection": "No",
+        "TechSupport": "No",
+        "StreamingTV": "No",
+        "StreamingMovies": "No",
+        "Contract": "Month-to-month",
+        "PaperlessBilling": "Yes",
+        "PaymentMethod": "Electronic check",
+        "MonthlyCharges": 29.85,
+        "TotalCharges": 29.85,
+        "Churn": "No",
+        "schema_version": 1,
+        "event_id": "6f57e370-c517-5dd1-b7ee-505b1d7d9683",
+        "run_id": "98b48d79-4616-4e5e-90aa-ed9ee3a79b98",
+        "mode": "batch",
+        "source_row": 0,
+        "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+        "event_ts": "2026-10-19T11:52:34.375500Z"
+      }
+    },
+    {
+      "key": "5575-GNVDE",
+      "partition": 2,
+      "offset": 1,
+      "value": {
+        "customerID": "5575-GNVDE",
+        "gender": "Male",
+        "SeniorCitizen": 0,
+        "Partner": "No",
+        "Dependents": "No",
+        "tenure": 34,
+        "PhoneService": "Yes",
+        "MultipleLines": "No",
+        "InternetService": "DSL",
+        "OnlineSecurity": "Yes",
+        "OnlineBackup": "No",
+        "DeviceProtection": "Yes",
+        "TechSupport": "No",
+        "StreamingTV": "No",
+        "StreamingMovies": "No",
+        "Contract": "One year",
+        "PaperlessBilling": "No",
+        "PaymentMethod": "Mailed check",
+        "MonthlyCharges": 56.95,
+        "TotalCharges": 1889.5,
+        "Churn": "No",
+        "schema_version": 1,
+        "event_id": "ac9eaf89-eefd-53ef-8dc6-2723be87a381",
+        "run_id": "98b48d79-4616-4e5e-90aa-ed9ee3a79b98",
+        "mode": "batch",
+        "source_row": 1,
+        "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+        "event_ts": "2026-10-19T11:52:34.375501Z"
+      }
+    }
+  ]
+}
+</pre></section><section><h2>kafka-predictions.txt</h2><pre>$ python backend/pipelines/kafka_messages.py --topic predictions --max-messages 3
+
+{
+  "topic": "telco.churn.predictions",
+  "messages": [
+    {
+      "key": "7590-VHVEG",
+      "partition": 2,
+      "offset": 0,
+      "value": {
+        "churn_probability": 0.6527880460520074,
+        "customerID": "7590-VHVEG",
+        "engine": "sklearn",
+        "event_id": "6f57e370-c517-5dd1-b7ee-505b1d7d9683",
+        "event_ts": "2026-10-19T11:52:34.375500Z",
+        "model_version": "d9a13b4cf6839ed4",
+        "prediction": "Yes",
+        "prediction_id": "18c72bcae9c116bfd3f286a16e24a40e9d5e4bd677ce01423bfccd308979f0d6",
+        "processed_ts": "2026-10-19T13:23:46.268687Z",
+        "schema_version": 1
+      }
+    },
+    {
+      "key": "5575-GNVDE",
+      "partition": 2,
+      "offset": 1,
+      "value": {
+        "churn_probability": 0.0363701758737379,
+        "customerID": "5575-GNVDE",
+        "engine": "sklearn",
+        "event_id": "ac9eaf89-eefd-53ef-8dc6-2723be87a381",
+        "event_ts": "2026-10-19T11:52:34.375501Z",
+        "model_version": "d9a13b4cf6839ed4",
+        "prediction": "No",
+        "prediction_id": "b0143b5371f24af1d5c1840d8cfe9807ad1b1d63e4737c316f7290c80b4b44af",
+        "processed_ts": "2026-10-19T13:23:46.268727Z",
+        "schema_version": 1
+      }
+    },
+    {
+      "key": "3668-QPYBK",
+      "partition": 2,
+      "offset": 2,
+      "value": {
+        "churn_probability": 0.473572867989313,
+        "customerID": "3668-QPYBK",
+        "engine": "sklearn",
+        "event_id": "050e9d24-4e95-500c-afc0-c83eda78ac1b",
+        "event_ts": "2026-10-19T11:52:34.375502Z",
+        "model_version": "d9a13b4cf6839ed4",
+        "prediction": "Yes",
+        "prediction_id": "0b434c4cd89beb4012d2f35bc957d30dae9f5bf89c2879e7797948dcb56c16cc",
+        "processed_ts": "2026-10-19T13:23:46.268738Z",
+        "schema_version": 1
+      }
+    }
+  ]
+}
+</pre></section></html>

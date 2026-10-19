@@ -1,0 +1,55 @@
+<!doctype html><html><meta charset="utf-8"><title>Real crash and restart: delivery ledger suppresses replay</title><style>body{margin:0;padding:32px;background:#101820;color:#e0eced;font:16px/1.5 Consolas,monospace}h1{font:600 28px system-ui;color:#40d99d}p{color:#a7c1c5}section{background:#182630;padding:20px;margin:20px 0;border:1px solid #35505b;border-radius:8px}h2{font-size:18px;color:#62dbb3}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;margin:0}</style><h1>Real crash and restart: delivery ledger suppresses replay</h1><p>Recorded CLI output · actual local broker / recovery checks · this transcript view is not a Kafka administration UI.</p><section><h2>crash_after_ledger_commit.log</h2><pre>2026-10-19 18:57:32,739 INFO Loaded sklearn model once: version=d9a13b4cf6839ed4 group=opsyntra-check-crash-bce20b3639b9
+2026-10-19 18:57:33,442 ERROR TEST ONLY: hard exit at after_ledger_commit before input offset commit
+
+</pre></section><section><h2>restart_after_ledger_commit.log</h2><pre>2026-10-19 18:57:35,688 INFO Loaded sklearn model once: version=d9a13b4cf6839ed4 group=opsyntra-check-crash-bce20b3639b9
+2026-10-19 18:57:36,272 INFO COMMITTED input=1 predictions=0 deadletters=0 duplicates=1 offsets={'2': 10954}
+2026-10-19 18:57:36,272 INFO COMPLETED group=opsyntra-check-crash-bce20b3639b9 input=1 predictions=0 deadletters=0 deduplicated=1
+
+{
+  "invocation_id": "292adc77-a8ac-4042-90e8-a3724f3e67f9",
+  "mode": "batch",
+  "engine": "sklearn",
+  "group_id": "opsyntra-check-crash-bce20b3639b9",
+  "started_at": "2026-10-19T13:27:35.537640Z",
+  "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_runs\\292adc77-a8ac-4042-90e8-a3724f3e67f9",
+  "received_records": 1,
+  "committed_records": 1,
+  "predictions_published": 0,
+  "deadletters_published": 0,
+  "deduplicated": 1,
+  "inference_batches": 0,
+  "committed_offsets": {
+    "2": 10954
+  },
+  "max_messages": null,
+  "batch_size": 100,
+  "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "recovery_database": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\consumer_checks\\25d9eb60faf14bd591954e9e581c39da\\recovery\\489bcf369d1ed5f51b181488.sqlite3",
+  "model_version": "d9a13b4cf6839ed4",
+  "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+  "model_loads": 1,
+  "offset_window": {
+    "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+    "partitions": {
+      "0": {
+        "end": 11087,
+        "start": 11087
+      },
+      "1": {
+        "end": 11154,
+        "start": 11154
+      },
+      "2": {
+        "end": 10954,
+        "start": 10953
+      }
+    },
+    "topic": "telco.raw.customers"
+  },
+  "status": "completed",
+  "reason": "offset_window_exhausted",
+  "finished_at": "2026-10-19T13:27:36.279417Z",
+  "elapsed_seconds": 0.7417930000083288
+}
+</pre></section></html>

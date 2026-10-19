@@ -1,5 +1,17 @@
 # Opsyntra Airflow ML workflow
 
+The two additional bonus DAGs are defined in `opsyntra_kafka_workflows.py`:
+
+- `opsyntra_kafka_batch`: health checks → publish full CSV → bounded prediction → summary.
+- `opsyntra_kafka_streaming`: health checks → managed consumer and optional sample producer → summary.
+
+Both use the existing ML runtime (install `requirements/kafka.txt` there with
+`..\start-consumer.ps1 -SetupSparkClient`), retries, timeouts, frozen models,
+separate groups and run-specific recovery/artifacts. Batch is daily with no
+catchup, initially paused; streaming is a manual managed session with heartbeat
+logs and graceful stop. Read [bonus operation](../../docs/VERIFICATION.md) for
+commands and [successful evidence](../reports/submission_evidence.md) for runs.
+
 `opsyntra_ml_workflow.py` defines the eight-task, manually triggered DAG:
 
 ```text

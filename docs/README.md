@@ -102,3 +102,24 @@ batch and bounded streaming also published real predictions. The message viewer
 lets you inspect output JSON for terminal screenshots without changing application
 offsets: `python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5`
 from the repository root.
+
+## Final tests and bonus Kafka DAG evidence
+
+- [Reproduction, tests, capture commands and limits](VERIFICATION.md)
+- [Complete rubric/evidence matrix](../backend/reports/submission_evidence.md)
+- [Hash-indexed evidence and bonus task states](../backend/reports/submission_evidence.json)
+- [Host test results](../backend/reports/test_results.json)
+- [Native Spark test results](../backend/reports/test_results_spark.json)
+- [Kafka input/output CLI transcripts](screenshots/kafka-input-output.png)
+- [Malformed messages](screenshots/kafka-deadletter.png)
+- [Durable-ledger recovery](screenshots/kafka-recovery.png)
+- [Ack-before-ledger replay window](screenshots/kafka-replay-window.png)
+- [Bonus batch Grid](screenshots/kafka-airflow-batch-grid.png)
+- [Bonus streaming Grid](screenshots/kafka-airflow-streaming-grid.png)
+- [Consumer heartbeat and shutdown log](screenshots/kafka-airflow-streaming-log.png)
+- [Screenshot provenance](screenshots/kafka-evidence.json)
+
+Kafka message/recovery screenshots are labelled views of actual recorded CLI
+output, retained in `docs/evidence/`. Bonus DAG screenshots show the actual
+Airflow UI. Current test counts are in the evidence matrix; earlier checkpoint
+counts above describe those earlier checkpoints only.

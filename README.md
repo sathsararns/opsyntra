@@ -3,6 +3,11 @@
 A local Telco customer churn workspace with a Next.js + Tailwind frontend and a
 Python API backed by reproducible ML pipelines.
 
+Steps 1–8 and the Kafka Airflow bonus workflows are implemented. See the
+[verification guide](docs/VERIFICATION.md) and
+[submission evidence matrix](backend/reports/submission_evidence.md) for actual
+test results, screenshots, recovery logs and successful scheduler runs.
+
 ## Repository structure
 
 ```text

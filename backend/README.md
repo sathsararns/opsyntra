@@ -400,3 +400,21 @@ For native Spark use
 `..\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
 See [consumer setup, batch windows and recovery limits](KAFKA.md#prediction-consumer-step-7)
 and [the completed live-broker checkpoint](reports/kafka_consumption_report.md).
+
+## Final verification and Kafka Airflow bonus
+
+From this backend directory:
+
+```powershell
+python -m pipelines.verification
+..\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
+..\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
+```
+
+The bonus batch DAG has a daily schedule and acknowledged checkpoint/resume;
+the streaming DAG owns and monitors a live consumer until graceful shutdown.
+Each freezes its source/model, uses isolated groups and keeps run-specific logs,
+recovery state and a prediction CSV. Both DAGs start paused to keep scheduling
+explicit. See [the reproduction guide](../docs/VERIFICATION.md) for the native
+Spark tests, stop controls and screenshot commands, and the
+[evidence matrix](reports/submission_evidence.md) for results and rubric mapping.

@@ -19,15 +19,15 @@ Model ranking uses validation average precision; thresholds maximize validation 
 
 ### sklearn
 
-Run ID: `manual__opsyntra_sklearn_20261019T105642410638Z`.
-Started: 2026-10-19T10:56:44.297236+00:00; finished: 2026-10-19T10:58:09.499480+00:00 (UTC).
+Run ID: `manual__opsyntra_sklearn_20261019T111944416960Z`.
+Started: 2026-10-19T11:19:46.103521+00:00; finished: 2026-10-19T11:21:09.044407+00:00 (UTC).
 
-- [Final prediction CSV](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da/results/predictions.csv)
-- [Result summary](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da/results/summary.md)
-- [Candidate approval checks](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da/approval.json)
-- [Selected model metadata](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da/selected_model.json)
-- [Per-task logs](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da/logs/)
-- MLflow experiment: **Opsyntra-Airflow**; workflow run `822ac775da3243a3ba9f6a8d5ddbad7a`.
+- [Final prediction CSV](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T111944416960Z-4cd927197f52/results/predictions.csv)
+- [Result summary](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T111944416960Z-4cd927197f52/results/summary.md)
+- [Candidate approval checks](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T111944416960Z-4cd927197f52/approval.json)
+- [Selected model metadata](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T111944416960Z-4cd927197f52/selected_model.json)
+- [Per-task logs](../artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T111944416960Z-4cd927197f52/logs/)
+- MLflow experiment: **Opsyntra-Airflow**; workflow run `b4e4f4b0722c4f5b9bdd180e9b05320d`.
 
 ![Actual successful sklearn task grid](../../docs/screenshots/airflow-grid-sklearn.png)
 
@@ -37,15 +37,15 @@ Started: 2026-10-19T10:56:44.297236+00:00; finished: 2026-10-19T10:58:09.499480+
 
 ### spark
 
-Run ID: `manual__opsyntra_spark_20261019T105913309419Z`.
-Started: 2026-10-19T10:59:15.367681+00:00; finished: 2026-10-19T11:08:11.468686+00:00 (UTC).
+Run ID: `manual__opsyntra_spark_20261019T112137235065Z`.
+Started: 2026-10-19T11:21:39.958442+00:00; finished: 2026-10-19T11:28:51.777340+00:00 (UTC).
 
-- [Final prediction CSV](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81/results/predictions.csv)
-- [Result summary](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81/results/summary.md)
-- [Candidate approval checks](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81/approval.json)
-- [Selected model metadata](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81/selected_model.json)
-- [Per-task logs](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81/logs/)
-- MLflow experiment: **Opsyntra-Airflow**; workflow run `029bf43d71c443b7b38eb52d5e7803c3`.
+- [Final prediction CSV](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T112137235065Z-33208e8a2aa4/results/predictions.csv)
+- [Result summary](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T112137235065Z-33208e8a2aa4/results/summary.md)
+- [Candidate approval checks](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T112137235065Z-33208e8a2aa4/approval.json)
+- [Selected model metadata](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T112137235065Z-33208e8a2aa4/selected_model.json)
+- [Per-task logs](../artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T112137235065Z-33208e8a2aa4/logs/)
+- MLflow experiment: **Opsyntra-Airflow**; workflow run `e86fb2031d99497fb40f58557430705b`.
 
 ![Actual successful spark task grid](../../docs/screenshots/airflow-grid-spark.png)
 
@@ -59,14 +59,14 @@ These durations include subprocess startup and orchestration overhead. They are 
 
 | Task | sklearn seconds | Spark seconds |
 |---|---:|---:|
-| validate_data | 14.500 | 12.357 |
-| prepare_splits | 7.528 | 14.976 |
-| tune_and_train | 17.586 | 274.323 |
-| evaluate | 9.410 | 149.033 |
-| validate_candidate | 6.921 | 10.755 |
-| save_selected_model | 7.165 | 12.626 |
-| predict | 8.102 | 45.435 |
-| save_results | 8.858 | 11.925 |
+| validate_data | 8.946 | 8.380 |
+| prepare_splits | 7.843 | 9.439 |
+| tune_and_train | 19.473 | 226.116 |
+| evaluate | 8.867 | 118.621 |
+| validate_candidate | 7.902 | 9.231 |
+| save_selected_model | 8.854 | 10.617 |
+| predict | 7.898 | 36.174 |
+| save_results | 7.539 | 7.912 |
 
 ## Reproducibility and operational checks
 

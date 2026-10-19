@@ -1,6 +1,6 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
-This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–7 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. The required eight-task Airflow DAG is implemented for both engines; Kafka publishing is implemented; prediction consumption and tested recovery are implemented, with further evidence and bonus Kafka DAG work remaining.
+This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–8 and the Kafka Airflow bonus are implemented: data validation, fixed splits, sklearn/Spark pipelines, training-only CV, validation selection, persisted inference, MLflow, engine comparison, required ML DAG, Kafka publishing/prediction/recovery, tests and evidence. See docs/VERIFICATION.md and backend/reports/submission_evidence.md for reproduction commands, actual runtime results and the evidence matrix. Optional cloud/analytics extensions remain outside the assessed local scope.
 
 ## 1. Requirements and priorities
 
@@ -57,7 +57,7 @@ Start with Docker Compose for local services and a pinned Linux runtime for Spar
 
 The repository separates the Next.js frontend from the Python API and ML workflows.
 Python source names and paths in the later build phases are relative to `backend/`.
-MLflow tracking and local Spark workflows are implemented. Airflow orchestration and Kafka publishing are implemented; consumer prediction/recovery is implemented; bonus Kafka DAG work remains planned.
+MLflow, Spark, required Airflow orchestration, Kafka publishing/prediction/recovery and both bonus Kafka DAGs are implemented.
 
 ```text
 Opsyntra/
@@ -241,6 +241,14 @@ Done when: both modes publish correct results; malformed input does not stop val
 
 ### Phase 8: Automated tests and evidence
 
+Implemented: the host suite has 67 passing tests and four Spark-runtime skips;
+those exact four checks passed in native WSL Spark. All 71 unique tests pass
+across both runtimes. Additional checks explicitly compare the same model/input
+through single, CSV, batch Kafka and streaming Kafka inference. Actual MLflow and
+Airflow screenshots, labelled Kafka CLI/recovery transcripts and a SHA-256
+evidence index are retained. See `docs/VERIFICATION.md` and
+`backend/reports/submission_evidence.md`.
+
 Test the behavior that matters:
 
 - TotalCharges blanks, schema/type errors and supported unknown categories.
@@ -257,6 +265,14 @@ Capture screenshots during implementation: MLflow comparisons, successful Airflo
 Done when: a clean environment can run the documented workflow and the evidence maps to every rubric row.
 
 ### Phase 9: Kafka Airflow bonus and optional lecture extensions
+
+Kafka bonus implemented: `opsyntra_kafka_batch` has a daily schedule (initially
+paused), frozen inputs, acknowledged publishing/checkpoint resume, fixed-window
+consumption and a summary CSV. `opsyntra_kafka_streaming` owns/monitors a live
+consumer with heartbeat logs, a bounded session/stop marker, graceful cleanup and
+optional sample publishing. Both completed real four-task LocalExecutor runs.
+Submission runs saved 7,043 batch predictions and 20 streaming predictions.
+Use `start-airflow.ps1 -Task run-kafka -KafkaKind batch|streaming`.
 
 - Batch DAG: health checks -> batch producer -> bounded batch consumer -> summary.
 - Streaming DAG: health checks -> launch/monitor the long-running consumer. Prevent overlapping copies and define stop/cleanup behavior. Capture the consumer running successfully; a permanently running consumer does not have a completed success state until stopped gracefully.

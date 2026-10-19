@@ -1,0 +1,146 @@
+{
+  "captured_at": "2026-10-19T15:38:36.897Z",
+  "captures": [
+    {
+      "dag_id": "opsyntra_kafka_batch",
+      "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+      "engine": "sklearn",
+      "state": "success",
+      "tasks": [
+        {
+          "dag_id": "opsyntra_kafka_batch",
+          "logical_date": "",
+          "task_id": "health_checks",
+          "state": "success",
+          "start_date": "2026-10-19T15:28:45.381290+00:00",
+          "end_date": "2026-10-19T15:28:55.664636+00:00"
+        },
+        {
+          "dag_id": "opsyntra_kafka_batch",
+          "logical_date": "",
+          "task_id": "publish_batch",
+          "state": "success",
+          "start_date": "2026-10-19T15:28:55.822690+00:00",
+          "end_date": "2026-10-19T15:29:04.957548+00:00"
+        },
+        {
+          "dag_id": "opsyntra_kafka_batch",
+          "logical_date": "",
+          "task_id": "predict_batch",
+          "state": "success",
+          "start_date": "2026-10-19T15:29:05.932312+00:00",
+          "end_date": "2026-10-19T15:29:40.411347+00:00"
+        },
+        {
+          "dag_id": "opsyntra_kafka_batch",
+          "logical_date": "",
+          "task_id": "summarize",
+          "state": "success",
+          "start_date": "2026-10-19T15:29:41.454253+00:00",
+          "end_date": "2026-10-19T15:29:54.927053+00:00"
+        }
+      ],
+      "dag_run": {
+        "dag_id": "opsyntra_kafka_batch",
+        "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+        "state": "success",
+        "run_after": "2026-10-19T15:27:35.905484+00:00",
+        "logical_date": "",
+        "start_date": "2026-10-19T15:28:45.332186+00:00",
+        "end_date": "2026-10-19T15:29:54.946267+00:00"
+      },
+      "url": "http://localhost:8080/dags/opsyntra_kafka_batch/runs/manual__opsyntra_kafka_batch_20261019T152734317462Z",
+      "screenshots": [
+        "kafka-airflow-batch-grid.png",
+        "kafka-airflow-batch-graph.png",
+        "kafka-airflow-batch-log.png"
+      ]
+    },
+    {
+      "dag_id": "opsyntra_kafka_streaming",
+      "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+      "engine": "sklearn",
+      "state": "success",
+      "tasks": [
+        {
+          "dag_id": "opsyntra_kafka_streaming",
+          "logical_date": "",
+          "task_id": "health_checks",
+          "state": "success",
+          "start_date": "2026-10-19T15:29:29.333557+00:00",
+          "end_date": "2026-10-19T15:29:46.257739+00:00"
+        },
+        {
+          "dag_id": "opsyntra_kafka_streaming",
+          "logical_date": "",
+          "task_id": "start_and_monitor_consumer",
+          "state": "success",
+          "start_date": "2026-10-19T15:29:46.536668+00:00",
+          "end_date": "2026-10-19T15:30:29.955267+00:00"
+        },
+        {
+          "dag_id": "opsyntra_kafka_streaming",
+          "logical_date": "",
+          "task_id": "publish_samples",
+          "state": "success",
+          "start_date": "2026-10-19T15:29:54.961688+00:00",
+          "end_date": "2026-10-19T15:30:08.968197+00:00"
+        },
+        {
+          "dag_id": "opsyntra_kafka_streaming",
+          "logical_date": "",
+          "task_id": "summarize",
+          "state": "success",
+          "start_date": "2026-10-19T15:30:30.167099+00:00",
+          "end_date": "2026-10-19T15:30:42.746920+00:00"
+        }
+      ],
+      "dag_run": {
+        "dag_id": "opsyntra_kafka_streaming",
+        "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+        "state": "success",
+        "run_after": "2026-10-19T15:29:24.550515+00:00",
+        "logical_date": "",
+        "start_date": "2026-10-19T15:29:29.084607+00:00",
+        "end_date": "2026-10-19T15:30:42.898589+00:00"
+      },
+      "url": "http://localhost:8080/dags/opsyntra_kafka_streaming/runs/manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+      "screenshots": [
+        "kafka-airflow-streaming-grid.png",
+        "kafka-airflow-streaming-graph.png",
+        "kafka-airflow-streaming-log.png"
+      ]
+    },
+    {
+      "kind": "recorded CLI transcript",
+      "screenshot": "kafka-input-output.png",
+      "sources": [
+        "kafka-raw.txt",
+        "kafka-predictions.txt"
+      ]
+    },
+    {
+      "kind": "recorded CLI transcript",
+      "screenshot": "kafka-deadletter.png",
+      "sources": [
+        "kafka-deadletter.txt"
+      ]
+    },
+    {
+      "kind": "recorded CLI transcript",
+      "screenshot": "kafka-recovery.png",
+      "sources": [
+        "crash_after_ledger_commit.log",
+        "restart_after_ledger_commit.log"
+      ]
+    },
+    {
+      "kind": "recorded CLI transcript",
+      "screenshot": "kafka-replay-window.png",
+      "sources": [
+        "crash_after_output_ack.log",
+        "restart_after_output_ack.log"
+      ]
+    }
+  ]
+}

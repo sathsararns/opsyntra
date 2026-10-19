@@ -1,0 +1,3 @@
+2026-10-19 18:57:32,739 INFO Loaded sklearn model once: version=d9a13b4cf6839ed4 group=opsyntra-check-crash-bce20b3639b9
+2026-10-19 18:57:33,442 ERROR TEST ONLY: hard exit at after_ledger_commit before input offset commit
+
