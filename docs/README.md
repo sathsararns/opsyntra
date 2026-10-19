@@ -76,3 +76,16 @@ Windows path fix, all five Airflow workflow/integrity checks passed, including a
 regression for native model files beyond the normal Windows path limit. Both
 engines also completed real eight-task scheduler runs. Downloaded MLflow Spark
 archives were checked against the complete original native model checksums.
+
+## Kafka publishing evidence
+
+- [Publishing setup and delivery policy](../backend/KAFKA.md)
+- [Real broker batch/streaming checkpoint report](../backend/reports/kafka_publishing_report.md)
+- [Wire samples, producer run IDs and partition offset evidence](../backend/reports/kafka_publishing_report.json)
+
+The broker check published the complete source CSV through a pause/resume
+sequence and 30 sampled streaming events. A diagnostic reader validated the
+actual raw-topic messages, keys, numeric/null types, event IDs and source values.
+Command logs and the acknowledged batch checkpoint are linked from the report.
+Prediction-topic production and dead-letter routing belong to the next consumer
+phase.

@@ -1,0 +1,238 @@
+{
+  "broker": {
+    "bootstrap_servers": "127.0.0.1:9092",
+    "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+    "topics": {
+      "telco.churn.predictions": {
+        "partitions": 3,
+        "replication_factor": 1
+      },
+      "telco.deadletter": {
+        "partitions": 3,
+        "replication_factor": 1
+      },
+      "telco.raw.customers": {
+        "partitions": 3,
+        "replication_factor": 1
+      }
+    }
+  },
+  "check_directory": "artifacts/kafka/checks/81273f6906a3426195855b4d85d446dc",
+  "checked_at": "2026-10-19T11:52:44.117790Z",
+  "checks": {
+    "all_batch_rows_covered_once": true,
+    "all_batch_rows_match_csv": true,
+    "all_event_ids_unique": true,
+    "all_keys_equal_customerID": true,
+    "all_wire_schemas_valid": true,
+    "completed_resume_published_zero": true,
+    "labels_are_optional_metadata_for_future_inference": true,
+    "resume_continued_same_run": true
+  },
+  "client_version": "2.16.0",
+  "commands": {
+    "batch_completed_resume": {
+      "acknowledged": 0,
+      "acknowledged_offsets": {},
+      "bootstrap_servers": "127.0.0.1:9092",
+      "checkpoint": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\checks\\81273f6906a3426195855b4d85d446dc\\batch_checkpoint.json",
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+      "elapsed_seconds": 0.14792610000586137,
+      "enqueued": 0,
+      "finished_at": "2026-10-19T11:52:38.802812Z",
+      "include_churn": true,
+      "invocation_id": "024f941c-dac6-4333-9b73-9c322117a81c",
+      "mode": "batch",
+      "next_row": 7043,
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\runs\\024f941c-dac6-4333-9b73-9c322117a81c",
+      "resumed": true,
+      "run_id": "98b48d79-4616-4e5e-90aa-ed9ee3a79b98",
+      "source_rows": 7043,
+      "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "start_row": 7043,
+      "started_at": "2026-10-19T11:52:38.654905Z",
+      "status": "completed",
+      "topic": "telco.raw.customers"
+    },
+    "batch_pause": {
+      "acknowledged": 1000,
+      "acknowledged_offsets": {
+        "0": 350,
+        "1": 322,
+        "2": 325
+      },
+      "bootstrap_servers": "127.0.0.1:9092",
+      "checkpoint": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\checks\\81273f6906a3426195855b4d85d446dc\\batch_checkpoint.json",
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+      "elapsed_seconds": 0.8117322000034619,
+      "enqueued": 1000,
+      "finished_at": "2026-10-19T11:52:35.011843Z",
+      "include_churn": true,
+      "invocation_id": "f7a31d0a-5296-420a-bb67-a7a77c26a3c2",
+      "mode": "batch",
+      "next_row": 1000,
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\runs\\f7a31d0a-5296-420a-bb67-a7a77c26a3c2",
+      "resumed": false,
+      "run_id": "98b48d79-4616-4e5e-90aa-ed9ee3a79b98",
+      "source_rows": 7043,
+      "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "start_row": 0,
+      "started_at": "2026-10-19T11:52:34.200143Z",
+      "status": "paused",
+      "topic": "telco.raw.customers"
+    },
+    "batch_resume": {
+      "acknowledged": 6043,
+      "acknowledged_offsets": {
+        "0": 2355,
+        "1": 2374,
+        "2": 2311
+      },
+      "bootstrap_servers": "127.0.0.1:9092",
+      "checkpoint": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\checks\\81273f6906a3426195855b4d85d446dc\\batch_checkpoint.json",
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+      "elapsed_seconds": 1.1378974000108428,
+      "enqueued": 6043,
+      "finished_at": "2026-10-19T11:52:37.487452Z",
+      "include_churn": true,
+      "invocation_id": "29f336dc-0ded-4ebe-b1d3-e89211c3b352",
+      "mode": "batch",
+      "next_row": 7043,
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\runs\\29f336dc-0ded-4ebe-b1d3-e89211c3b352",
+      "resumed": true,
+      "run_id": "98b48d79-4616-4e5e-90aa-ed9ee3a79b98",
+      "source_rows": 7043,
+      "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "start_row": 1000,
+      "started_at": "2026-10-19T11:52:36.349573Z",
+      "status": "completed",
+      "topic": "telco.raw.customers"
+    },
+    "streaming": {
+      "acknowledged": 30,
+      "acknowledged_offsets": {
+        "0": 2366,
+        "1": 2382,
+        "2": 2322
+      },
+      "bootstrap_servers": "127.0.0.1:9092",
+      "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+      "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+      "elapsed_seconds": 3.4551585000008345,
+      "enqueued": 30,
+      "finished_at": "2026-10-19T11:52:43.220669Z",
+      "include_churn": true,
+      "invocation_id": "afb95253-54b8-4bd6-b004-0b306ca9fcdb",
+      "jitter_seconds": 60,
+      "mode": "streaming",
+      "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\kafka\\runs\\afb95253-54b8-4bd6-b004-0b306ca9fcdb",
+      "requested_events_per_sec": 10.0,
+      "run_id": "4142bacf-1d2e-4b2c-9fa7-e18d8cc29839",
+      "seed": 42,
+      "source_rows": 7043,
+      "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "started_at": "2026-10-19T11:52:39.765544Z",
+      "status": "completed",
+      "topic": "telco.raw.customers"
+    }
+  },
+  "delivery_limit": "Graceful checkpoint/resume was duplicate-free. A crash after delivery but before checkpoint persistence can replay a chunk with the same event IDs; consumers must deduplicate.",
+  "observed": {
+    "batch": 7043,
+    "blank_total_charges_as_null": 11,
+    "records_by_partition": {
+      "0": 2367,
+      "1": 2383,
+      "2": 2323
+    },
+    "streaming": 30,
+    "unique_event_ids": 7073
+  },
+  "offsets_after": {
+    "0": 2367,
+    "1": 2383,
+    "2": 2323
+  },
+  "offsets_before": {
+    "0": 0,
+    "1": 0,
+    "2": 0
+  },
+  "prediction_consumer_implemented": false,
+  "sample_batch_event": {
+    "event": {
+      "Churn": "No",
+      "Contract": "Month-to-month",
+      "Dependents": "No",
+      "DeviceProtection": "No",
+      "InternetService": "DSL",
+      "MonthlyCharges": 29.85,
+      "MultipleLines": "No phone service",
+      "OnlineBackup": "Yes",
+      "OnlineSecurity": "No",
+      "PaperlessBilling": "Yes",
+      "Partner": "Yes",
+      "PaymentMethod": "Electronic check",
+      "PhoneService": "No",
+      "SeniorCitizen": 0,
+      "StreamingMovies": "No",
+      "StreamingTV": "No",
+      "TechSupport": "No",
+      "TotalCharges": 29.85,
+      "customerID": "7590-VHVEG",
+      "event_id": "6f57e370-c517-5dd1-b7ee-505b1d7d9683",
+      "event_ts": "2026-10-19T11:52:34.375500Z",
+      "gender": "Female",
+      "mode": "batch",
+      "run_id": "98b48d79-4616-4e5e-90aa-ed9ee3a79b98",
+      "schema_version": 1,
+      "source_row": 0,
+      "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "tenure": 1
+    },
+    "key": "7590-VHVEG",
+    "offset": 0,
+    "partition": 2
+  },
+  "sample_streaming_event": {
+    "event": {
+      "Churn": "No",
+      "Contract": "One year",
+      "Dependents": "No",
+      "DeviceProtection": "No internet service",
+      "InternetService": "No",
+      "MonthlyCharges": 25.05,
+      "MultipleLines": "Yes",
+      "OnlineBackup": "No internet service",
+      "OnlineSecurity": "No internet service",
+      "PaperlessBilling": "No",
+      "Partner": "No",
+      "PaymentMethod": "Electronic check",
+      "PhoneService": "Yes",
+      "SeniorCitizen": 0,
+      "StreamingMovies": "No internet service",
+      "StreamingTV": "No internet service",
+      "TechSupport": "No internet service",
+      "TotalCharges": 949.85,
+      "customerID": "1839-UMACK",
+      "event_id": "5d07cffc-763f-5fd8-8ff0-96670e18dee5",
+      "event_ts": "2026-10-19T11:52:31.839222Z",
+      "gender": "Male",
+      "mode": "streaming",
+      "run_id": "4142bacf-1d2e-4b2c-9fa7-e18d8cc29839",
+      "schema_version": 1,
+      "source_row": 1828,
+      "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "tenure": 42
+    },
+    "key": "1839-UMACK",
+    "offset": 2356,
+    "partition": 0
+  },
+  "source_rows": 7043,
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "status": "PASS"
+}

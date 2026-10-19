@@ -2,7 +2,7 @@
 
 Telco customer churn prediction and streaming ML project.
 
-## Implemented: Steps 1–5
+## Implemented: Steps 1–6
 
 - Original dataset import from the supplied ZIP without changing its contents.
 - Schema, customer ID, label, category, numeric and missing-value validation.
@@ -193,7 +193,7 @@ Reusable code is in `src/opsyntra/`; `pipelines/` contains runnable workflows.
 `notebooks/` is reserved for exploration; `dags/` contains the working eight-task ML DAG.
 `tests/` verifies the implemented data workflow and `reports/` stores evidence.
 
-Airflow orchestration is implemented for both engines; Kafka is the next phase. The complete project plan
+Airflow orchestration and Kafka publishing are implemented; the Kafka prediction consumer is next. The complete project plan
 is in [OPSYNTRA_ROADMAP.md](../OPSYNTRA_ROADMAP.md). Shared frontend screenshots
 are in [docs/screenshots/](../docs/screenshots/).
 
@@ -355,3 +355,23 @@ Read [DAG operations and outputs](dags/README.md) and
 [successful execution evidence](reports/airflow_workflow_report.md).
 The launcher records successful workflow/candidate runs in **Opsyntra-Airflow**
 in the existing Windows MLflow store.
+
+## Kafka batch and streaming publisher
+
+One `producer.py` supports both publishing modes. Start the local WSL broker and
+its three required topics from this backend directory:
+
+```powershell
+..\start-kafka.ps1 -Task start
+python producer.py --mode batch --batch-size 500
+python producer.py --mode batch --batch-size 500 --resume
+python producer.py --mode streaming --events-per-sec 5
+```
+
+Ctrl+C finishes queued deliveries. The publisher validates customer records,
+uses customerID keys and UTC event timestamps, retains blank TotalCharges as
+null, and checkpoints only acknowledged chunks. Stable batch event IDs permit
+consumer deduplication across the delivery/checkpoint crash window.
+
+See [Kafka runtime, CLI examples and delivery semantics](KAFKA.md) and
+[verified live-broker evidence](reports/kafka_publishing_report.md).

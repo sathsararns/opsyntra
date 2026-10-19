@@ -57,7 +57,7 @@ def port_open():
 
 
 def environment():
-    return {**os.environ, "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m", "LOG_DIR": str(STATE / "logs")}
+    return {**os.environ, "KAFKA_OPTS": "-Djava.net.preferIPv4Stack=true", "KAFKA_HEAP_OPTS": "-Xms256m -Xmx512m", "LOG_DIR": str(STATE / "logs")}
 
 
 def command(script, *args):
@@ -116,6 +116,12 @@ def stop():
         cmd = Path(f"/proc/{pid}/cmdline")
         if cmd.exists() and str(STATE / "server.properties").encode() in cmd.read_bytes():
             os.killpg(pid, signal.SIGTERM)
+            for _ in range(100):
+                if not port_open():
+                    break
+                time.sleep(.1)
+            else:
+                raise TimeoutError("Broker has not finished stopping; inspect its log before restarting")
             print("Sent graceful stop to this project's Kafka broker; stored data is retained.")
         pidfile.unlink(missing_ok=True)
 

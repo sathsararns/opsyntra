@@ -1,6 +1,6 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
-This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–5 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. The required eight-task Airflow DAG is implemented for both engines; Kafka and later phases remain planned.
+This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–6 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. The required eight-task Airflow DAG is implemented for both engines; Kafka publishing is implemented; the prediction consumer and later phases remain planned.
 
 ## 1. Requirements and priorities
 
@@ -57,7 +57,7 @@ Start with Docker Compose for local services and a pinned Linux runtime for Spar
 
 The repository separates the Next.js frontend from the Python API and ML workflows.
 Python source names and paths in the later build phases are relative to `backend/`.
-MLflow tracking and local Spark workflows are implemented. Kafka and Airflow components remain planned where stated.
+MLflow tracking and local Spark workflows are implemented. Airflow orchestration and Kafka publishing are implemented; consumer and bonus Kafka DAG work remain planned.
 
 ```text
 Opsyntra/
@@ -186,6 +186,15 @@ validate_data -> prepare_splits -> tune_and_train
 Done when: a complete DAG run succeeds, creates prediction outputs and has a saved Graph/Grid screenshot.
 
 ### Phase 6: Kafka producer
+
+Implemented: Apache Kafka 4.3.1 in Ubuntu WSL, pinned Windows Python client,
+three required topics, and one producer.py with continuous sampling/rate control
+and acknowledged chunk/checkpoint/resume. Events have customerID keys, typed
+customer fields, UTC timestamps and stable batch event IDs. The real broker check
+verified 7,043 batch records across two processes plus 30 streaming records.
+See `backend/KAFKA.md` and `backend/reports/kafka_publishing_report.md`.
+Crash-window delivery is documented as at-least-once with stable IDs for future
+consumer deduplication.
 
 Create these exact topics:
 

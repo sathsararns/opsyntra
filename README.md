@@ -31,6 +31,7 @@ Opsyntra/
   start-mlflow.ps1          Opens the local experiment tracking UI
   start-spark.ps1           Runs Spark setup, training, inference and checks in Ubuntu WSL
   start-airflow.ps1         Starts Airflow and runs the complete ML DAG in Ubuntu WSL
+  start-kafka.ps1           Starts the local Kafka broker, creates topics and verifies publishing
 ```
 
 The Git repository remains at this root. `.review-tools/` is an ignored local
@@ -163,7 +164,8 @@ screenshots to `docs/screenshots/`.
 Data preparation, sklearn training/inference, and the local interface are
 implemented, including MLflow tracking and validation threshold selection.
 PySpark training, persistence, inference and engine comparison are implemented.
-The required Airflow ML DAG is implemented for both engines. Kafka is next.
+The required Airflow ML DAG is implemented for both engines. Kafka publishing in
+batch and streaming modes is implemented; prediction consumption is next.
 
 ## Airflow ML workflow
 
@@ -185,3 +187,27 @@ For initial setup, runtime separation, retries/timeouts, validation gates and
 result paths, see [Airflow operations](backend/dags/README.md). See the
 [completed-run report](backend/reports/airflow_workflow_report.md) and
 [screenshots](docs/README.md) for the checkpoint evidence.
+
+## Kafka publishing
+
+From this repository root:
+
+```powershell
+# Already installed on this machine; use setup once on a new environment.
+.\start-kafka.ps1 -Task start
+python backend/producer.py --mode batch --batch-size 500
+python backend/producer.py --mode batch --batch-size 500 --resume
+python backend/producer.py --mode streaming --events-per-sec 5
+```
+
+Stop continuous streaming with Ctrl+C. From `backend/`, use
+`..\start-kafka.ps1` and `python producer.py`. The WSL broker is reachable at
+`127.0.0.1:9092`. Topics are `telco.raw.customers`, `telco.churn.predictions` and
+`telco.deadletter`. Publisher messages use customerID keys, typed customer fields,
+UTC timestamps and stable batch event IDs. Checkpoints advance after confirmed
+delivery.
+
+See [Kafka setup, event schema and resume guarantees](backend/KAFKA.md) and
+[real publishing evidence](backend/reports/kafka_publishing_report.md). The check
+published all 7,043 customers across a pause/resume plus 30 streaming events,
+then validated the actual messages read back from Kafka.
