@@ -29,6 +29,7 @@ Opsyntra/
   README.md
   start-frontend.ps1        Starts both local services
   start-mlflow.ps1          Opens the local experiment tracking UI
+  start-spark.ps1           Runs Spark setup, training, inference and checks in Ubuntu WSL
 ```
 
 The Git repository remains at this root. `.review-tools/` is an ignored local
@@ -105,9 +106,29 @@ See [model selection evidence](backend/reports/model_selection.md) and
 [MLflow screenshots](docs/README.md). Restart the API after retraining.
 
 The authoritative customer partitions are stored in
-`backend/data/splits/memberships.csv`. Both sklearn and the future Spark workflow
+`backend/data/splits/memberships.csv`. Both sklearn and Spark
 use those saved memberships. Raw data, generated partition CSVs, model binaries,
 dependency folders and runtime logs are excluded from Git.
+
+## Spark workflow
+
+Spark workflows use a separate Linux environment in the existing Ubuntu WSL
+distribution. From this repository root:
+
+```powershell
+.\start-spark.ps1 -Task setup
+.\start-spark.ps1 -Task train
+.\start-spark.ps1 -Task predict -Record examples/customer.json
+.\start-spark.ps1 -Task predict -InputCsv examples/customers.csv -Output artifacts/predictions/spark_batch.csv
+.\start-spark.ps1 -Task test
+```
+
+Use `..\start-spark.ps1` when your terminal is already inside `backend/`.
+Prediction paths above resolve relative to `backend/`. Spark outputs are kept
+under `backend/artifacts/spark/`; both engines keep using the authoritative
+saved memberships. Read [Spark setup and timing details](backend/README.md#spark-training-and-engine-comparison).
+The comparison is saved as `backend/reports/engine_comparison.md` and `.json`.
+The local frontend continues using the saved sklearn pipeline.
 
 ## Verification
 
@@ -140,4 +161,5 @@ screenshots to `docs/screenshots/`.
 
 Data preparation, sklearn training/inference, and the local interface are
 implemented, including MLflow tracking and validation threshold selection.
-PySpark, Airflow and Kafka are the next roadmap phases.
+PySpark training, persistence, inference and engine comparison are implemented.
+Airflow and Kafka are the next roadmap phases.

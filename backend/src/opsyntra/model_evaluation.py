@@ -21,6 +21,14 @@ def select_threshold(y, probabilities) -> dict:
 def evaluate_model(pipeline, X, y) -> dict:
     predictions = pipeline.predict(X)
     probabilities = pipeline.predict_proba(X)[:, 1]
+    return evaluate_probabilities(y, probabilities, predictions=predictions)
+
+
+def evaluate_probabilities(y, probabilities, threshold=.5, *, predictions=None) -> dict:
+    """Identical metric definitions for JVM Spark scores and sklearn scores."""
+    probabilities = np.asarray(probabilities, dtype=float)
+    if predictions is None:
+        predictions = (probabilities >= threshold).astype(int)
     return {
         "accuracy": float(accuracy_score(y, predictions)),
         "precision": float(precision_score(y, predictions, zero_division=0)),

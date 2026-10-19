@@ -10,6 +10,7 @@
 - [MLflow model comparison](screenshots/mlflow-comparison.png)
 - [Selected model, threshold and test metrics](screenshots/mlflow-selected-model.png)
 - [Model selection explanation](../backend/reports/model_selection.md)
+- [Spark and sklearn comparison](../backend/reports/engine_comparison.md)
 
 `screenshots/` contains shared interface evidence. Machine-readable ML validation
 and evaluation reports belong in `backend/reports/`.

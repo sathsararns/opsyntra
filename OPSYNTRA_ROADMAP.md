@@ -1,6 +1,6 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
-This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–3 are implemented: data validation, fixed splits, complete sklearn pipelines, CV/validation comparison, validation F1 threshold selection, Joblib/raw-record inference, and local MLflow runs with models and evaluation plots. See README.md and the reports in backend/reports/. Spark and later phases remain planned.
+This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–4 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. Airflow and later phases remain planned.
 
 ## 1. Requirements and priorities
 
@@ -57,7 +57,7 @@ Start with Docker Compose for local services and a pinned Linux runtime for Spar
 
 The repository separates the Next.js frontend from the Python API and ML workflows.
 Python source names and paths in the later build phases are relative to `backend/`.
-MLflow tracking is implemented. Spark, Kafka and Airflow components remain planned where stated.
+MLflow tracking and local Spark workflows are implemented. Kafka and Airflow components remain planned where stated.
 
 ```text
 Opsyntra/
@@ -141,6 +141,13 @@ and `docs/screenshots/mlflow-*.png`. Start the UI with `.\start-mlflow.ps1`.
 Done when: a reviewer can identify the selected run and reproduce why it was selected.
 
 ### Phase 4: PySpark reconstruction and comparison
+
+Implemented in Ubuntu WSL with Java 21, Python 3.12 and PySpark 4.0.2: native
+Logistic Regression, Random Forest and SparkXGBClassifier pipelines. Training
+reuses saved memberships and fits preprocessing within training-only folds.
+Complete PipelineModels, validation thresholds, raw-record/CSV inference and
+MLflow artifacts are saved. Read `backend/reports/engine_comparison.md` for the
+same-customer test metrics and measured local timings. Use `start-spark.ps1`.
 
 - Implement schema conversion and equivalent cleaning with Spark DataFrame APIs.
 - Construct Spark ML pipelines with Imputer, StringIndexer/OneHotEncoder, VectorAssembler, optional scaling and estimators as appropriate.

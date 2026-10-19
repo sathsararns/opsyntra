@@ -1,0 +1,8 @@
+-r data.txt
+joblib==1.6.0
+scipy==1.18.1
+# CPU builds avoid downloading GPU runtime libraries for this local checkpoint.
+xgboost-cpu==3.4.1; sys_platform == "linux"
+xgboost==3.4.1; sys_platform != "linux"
+pyspark==4.0.2
+pyarrow==25.0.1

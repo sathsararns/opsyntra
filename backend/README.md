@@ -2,7 +2,7 @@
 
 Telco customer churn prediction and streaming ML project.
 
-## Implemented: Steps 1 and 2
+## Implemented: Steps 1–4
 
 - Original dataset import from the supplied ZIP without changing its contents.
 - Schema, customer ID, label, category, numeric and missing-value validation.
@@ -13,20 +13,22 @@ Telco customer churn prediction and streaming ML project.
 - Complete sklearn pipelines for a dummy baseline, Logistic Regression, Random Forest and XGBoost.
 - Training-only stratified cross-validation, validation-based selection and selected-model test evaluation.
 - Joblib persistence of preprocessing and classifier together, plus single-JSON and batch-CSV inference.
+- MLflow tracking, validation F1 thresholds, evaluation plots and model selection evidence.
+- Native Spark pipelines for Logistic Regression, Random Forest and SparkXGBClassifier.
+- Shared-customer engine comparison, measured execution times and saved Spark inference.
 
 ## Run locally
 
-Run the commands in this README from `Opsyntra/backend/`:
-
-```powershell
-cd backend
-```
+Run backend Python commands from `Opsyntra/backend/`. If your terminal is
+already there, do not run `cd backend` again. From the repository root,
+enter `backend/` once with `cd backend`. Spark PowerShell examples below
+explicitly state their starting directory.
 
 Use an environment with the dependencies in `requirements/web.txt` (which includes
 the model and data dependencies). These checkpoints were verified with Python 3.14.6 and
 the recorded dependency versions.
-Spark and Airflow compatibility will be established in their separate environments
-when those phases are implemented.
+Spark uses the separately tested Ubuntu WSL environment described below.
+Airflow will receive its own runtime during that phase.
 
 ```powershell
 python -m pip install -r requirements/web.txt
@@ -191,7 +193,7 @@ Reusable code is in `src/opsyntra/`; `pipelines/` contains runnable workflows.
 `notebooks/` and `dags/` contain placeholders for upcoming EDA and orchestration.
 `tests/` verifies the implemented data workflow and `reports/` stores evidence.
 
-Next: implement the Spark workflow using the same saved memberships. The complete project plan
+Next: implement Airflow orchestration for the working sklearn and Spark workflows. The complete project plan
 is in [OPSYNTRA_ROADMAP.md](../OPSYNTRA_ROADMAP.md). Shared frontend screenshots
 are in [docs/screenshots/](../docs/screenshots/).
 
@@ -241,3 +243,93 @@ After retraining, restart the API to load the new artifact and run
 References: [MLflow local database tracking](https://www.mlflow.org/docs/latest/ml/tracking/tutorials/local-database/),
 [MLflow sklearn model logging](https://mlflow.org/docs/latest/api_reference/python_api/mlflow.sklearn.html),
 [scikit-learn threshold tuning](https://scikit-learn.org/stable/auto_examples/model_selection/plot_tuned_decision_threshold.html).
+
+## Spark training and engine comparison
+
+The Windows launcher uses your Ubuntu WSL installation with Java 21 and an
+isolated Linux Python environment, `backend/.venv-spark`. XGBoost's Spark
+integration is tested on Linux. The pinned Spark runtime is PySpark 4.0.2;
+`requirements/spark.txt` installs the CPU XGBoost build on Linux.
+
+From the repository root:
+
+```powershell
+# One-time dependency setup in an existing Ubuntu WSL distribution.
+.\start-spark.ps1 -Task setup
+
+# Train Logistic Regression, Random Forest and SparkXGBClassifier.
+# This also generates the engine comparison and records Spark runs in MLflow.
+.\start-spark.ps1 -Task train
+
+# Load the saved Spark pipeline in a fresh process; Churn is not required.
+.\start-spark.ps1 -Task predict -Record examples/customer.json
+.\start-spark.ps1 -Task predict -InputCsv examples/customers.csv -Output artifacts/predictions/spark_batch.csv
+
+# Execute the Spark integration checks in the same isolated runtime.
+.\start-spark.ps1 -Task test
+```
+
+When your terminal is already inside `backend/`, use `..\start-spark.ps1`.
+Record/input/output paths supplied to the launcher are relative to `backend/`.
+The setup task installs Ubuntu Java and Python venv support, then Python
+dependencies. It requires the existing Ubuntu WSL distribution and internet
+access. The application frontend continues using its sklearn model.
+
+The Spark pipeline performs deterministic trimming and numeric validation,
+training-fitted median imputation, alphabetical StringIndexer encoding,
+one-hot encoding, feature assembly, numeric scaling for Logistic Regression,
+classification, and the saved validation-selected threshold. The custom
+normalization and decision stages persist through Spark's native PipelineModel
+writer; they execute Spark SQL expressions rather than row-wise Python UDFs.
+Unknown categories map to an all-zero one-hot block, matching the sklearn policy.
+Identifiers and Churn are excluded from assembled predictors.
+
+The workflow verifies the existing data hashes, reads `memberships.csv` in Spark,
+joins by customerID, and checks the exact customer IDs in each partition.
+Stratified training-only CV learns preprocessing within every fold. The model
+with the highest validation average precision wins; validation F1 selects its
+threshold. Only that champion receives held-out test metrics.
+
+Outputs:
+
+- `artifacts/spark/runs/<batch_id>/<model>/`: complete native Spark pipelines.
+- `artifacts/spark/selected_model.json`: current selected pipeline and version.
+- `reports/spark_training_report.json`: CV, parameters, preprocessing, metrics,
+  reload checks and timing.
+- `reports/engine_comparison.md` and `.json`: both engine champions on exactly
+  the same test customers, with comparable metric definitions and timing notes.
+- `reports/engine_validation_comparison.csv`: validation results for all models.
+- `reports/engine_test_predictions.csv`: paired, ID-aligned held-out predictions.
+
+Both engines use churn-class precision, recall and F1, accuracy, ROC-AUC and
+non-interpolated average precision. Spark weighted F1 and interpolated areaUnderPR
+are not substituted. Spark and sklearn have different solvers, regularization
+conventions, tree implementations and tuning grids; the report states these
+limits, plus median and scaler differences.
+
+Timing separates Spark JVM startup, data loading/cache materialization, CV,
+final preprocessing, classifier fitting, persistence/loading and inference.
+Inference collects actual probabilities and predictions, forcing lazy Spark
+execution. A fresh single final sklearn fit is timed in the same Linux process;
+its earlier CV duration is not compared against a single Spark fit. The first
+inference action is separate from repeated warm measurements. These local[2]
+measurements do not demonstrate multi-node scaling.
+
+After WSL training, the Windows launcher logs the Spark runs and native pipeline
+directories into `Opsyntra-Telco-Spark` using the existing Windows MLflow store.
+This keeps artifact paths accessible through http://127.0.0.1:5000. If training
+finished but logging was interrupted, run `python -m pipelines.spark_tracking`
+from `backend/`; an already-recorded batch is not duplicated.
+Each run also contains the custom stage modules under `code/opsyntra` and pinned
+requirements under `environment/`. A downloaded native pipeline needs that code
+package available on Python's import path, along with its Spark/XGBoost runtime.
+
+In a native Linux environment, use the same requirements and install
+`mlflow==3.17.1 matplotlib==3.11.2` for tracking, then run
+`python -m pipelines.spark_training_pipeline` from `backend/`. For training in
+WSL with Windows-owned MLflow storage, use the PowerShell launcher or pass
+`--skip-tracking` and run the host logging command afterward.
+
+References: [Spark ML pipelines](https://spark.apache.org/docs/4.0.2/ml-pipeline.html),
+[Spark installation](https://spark.apache.org/docs/4.0.2/api/python/getting_started/install.html),
+[XGBoost Spark integration and persistence](https://xgboost.readthedocs.io/en/stable/tutorials/spark_estimator.html).

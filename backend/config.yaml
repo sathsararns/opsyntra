@@ -41,3 +41,37 @@ training:
     xgboost:
       classifier__max_depth: [3, 5]
       classifier__learning_rate: [0.05, 0.1]
+
+spark:
+  master: local[2]
+  shuffle_partitions: 2
+  seed: 42
+  cv_folds: 3
+  inference_repeats: 3
+  artifact_dir: artifacts/spark
+  report_path: reports/spark_training_report.json
+  comparison_path: reports/engine_comparison.json
+  experiment_name: Opsyntra-Telco-Spark
+  # Small training-only searches; Spark and sklearn parameters are not identical.
+  models:
+    logistic_regression:
+      parameters: {maxIter: 100, elasticNetParam: 0.0, standardization: false}
+      grid: {regParam: [0.0, 0.01]}
+    random_forest:
+      parameters: {numTrees: 200, minInstancesPerNode: 5, featureSubsetStrategy: sqrt}
+      grid: {maxDepth: [5, 8]}
+    xgboost:
+      parameters: {n_estimators: 200, learning_rate: 0.05, tree_method: hist, num_workers: 1, verbose: false, verbosity: 0}
+      grid: {max_depth: [3, 5]}
+
+orchestration:
+  dag_id: opsyntra_ml_workflow
+  artifact_dir: artifacts/airflow
+  prediction_input: examples/customers.csv
+  # Approval uses validation data and artifact integrity, never test scores.
+  minimum_validation_average_precision: 0.0
+  require_improvement_over_dummy: true
+  retries: 2
+  retry_delay_seconds: 20
+  task_timeout_minutes: 30
+  dag_timeout_minutes: 120

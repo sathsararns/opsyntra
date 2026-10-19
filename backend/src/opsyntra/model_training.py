@@ -14,40 +14,15 @@ import pandas as pd
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, FixedThresholdClassifier
 from sklearn.frozen import FrozenEstimator
 
-from .config import load_config, load_training_config
+from .config import load_training_config
 from .data_pipeline import sha256_file, write_json
-from .data_splitting import apply_memberships
+from .training_data import load_training_partitions
 from .data_validation import FEATURE_COLUMNS, NUMERIC_COLUMNS, TARGET
 from .model_building import build_model_pipeline
 from .model_evaluation import evaluate_model, select_threshold
 from .experiment_tracking import record_experiments, log_summary_files
 
 logger = logging.getLogger(__name__)
-
-
-def load_training_partitions(config_path: Path):
-    config = load_config(config_path)
-    manifest_path = config.output_dir / "manifest.json"
-    if not manifest_path.is_file():
-        raise FileNotFoundError("Run python -m pipelines.data_pipeline first.")
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    expected = [
-        (config.raw_path, manifest["source_sha256"]),
-        (config.normalized_path, manifest["normalized_sha256"]),
-        (config.output_dir / "memberships.csv", manifest["membership_sha256"]),
-    ]
-    for path, digest in expected:
-        if sha256_file(path) != digest:
-            raise ValueError(f"Data checksum mismatch: {path}. Regenerate and review Step 1 artifacts.")
-    data = pd.read_csv(config.normalized_path, dtype="string", keep_default_na=False)
-    memberships = pd.read_csv(config.output_dir / "memberships.csv", dtype="string")
-    if not data[TARGET].isin(["No", "Yes"]).all():
-        raise ValueError("Training labels must be No or Yes.")
-    partitions = apply_memberships(data, memberships)
-    for name, part in partitions.items():
-        if len(part) != manifest["splits"][name]["rows"]:
-            raise ValueError(f"{name}: membership count differs from the saved manifest.")
-    return partitions, manifest
 
 
 def persist_pipeline(pipeline, path: Path) -> None:

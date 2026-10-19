@@ -1,0 +1,110 @@
+{
+  "benchmark_platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "dataset_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "fairness_notes": [
+    "Identical saved train/validation/test customers, raw predictors, target mapping and sklearn metric definitions.",
+    "Spark and sklearn use different solvers, regularization conventions, tree construction and tuning grids; this is a pipeline comparison, not numerical algorithm equivalence.",
+    "Spark's exact median quantile uses an order statistic; sklearn averages middle values for even-sized samples. Spark StandardScaler uses sample standard deviation; sklearn uses population standard deviation.",
+    "Models fit training rows only, including every CV fold's imputation and category vocabularies. Unknown categorical values map to all-zero one-hot blocks in both engines.",
+    "Fresh sklearn final-fit timing excludes grid search. Spark final preprocessing/fit excludes its CV search, separately reported. No CV-versus-single-fit speed ratio.",
+    "Inference uses the complete saved pipelines, raw records cached/in memory, actual probability calculation, and collection into ID-sorted pandas tables. First action and subsequent warm timings are separate.",
+    "Spark JVM startup and data loading/cache materialization are separate. These are local single-machine measurements; they do not demonstrate distributed scaling.",
+    "Report metrics use the existing saved sklearn artifact. The Linux timing refit is checked against its validation probabilities; it does not replace the deployed sklearn model."
+  ],
+  "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+  "same_test_customers": true,
+  "selection_rule": "Each engine selects its champion by validation AP after training-only stratified CV. Thresholds maximize validation churn-class F1. Test never selects an engine or candidate.",
+  "sklearn": {
+    "decision_threshold": 0.27634161843869615,
+    "model_version": "d9a13b4cf6839ed4",
+    "original_cv_and_fit_seconds": 7.7053,
+    "original_training_runtime": {
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "mlflow": "3.17.1",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "python": "3.14.6",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "xgboost": "3.4.1"
+    },
+    "selected_model": "random_forest",
+    "test_metrics": {
+      "accuracy": 0.7416607523066004,
+      "average_precision": 0.6580232253452741,
+      "confusion_matrix": [
+        [
+          747,
+          288
+        ],
+        [
+          76,
+          298
+        ]
+      ],
+      "f1": 0.6208333333333333,
+      "precision": 0.5085324232081911,
+      "recall": 0.7967914438502673,
+      "roc_auc": 0.8438567258260353
+    },
+    "timing": {
+      "classifier_fit_seconds": 0.3923836530000244,
+      "first_test_inference_seconds": 0.06040498700002672,
+      "fit_total_seconds": 0.5155585819999828,
+      "load_seconds": 0.0802121960000477,
+      "preprocessing_seconds": 0.12317492899995841,
+      "warm_test_inference_median_seconds": 0.04873893800004225,
+      "warm_test_inference_seconds": [
+        0.05167921699995759,
+        0.04809685499998295,
+        0.04873893800004225
+      ]
+    }
+  },
+  "spark": {
+    "decision_threshold": 0.2591731921257882,
+    "model_version": "6172478f6bdcb515",
+    "selected_model": "random_forest",
+    "test_metrics": {
+      "accuracy": 0.7444996451383961,
+      "average_precision": 0.6538683646799619,
+      "confusion_matrix": [
+        [
+          751,
+          284
+        ],
+        [
+          76,
+          298
+        ]
+      ],
+      "f1": 0.6234309623430963,
+      "precision": 0.5120274914089347,
+      "recall": 0.7967914438502673,
+      "roc_auc": 0.844086646516314
+    },
+    "timing": {
+      "classifier_fit_seconds": 8.054676209999997,
+      "data_load_cache_seconds": 7.221721751999993,
+      "first_test_inference_seconds": 1.1734928800000262,
+      "fit_total_seconds": 9.806769247999995,
+      "load_seconds": 6.628649488999997,
+      "preprocessing_seconds": 1.7520930379999982,
+      "save_seconds": 9.371460253999999,
+      "spark_startup_seconds": 8.37507501799999,
+      "validation_inference_seconds": 1.2765982880000024,
+      "warm_test_inference_median_seconds": 1.07789763400001,
+      "warm_test_inference_seconds": [
+        1.1057406549999769,
+        0.9855022070000246,
+        1.07789763400001
+      ],
+      "workflow_seconds_before_comparison_tracking": 219.25616179999997
+    }
+  },
+  "spark_batch_id": "74dc8fabe77d42c2b3b18f11ed83f8b3",
+  "status": "PASS",
+  "test_customer_sha256": "6f229e2f314c3a94a30a7c7b835f8056461771292aa692eeae878f2c510f0225",
+  "test_rows": 1409
+}

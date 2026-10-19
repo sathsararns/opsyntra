@@ -20,6 +20,13 @@ artifacts/
 mlruns/
 backend/mlflow.db*
 backend/mlartifacts/
+backend/.spark-runtime/
+backend/.venv-spark/
+backend/.airflow-runtime/
+backend/.airflow-home/
+backend/spark-warehouse/
+derby.log
+metastore_db/
 logs/
 *.log
 .DS_Store
