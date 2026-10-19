@@ -75,3 +75,19 @@ orchestration:
   retry_delay_seconds: 20
   task_timeout_minutes: 30
   dag_timeout_minutes: 120
+kafka:
+  bootstrap_servers: 127.0.0.1:9092
+  topics:
+    raw: telco.raw.customers
+    predictions: telco.churn.predictions
+    deadletter: telco.deadletter
+  partitions: 3
+  replication_factor: 1
+  batch_size: 500
+  events_per_sec: 5.0
+  streaming_event_jitter_seconds: 60
+  checkpoint: artifacts/kafka/checkpoints/batch.json
+  report_dir: artifacts/kafka/runs
+  delivery_timeout_ms: 30000
+  flush_timeout_seconds: 35
+  queue_timeout_seconds: 35
