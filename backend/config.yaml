@@ -91,3 +91,13 @@ kafka:
   delivery_timeout_ms: 30000
   flush_timeout_seconds: 35
   queue_timeout_seconds: 35
+  consumer:
+    group_prefix: opsyntra-churn
+    batch_size: 100
+    max_messages: 1000
+    idle_timeout_seconds: 10
+    batch_timeout_seconds: 120
+    max_poll_interval_ms: 300000
+    max_event_bytes: 262144
+    state_dir: artifacts/kafka/consumer_state
+    report_dir: artifacts/kafka/consumer_runs

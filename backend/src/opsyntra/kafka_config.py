@@ -29,6 +29,19 @@ def load_kafka_config(path):
             raise ValueError(f"Invalid kafka.{name}")
     if settings["flush_timeout_seconds"] * 1000 < settings["delivery_timeout_ms"]:
         raise ValueError("flush_timeout_seconds must cover delivery_timeout_ms")
+    consumer = dict(settings["consumer"])
+    for name in ("batch_size", "max_messages", "idle_timeout_seconds", "batch_timeout_seconds", "max_poll_interval_ms", "max_event_bytes"):
+        if type(consumer[name]) is not int or consumer[name] <= 0:
+            raise ValueError(f"kafka.consumer.{name} must be a positive integer")
+    for name in ("state_dir", "report_dir"):
+        consumer[name] = (path.parent / consumer[name]).resolve()
+    settings["consumer"] = consumer
+    settings["model_config"] = {
+        "backend": path.parent,
+        "sklearn_model": (path.parent / full["training"]["artifact_dir"] / "best_pipeline.joblib").resolve(),
+        "spark_pointer": (path.parent / full["spark"]["artifact_dir"] / "selected_model.json").resolve(),
+        "spark_settings": full["spark"],
+    }
     return settings
 
 
