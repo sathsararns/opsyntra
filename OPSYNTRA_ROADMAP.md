@@ -1,6 +1,6 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
-This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–4 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. Airflow and later phases remain planned.
+This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–5 are implemented: data validation, fixed splits, sklearn and Spark pipelines, training-only CV, validation model/threshold selection, saved-model inference, MLflow tracking and a measured engine comparison. See README.md and the reports in backend/reports/. The required eight-task Airflow DAG is implemented for both engines; Kafka and later phases remain planned.
 
 ## 1. Requirements and priorities
 
@@ -162,10 +162,18 @@ Done when: both engines have persisted artifacts, working inference and a fair c
 
 ### Phase 5: Required Airflow ML DAG
 
+Implemented with Airflow 3.3.2 in an isolated Ubuntu WSL environment. The actual
+scheduler runs all eight tasks for sklearn or Spark, reusing saved memberships
+and keeping fitted preprocessing within training. Each run freezes its inputs,
+checks candidate validation/integrity, saves its selected complete pipeline,
+loads it for batch predictions, and writes results with per-attempt logs.
+See `backend/dags/README.md`, `backend/reports/airflow_workflow_report.md` and
+`docs/screenshots/airflow-*.png`. Use `start-airflow.ps1`.
+
 ```text
-validate_schema -> prepare_split_data -> tune_and_train
+validate_data -> prepare_splits -> tune_and_train
                 -> evaluate -> validate_candidate
-                -> persist_selected_artifact -> batch_inference -> save_report
+                -> save_selected_model -> predict -> save_results
 ```
 
 - Keep deterministic cleaning and split preparation distinct from fitted preprocessing. Fit imputers/encoders inside training folds.

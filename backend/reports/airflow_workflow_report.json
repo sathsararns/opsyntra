@@ -1,0 +1,642 @@
+{
+  "captured_at": "2026-10-19T11:13:55.016856+00:00",
+  "dag_id": "opsyntra_ml_workflow",
+  "evidence_source": "Airflow scheduler CLI states plus hash-verified persisted task artifacts",
+  "orchestration_policy": {
+    "artifact_dir": "artifacts/airflow",
+    "dag_id": "opsyntra_ml_workflow",
+    "dag_timeout_minutes": 120,
+    "minimum_validation_average_precision": 0.0,
+    "prediction_input": "examples/customers.csv",
+    "require_improvement_over_dummy": true,
+    "retries": 2,
+    "retry_delay_seconds": 20,
+    "task_timeout_minutes": 30
+  },
+  "runs": {
+    "sklearn": {
+      "airflow_version": "3.3.2",
+      "approval": {
+        "candidate_sha256": "e3e4c256e5dd2e3fa33789ab62130828f313a3a4f26502efa31329b4dc556cfd",
+        "checks": {
+          "artifact_hash_matches": true,
+          "finite_validation_metrics": true,
+          "improves_dummy_validation_ap": true,
+          "reload_matches": true,
+          "same_dataset": true,
+          "same_memberships": true,
+          "selected_is_not_dummy": true,
+          "test_not_used_for_selection": true,
+          "valid_threshold": true,
+          "validation_ap_above_minimum": true
+        },
+        "evaluation_sha256": "135f3b38e803e41111fae91b55fe5e291eff372bf41d5ec2d18d24f16bae6485",
+        "selection_basis": "Validation scores and integrity only. Test scores are not an approval gate.",
+        "status": "PASS"
+      },
+      "dag_id": "opsyntra_ml_workflow",
+      "dag_run": {
+        "dag_id": "opsyntra_ml_workflow",
+        "end_date": "2026-10-19T10:58:09.499480+00:00",
+        "logical_date": "",
+        "run_after": "2026-10-19T10:56:43.879363+00:00",
+        "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+        "start_date": "2026-10-19T10:56:44.297236+00:00",
+        "state": "success"
+      },
+      "engine": "sklearn",
+      "mlflow": {
+        "candidate_runs": {
+          "dummy": "89660ae5d1ff4e48964681e60b574ab5",
+          "logistic_regression": "4db673d9987d438c8314dfec827a4c28",
+          "random_forest": "318734823da14399bf9c9d9986b5b86d",
+          "xgboost": "573eb05e16ca441e9c4c31310191b88f"
+        },
+        "dag_run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+        "experiment_id": "3",
+        "experiment_name": "Opsyntra-Airflow",
+        "workflow_run_id": "822ac775da3243a3ba9f6a8d5ddbad7a"
+      },
+      "predictions": [
+        {
+          "churn_probability": 0.4605485077577353,
+          "customerID": "DEMO-NEW-001",
+          "model_version": "11e51d4bd8171026",
+          "prediction": "Yes"
+        },
+        {
+          "churn_probability": 0.0989556617935902,
+          "customerID": "DEMO-NEW-002",
+          "model_version": "11e51d4bd8171026",
+          "prediction": "No"
+        }
+      ],
+      "run_directory": "artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da",
+      "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+      "state": "success",
+      "summary": {
+        "completed_at": "2026-10-19T10:58:08.366467+00:00",
+        "dag_id": "opsyntra_ml_workflow",
+        "decision_threshold": 0.27634161843869615,
+        "engine": "sklearn",
+        "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+        "model_sha256": "e3e4c256e5dd2e3fa33789ab62130828f313a3a4f26502efa31329b4dc556cfd",
+        "model_version": "11e51d4bd8171026",
+        "prediction_rows": 2,
+        "predictions_path": "results/predictions.csv",
+        "predictions_sha256": "969227549e00dfa880fcb3871c22e7c28eb913c796516141cbb5f8e6b40db576",
+        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da",
+        "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+        "selected_model": "random_forest",
+        "selected_model_path": "selected/pipeline.joblib",
+        "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+        "stages": [
+          "validate_data",
+          "prepare_splits",
+          "tune_and_train",
+          "evaluate",
+          "validate_candidate",
+          "save_selected_model",
+          "predict",
+          "save_results"
+        ],
+        "status": "PASS",
+        "test_metrics": {
+          "accuracy": 0.7416607523066004,
+          "average_precision": 0.6580232253452741,
+          "confusion_matrix": [
+            [
+              747,
+              288
+            ],
+            [
+              76,
+              298
+            ]
+          ],
+          "f1": 0.6208333333333333,
+          "precision": 0.5085324232081911,
+          "recall": 0.7967914438502673,
+          "roc_auc": 0.8438567258260353
+        },
+        "test_used_for_selection": false,
+        "validation": {
+          "accuracy": 0.7466288147622427,
+          "average_precision": 0.662602792960054,
+          "confusion_matrix": [
+            [
+              741,
+              294
+            ],
+            [
+              63,
+              311
+            ]
+          ],
+          "f1": 0.6353421859039836,
+          "precision": 0.5140495867768595,
+          "recall": 0.8315508021390374,
+          "roc_auc": 0.8433684672815107
+        }
+      },
+      "task_events": {
+        "evaluate": {
+          "attempt": 1,
+          "duration_seconds": 1.6730003220000071,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:57:35.115922+00:00",
+          "result": {
+            "selected_model": "random_forest",
+            "test_used_for_selection": false
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:57:33.442950+00:00",
+          "status": "success",
+          "task": "evaluate"
+        },
+        "predict": {
+          "attempt": 1,
+          "duration_seconds": 0.46508386100001076,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:57:58.653171+00:00",
+          "result": {
+            "prediction_rows": 2
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:57:58.188123+00:00",
+          "status": "success",
+          "task": "predict"
+        },
+        "prepare_splits": {
+          "attempt": 1,
+          "duration_seconds": 0.4988393699999847,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:57:07.318902+00:00",
+          "result": {
+            "new_random_split": false,
+            "partition_rows": {
+              "test": 1409,
+              "train": 4225,
+              "validation": 1409
+            }
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:57:06.820092+00:00",
+          "status": "success",
+          "task": "prepare_splits"
+        },
+        "save_results": {
+          "attempt": 1,
+          "duration_seconds": 0.09275945000001684,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:58:08.383273+00:00",
+          "result": {
+            "results_path": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/airflow/runs/sklearn/manual__opsyntra_sklearn_20261019T105642410638Z-3b22596274da/results",
+            "rows": 2
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:58:08.290550+00:00",
+          "status": "success",
+          "task": "save_results"
+        },
+        "save_selected_model": {
+          "attempt": 1,
+          "duration_seconds": 0.1078578640000103,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:57:49.794374+00:00",
+          "result": {
+            "model_version": "11e51d4bd8171026",
+            "path": "selected/pipeline.joblib"
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:57:49.686547+00:00",
+          "status": "success",
+          "task": "save_selected_model"
+        },
+        "tune_and_train": {
+          "attempt": 1,
+          "duration_seconds": 10.93709864600001,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:57:25.375709+00:00",
+          "result": {
+            "models": [
+              "dummy",
+              "logistic_regression",
+              "random_forest",
+              "xgboost"
+            ]
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:57:14.438641+00:00",
+          "status": "success",
+          "task": "tune_and_train"
+        },
+        "validate_candidate": {
+          "attempt": 1,
+          "duration_seconds": 0.08333009399999014,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:57:42.365554+00:00",
+          "result": {
+            "checks": 10,
+            "status": "PASS"
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:57:42.282264+00:00",
+          "status": "success",
+          "task": "validate_candidate"
+        },
+        "validate_data": {
+          "attempt": 1,
+          "duration_seconds": 0.4321534659999884,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T10:56:58.650064+00:00",
+          "result": {
+            "rows": 7043,
+            "status": "PASS_WITH_WARNINGS"
+          },
+          "run_id": "manual__opsyntra_sklearn_20261019T105642410638Z",
+          "started_at": "2026-10-19T10:56:58.217941+00:00",
+          "status": "success",
+          "task": "validate_data"
+        }
+      },
+      "tasks": [
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:56:58.924478+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:56:44.424156+00:00",
+          "state": "success",
+          "task_id": "validate_data"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:57:07.542415+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:00.014860+00:00",
+          "state": "success",
+          "task_id": "prepare_splits"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:57:25.635320+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:08.049263+00:00",
+          "state": "success",
+          "task_id": "tune_and_train"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:57:35.331771+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:25.921903+00:00",
+          "state": "success",
+          "task_id": "evaluate"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:57:42.622995+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:35.701833+00:00",
+          "state": "success",
+          "task_id": "validate_candidate"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:57:50.024223+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:42.858869+00:00",
+          "state": "success",
+          "task_id": "save_selected_model"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:57:58.923547+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:50.821293+00:00",
+          "state": "success",
+          "task_id": "predict"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:58:08.667509+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:57:59.809330+00:00",
+          "state": "success",
+          "task_id": "save_results"
+        }
+      ]
+    },
+    "spark": {
+      "airflow_version": "3.3.2",
+      "approval": {
+        "candidate_sha256": "72a1bf36b272357be8accb07096faf7c719248bdcd46a9d1a96b1a27ff126a36",
+        "checks": {
+          "artifact_hash_matches": true,
+          "finite_validation_metrics": true,
+          "improves_dummy_validation_ap": true,
+          "reload_matches": true,
+          "same_dataset": true,
+          "same_memberships": true,
+          "selected_is_not_dummy": true,
+          "test_not_used_for_selection": true,
+          "valid_threshold": true,
+          "validation_ap_above_minimum": true
+        },
+        "evaluation_sha256": "a5bdc4009891640fd2cd138de7a1a323b04c7cf32239c190fd9ae61df7c197f5",
+        "selection_basis": "Validation scores and integrity only. Test scores are not an approval gate.",
+        "status": "PASS"
+      },
+      "dag_id": "opsyntra_ml_workflow",
+      "dag_run": {
+        "dag_id": "opsyntra_ml_workflow",
+        "end_date": "2026-10-19T11:08:11.468686+00:00",
+        "logical_date": "",
+        "run_after": "2026-10-19T10:59:14.998574+00:00",
+        "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+        "start_date": "2026-10-19T10:59:15.367681+00:00",
+        "state": "success"
+      },
+      "engine": "spark",
+      "mlflow": {
+        "candidate_runs": {
+          "logistic_regression": "edcbd9307f2a47448b7907ffe9846fa1",
+          "random_forest": "b026396efb7c4c26b00bf6f6e15e8d44",
+          "xgboost": "bd0d771513e54ff9b11fda6aa0c4ed47"
+        },
+        "dag_run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+        "experiment_id": "3",
+        "experiment_name": "Opsyntra-Airflow",
+        "workflow_run_id": "029bf43d71c443b7b38eb52d5e7803c3"
+      },
+      "predictions": [
+        {
+          "churn_probability": 0.4297384219531124,
+          "customerID": "DEMO-NEW-001",
+          "model_version": "682a0464717a81e4",
+          "prediction": "Yes"
+        },
+        {
+          "churn_probability": 0.0861891273000895,
+          "customerID": "DEMO-NEW-002",
+          "model_version": "682a0464717a81e4",
+          "prediction": "No"
+        }
+      ],
+      "run_directory": "artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81",
+      "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+      "state": "success",
+      "summary": {
+        "completed_at": "2026-10-19T11:08:10.647476+00:00",
+        "dag_id": "opsyntra_ml_workflow",
+        "decision_threshold": 0.2591731921257882,
+        "engine": "spark",
+        "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+        "model_sha256": "72a1bf36b272357be8accb07096faf7c719248bdcd46a9d1a96b1a27ff126a36",
+        "model_version": "682a0464717a81e4",
+        "prediction_rows": 2,
+        "predictions_path": "results/predictions.csv",
+        "predictions_sha256": "aeb15533be8d5c3b3a6e74f0f6fdbb32360b7635e82aef2f626273d0facafd7a",
+        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81",
+        "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+        "selected_model": "random_forest",
+        "selected_model_path": "selected/72a1bf36b272357be8accb07096faf7c719248bdcd46a9d1a96b1a27ff126a36",
+        "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+        "stages": [
+          "validate_data",
+          "prepare_splits",
+          "tune_and_train",
+          "evaluate",
+          "validate_candidate",
+          "save_selected_model",
+          "predict",
+          "save_results"
+        ],
+        "status": "PASS",
+        "test_metrics": {
+          "accuracy": 0.7444996451383961,
+          "average_precision": 0.6538683646799619,
+          "confusion_matrix": [
+            [
+              751,
+              284
+            ],
+            [
+              76,
+              298
+            ]
+          ],
+          "f1": 0.6234309623430963,
+          "precision": 0.5120274914089347,
+          "recall": 0.7967914438502673,
+          "roc_auc": 0.844086646516314
+        },
+        "test_used_for_selection": false,
+        "validation": {
+          "accuracy": 0.7452093683463449,
+          "average_precision": 0.6617533619509034,
+          "confusion_matrix": [
+            [
+              743,
+              292
+            ],
+            [
+              67,
+              307
+            ]
+          ],
+          "f1": 0.6310380267214799,
+          "precision": 0.5125208681135225,
+          "recall": 0.820855614973262,
+          "roc_auc": 0.8421762380841664
+        }
+      },
+      "task_events": {
+        "evaluate": {
+          "attempt": 1,
+          "duration_seconds": 136.981546235,
+          "engine": "spark",
+          "finished_at": "2026-10-19T11:06:47.355591+00:00",
+          "result": {
+            "selected_model": "random_forest",
+            "test_used_for_selection": false
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T11:04:29.373075+00:00",
+          "status": "success",
+          "task": "evaluate"
+        },
+        "predict": {
+          "attempt": 1,
+          "duration_seconds": 36.730380190000005,
+          "engine": "spark",
+          "finished_at": "2026-10-19T11:07:57.149240+00:00",
+          "result": {
+            "prediction_rows": 2
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T11:07:20.419472+00:00",
+          "status": "success",
+          "task": "predict"
+        },
+        "prepare_splits": {
+          "attempt": 1,
+          "duration_seconds": 1.2046591019999937,
+          "engine": "spark",
+          "finished_at": "2026-10-19T10:59:41.467215+00:00",
+          "result": {
+            "new_random_split": false,
+            "partition_rows": {
+              "test": 1409,
+              "train": 4225,
+              "validation": 1409
+            }
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T10:59:40.262597+00:00",
+          "status": "success",
+          "task": "prepare_splits"
+        },
+        "save_results": {
+          "attempt": 1,
+          "duration_seconds": 0.2244220459999724,
+          "engine": "spark",
+          "finished_at": "2026-10-19T11:08:10.678519+00:00",
+          "result": {
+            "results_path": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/airflow/runs/spark/manual__opsyntra_spark_20261019T105913309419Z-0febd3972a81/results",
+            "rows": 2
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T11:08:10.454270+00:00",
+          "status": "success",
+          "task": "save_results"
+        },
+        "save_selected_model": {
+          "attempt": 1,
+          "duration_seconds": 2.868643407000036,
+          "engine": "spark",
+          "finished_at": "2026-10-19T11:07:12.079956+00:00",
+          "result": {
+            "model_version": "682a0464717a81e4",
+            "path": "selected/72a1bf36b272357be8accb07096faf7c719248bdcd46a9d1a96b1a27ff126a36"
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T11:07:09.211434+00:00",
+          "status": "success",
+          "task": "save_selected_model"
+        },
+        "tune_and_train": {
+          "attempt": 1,
+          "duration_seconds": 262.199294118,
+          "engine": "spark",
+          "finished_at": "2026-10-19T11:04:17.367394+00:00",
+          "result": {
+            "models": [
+              "logistic_regression",
+              "random_forest",
+              "xgboost"
+            ]
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T10:59:55.168579+00:00",
+          "status": "success",
+          "task": "tune_and_train"
+        },
+        "validate_candidate": {
+          "attempt": 1,
+          "duration_seconds": 0.8658748100000366,
+          "engine": "spark",
+          "finished_at": "2026-10-19T11:06:59.197654+00:00",
+          "result": {
+            "checks": 10,
+            "status": "PASS"
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T11:06:58.331854+00:00",
+          "status": "success",
+          "task": "validate_candidate"
+        },
+        "validate_data": {
+          "attempt": 1,
+          "duration_seconds": 0.6907870370000069,
+          "engine": "spark",
+          "finished_at": "2026-10-19T10:59:27.145008+00:00",
+          "result": {
+            "rows": 7043,
+            "status": "PASS_WITH_WARNINGS"
+          },
+          "run_id": "manual__opsyntra_spark_20261019T105913309419Z",
+          "started_at": "2026-10-19T10:59:26.454266+00:00",
+          "status": "success",
+          "task": "validate_data"
+        }
+      },
+      "tasks": [
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:59:27.779249+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:59:15.422119+00:00",
+          "state": "success",
+          "task_id": "validate_data"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T10:59:43.353604+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:59:28.377491+00:00",
+          "state": "success",
+          "task_id": "prepare_splits"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T11:04:18.747507+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T10:59:44.424533+00:00",
+          "state": "success",
+          "task_id": "tune_and_train"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T11:06:48.420692+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T11:04:19.388133+00:00",
+          "state": "success",
+          "task_id": "evaluate"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T11:06:59.674552+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T11:06:48.919557+00:00",
+          "state": "success",
+          "task_id": "validate_candidate"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T11:07:12.507145+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T11:06:59.881238+00:00",
+          "state": "success",
+          "task_id": "save_selected_model"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T11:07:58.156930+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T11:07:12.722234+00:00",
+          "state": "success",
+          "task_id": "predict"
+        },
+        {
+          "dag_id": "opsyntra_ml_workflow",
+          "end_date": "2026-10-19T11:08:11.090955+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T11:07:59.165527+00:00",
+          "state": "success",
+          "task_id": "save_results"
+        }
+      ]
+    }
+  }
+}

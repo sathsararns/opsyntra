@@ -30,6 +30,7 @@ Opsyntra/
   start-frontend.ps1        Starts both local services
   start-mlflow.ps1          Opens the local experiment tracking UI
   start-spark.ps1           Runs Spark setup, training, inference and checks in Ubuntu WSL
+  start-airflow.ps1         Starts Airflow and runs the complete ML DAG in Ubuntu WSL
 ```
 
 The Git repository remains at this root. `.review-tools/` is an ignored local
@@ -162,4 +163,25 @@ screenshots to `docs/screenshots/`.
 Data preparation, sklearn training/inference, and the local interface are
 implemented, including MLflow tracking and validation threshold selection.
 PySpark training, persistence, inference and engine comparison are implemented.
-Airflow and Kafka are the next roadmap phases.
+The required Airflow ML DAG is implemented for both engines. Kafka is next.
+
+## Airflow ML workflow
+
+From this repository root, start the local Airflow UI and run either engine:
+
+```powershell
+.\start-airflow.ps1 -Task start
+.\start-airflow.ps1 -Task run -Engine sklearn
+.\start-airflow.ps1 -Task run -Engine spark
+```
+
+From `backend/`, use `..\start-airflow.ps1`. Open http://localhost:8080 and
+select **opsyntra_ml_workflow**. The launcher waits for all eight scheduled tasks
+and the DagRun to succeed, then records the workflow and candidates in MLflow.
+Each run has its own data snapshot, approved saved pipeline, logs and prediction
+CSV under `backend/artifacts/airflow/runs/`.
+
+For initial setup, runtime separation, retries/timeouts, validation gates and
+result paths, see [Airflow operations](backend/dags/README.md). See the
+[completed-run report](backend/reports/airflow_workflow_report.md) and
+[screenshots](docs/README.md) for the checkpoint evidence.

@@ -2,7 +2,7 @@
 
 Telco customer churn prediction and streaming ML project.
 
-## Implemented: Steps 1–4
+## Implemented: Steps 1–5
 
 - Original dataset import from the supplied ZIP without changing its contents.
 - Schema, customer ID, label, category, numeric and missing-value validation.
@@ -28,7 +28,7 @@ Use an environment with the dependencies in `requirements/web.txt` (which includ
 the model and data dependencies). These checkpoints were verified with Python 3.14.6 and
 the recorded dependency versions.
 Spark uses the separately tested Ubuntu WSL environment described below.
-Airflow will receive its own runtime during that phase.
+Airflow uses its own constrained Python environment in Ubuntu WSL.
 
 ```powershell
 python -m pip install -r requirements/web.txt
@@ -190,10 +190,10 @@ model. Refresh the labelled offline snapshot after retraining with
 `python -m pipelines.frontend_snapshot`.
 
 Reusable code is in `src/opsyntra/`; `pipelines/` contains runnable workflows.
-`notebooks/` and `dags/` contain placeholders for upcoming EDA and orchestration.
+`notebooks/` is reserved for exploration; `dags/` contains the working eight-task ML DAG.
 `tests/` verifies the implemented data workflow and `reports/` stores evidence.
 
-Next: implement Airflow orchestration for the working sklearn and Spark workflows. The complete project plan
+Airflow orchestration is implemented for both engines; Kafka is the next phase. The complete project plan
 is in [OPSYNTRA_ROADMAP.md](../OPSYNTRA_ROADMAP.md). Shared frontend screenshots
 are in [docs/screenshots/](../docs/screenshots/).
 
@@ -333,3 +333,25 @@ WSL with Windows-owned MLflow storage, use the PowerShell launcher or pass
 References: [Spark ML pipelines](https://spark.apache.org/docs/4.0.2/ml-pipeline.html),
 [Spark installation](https://spark.apache.org/docs/4.0.2/api/python/getting_started/install.html),
 [XGBoost Spark integration and persistence](https://xgboost.readthedocs.io/en/stable/tutorials/spark_estimator.html).
+
+## Airflow orchestration
+
+The eight-task DAG supports sklearn and Spark through its engine parameter,
+with immutable input snapshots, saved membership reuse, training-only tuning,
+validation gates, saved-model inference and run-specific results. It includes
+retries, timeouts and per-attempt logs.
+
+From this backend directory:
+
+```powershell
+..\start-airflow.ps1 -Task start
+..\start-airflow.ps1 -Task run -Engine sklearn
+..\start-airflow.ps1 -Task run -Engine spark
+```
+
+Open http://localhost:8080. On a new environment first run
+`..\start-airflow.ps1 -Task setup` after setting up the Spark ML runtime.
+Read [DAG operations and outputs](dags/README.md) and
+[successful execution evidence](reports/airflow_workflow_report.md).
+The launcher records successful workflow/candidate runs in **Opsyntra-Airflow**
+in the existing Windows MLflow store.

@@ -3,6 +3,7 @@
 import hashlib
 import importlib.metadata
 import json
+import os
 import time
 import uuid
 from pathlib import Path
@@ -25,12 +26,22 @@ def dump_pipeline(model, path):
     temporary.replace(path)
 
 
+def filesystem_path(path):
+    """Use Win32 extended paths so nested native Spark files stay visible."""
+    path = Path(path).absolute()
+    value = str(path)
+    if os.name == "nt" and not value.startswith("\\\\?\\"):
+        path = Path("\\\\?\\UNC\\" + value[2:] if value.startswith("\\\\") else "\\\\?\\" + value)
+    return path
+
+
 def model_digest(path):
     from .data_pipeline import sha256_file
+    path = filesystem_path(path)
     if path.is_file():
         return sha256_file(path)
     digest = hashlib.sha256()
-    files = sorted(p for p in path.rglob("*") if p.is_file())
+    files = sorted((p for p in path.rglob("*") if p.is_file()), key=lambda p: p.relative_to(path).parts)
     if not files:
         raise ValueError("Model artifact is empty.")
     for file in files:
