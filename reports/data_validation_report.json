@@ -1,0 +1,181 @@
+{
+  "checks": {
+    "identifier_and_target_excluded_from_features": true,
+    "no_rows_dropped": true,
+    "required_values": true,
+    "schema": true,
+    "unique_customer_ids": true
+  },
+  "columns": 21,
+  "duplicate_customer_ids": 0,
+  "errors": [],
+  "feature_contract": {
+    "categorical_features": [
+      "gender",
+      "Partner",
+      "Dependents",
+      "PhoneService",
+      "MultipleLines",
+      "InternetService",
+      "OnlineSecurity",
+      "OnlineBackup",
+      "DeviceProtection",
+      "TechSupport",
+      "StreamingTV",
+      "StreamingMovies",
+      "Contract",
+      "PaperlessBilling",
+      "PaymentMethod"
+    ],
+    "excluded_from_features": [
+      "customerID",
+      "Churn",
+      "event_ts",
+      "processed_ts",
+      "event_id"
+    ],
+    "features": [
+      "gender",
+      "SeniorCitizen",
+      "Partner",
+      "Dependents",
+      "tenure",
+      "PhoneService",
+      "MultipleLines",
+      "InternetService",
+      "OnlineSecurity",
+      "OnlineBackup",
+      "DeviceProtection",
+      "TechSupport",
+      "StreamingTV",
+      "StreamingMovies",
+      "Contract",
+      "PaperlessBilling",
+      "PaymentMethod",
+      "MonthlyCharges",
+      "TotalCharges"
+    ],
+    "identifier": "customerID",
+    "numeric_features": [
+      "SeniorCitizen",
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges"
+    ],
+    "target": "Churn",
+    "target_mapping_for_training": {
+      "No": 0,
+      "Yes": 1
+    }
+  },
+  "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+  "missing_value_policy": {
+    "TotalCharges": "Convert blanks to numeric missing values; retain rows. Fit median imputation inside the later training/CV pipeline, using training data only.",
+    "all_other_columns": "Reject missing values.",
+    "blank_total_charges_count": 11,
+    "blank_total_charges_with_zero_tenure": 11,
+    "imputation_performed": false
+  },
+  "missing_values": {
+    "Churn": 0,
+    "Contract": 0,
+    "Dependents": 0,
+    "DeviceProtection": 0,
+    "InternetService": 0,
+    "MonthlyCharges": 0,
+    "MultipleLines": 0,
+    "OnlineBackup": 0,
+    "OnlineSecurity": 0,
+    "PaperlessBilling": 0,
+    "Partner": 0,
+    "PaymentMethod": 0,
+    "PhoneService": 0,
+    "SeniorCitizen": 0,
+    "StreamingMovies": 0,
+    "StreamingTV": 0,
+    "TechSupport": 0,
+    "TotalCharges": 11,
+    "customerID": 0,
+    "gender": 0,
+    "tenure": 0
+  },
+  "numeric_summary": {
+    "MonthlyCharges": {
+      "dtype": "Float64",
+      "max": 118.75,
+      "min": 18.25,
+      "missing": 0
+    },
+    "SeniorCitizen": {
+      "dtype": "Int64",
+      "max": 1.0,
+      "min": 0.0,
+      "missing": 0
+    },
+    "TotalCharges": {
+      "dtype": "Float64",
+      "max": 8684.8,
+      "min": 18.8,
+      "missing": 11
+    },
+    "tenure": {
+      "dtype": "Int64",
+      "max": 72.0,
+      "min": 0.0,
+      "missing": 0
+    }
+  },
+  "rows": 7043,
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "split_checks": {
+    "all_customers_assigned_once": true,
+    "no_learned_preprocessing_fitted": true,
+    "no_partition_overlap": true
+  },
+  "splits": {
+    "test": {
+      "churn_percentage": 26.5436,
+      "missing_total_charges": 2,
+      "rows": 1409,
+      "sha256": "9a01843775a92ae0dc4f655ca85ed4c2d81dc1ab11bc2c248d9d84bee15a2fff",
+      "target_counts": {
+        "No": 1035,
+        "Yes": 374
+      }
+    },
+    "train": {
+      "churn_percentage": 26.5325,
+      "missing_total_charges": 8,
+      "rows": 4225,
+      "sha256": "586f320e81cf49dcf1e86f187cace80932d0967ad2a03c532b9765088e7a6598",
+      "target_counts": {
+        "No": 3104,
+        "Yes": 1121
+      }
+    },
+    "validation": {
+      "churn_percentage": 26.5436,
+      "missing_total_charges": 1,
+      "rows": 1409,
+      "sha256": "437aa573f932c285a1408c146ee81adb1407d73b1e340dec063ebd8b96ac80bf",
+      "target_counts": {
+        "No": 1035,
+        "Yes": 374
+      }
+    }
+  },
+  "status": "PASS_WITH_WARNINGS",
+  "target_distribution": {
+    "No": {
+      "count": 5174,
+      "percentage": 73.463
+    },
+    "Yes": {
+      "count": 1869,
+      "percentage": 26.537
+    }
+  },
+  "warnings": [
+    "Retained 11 missing TotalCharges values for training-only imputation."
+  ]
+}

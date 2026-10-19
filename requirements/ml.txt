@@ -1,0 +1,4 @@
+-r data.txt
+joblib==1.6.0
+scipy==1.18.1
+xgboost==3.4.1

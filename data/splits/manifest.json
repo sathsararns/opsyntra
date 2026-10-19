@@ -1,0 +1,58 @@
+{
+  "checks": {
+    "all_customers_assigned_once": true,
+    "no_learned_preprocessing_fitted": true,
+    "no_partition_overlap": true
+  },
+  "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+  "method": "Sort by customerID; two-stage sklearn stratified train_test_split; persist ID membership for both engines.",
+  "normalized_sha256": "d0307037f19b232f385f57b780fe6ef32f0b056ba2287f54f23bccc0bc610550",
+  "requested_fractions": {
+    "test": 0.2,
+    "train": 0.6,
+    "validation": 0.2
+  },
+  "runtime": {
+    "PyYAML": "6.0.3",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "python": "3.14.6",
+    "scikit_learn": "1.9.1"
+  },
+  "schema_version": 1,
+  "seed": 42,
+  "source_file": "WA_Fn-UseC_-Telco-Customer-Churn.csv",
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "splits": {
+    "test": {
+      "churn_percentage": 26.5436,
+      "missing_total_charges": 2,
+      "rows": 1409,
+      "sha256": "9a01843775a92ae0dc4f655ca85ed4c2d81dc1ab11bc2c248d9d84bee15a2fff",
+      "target_counts": {
+        "No": 1035,
+        "Yes": 374
+      }
+    },
+    "train": {
+      "churn_percentage": 26.5325,
+      "missing_total_charges": 8,
+      "rows": 4225,
+      "sha256": "586f320e81cf49dcf1e86f187cace80932d0967ad2a03c532b9765088e7a6598",
+      "target_counts": {
+        "No": 3104,
+        "Yes": 1121
+      }
+    },
+    "validation": {
+      "churn_percentage": 26.5436,
+      "missing_total_charges": 1,
+      "rows": 1409,
+      "sha256": "437aa573f932c285a1408c146ee81adb1407d73b1e340dec063ebd8b96ac80bf",
+      "target_counts": {
+        "No": 1035,
+        "Yes": 374
+      }
+    }
+  }
+}
