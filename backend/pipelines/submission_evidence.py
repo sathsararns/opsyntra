@@ -28,13 +28,24 @@ def main():
         raise ValueError("MLflow screenshots do not match the current training report")
     if len(training["tracking"]["runs"]) != 4:
         raise ValueError("Expected four comparable model runs")
+    required_ml = read("backend/reports/airflow_workflow_report.json")
+    ml_captures = read("docs/screenshots/airflow-evidence.json")
+    for engine, result in required_ml["runs"].items():
+        if result["state"] != "success" or len(result["tasks"]) != 8 or any(t["state"] != "success" for t in result["tasks"]):
+            raise ValueError("Required eight-task ML DAG did not finish")
+        if not any(c["run_id"] == result["run_id"] for c in ml_captures["runs"]):
+            raise ValueError("Required ML DAG screenshots and report do not match")
+    kafka_captures = read("docs/screenshots/kafka-evidence.json")
     bonus = {}
     for kind in ("batch", "streaming"):
         scheduler = read(f"backend/.airflow-runtime/last_success_kafka_{kind}.json")
-        result = read(f"backend/artifacts/kafka/airflow/latest_success_{kind}.json")
+        run_key = hashlib.sha256(scheduler["run_id"].encode()).hexdigest()[:20]
+        result = read(f"backend/artifacts/kafka/airflow/{kind}/{run_key}/summary.json")
         if (scheduler["state"] != "success" or len(scheduler["tasks"]) != 4 or any(t["state"] != "success" for t in scheduler["tasks"])
                 or result["status"] != "PASS" or scheduler["run_id"] != result["run_id"]):
             raise ValueError("Bonus DAG evidence is incomplete or mismatched")
+        if not any(c.get("run_id") == scheduler["run_id"] for c in kafka_captures["captures"]):
+            raise ValueError("Bonus screenshot provenance does not match its run")
         result_csv = Path(result["predictions_csv"])
         # WSL paths in task outputs map to the same shared workspace on Windows.
         if not result_csv.exists():
@@ -72,6 +83,8 @@ def main():
     paths.update("docs/screenshots/" + name for name in required)
     paths.update(p.relative_to(PROJECT).as_posix() for p in (PROJECT / "docs/evidence").glob("*") if p.is_file())
     paths.update({"backend/reports/test_results.log", "backend/reports/test_results_spark.log", "docs/screenshots/mlflow-evidence.json", "docs/screenshots/kafka-evidence.json"})
+    paths.update({"backend/src/opsyntra/kafka_workflow.py", "backend/src/opsyntra/kafka_consumption.py", "backend/config.yaml",
+                  "backend/producer.py", "backend/consumer.py", "start-airflow.ps1", "backend/pipelines/verification.py"})
     artifacts = []
     for relative in sorted(paths):
         path = PROJECT / relative

@@ -51,7 +51,7 @@ Invalid events -> telco.deadletter (optional in PDF; recommended)
 Airflow -> orchestration, retries, evaluation and evidence
 ```
 
-Start with Docker Compose for local services and a pinned Linux runtime for Spark and Airflow. On Windows, use Docker Desktop with WSL2. Choose and smoke-test a compatible Python/Java/Spark/Airflow combination before implementing model code. Keep Airflow dependencies separate from ML dependencies when necessary.
+The implemented local services run natively in Ubuntu WSL, with a pinned Linux Spark runtime and an isolated Airflow environment. Kafka uses persistent native Linux storage and Windows localhost forwarding. Docker is optional and is not required by the launchers. See docs/VERIFICATION.md for the actual compatible runtimes and setup commands.
 
 ## 3. Repository layout
 
@@ -92,7 +92,7 @@ Opsyntra/
   start-frontend.ps1           # Starts both local services
 ```
 
-Future producer.py, consumer.py, Spark modules and Airflow DAGs belong inside
+The implemented producer.py, consumer.py, Spark modules and Airflow DAGs live inside
 `backend/`. Shared deployment configuration can live at the repository root.
 
 Use the lecture's separation of reusable components, pipelines and services. Build Telco-specific schemas and transformations instead of copying its bank features or hard-coded feature ordering.
@@ -194,7 +194,7 @@ customer fields, UTC timestamps and stable batch event IDs. The real broker chec
 verified 7,043 batch records across two processes plus 30 streaming records.
 See `backend/KAFKA.md` and `backend/reports/kafka_publishing_report.md`.
 Crash-window delivery is documented as at-least-once with stable IDs for future
-consumer deduplication.
+consumer deduplication, which is now implemented in Phase 7.
 
 Create these exact topics:
 

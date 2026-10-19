@@ -1,6 +1,6 @@
 # Opsyntra verification and evidence
 
-Generated: 2026-10-19T15:39:56.185348+00:00
+Generated: 2026-10-19T15:40:47.126360+00:00
 
 Host: 67 passed, 4 Spark checks skipped. Native WSL Spark: 4 passed, no skips. All 71 unique tests passed across the two runtimes.
 

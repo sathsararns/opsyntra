@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "captured_at": "2026-10-19T15:39:56.185348+00:00",
+  "captured_at": "2026-10-19T15:40:47.126360+00:00",
   "host_tests": {
     "tests_run": 71,
     "passed": 67,
@@ -332,9 +332,29 @@
       "sha256": "5922c79053d0f70fbf3a52fb55fc0b32aca765ebfeb61599ce8cdc70347f3a0d"
     },
     {
+      "path": "backend/config.yaml",
+      "bytes": 3383,
+      "sha256": "1ee536a4ccccd82a269cb62b85d7ccbee7bf4a4d9c6a6c742c7639d6c31e77d4"
+    },
+    {
+      "path": "backend/consumer.py",
+      "bytes": 3109,
+      "sha256": "eac86bcdb569a27aaf1ccc2284fdcb8bcd318588e0e54edb6fea327f985a5fc4"
+    },
+    {
       "path": "backend/dags/opsyntra_kafka_workflows.py",
       "bytes": 2906,
       "sha256": "4be0dd3c91771657b81c90f5e487a917284e6f85c5956101a7548061730dd8dc"
+    },
+    {
+      "path": "backend/pipelines/verification.py",
+      "bytes": 3785,
+      "sha256": "dd750a808ed91593d1d09b938e63771e06b746842812e4480d8462415ad094fc"
+    },
+    {
+      "path": "backend/producer.py",
+      "bytes": 2501,
+      "sha256": "1ef3abdfe6bac33fcf328d39f64ee3edc955bd9a96812ed58c4b9988becff18d"
     },
     {
       "path": "backend/reports/airflow_workflow_report.md",
@@ -385,6 +405,16 @@
       "path": "backend/reports/test_results_spark.log",
       "bytes": 852,
       "sha256": "fb8c88fa56fc477408907c88600b76c0d74f8ca74eefc8cf57727866d1d496a0"
+    },
+    {
+      "path": "backend/src/opsyntra/kafka_consumption.py",
+      "bytes": 19693,
+      "sha256": "faa1a4f4c22237fcb683b0e2fe62d28925f7dfb63d33a7fba0e8cf910b12bd9b"
+    },
+    {
+      "path": "backend/src/opsyntra/kafka_workflow.py",
+      "bytes": 16499,
+      "sha256": "3bf8a0f949f56b081a85615867f247c6a91882230b5309d2d752587c1dd415e7"
     },
     {
       "path": "backend/tests/integration/test_kafka_consumer.py",
@@ -550,6 +580,11 @@
       "path": "docs/screenshots/mlflow-selected-model.png",
       "bytes": 120594,
       "sha256": "2f8f38501ca497c82056ada0e36e0e9eda8d6f5e8641fc9455e50570840e9c0d"
+    },
+    {
+      "path": "start-airflow.ps1",
+      "bytes": 2426,
+      "sha256": "0be2c444c8a7c24e843244b5b5c58082019aa38b2829ea99cba4d20530d56e43"
     }
   ],
   "limits": [
