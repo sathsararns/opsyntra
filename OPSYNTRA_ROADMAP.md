@@ -1,6 +1,6 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
-This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1 and 2 are implemented: data validation, fixed splits, complete sklearn model pipelines, CV/validation comparison, Joblib persistence and raw-record inference. See README.md and the data/model reports in reports/. MLflow and later phases remain planned.
+This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–3 are implemented: data validation, fixed splits, complete sklearn pipelines, CV/validation comparison, validation F1 threshold selection, Joblib/raw-record inference, and local MLflow runs with models and evaluation plots. See README.md and the reports in backend/reports/. Spark and later phases remain planned.
 
 ## 1. Requirements and priorities
 
@@ -53,53 +53,47 @@ Airflow -> orchestration, retries, evaluation and evidence
 
 Start with Docker Compose for local services and a pinned Linux runtime for Spark and Airflow. On Windows, use Docker Desktop with WSL2. Choose and smoke-test a compatible Python/Java/Spark/Airflow combination before implementing model code. Keep Airflow dependencies separate from ML dependencies when necessary.
 
-## 3. Proposed repository
+## 3. Repository layout
+
+The repository separates the Next.js frontend from the Python API and ML workflows.
+Python source names and paths in the later build phases are relative to `backend/`.
+MLflow tracking is implemented. Spark, Kafka and Airflow components remain planned where stated.
 
 ```text
 Opsyntra/
-  README.md
-  config.yaml
-  .env.example
-  requirements/                 # pinned app, Spark, Airflow and dev environments
-  data/
-    raw/                       # supplied CSV; preserve original
-    splits/                    # customerID membership manifests
-  notebooks/
-    01_data_exploration.ipynb
-    02_engine_comparison.ipynb
-  src/opsyntra/
-    config.py
-    data_validation.py
-    preprocessing_sklearn.py
-    preprocessing_spark.py
-    model_training.py
-    model_evaluation.py
-    model_inference.py
-    tracking.py
-    event_schema.py
-    kafka_utils.py
-    checkpoints.py
-  pipelines/
-    data_pipeline.py
-    training_pipeline.py       # --engine sklearn|spark
-    inference_pipeline.py      # --engine sklearn|spark
-  producer.py                  # required name; --mode batch|streaming
-  consumer.py                  # required name; --mode batch|streaming
-  dags/
-    telco_ml_pipeline_dag.py
-    telco_kafka_batch_dag.py
-    telco_kafka_streaming_dag.py
-  docker/
-  docker-compose.yml
-  tests/
-    unit/
-    integration/
-  artifacts/                   # generated; exclude large artifacts from Git
-  reports/
+  frontend/                   # Next.js + Tailwind; includes browser tests
+    src/
+    public/
+    tests/
+    package.json
+  backend/                    # Python API and ML workflows
+    src/opsyntra/
+    pipelines/
+    dags/
+    notebooks/
+    tests/
+    data/
+      raw/
+      processed/
+      splits/
+    artifacts/
+    reports/
+    examples/
+    requirements/
+    logs/
+    config.yaml
+    pyproject.toml
+    README.md
   docs/
-    requirements_checklist.md
     screenshots/
+  .gitignore
+  README.md
+  OPSYNTRA_ROADMAP.md
+  start-frontend.ps1           # Starts both local services
 ```
+
+Future producer.py, consumer.py, Spark modules and Airflow DAGs belong inside
+`backend/`. Shared deployment configuration can live at the repository root.
 
 Use the lecture's separation of reusable components, pipelines and services. Build Telco-specific schemas and transformations instead of copying its bank features or hard-coded feature ordering.
 
@@ -132,6 +126,11 @@ Done when: validation reports row counts, target balance and missing values, and
 Done when: a fresh process loads the artifact and produces the same probabilities for the same inputs, including supported unseen categories and missing numeric values.
 
 ### Phase 3: MLflow tracking
+
+Implemented: local SQLite tracking, four comparable candidate runs per batch,
+complete sklearn/Joblib artifacts, validation AP model selection and validation
+F1 thresholds. See `backend/reports/model_selection.md`, `model_training_report.json`,
+and `docs/screenshots/mlflow-*.png`. Start the UI with `.\start-mlflow.ps1`.
 
 - Add tracking as soon as the first baseline runs; do not wait until every model is finished.
 - Log model parameters, seed, preprocessing configuration, split identifier, data checksum, metrics and timing.

@@ -1,0 +1,43 @@
+project_name: Opsyntra
+data:
+  raw_path: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+  archive_member: WA_Fn-UseC_-Telco-Customer-Churn.csv
+  normalized_path: data/processed/telco_customers.csv
+  identifier: customerID
+  target: Churn
+preprocessing:
+  # Step 1 converts blanks to numeric missing values and retains every row.
+  # The model pipeline fits median imputation inside each training/CV fold.
+  total_charges_missing_policy: preserve_for_training_imputer
+splitting:
+  seed: 42
+  train: 0.60
+  validation: 0.20
+  test: 0.20
+  output_dir: data/splits
+report_path: reports/data_validation_report.json
+training:
+  models: [dummy, logistic_regression, random_forest, xgboost]
+  seed: 42
+  cv_folds: 3
+  selection_metric: average_precision
+  # Keep CV sequential and bound estimator threads for predictable local use.
+  estimator_jobs: 2
+  artifact_dir: artifacts/models
+  report_path: reports/model_training_report.json
+  comparison_path: reports/model_comparison.csv
+  # Model ranking: validation AP. Operating threshold: maximum validation F1.
+  tracking:
+    database: mlflow.db
+    artifact_dir: mlartifacts
+    experiment_name: Opsyntra-Telco-sklearn
+  param_grids:
+    dummy: {}
+    logistic_regression:
+      classifier__C: [0.1, 1.0, 10.0]
+    random_forest:
+      classifier__max_depth: [8, null]
+      classifier__min_samples_leaf: [2, 5]
+    xgboost:
+      classifier__max_depth: [3, 5]
+      classifier__learning_rate: [0.05, 0.1]
