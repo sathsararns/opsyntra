@@ -1,6 +1,8 @@
 """Consumer failures/replays with a durable real SQLite ledger and fake Kafka I/O."""
 import json
 import sqlite3
+import subprocess
+import sys
 import tempfile
 import time
 import unittest
@@ -10,6 +12,8 @@ from types import SimpleNamespace
 from uuid import uuid4
 
 import joblib
+import numpy as np
+import pandas as pd
 from confluent_kafka import TopicPartition
 
 from opsyntra.kafka_config import load_kafka_config
@@ -247,3 +251,57 @@ class KafkaConsumerTests(unittest.TestCase):
         output = broker.outputs[0][2]
         self.assertAlmostEqual(output["churn_probability"], expected.churn_probability, places=12)
         self.assertEqual(output["prediction"], expected.prediction)
+
+    def test_same_artifact_matches_single_csv_reload_batch_and_streaming_predictions(self):
+        from unittest.mock import patch
+        from opsyntra.data_validation import FEATURE_COLUMNS
+        from opsyntra.model_building import build_model_pipeline
+        from opsyntra.model_inference import load_pipeline, predict_records
+        raw = sample_data(100)
+        pipeline = build_model_pipeline("logistic_regression", jobs=1).fit(
+            raw[list(FEATURE_COLUMNS)], raw.Churn.map({"No": 0, "Yes": 1}))
+        pipeline.opsyntra_metadata_ = {"model_version": "cross-mode-fixture"}
+        path = self.root / "complete.joblib"
+        joblib.dump(pipeline, path)
+        self.settings["model_config"]["sklearn_model"] = path
+        events = [{k: v for k, v in event.items() if k != "Churn"} for event in self.events]
+        events[0]["TotalCharges"] = None
+        records = [{"customerID": e["customerID"], **{name: e[name] for name in FEATURE_COLUMNS}} for e in events]
+        expected = predict_records(pipeline, records)
+        reloaded = predict_records(load_pipeline(path), records)
+        np.testing.assert_array_equal(expected.churn_probability, reloaded.churn_probability)
+        single = predict_records(load_pipeline(path), records[0])
+        self.assertAlmostEqual(single.iloc[0].churn_probability, expected.iloc[0].churn_probability, places=14)
+        csv_input, csv_output = self.root / "customers.csv", self.root / "file_predictions.csv"
+        pd.DataFrame(records).to_csv(csv_input, index=False)
+        process = subprocess.run([sys.executable, "-m", "pipelines.inference_pipeline", "--model", str(path),
+                                  "--input", str(csv_input), "--output", str(csv_output)], cwd=ROOT,
+                                 capture_output=True, text=True, timeout=60)
+        self.assertEqual(process.returncode, 0, process.stderr)
+        file_results = pd.read_csv(csv_output)
+        np.testing.assert_allclose(file_results.churn_probability, expected.churn_probability, rtol=0, atol=1e-14)
+        for mode in ("batch", "streaming"):
+            with self.subTest(mode=mode):
+                self.settings["consumer"]["state_dir"] = self.root / (mode + "-state")
+                broker = Broker([self.record(event, i) for i, event in enumerate(events)], self.settings)
+                with patch("opsyntra.model_inference.load_pipeline", wraps=load_pipeline) as loader:
+                    summary = run_consumer(self.settings, mode=mode, max_messages=4, batch_size=1 if mode == "streaming" else 4,
+                                           consumer=Input(broker), producer=Output(broker))
+                    self.assertEqual(loader.call_count, 1)
+                self.assertEqual(summary["status"], "completed")
+                by_id = {p["event_id"]: p for _, _, p in broker.outputs}
+                for i, event in enumerate(events):
+                    self.assertAlmostEqual(by_id[event["event_id"]]["churn_probability"], expected.iloc[i].churn_probability, places=14)
+                    self.assertEqual(by_id[event["event_id"]]["prediction"], expected.iloc[i].prediction)
+
+    def test_unseen_category_is_supported_by_model_but_rejected_by_strict_event_contract(self):
+        from opsyntra.kafka_consumption import decode_record, InvalidRecord
+        from opsyntra.model_building import build_model_pipeline
+        from opsyntra.model_inference import predict_records
+        raw = sample_data(100)
+        pipeline = build_model_pipeline("logistic_regression", jobs=1).fit(raw, raw.Churn.map({"No": 0, "Yes": 1}))
+        event = {**self.events[0], "PaymentMethod": "Future payment method"}
+        result = predict_records(pipeline, [event])
+        self.assertTrue(np.isfinite(result.iloc[0].churn_probability))
+        with self.assertRaises(InvalidRecord):
+            decode_record(self.record(event, 0), self.settings["consumer"]["max_event_bytes"])

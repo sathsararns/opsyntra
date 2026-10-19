@@ -191,7 +191,7 @@ def configure_window(consumer, window, topic, cluster_id):
 
 def run_consumer(settings, *, mode, engine="sklearn", group_id=None, model_path=None, state_dir=None,
                  max_messages=None, batch_size=None, idle_timeout=None, timeout_seconds=None, offset_window=None,
-                 stop=None, consumer=None, producer=None, model=None, fault_hook=lambda stage: None):
+                 stop=None, consumer=None, producer=None, model=None, fault_hook=lambda stage: None, progress_callback=None):
     from confluent_kafka import Consumer, KafkaError, TopicPartition
     from .kafka_models import PredictionModel
     policy = settings["consumer"]
@@ -245,6 +245,8 @@ def run_consumer(settings, *, mode, engine="sklearn", group_id=None, model_path=
         with checkpoint_lock(ledger_path):
             model = model if model is not None else PredictionModel(settings, engine, model_path, directory)
             stats.update(model_version=model.version, model_sha256=model.sha256, model_loads=1)
+            if progress_callback is not None:
+                progress_callback(dict(stats))
             LOG.info("Loaded %s model once: version=%s group=%s", engine, model.version, group_id)
             identity = {"cluster_id": metadata.cluster_id, "group_id": group_id, "topics": settings["topics"],
                         "engine": engine, "model_sha256": model.sha256, "wire_version": 1}
@@ -260,7 +262,11 @@ def run_consumer(settings, *, mode, engine="sklearn", group_id=None, model_path=
                 consumer.subscribe([topic])
             last_input = processing_started = time.monotonic()
             bounded = mode == "batch" or max_messages is not None
+            last_progress = time.monotonic()
             while True:
+                if progress_callback is not None and time.monotonic() - last_progress >= 5:
+                    progress_callback(dict(stats))
+                    last_progress = time.monotonic()
                 if stop.is_set():
                     stats.update(status="stopped", reason="stop_requested")
                     break

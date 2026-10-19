@@ -149,11 +149,62 @@ def record_success(engine):
     print(json.dumps(evidence, indent=2, default=str))
 
 
+def run_kafka(kind, engine, duration, demo_events, events_per_sec):
+    """Trigger a paused bonus DAG without enabling its daily schedule."""
+    start()
+    dag_id = "opsyntra_kafka_" + kind
+    for _ in range(60):
+        dags = cli("dags", "list", "--output", "json", check=False)
+        if dags.returncode == 0 and any(row["dag_id"] == dag_id for row in parse_json(dags.stdout)):
+            break
+        time.sleep(2)
+    else:
+        raise RuntimeError("Kafka DAG missing; inspect import errors")
+    # Paused DAGs do not execute manual runs. Temporarily unpause, then restore
+    # the initial state. New bonus DAGs start paused to avoid unsolicited replay.
+    rows = parse_json(cli("dags", "list", "--output", "json").stdout)
+    was_paused = next(r for r in rows if r["dag_id"] == dag_id).get("is_paused", True)
+    run_id = f"manual__opsyntra_kafka_{kind}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}"
+    conf = json.dumps({"engine": engine, "duration_seconds": duration, "demo_events": demo_events, "events_per_sec": events_per_sec})
+    cli("dags", "trigger", dag_id, "--run-id", run_id, "--conf", conf, "--output", "json")
+    cli("dags", "unpause", dag_id)
+    print(f"Triggered {dag_id}: {run_id}; watching four scheduled tasks.", flush=True)
+    previous = None
+    try:
+        for _ in range(1440):
+            process = cli("tasks", "states-for-dag-run", dag_id, run_id, "--output", "json", check=False)
+            if process.returncode == 0:
+                tasks = parse_json(process.stdout)
+                states = {t["task_id"]: t["state"] for t in tasks}
+                if states != previous:
+                    print(json.dumps(states), flush=True)
+                    previous = states
+                runs = parse_json(cli("dags", "list-runs", dag_id, "--output", "json").stdout)
+                row = next((r for r in runs if r.get("run_id", r.get("dag_run_id")) == run_id), None)
+                if row and row["state"] == "success" and len(states) == 4 and all(s == "success" for s in states.values()):
+                    evidence = {"dag_id": dag_id, "run_id": run_id, "engine": engine, "state": "success", "tasks": tasks, "dag_run": row}
+                    LOCAL.mkdir(exist_ok=True)
+                    (LOCAL / f"last_success_kafka_{kind}.json").write_text(json.dumps(evidence, indent=2, default=str))
+                    print(f"SUCCESS: complete {kind} Kafka DAG run {run_id}", flush=True)
+                    return
+                if row and row["state"] == "failed":
+                    raise RuntimeError(f"Kafka DAG failed; inspect http://localhost:8080/dags/{dag_id}")
+            time.sleep(3)
+        raise TimeoutError("Kafka DAG monitoring reached its two-hour limit")
+    finally:
+        if was_paused:
+            cli("dags", "pause", dag_id, check=False)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("task", choices=["start", "stop", "run", "status", "imports", "record"])
+    parser.add_argument("task", choices=["start", "stop", "run", "status", "imports", "record", "run-kafka"])
     parser.add_argument("--engine", choices=["sklearn", "spark"], default="sklearn")
     parser.add_argument("--prediction-input", default="examples/customers.csv")
+    parser.add_argument("--kafka-kind", choices=["batch", "streaming"], default="batch")
+    parser.add_argument("--duration-seconds", type=int, default=60)
+    parser.add_argument("--demo-events", type=int, default=0)
+    parser.add_argument("--events-per-sec", type=float, default=5)
     args = parser.parse_args()
     if args.task == "start":
         start()
@@ -161,6 +212,8 @@ def main():
         stop()
     elif args.task == "run":
         run(args.engine, args.prediction_input)
+    elif args.task == "run-kafka":
+        run_kafka(args.kafka_kind, args.engine, args.duration_seconds, args.demo_events, args.events_per_sec)
     elif args.task == "status":
         print("healthy" if healthy() else "not running")
     elif args.task == "record":

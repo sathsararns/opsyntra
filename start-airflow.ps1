@@ -1,9 +1,16 @@
 param(
-    [ValidateSet("setup", "start", "stop", "run", "status", "imports", "record", "track")]
+    [ValidateSet("setup", "start", "stop", "run", "status", "imports", "record", "track", "run-kafka")]
     [string]$Task = "start",
     [ValidateSet("sklearn", "spark")]
     [string]$Engine = "sklearn",
-    [string]$PredictionInput = "examples/customers.csv"
+    [string]$PredictionInput = "examples/customers.csv",
+    [ValidateSet("batch", "streaming")]
+    [string]$KafkaKind = "batch",
+    [ValidateRange(5, 3600)]
+    [int]$DurationSeconds = 60,
+    [ValidateRange(0, 10000)]
+    [int]$DemoEvents = 0,
+    [double]$EventsPerSec = 5
 )
 
 $ErrorActionPreference = "Stop"
@@ -29,7 +36,7 @@ if ($Task -eq "setup") {
     if ($LASTEXITCODE -ne 0) { throw "Airflow installation failed." }
     return
 }
-& wsl -d Ubuntu --cd $linuxBackend --exec $venvPython -m pipelines.airflow_service $Task --engine $Engine --prediction-input $PredictionInput
+& wsl -d Ubuntu --cd $linuxBackend --exec $venvPython -m pipelines.airflow_service $Task --engine $Engine --prediction-input $PredictionInput --kafka-kind $KafkaKind --duration-seconds $DurationSeconds --demo-events $DemoEvents --events-per-sec $EventsPerSec
 if ($LASTEXITCODE -ne 0) { throw "Airflow $Task failed. Inspect the log output above." }
 if ($Task -eq "run") {
     Push-Location $backendDirectory
