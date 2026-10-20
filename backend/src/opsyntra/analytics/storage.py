@@ -13,7 +13,7 @@ class AnalyticsStore:
     def _identity(self, value):
         values = (value["event_id"], value["customerID"], value["event_ts"])
         self.connection.execute("""INSERT INTO analytics.customer_events(event_id,customer_id,event_ts)
-            VALUES (%s,%s,%s) ON CONFLICT (event_id) DO NOTHING""", values)
+            VALUES (%s,%s,%s) ON CONFLICT DO NOTHING""", values)
         row = self.connection.execute("""SELECT customer_id = %s AND event_ts = %s::timestamptz AS matches
             FROM analytics.customer_events WHERE event_id = %s""", (values[1], values[2], values[0])).fetchone()
         if not row["matches"]:
@@ -21,13 +21,17 @@ class AnalyticsStore:
 
     def _insert(self, table, identity, fields):
         columns = list(fields)
-        query = sql.SQL("INSERT INTO analytics.{} ({}) VALUES ({}) ON CONFLICT ({}) DO NOTHING RETURNING 1").format(
+        # Cover every unique index. Targeting only the PK can still raise on a
+        # secondary identity index during simultaneous identical inserts.
+        query = sql.SQL("INSERT INTO analytics.{} ({}) VALUES ({}) ON CONFLICT DO NOTHING RETURNING 1").format(
             sql.Identifier(table), sql.SQL(",").join(map(sql.Identifier, columns)),
-            sql.SQL(",").join(sql.Placeholder() for _ in columns), sql.Identifier(identity))
+            sql.SQL(",").join(sql.Placeholder() for _ in columns))
         inserted = self.connection.execute(query, tuple(fields.values())).fetchone() is not None
         if not inserted:
             row = self.connection.execute(sql.SQL("SELECT content_sha256 FROM analytics.{} WHERE {} = %s").format(
                 sql.Identifier(table), sql.Identifier(identity)), (fields[identity],)).fetchone()
+            if row is None:
+                raise EventConflict("Another logical ID already identifies this event/model or dead-letter source")
             if row["content_sha256"] != fields["content_sha256"]:
                 raise EventConflict(f"{identity} reused with different logical contents")
         return inserted

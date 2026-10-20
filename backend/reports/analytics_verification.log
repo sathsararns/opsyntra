@@ -4,7 +4,7 @@ test_deadletter_matches_existing_inference_contract (tests.unit.test_analytics_c
 test_logical_hash_excludes_retry_processing_time_but_not_probability (tests.unit.test_analytics_contracts.AnalyticsContractTests.test_logical_hash_excludes_retry_processing_time_but_not_probability) ... ok
 test_missing_total_charges_preserved_and_source_validated (tests.unit.test_analytics_contracts.AnalyticsContractTests.test_missing_total_charges_preserved_and_source_validated) ... ok
 test_wire_validation_rejects_bad_keys_versions_probabilities_and_times (tests.unit.test_analytics_contracts.AnalyticsContractTests.test_wire_validation_rejects_bad_keys_versions_probabilities_and_times) ... ok
-test_concurrent_duplicate_inserts_have_one_logical_winner (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner) ... ERROR
+test_concurrent_duplicate_inserts_have_one_logical_winner (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner) ... ok
 test_conflicting_prediction_and_model_alias_are_rejected (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_conflicting_prediction_and_model_alias_are_rejected) ... ok
 test_coordinate_conflict_rolls_back_entire_new_logical_event (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_coordinate_conflict_rolls_back_entire_new_logical_event) ... ok
 test_database_enforces_probability_foreign_keys_and_labels (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_database_enforces_probability_foreign_keys_and_labels) ... ok
@@ -21,51 +21,7 @@ test_repeated_customer_uses_event_profile_not_latest_profile (tests.integration.
 test_transaction_rollback_removes_fact_identity_and_provenance (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_transaction_rollback_removes_fact_identity_and_provenance) ... ok
 test_utc_storage_keeps_timezone_display_out_of_the_fact (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_utc_storage_keeps_timezone_display_out_of_the_fact) ... ok
 
-======================================================================
-ERROR: test_concurrent_duplicate_inserts_have_one_logical_winner (tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\src\opsyntra\analytics\storage.py", line 61, in ingest
-    self._identity(value)
-    ~~~~~~~~~~~~~~^^^^^^^
-  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\src\opsyntra\analytics\storage.py", line 15, in _identity
-    self.connection.execute("""INSERT INTO analytics.customer_events(event_id,customer_id,event_ts)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        VALUES (%s,%s,%s) ON CONFLICT (event_id) DO NOTHING""", values)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\SATHSARA\AppData\Roaming\Python\Python314\site-packages\psycopg\connection.py", line 304, in execute
-    raise ex.with_traceback(None)
-psycopg.errors.UniqueViolation: duplicate key value violates unique constraint "customer_events_event_id_customer_id_event_ts_key"
-DETAIL:  Key (event_id, customer_id, event_ts)=(09edac10-43d7-4db6-a73d-9ec6b98d2118, TEST-674cc7bb14264a57a117440248e04279, 2026-10-20 08:00:00+00) already exists.
+Ran 22 tests in 2.106s
 
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\tests\integration\test_analytics_storage.py", line 208, in test_concurrent_duplicate_inserts_have_one_logical_winner
-    results = list(workers.map(insert, (0, 1)))
-  File "C:\Python314\Lib\concurrent\futures\_base.py", line 645, in result_iterator
-    yield _result_or_cancel(fs.pop())
-          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
-  File "C:\Python314\Lib\concurrent\futures\_base.py", line 312, in _result_or_cancel
-    return fut.result(timeout)
-           ~~~~~~~~~~^^^^^^^^^
-  File "C:\Python314\Lib\concurrent\futures\_base.py", line 454, in result
-    return self.__get_result()
-           ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\concurrent\futures\_base.py", line 396, in __get_result
-    raise self._exception
-  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
-    result = ctx.run(self.task)
-  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
-    return fn(*args, **kwargs)
-  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\tests\integration\test_analytics_storage.py", line 206, in insert
-    return AnalyticsStore(connection).ingest("raw", raw, source=Source(self.cluster, "parallel", 0, index), key=raw["customerID"])
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\src\opsyntra\analytics\storage.py", line 81, in ingest
-    raise EventConflict("Another logical ID already identifies this event/model or dead-letter source") from error
-opsyntra.analytics.contracts.EventConflict: Another logical ID already identifies this event/model or dead-letter source
-
-----------------------------------------------------------------------
-Ran 22 tests in 1.710s
-
-FAILED (errors=1)
+OK

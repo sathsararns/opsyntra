@@ -1,6 +1,6 @@
 # Phase 2: analytics storage verification
 
-Status: **FAIL**. 21/22 tests passed; 0 skipped.
+Status: **PASS**. 22/22 tests passed; 0 skipped.
 
 PostgreSQL: PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit. Driver: psycopg 3.3.6.
 
@@ -17,7 +17,7 @@ both arrival orders, original event profiles, model/engine-separated metrics, UT
 | test_logical_hash_excludes_retry_processing_time_but_not_probability | passed |
 | test_missing_total_charges_preserved_and_source_validated | passed |
 | test_wire_validation_rejects_bad_keys_versions_probabilities_and_times | passed |
-| test_concurrent_duplicate_inserts_have_one_logical_winner | error |
+| test_concurrent_duplicate_inserts_have_one_logical_winner | passed |
 | test_conflicting_prediction_and_model_alias_are_rejected | passed |
 | test_coordinate_conflict_rolls_back_entire_new_logical_event | passed |
 | test_database_enforces_probability_foreign_keys_and_labels | passed |

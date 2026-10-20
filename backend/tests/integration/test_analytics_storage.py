@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from threading import Barrier
 from uuid import uuid4
 
 from opsyntra.analytics.config import AnalyticsConfig
@@ -200,14 +201,21 @@ class AnalyticsStorageTests(unittest.TestCase):
 
     def test_concurrent_duplicate_inserts_have_one_logical_winner(self):
         from opsyntra.analytics.storage import AnalyticsStore
-        raw = raw_event()
-        def insert(index):
-            with self.config.connect("write") as connection:
-                return AnalyticsStore(connection).ingest("raw", raw, source=Source(self.cluster, "parallel", 0, index), key=raw["customerID"])
-        with ThreadPoolExecutor(max_workers=2) as workers:
-            results = list(workers.map(insert, (0, 1)))
-        self.assertEqual(sum(r["logical_inserted"] for r in results), 1)
-        self.assertEqual(sum(r["delivery_inserted"] for r in results), 2)
+        for kind in ("raw", "prediction", "deadletter"):
+            for attempt in range(4):
+                raw = raw_event()
+                value = raw if kind == "raw" else prediction_event(raw) if kind == "prediction" else deadletter_event()
+                key = value["event_id"] if kind == "deadletter" else value["customerID"]
+                barrier = Barrier(4)
+                def insert(index):
+                    with self.config.connect("write") as connection:
+                        barrier.wait(timeout=10)
+                        return AnalyticsStore(connection).ingest(kind, value,
+                            source=Source(self.cluster, f"parallel-{kind}-{attempt}", 0, index), key=key)
+                with self.subTest(kind=kind, attempt=attempt), ThreadPoolExecutor(max_workers=4) as workers:
+                    results = list(workers.map(insert, range(4)))
+                    self.assertEqual(sum(r["logical_inserted"] for r in results), 1)
+                    self.assertEqual(sum(r["delivery_inserted"] for r in results), 4)
 
     def test_utc_storage_keeps_timezone_display_out_of_the_fact(self):
         from datetime import timedelta
