@@ -1,0 +1,361 @@
+{
+  "status": "FAIL",
+  "checked_at": "2026-10-20T09:01:15.010106+00:00",
+  "command": "python -m pipelines.analytics_check",
+  "database": "opsyntra_analytics",
+  "server": "PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit",
+  "driver": "3.3.6",
+  "tests_run": 22,
+  "passed": 21,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 1,
+  "seconds": 1.7632205999980215,
+  "tests": [
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_configuration_requires_credentials_and_hides_them",
+      "status": "passed",
+      "seconds": 0.011690699990140274,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_corrupt_bytes_and_nonobject_errors_are_rejected",
+      "status": "passed",
+      "seconds": 0.040193699998781085,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_matches_existing_inference_contract",
+      "status": "passed",
+      "seconds": 0.0001779999874997884,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_logical_hash_excludes_retry_processing_time_but_not_probability",
+      "status": "passed",
+      "seconds": 0.03080279999994673,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_missing_total_charges_preserved_and_source_validated",
+      "status": "passed",
+      "seconds": 0.0035997999948449433,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_wire_validation_rejects_bad_keys_versions_probabilities_and_times",
+      "status": "passed",
+      "seconds": 0.005458800005726516,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner",
+      "status": "error",
+      "seconds": 0.08680999997886829,
+      "detail": "Another logical ID already identifies this event/model or dead-letter source"
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_conflicting_prediction_and_model_alias_are_rejected",
+      "status": "passed",
+      "seconds": 0.09590840002056211,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_coordinate_conflict_rolls_back_entire_new_logical_event",
+      "status": "passed",
+      "seconds": 0.11416220001410693,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_database_enforces_probability_foreign_keys_and_labels",
+      "status": "passed",
+      "seconds": 0.06965189997572452,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_deadletter_replay_and_conflicting_error_are_separate_from_predictions",
+      "status": "passed",
+      "seconds": 0.07286179999937303,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_distinct_models_engines_and_event_counts_are_not_customer_counts",
+      "status": "passed",
+      "seconds": 0.069119200023124,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_failed_migration_rolls_back_ddl_and_version",
+      "status": "passed",
+      "seconds": 0.09331399999791756,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_logical_duplicates_keep_first_processing_time_and_count_deliveries",
+      "status": "passed",
+      "seconds": 0.05260749999433756,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_migrations_rerun_and_detect_checksum_changes",
+      "status": "passed",
+      "seconds": 0.1025515999936033,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_prediction_first_then_raw_joins_by_original_event",
+      "status": "passed",
+      "seconds": 0.0796948000206612,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_and_prediction_customer_or_time_conflicts_in_either_order",
+      "status": "passed",
+      "seconds": 0.08304090000456199,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_duplicates_and_conflicting_features",
+      "status": "passed",
+      "seconds": 0.0685042999975849,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_reader_cannot_write_and_writer_cannot_update_delete_or_migrate",
+      "status": "passed",
+      "seconds": 0.08019119998789392,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_repeated_customer_uses_event_profile_not_latest_profile",
+      "status": "passed",
+      "seconds": 0.0806340999843087,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_transaction_rollback_removes_fact_identity_and_provenance",
+      "status": "passed",
+      "seconds": 0.06617460001143627,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_utc_storage_keeps_timezone_display_out_of_the_fact",
+      "status": "passed",
+      "seconds": 0.0421531000174582,
+      "detail": null
+    }
+  ],
+  "migrations": [
+    {
+      "version": "0001",
+      "name": "0001_event_storage.sql",
+      "status": "already_applied",
+      "sha256": "0280ada4839732bfc4eac60ebc91de6ce71d411a0c61e9762384486ac8592c3c"
+    },
+    {
+      "version": "0002",
+      "name": "0002_analytics_views.sql",
+      "status": "already_applied",
+      "sha256": "de8e9e25e47c221699cdf00b75d05e4ac3497604beccc8cbbb09d35d31ef4268"
+    }
+  ],
+  "log": "analytics_verification.log",
+  "tables": [
+    {
+      "tablename": "customer_events"
+    },
+    {
+      "tablename": "deadletter_events"
+    },
+    {
+      "tablename": "kafka_deliveries"
+    },
+    {
+      "tablename": "prediction_events"
+    },
+    {
+      "tablename": "raw_customer_events"
+    },
+    {
+      "tablename": "schema_migrations"
+    }
+  ],
+  "application_role_grants": [
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "customer_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "deadletter_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "kafka_deliveries",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "prediction_details",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "prediction_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "prediction_metrics_by_model",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_reader",
+      "table_name": "raw_customer_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "customer_events",
+      "privilege_type": "INSERT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "customer_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "deadletter_events",
+      "privilege_type": "INSERT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "deadletter_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "kafka_deliveries",
+      "privilege_type": "INSERT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "kafka_deliveries",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "prediction_details",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "prediction_events",
+      "privilege_type": "INSERT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "prediction_events",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "prediction_metrics_by_model",
+      "privilege_type": "SELECT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "raw_customer_events",
+      "privilege_type": "INSERT"
+    },
+    {
+      "grantee": "opsyntra_analytics_writer",
+      "table_name": "raw_customer_events",
+      "privilege_type": "SELECT"
+    }
+  ],
+  "main_database_rows": {
+    "raw_customer_events": 0,
+    "prediction_events": 0,
+    "deadletter_events": 0,
+    "kafka_deliveries": 0
+  },
+  "scope": "Real PostgreSQL; separate test database; UUID fixtures; no Kafka analytics consumer or live dashboard in Phase 2",
+  "files": [
+    {
+      "path": "backend/migrations/0001_event_storage.sql",
+      "sha256": "0280ada4839732bfc4eac60ebc91de6ce71d411a0c61e9762384486ac8592c3c"
+    },
+    {
+      "path": "backend/migrations/0002_analytics_views.sql",
+      "sha256": "de8e9e25e47c221699cdf00b75d05e4ac3497604beccc8cbbb09d35d31ef4268"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/__init__.py",
+      "sha256": "ea92de285ec65f81fa50cc0dd0f127a95500277c5df7fb451ae3b87dacf0bd8d"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/config.py",
+      "sha256": "7891a86e3dca76f7a96acb66eae730b128db303bb26447c083d69ed62dd28529"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/contracts.py",
+      "sha256": "81e0b7629f038671e857d225a42fe276d026372bfe1b9ad04d57dc3251e71055"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/migrations.py",
+      "sha256": "3eff7bb5315109a39f7b8e85c1a06ef7d757621f2bd8953ac9c34f05bc985f48"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/storage.py",
+      "sha256": "f101e2b6a124516b33cb8257ba01951ada8cc07210e491f3a91f7f91e815eea4"
+    },
+    {
+      "path": "backend/pipelines/analytics_check.py",
+      "sha256": "277af098a93c781cfb247f0526865f2375b5392e8646ab92a717289fab883edc"
+    },
+    {
+      "path": "backend/pipelines/analytics_db.py",
+      "sha256": "82558b612a1641b1f43e8a57a71e03681ffc036f3ec123695111a963a5eddeb4"
+    },
+    {
+      "path": "backend/pipelines/analytics_local.py",
+      "sha256": "1dc544d0e273c7c26348d9f8e99a839b2cb0466c7035d57a6404c5f5161d5139"
+    },
+    {
+      "path": "backend/tests/unit/test_analytics_contracts.py",
+      "sha256": "3281e2e12803a95454c4e53e6dc1ca46864569c2aad82376b9ad42ee5a2d9f7c"
+    },
+    {
+      "path": "backend/tests/integration/test_analytics_storage.py",
+      "sha256": "9b04c89d6e720e953ce4c8bca01c785d7eacf26d60e9f77f1f178646d95fe613"
+    },
+    {
+      "path": "backend/tests/analytics_helpers.py",
+      "sha256": "614f8d0152266aeefe69fa1cc26a1cc9aa733badac7abd3a9cc606e399ff5cf4"
+    },
+    {
+      "path": "backend/requirements/analytics.txt",
+      "sha256": "c4ee98c50ee2947b4f0e00b6efcd699a3dfc088ef9467020a1650c2cce327a63"
+    },
+    {
+      "path": "backend/.env.example",
+      "sha256": "eab46a6249f2dde3f513ef6ec67b4a88373cd4f21eb5f83cfa65833a41b037cd"
+    },
+    {
+      "path": "backend/migrations/README.md",
+      "sha256": "309aa2fb031b985c322853b2f0a98ef2abc02f5e72a2d1e16cef42931ec8f742"
+    },
+    {
+      "path": "start-analytics.ps1",
+      "sha256": "9416a1637341bb7f808a42499d5fcb4cb00212ac96d361504845b7a16db55ff0"
+    },
+    {
+      "path": "docs/ANALYTICS_STORAGE.md",
+      "sha256": "92dde93e778d087ebcd3f4f6dc30fb33e8a74f3021a7f30ab5cab39fa2582b74"
+    }
+  ]
+}

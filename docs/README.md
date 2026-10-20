@@ -5,6 +5,8 @@
 - [Phase 1 clean-clone verification](../backend/reports/clean_clone_verification.md)
 - [Frontend typecheck/build/browser evidence](../backend/reports/frontend_verification.json)
 - [Submission demo guide](DEMO_GUIDE.md)
+- [Phase 2 analytics storage, setup and metric definitions](ANALYTICS_STORAGE.md)
+- [Real PostgreSQL verification](../backend/reports/analytics_verification.md)
 - [Separate saved-model setup evidence](../backend/reports/model_bundle_verification.json)
 - [Frontend setup](../frontend/README.md)
 - [Backend and ML workflows](../backend/README.md)

@@ -15,6 +15,12 @@ Phase 1 handoff: [clean-clone verification](backend/reports/clean_clone_verifica
 [presentation/demo sequence](docs/DEMO_GUIDE.md). Rebuild models from the supplied
 dataset or use the separately labelled [saved-model bundle path](docs/VERIFICATION.md#optional-saved-model-setup).
 
+Phase 2 analytics storage is implemented: [PostgreSQL setup, schema and metric
+definitions](docs/ANALYTICS_STORAGE.md), with [real database verification](backend/reports/analytics_verification.md).
+Run `.\start-analytics.ps1 -Task setup` then `.\start-analytics.ps1 -Task test`
+from this root. Kafka-to-database ingestion and live analytics screens are the
+following phases; the existing prediction UI continues to use its Python API.
+
 ## Repository structure
 
 ```text
@@ -31,6 +37,7 @@ Opsyntra/
     reports/               Data validation and model evaluation reports
     examples/              Label-free single-customer and CSV examples
     requirements/          Pinned Python dependencies
+    migrations/            Versioned PostgreSQL analytics schema and views
     logs/                  Local API logs
     config.yaml            Backend paths and model configuration
     pyproject.toml         Python package configuration
@@ -45,6 +52,7 @@ Opsyntra/
   start-airflow.ps1         Starts Airflow and runs the complete ML DAG in Ubuntu WSL
   start-kafka.ps1           Starts Kafka, creates topics and verifies publishing/consumption
   start-consumer.ps1        Runs sklearn or native Spark Kafka prediction consumers
+  start-analytics.ps1       Sets up local PostgreSQL, applies migrations and tests storage
 ```
 
 The Git repository remains at this root. `.review-tools/` is an ignored local

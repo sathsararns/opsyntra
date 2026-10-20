@@ -1,6 +1,6 @@
 # Opsyntra: submission, live analytics and deployment roadmap
 
-Created: 2026-10-20 (Asia/Colombo). Status: **Phase 1 complete; Phases 2–10 planned**.
+Created: 2026-10-20 (Asia/Colombo). Status: **Phases 1–2 complete; Phases 3–10 planned**.
 
 The assessed ML/Kafka workflows and bonus DAGs are already implemented. This
 roadmap closes submission checks and adds the analytics/deployment features
@@ -39,7 +39,7 @@ The browser reads FastAPI; Kafka and database credentials stay on the server.
 | Phase | Deliverable | Depends on | Completion checkpoint |
 |---|---|---|---|
 | 1 (complete) | Submission refresh, clean-clone proof and demo | Existing system | [Verified fresh checkout and retained logs](backend/reports/clean_clone_verification.md) |
-| 2 | Analytics schema and migrations | 1 | PostgreSQL tables, constraints and migrations work |
+| 2 (complete) | Analytics schema and migrations | 1 | [Real PostgreSQL verification](backend/reports/analytics_verification.md) |
 | 3 | Kafka-to-database analytics consumer | 2 | Replay/restart does not double-count logical predictions |
 | 4 | Analytics API and live frontend | 3 | Published events appear on the dashboard automatically |
 | 5 | EDA and analytics notebooks | 2–4 | Notebooks run from top to bottom and export their figures |
@@ -89,6 +89,14 @@ Planned outputs: `backend/reports/clean_clone_verification.json`,
 checksums and test results are recorded; the frontend demo works.
 
 ## Phase 2 — Design the analytics contract and PostgreSQL storage
+
+Completed on 2026-10-20: versioned PostgreSQL migrations, separate owner/reader/writer
+roles, immutable logical storage and physical-delivery provenance, event-based
+out-of-order joins, reference metric views, local WSL setup and contract/database
+tests. See [storage setup and definitions](docs/ANALYTICS_STORAGE.md) and
+[actual verification](backend/reports/analytics_verification.md). The main database
+is ready; test fixtures are stored separately. Phase 3 Kafka ingestion and Phase 4
+live APIs/dashboard remain planned.
 
 - Add database configuration through environment variables and a placeholder
   `.env.example`; use versioned migrations and separate read/write roles.

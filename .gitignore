@@ -32,6 +32,8 @@ logs/
 *.log
 !backend/reports/test_results.log
 !backend/reports/test_results_spark.log
+!backend/reports/analytics_verification.log
+!backend/reports/analytics_regression.log
 !docs/evidence/*.log
 .DS_Store
 node_modules/
@@ -42,3 +44,4 @@ out/
 test-results/
 playwright-report/
 backend/.kafka-runtime/
+backend/.analytics-runtime/

@@ -2,6 +2,12 @@
 
 Telco customer churn prediction and streaming ML project.
 
+Phase 2 PostgreSQL analytics storage is available independently of inference:
+see [schema/setup/metric definitions](../docs/ANALYTICS_STORAGE.md) and
+[database verification](reports/analytics_verification.md). From the repository
+root run `.\start-analytics.ps1 -Task setup`, then `.\start-analytics.ps1 -Task test`.
+Kafka analytics ingestion and live frontend analytics are the following phases.
+
 ## Implemented: Steps 1–7
 
 - Original dataset import from the supplied ZIP without changing its contents.
