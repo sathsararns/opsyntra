@@ -1,0 +1,2 @@
+{"event":"ready","group_id":"opsyntra-analytics-verify-68420764af254f3492aa798af2f05a06","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"raw":"opsyntra.analytics.verify.68420764af254f3492aa798af2f05a06.raw","predictions":"opsyntra.analytics.verify.68420764af254f3492aa798af2f05a06.predictions","deadletter":"opsyntra.analytics.verify.68420764af254f3492aa798af2f05a06.deadletter"},"mode":"batch"}
+{"event": "test_hard_exit", "stage": "before_db_commit"}

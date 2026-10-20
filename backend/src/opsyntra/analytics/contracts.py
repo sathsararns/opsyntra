@@ -15,6 +15,10 @@ class EventConflict(ValueError):
     """An immutable logical ID or Kafka coordinate was reused inconsistently."""
 
 
+class ProvenanceConflict(EventConflict):
+    """An immutable Kafka coordinate changed bytes/kind; stop without commits."""
+
+
 def text(value, name):
     if not isinstance(value, str) or not value.strip() or value != value.strip():
         raise ValueError(f"{name} must be a nonempty normalized string")

@@ -1,0 +1,309 @@
+{"event":"ready","group_id":"opsyntra-analytics-v1","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"raw":"telco.raw.customers","predictions":"telco.churn.predictions","deadletter":"telco.deadletter"},"mode":"batch"}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":494,"deadletter_inserted":0,"logical_duplicates":6,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":129,"prediction_inserted":350,"deadletter_inserted":14,"logical_duplicates":7,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":11,"prediction_inserted":489,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":498,"deadletter_inserted":0,"logical_duplicates":2,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":492,"deadletter_inserted":0,"logical_duplicates":8,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":182,"prediction_inserted":317,"deadletter_inserted":0,"logical_duplicates":1,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":452,"prediction_inserted":48,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":499,"deadletter_inserted":0,"logical_duplicates":1,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":0,"prediction_inserted":500,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":316,"prediction_inserted":184,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":499,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":499,"rejected":1,"quarantine_inserted":1,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":498,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":498,"rejected":2,"quarantine_inserted":2,"quarantine_duplicates":0,"event_conflicts":0}
+{"event":"batch_committed","group_id":"opsyntra-analytics-v1","records":500,"raw_inserted":500,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":500,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{
+  "status": "incomplete",
+  "group_id": "opsyntra-analytics-v1",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "topics": {
+    "raw": "telco.raw.customers",
+    "predictions": "telco.churn.predictions",
+    "deadletter": "telco.deadletter"
+  },
+  "mode": "batch",
+  "records": 90000,
+  "raw_inserted": 35587,
+  "prediction_inserted": 54371,
+  "deadletter_inserted": 14,
+  "logical_duplicates": 25,
+  "deliveries_inserted": 89997,
+  "rejected": 3,
+  "quarantine_inserted": 3,
+  "quarantine_duplicates": 0,
+  "event_conflicts": 0,
+  "database_batches_committed": 180,
+  "kafka_commits": 180,
+  "database_retries": 0,
+  "elapsed_seconds": 301.2768961999973,
+  "committed_offsets": [
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 0,
+      "offset": 18172
+    },
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 1,
+      "offset": 18291
+    },
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 2,
+      "offset": 17926
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 0,
+      "offset": 7
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 1,
+      "offset": 6
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 2,
+      "offset": 8
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 0,
+      "offset": 13973
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 1,
+      "offset": 12046
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 2,
+      "offset": 9571
+    }
+  ],
+  "snapshot": [
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 0,
+      "start": 0,
+      "end": 18172
+    },
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 1,
+      "start": 0,
+      "end": 18291
+    },
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 2,
+      "start": 0,
+      "end": 17926
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 0,
+      "start": 0,
+      "end": 7
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 1,
+      "start": 0,
+      "end": 6
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 2,
+      "start": 0,
+      "end": 8
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 0,
+      "start": 0,
+      "end": 20540
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 1,
+      "start": 0,
+      "end": 20676
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 2,
+      "start": 0,
+      "end": 20245
+    }
+  ]
+}

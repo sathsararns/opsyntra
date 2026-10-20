@@ -1,0 +1,2 @@
+{"ts":"2026-10-20T09:33:27.166827+00:00","event":"retry","operation":"database_ready","attempt":1,"error_type":"ConnectionTimeout"}
+{"status": "failed", "error_type": "ConnectionTimeout", "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68", "message": "Analytics ingestion stopped; inspect readiness/configuration and rerun the same group for safe replay"}

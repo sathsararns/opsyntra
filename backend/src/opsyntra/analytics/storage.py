@@ -3,7 +3,7 @@ from psycopg import sql
 from psycopg.errors import UniqueViolation
 from psycopg.types.json import Jsonb
 
-from .contracts import EventConflict, Source, canonical_hash, features, logical_hash, normalize
+from .contracts import EventConflict, ProvenanceConflict, Source, canonical_hash, features, logical_hash, normalize
 
 
 class AnalyticsStore:
@@ -48,7 +48,7 @@ class AnalyticsStore:
             row = self.connection.execute('''SELECT raw_event_id,prediction_id,deadletter_event_id,message_key,payload_sha256
                 FROM analytics.kafka_deliveries WHERE cluster_id=%s AND topic=%s AND partition=%s AND "offset"=%s''', coordinates).fetchone()
             if (str(row[names[kind]]), row["message_key"], row["payload_sha256"]) != (identity, key, wire_hash):
-                raise EventConflict("Kafka source coordinates reused with different contents")
+                raise ProvenanceConflict("Kafka source coordinates reused with different contents")
         return inserted
 
     def ingest(self, kind, payload, *, source, key):

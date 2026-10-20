@@ -1,0 +1,2 @@
+-r analytics.txt
+-r kafka.txt

@@ -7,6 +7,8 @@
 - [Submission demo guide](DEMO_GUIDE.md)
 - [Phase 2 analytics storage, setup and metric definitions](ANALYTICS_STORAGE.md)
 - [Real PostgreSQL verification](../backend/reports/analytics_verification.md)
+- [Phase 3 Kafka analytics consumer and recovery](ANALYTICS_CONSUMER.md)
+- [Real Kafka/PostgreSQL crash and replay evidence](../backend/reports/analytics_consumer_verification.md)
 - [Separate saved-model setup evidence](../backend/reports/model_bundle_verification.json)
 - [Frontend setup](../frontend/README.md)
 - [Backend and ML workflows](../backend/README.md)

@@ -16,13 +16,17 @@ class AnalyticsConfig:
     connect_timeout: int = 10
 
     @classmethod
-    def from_env(cls, env=None, env_file=ENV_FILE):
+    def from_env(cls, env=None, env_file=ENV_FILE, *, required_roles=("write", "read", "migration")):
         if env is None:
             from dotenv import dotenv_values
             env = {**dotenv_values(env_file), **os.environ}
         names = ["OPSYNTRA_ANALYTICS_WRITE_URL", "OPSYNTRA_ANALYTICS_READ_URL", "OPSYNTRA_ANALYTICS_MIGRATION_URL"]
         values = [env.get(name, "") for name in names]
-        for name, value in zip(names, values):
+        if set(required_roles) - {"write", "read", "migration"}:
+            raise ValueError("Unknown required analytics role")
+        for role, name, value in zip(("write", "read", "migration"), names, values):
+            if role not in required_roles:
+                continue
             if not isinstance(value, str) or not value.strip() or "CHANGE_ME" in value:
                 raise ValueError(f"Set {name} to a real PostgreSQL connection URL")
             if not value.startswith(("postgresql://", "postgres://")):
@@ -39,6 +43,8 @@ class AnalyticsConfig:
         from psycopg.rows import dict_row
         if role not in ("read", "write", "migration"):
             raise ValueError("Unknown analytics connection role")
+        if not getattr(self, role + "_url"):
+            raise ValueError(f"Analytics {role} connection is not configured")
         connection = psycopg.connect(getattr(self, role + "_url"), autocommit=True,
                                      connect_timeout=self.connect_timeout, row_factory=dict_row)
         connection.execute("SET TIME ZONE 'UTC'")

@@ -72,10 +72,11 @@ class AnalyticsStorageTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             for path in DIRECTORY.glob("*.sql"):
                 (Path(directory) / path.name).write_bytes(path.read_bytes())
-            (Path(directory) / "0003_failure.sql").write_text("CREATE TABLE analytics.should_rollback(x int); SELECT 1/0;")
+            version = f"{max(int(p.name[:4]) for p in DIRECTORY.glob('*.sql')) + 1:04d}"
+            (Path(directory) / (version + "_failure.sql")).write_text("CREATE TABLE analytics.should_rollback(x int); SELECT 1/0;")
             with self.assertRaises(psycopg.errors.DivisionByZero): migrate(self.owner, directory)
         self.assertIsNone(self.owner.execute("SELECT to_regclass('analytics.should_rollback') AS name").fetchone()["name"])
-        self.assertIsNone(self.owner.execute("SELECT * FROM analytics.schema_migrations WHERE version='0003'").fetchone())
+        self.assertIsNone(self.owner.execute("SELECT * FROM analytics.schema_migrations WHERE version=%s", (version,)).fetchone())
 
     def test_prediction_first_then_raw_joins_by_original_event(self):
         raw = raw_event()

@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('setup', 'start', 'stop', 'status', 'migrate', 'test')]
+    [ValidateSet('setup', 'start', 'stop', 'status', 'migrate', 'test', 'test-consumer')]
     [string]$Task = 'status',
     [string]$Python = 'python',
     [int]$Port = 5433
@@ -28,10 +28,11 @@ if ($Task -in @('setup', 'start', 'stop', 'status')) {
     & wsl -d Ubuntu -u root --cd $NativeBackend --exec python3 -m pipelines.analytics_local $Task --port $Port
     Assert-Success 'Local analytics database'
 }
-if ($Task -in @('setup', 'migrate', 'test')) {
+if ($Task -in @('setup', 'migrate', 'test', 'test-consumer')) {
     Push-Location $Backend
     try {
-        if ($Task -eq 'test') { & $Python -m pipelines.analytics_check }
+        if ($Task -eq 'test-consumer') { & $Python -m pipelines.analytics_consumer_check --live }
+        elseif ($Task -eq 'test') { & $Python -m pipelines.analytics_check }
         else { & $Python -m pipelines.analytics_db migrate }
         Assert-Success 'Analytics schema verification'
     } finally { Pop-Location }

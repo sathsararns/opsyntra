@@ -34,6 +34,10 @@ logs/
 !backend/reports/test_results_spark.log
 !backend/reports/analytics_verification.log
 !backend/reports/analytics_regression.log
+!backend/reports/analytics_consumer_verification.log
+!backend/reports/analytics_consumer_regression.log
+!backend/reports/analytics_initial_ingestion.log
+!backend/reports/analytics_backlog_resume.log
 !docs/evidence/*.log
 .DS_Store
 node_modules/

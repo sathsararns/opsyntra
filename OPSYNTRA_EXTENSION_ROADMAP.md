@@ -1,6 +1,6 @@
 # Opsyntra: submission, live analytics and deployment roadmap
 
-Created: 2026-10-20 (Asia/Colombo). Status: **Phases 1–2 complete; Phases 3–10 planned**.
+Created: 2026-10-20 (Asia/Colombo). Status: **Phases 1–3 complete; Phases 4–10 planned**.
 
 The assessed ML/Kafka workflows and bonus DAGs are already implemented. This
 roadmap closes submission checks and adds the analytics/deployment features
@@ -40,7 +40,7 @@ The browser reads FastAPI; Kafka and database credentials stay on the server.
 |---|---|---|---|
 | 1 (complete) | Submission refresh, clean-clone proof and demo | Existing system | [Verified fresh checkout and retained logs](backend/reports/clean_clone_verification.md) |
 | 2 (complete) | Analytics schema and migrations | 1 | [Real PostgreSQL verification](backend/reports/analytics_verification.md) |
-| 3 | Kafka-to-database analytics consumer | 2 | Replay/restart does not double-count logical predictions |
+| 3 (complete) | Kafka-to-database analytics consumer | 2 | [Real crash/replay verification](backend/reports/analytics_consumer_verification.md) |
 | 4 | Analytics API and live frontend | 3 | Published events appear on the dashboard automatically |
 | 5 | EDA and analytics notebooks | 2–4 | Notebooks run from top to bottom and export their figures |
 | 6 | GitHub Actions CI | 1; expand after 3–5 | Pull requests run meaningful checks automatically |
@@ -95,8 +95,8 @@ roles, immutable logical storage and physical-delivery provenance, event-based
 out-of-order joins, reference metric views, local WSL setup and contract/database
 tests. See [storage setup and definitions](docs/ANALYTICS_STORAGE.md) and
 [actual verification](backend/reports/analytics_verification.md). The main database
-is ready; test fixtures are stored separately. Phase 3 Kafka ingestion and Phase 4
-live APIs/dashboard remain planned.
+is ready; test fixtures are stored separately. Phase 3 now adds Kafka ingestion;
+Phase 4 live APIs/dashboard remain planned.
 
 - Add database configuration through environment variables and a placeholder
   `.env.example`; use versioned migrations and separate read/write roles.
@@ -126,6 +126,15 @@ Planned code: `backend/src/opsyntra/analytics/`, `backend/migrations/`,
 out-of-order raw/prediction inserts can be joined correctly.
 
 ## Phase 3 — Implement the Kafka analytics consumer
+
+Completed on 2026-10-20: dedicated Kafka analytics group, database-before-offset
+commits, durable rejection quarantine, bounded retry/streaming/snapshot modes,
+graceful shutdown and UTC hourly/daily/feature-segment views. Real Kafka checks
+hard-exited processes before/after database commit, restarted/replayed input,
+and verified unchanged logical counts and repaired late-event buckets. See
+[operating guide](docs/ANALYTICS_CONSUMER.md) and
+[verification report](backend/reports/analytics_consumer_verification.md).
+The consumer does not load an ML model. Live HTTP/dashboard work is Phase 4.
 
 - Add `backend/analytics_consumer.py` to consume raw, prediction and dead-letter
   topics with its own group. It does not run the ML model again.
@@ -292,8 +301,8 @@ events, their numbers agree, and the environment has a documented cleanup path.
 3. **Repeatable engineering workflow:** Phases 6–7.
 4. **Cloud demonstration:** Phases 8–10.
 
-Phase 1 is complete. Start Phase 2 next: the first major new application feature is the PostgreSQL
-analytics contract and idempotent Kafka sink, followed by the live frontend.
+Phases 1–3 are complete. Start Phase 4 next: expose the PostgreSQL analytics
+through read APIs and connect the live frontend to those endpoints.
 Each phase should end with its checkpoint and a reviewable commit/PR.
 
 ## Official references checked for this plan

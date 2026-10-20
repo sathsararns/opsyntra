@@ -1,0 +1,98 @@
+{
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "committed_offsets": [
+    {
+      "offset": 20540,
+      "partition": 0,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "offset": 20676,
+      "partition": 1,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "offset": 20245,
+      "partition": 2,
+      "topic": "telco.raw.customers"
+    }
+  ],
+  "database_batches_committed": 26,
+  "database_retries": 0,
+  "deadletter_inserted": 0,
+  "deliveries_inserted": 25860,
+  "elapsed_seconds": 82.42278680001618,
+  "event_conflicts": 2,
+  "group_id": "opsyntra-analytics-v1",
+  "kafka_commits": 26,
+  "logical_duplicates": 6,
+  "mode": "batch",
+  "prediction_inserted": 0,
+  "quarantine_duplicates": 0,
+  "quarantine_inserted": 11,
+  "raw_inserted": 25854,
+  "records": 25871,
+  "rejected": 11,
+  "snapshot": [
+    {
+      "end": 18172,
+      "partition": 0,
+      "start": 18172,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 18291,
+      "partition": 1,
+      "start": 18291,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 17926,
+      "partition": 2,
+      "start": 17926,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 7,
+      "partition": 0,
+      "start": 7,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 6,
+      "partition": 1,
+      "start": 6,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 8,
+      "partition": 2,
+      "start": 8,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 20540,
+      "partition": 0,
+      "start": 13973,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "end": 20676,
+      "partition": 1,
+      "start": 12046,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "end": 20245,
+      "partition": 2,
+      "start": 9571,
+      "topic": "telco.raw.customers"
+    }
+  ],
+  "status": "complete",
+  "topics": {
+    "deadletter": "telco.deadletter",
+    "predictions": "telco.churn.predictions",
+    "raw": "telco.raw.customers"
+  }
+}

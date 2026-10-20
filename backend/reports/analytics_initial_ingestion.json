@@ -1,0 +1,128 @@
+{
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "committed_offsets": [
+    {
+      "offset": 18172,
+      "partition": 0,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "offset": 18291,
+      "partition": 1,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "offset": 17926,
+      "partition": 2,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "offset": 7,
+      "partition": 0,
+      "topic": "telco.deadletter"
+    },
+    {
+      "offset": 6,
+      "partition": 1,
+      "topic": "telco.deadletter"
+    },
+    {
+      "offset": 8,
+      "partition": 2,
+      "topic": "telco.deadletter"
+    },
+    {
+      "offset": 13973,
+      "partition": 0,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "offset": 12046,
+      "partition": 1,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "offset": 9571,
+      "partition": 2,
+      "topic": "telco.raw.customers"
+    }
+  ],
+  "database_batches_committed": 180,
+  "database_retries": 0,
+  "deadletter_inserted": 14,
+  "deliveries_inserted": 89997,
+  "elapsed_seconds": 301.2768961999973,
+  "event_conflicts": 0,
+  "group_id": "opsyntra-analytics-v1",
+  "kafka_commits": 180,
+  "logical_duplicates": 25,
+  "mode": "batch",
+  "prediction_inserted": 54371,
+  "quarantine_duplicates": 0,
+  "quarantine_inserted": 3,
+  "raw_inserted": 35587,
+  "records": 90000,
+  "rejected": 3,
+  "snapshot": [
+    {
+      "end": 18172,
+      "partition": 0,
+      "start": 0,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 18291,
+      "partition": 1,
+      "start": 0,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 17926,
+      "partition": 2,
+      "start": 0,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 7,
+      "partition": 0,
+      "start": 0,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 6,
+      "partition": 1,
+      "start": 0,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 8,
+      "partition": 2,
+      "start": 0,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 20540,
+      "partition": 0,
+      "start": 0,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "end": 20676,
+      "partition": 1,
+      "start": 0,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "end": 20245,
+      "partition": 2,
+      "start": 0,
+      "topic": "telco.raw.customers"
+    }
+  ],
+  "status": "incomplete",
+  "topics": {
+    "deadletter": "telco.deadletter",
+    "predictions": "telco.churn.predictions",
+    "raw": "telco.raw.customers"
+  }
+}

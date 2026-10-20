@@ -2,7 +2,7 @@
 
 This phase adds durable storage and its contracts. The existing prediction
 consumer and SQLite recovery ledger continue running independently. Phase 3
-will add the Kafka-to-PostgreSQL consumer; Phase 4 will add HTTP analytics and
+adds the [Kafka-to-PostgreSQL consumer](ANALYTICS_CONSUMER.md); Phase 4 will add HTTP analytics and
 live frontend screens. Model inference is not repeated by this storage layer.
 
 ## Local setup

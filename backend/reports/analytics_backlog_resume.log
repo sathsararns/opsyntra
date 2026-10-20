@@ -1,0 +1,125 @@
+{"ts":"2026-10-20T09:34:29.383574+00:00","event":"ready","group_id":"opsyntra-analytics-v1","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"raw":"telco.raw.customers","predictions":"telco.churn.predictions","deadletter":"telco.deadletter"},"mode":"batch"}
+{"ts":"2026-10-20T09:34:33.316651+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":994,"raw_inserted":994,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":994,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:36.491283+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:39.962784+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:43.143164+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:46.396307+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:49.630388+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:52.670007+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":999,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":999,"rejected":1,"quarantine_inserted":1,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:55.671968+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:34:58.694915+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:01.759508+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:04.833337+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:07.972271+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:11.038232+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:14.230278+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:17.274432+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:20.411285+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":998,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":998,"rejected":2,"quarantine_inserted":2,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:23.437578+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":993,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":3,"deliveries_inserted":996,"rejected":4,"quarantine_inserted":4,"quarantine_duplicates":0,"event_conflicts":1}
+{"ts":"2026-10-20T09:35:26.263115+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:29.494363+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:32.586932+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:35.781294+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:38.777241+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:41.842681+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:44.887565+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:47.953171+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":1000,"raw_inserted":1000,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":1000,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{"ts":"2026-10-20T09:35:51.659834+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":877,"raw_inserted":870,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":3,"deliveries_inserted":873,"rejected":4,"quarantine_inserted":4,"quarantine_duplicates":0,"event_conflicts":1}
+{
+  "status": "complete",
+  "group_id": "opsyntra-analytics-v1",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "topics": {
+    "raw": "telco.raw.customers",
+    "predictions": "telco.churn.predictions",
+    "deadletter": "telco.deadletter"
+  },
+  "mode": "batch",
+  "records": 25871,
+  "raw_inserted": 25854,
+  "prediction_inserted": 0,
+  "deadletter_inserted": 0,
+  "logical_duplicates": 6,
+  "deliveries_inserted": 25860,
+  "rejected": 11,
+  "quarantine_inserted": 11,
+  "quarantine_duplicates": 0,
+  "event_conflicts": 2,
+  "database_batches_committed": 26,
+  "kafka_commits": 26,
+  "database_retries": 0,
+  "elapsed_seconds": 82.42278680001618,
+  "committed_offsets": [
+    {
+      "topic": "telco.raw.customers",
+      "partition": 0,
+      "offset": 20540
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 1,
+      "offset": 20676
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 2,
+      "offset": 20245
+    }
+  ],
+  "snapshot": [
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 0,
+      "start": 18172,
+      "end": 18172
+    },
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 1,
+      "start": 18291,
+      "end": 18291
+    },
+    {
+      "topic": "telco.churn.predictions",
+      "partition": 2,
+      "start": 17926,
+      "end": 17926
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 0,
+      "start": 7,
+      "end": 7
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 1,
+      "start": 6,
+      "end": 6
+    },
+    {
+      "topic": "telco.deadletter",
+      "partition": 2,
+      "start": 8,
+      "end": 8
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 0,
+      "start": 13973,
+      "end": 20540
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 1,
+      "start": 12046,
+      "end": 20676
+    },
+    {
+      "topic": "telco.raw.customers",
+      "partition": 2,
+      "start": 9571,
+      "end": 20245
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68-stream",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "topics": {
+    "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+    "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+    "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+  },
+  "mode": "streaming",
+  "records": 14,
+  "raw_inserted": 0,
+  "prediction_inserted": 0,
+  "deadletter_inserted": 0,
+  "logical_duplicates": 9,
+  "deliveries_inserted": 0,
+  "rejected": 5,
+  "quarantine_inserted": 0,
+  "quarantine_duplicates": 5,
+  "event_conflicts": 1,
+  "database_batches_committed": 1,
+  "kafka_commits": 1,
+  "database_retries": 0,
+  "elapsed_seconds": 4.24766140000429,
+  "committed_offsets": [
+    {
+      "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+      "partition": 0,
+      "offset": 1
+    },
+    {
+      "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+      "partition": 0,
+      "offset": 5
+    },
+    {
+      "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+      "partition": 0,
+      "offset": 8
+    }
+  ],
+  "snapshot": []
+}
+{"ts":"2026-10-20T09:33:38.548507+00:00","event":"ready","group_id":"opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68-stream","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"raw":"opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw","predictions":"opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions","deadletter":"opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"},"mode":"streaming"}
+{"ts":"2026-10-20T09:33:39.655402+00:00","event":"batch_committed","group_id":"opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68-stream","records":14,"raw_inserted":0,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":9,"deliveries_inserted":0,"rejected":5,"quarantine_inserted":0,"quarantine_duplicates":5,"event_conflicts":1}

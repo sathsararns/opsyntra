@@ -18,8 +18,13 @@ dataset or use the separately labelled [saved-model bundle path](docs/VERIFICATI
 Phase 2 analytics storage is implemented: [PostgreSQL setup, schema and metric
 definitions](docs/ANALYTICS_STORAGE.md), with [real database verification](backend/reports/analytics_verification.md).
 Run `.\start-analytics.ps1 -Task setup` then `.\start-analytics.ps1 -Task test`
-from this root. Kafka-to-database ingestion and live analytics screens are the
-following phases; the existing prediction UI continues to use its Python API.
+from this root. Phase 3 Kafka-to-database ingestion is also implemented:
+[consumer/recovery guide](docs/ANALYTICS_CONSUMER.md) and
+[real Kafka verification](backend/reports/analytics_consumer_verification.md).
+Start the analytics sink from root with `python backend/analytics_consumer.py --mode streaming`.
+It uses its own Kafka group and the writer login; it saves existing predictions
+without running the model again. Live analytics APIs/screens remain Phase 4.
+The existing prediction UI continues to use its Python API.
 
 ## Repository structure
 

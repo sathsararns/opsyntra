@@ -6,7 +6,11 @@ Phase 2 PostgreSQL analytics storage is available independently of inference:
 see [schema/setup/metric definitions](../docs/ANALYTICS_STORAGE.md) and
 [database verification](reports/analytics_verification.md). From the repository
 root run `.\start-analytics.ps1 -Task setup`, then `.\start-analytics.ps1 -Task test`.
-Kafka analytics ingestion and live frontend analytics are the following phases.
+Phase 3 [Kafka analytics ingestion](../docs/ANALYTICS_CONSUMER.md) is implemented.
+From this backend directory run `python analytics_consumer.py --mode streaming`;
+from root run `.\start-analytics.ps1 -Task test-consumer` for real recovery checks.
+See [verification evidence](reports/analytics_consumer_verification.md).
+Live frontend analytics remains Phase 4.
 
 ## Implemented: Steps 1–7
 

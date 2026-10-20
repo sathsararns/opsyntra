@@ -1,0 +1,2 @@
+{"event":"retry","operation":"database_ready","attempt":1,"error_type":"ConnectionTimeout"}
+{"status": "failed", "error_type": "ConnectionTimeout", "group_id": "opsyntra-analytics-verify-68420764af254f3492aa798af2f05a06", "message": "Analytics ingestion stopped; inspect readiness/configuration and rerun the same group for safe replay"}

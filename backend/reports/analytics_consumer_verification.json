@@ -1,0 +1,1568 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-20T09:32:40.495949+00:00",
+  "command": "python -m pipelines.analytics_consumer_check --live --regression",
+  "tests_run": 36,
+  "passed": 36,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "tests": [
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_configuration_requires_credentials_and_hides_them",
+      "status": "passed",
+      "seconds": 0.015096299990545958,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_corrupt_bytes_and_nonobject_errors_are_rejected",
+      "status": "passed",
+      "seconds": 0.0005711000121664256,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_matches_existing_inference_contract",
+      "status": "passed",
+      "seconds": 0.0001894000160973519,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_logical_hash_excludes_retry_processing_time_but_not_probability",
+      "status": "passed",
+      "seconds": 0.012930600001709536,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_missing_total_charges_preserved_and_source_validated",
+      "status": "passed",
+      "seconds": 0.005375799984904006,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_wire_validation_rejects_bad_keys_versions_probabilities_and_times",
+      "status": "passed",
+      "seconds": 0.0059145999839529395,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_commit_is_synchronous_and_checks_partition_errors",
+      "status": "passed",
+      "seconds": 0.0001060000213328749,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_options_reject_unbounded_batch_bad_limits_and_inference_group",
+      "status": "passed",
+      "seconds": 0.0001632999919820577,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_readiness_failure_does_not_create_kafka_client",
+      "status": "passed",
+      "seconds": 9.779998799785972e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retention_loss_is_not_reset_to_earliest",
+      "status": "passed",
+      "seconds": 6.479999865405262e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retries_are_bounded_and_stop_interrupts_backoff",
+      "status": "passed",
+      "seconds": 0.024214099976234138,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_runtime_needs_only_write_credentials",
+      "status": "passed",
+      "seconds": 8.669999078847468e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner",
+      "status": "passed",
+      "seconds": 0.5706983999989461,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_conflicting_prediction_and_model_alias_are_rejected",
+      "status": "passed",
+      "seconds": 0.07979440002236515,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_coordinate_conflict_rolls_back_entire_new_logical_event",
+      "status": "passed",
+      "seconds": 0.05926529999123886,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_database_enforces_probability_foreign_keys_and_labels",
+      "status": "passed",
+      "seconds": 0.04918519998318516,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_deadletter_replay_and_conflicting_error_are_separate_from_predictions",
+      "status": "passed",
+      "seconds": 0.04203609999967739,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_distinct_models_engines_and_event_counts_are_not_customer_counts",
+      "status": "passed",
+      "seconds": 0.06804669997654855,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_failed_migration_rolls_back_ddl_and_version",
+      "status": "passed",
+      "seconds": 0.06479989999206737,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_logical_duplicates_keep_first_processing_time_and_count_deliveries",
+      "status": "passed",
+      "seconds": 0.05732039999566041,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_migrations_rerun_and_detect_checksum_changes",
+      "status": "passed",
+      "seconds": 0.08518819999881089,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_prediction_first_then_raw_joins_by_original_event",
+      "status": "passed",
+      "seconds": 0.06433069999911822,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_and_prediction_customer_or_time_conflicts_in_either_order",
+      "status": "passed",
+      "seconds": 0.07391400000778958,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_duplicates_and_conflicting_features",
+      "status": "passed",
+      "seconds": 0.05579539999598637,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_reader_cannot_write_and_writer_cannot_update_delete_or_migrate",
+      "status": "passed",
+      "seconds": 0.04020029999082908,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_repeated_customer_uses_event_profile_not_latest_profile",
+      "status": "passed",
+      "seconds": 0.06971349997911602,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_transaction_rollback_removes_fact_identity_and_provenance",
+      "status": "passed",
+      "seconds": 0.04509990001679398,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_utc_storage_keeps_timezone_display_out_of_the_fact",
+      "status": "passed",
+      "seconds": 0.053083599981619045,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_ambiguous_database_commit_retries_idempotently_before_input_commit",
+      "status": "passed",
+      "seconds": 0.12991690001217648,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_before_commit_failure_rolls_back_facts_and_quarantine",
+      "status": "passed",
+      "seconds": 0.0709369000105653,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_changed_quarantined_or_accepted_coordinates_stop_without_new_facts",
+      "status": "passed",
+      "seconds": 0.0605570999905467,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_database_failure_never_commits_inputs",
+      "status": "passed",
+      "seconds": 0.1168961999937892,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_graceful_stop_finishes_current_database_and_input_commit",
+      "status": "passed",
+      "seconds": 0.11203769998974167,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_input_commit_observes_durable_database_rows_and_auto_commit_disabled",
+      "status": "passed",
+      "seconds": 0.06997179999598302,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_late_raw_and_prediction_recompute_old_time_buckets",
+      "status": "passed",
+      "seconds": 0.09720289998222142,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_malformed_tombstones_oversized_and_conflicts_are_durable_rejections",
+      "status": "passed",
+      "seconds": 0.07605649999459274,
+      "detail": null
+    }
+  ],
+  "live": {
+    "status": "PASS",
+    "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+    "topics": {
+      "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+      "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+      "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+    },
+    "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+    "model_version": "verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+    "published": 14,
+    "events": [
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+        "partition": 0,
+        "offset": 0,
+        "kind": "predictions"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 0,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 1,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 2,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 3,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 4,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 5,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 6,
+        "kind": "raw"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+        "partition": 0,
+        "offset": 1,
+        "kind": "predictions"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+        "partition": 0,
+        "offset": 2,
+        "kind": "predictions"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+        "partition": 0,
+        "offset": 3,
+        "kind": "predictions"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+        "partition": 0,
+        "offset": 4,
+        "kind": "predictions"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+        "partition": 0,
+        "offset": 0,
+        "kind": "deadletter"
+      },
+      {
+        "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw",
+        "partition": 0,
+        "offset": 7,
+        "kind": "raw"
+      }
+    ],
+    "stages": [
+      {
+        "stage": "crash-after-database-commit",
+        "exit_code": 86,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/crash-after-database-commit.txt",
+        "result": null
+      },
+      {
+        "stage": "restart-after-commit",
+        "exit_code": 0,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/restart-after-commit.txt",
+        "result": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": [
+            {
+              "offset": 1,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            }
+          ],
+          "database_batches_committed": 1,
+          "database_retries": 0,
+          "deadletter_inserted": 0,
+          "deliveries_inserted": 0,
+          "elapsed_seconds": 9.196753199998057,
+          "event_conflicts": 0,
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+          "kafka_commits": 1,
+          "logical_duplicates": 1,
+          "mode": "batch",
+          "prediction_inserted": 0,
+          "quarantine_duplicates": 0,
+          "quarantine_inserted": 0,
+          "raw_inserted": 0,
+          "records": 1,
+          "rejected": 0,
+          "snapshot": [
+            {
+              "end": 0,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "end": 1,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "end": 0,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "status": "complete",
+          "topics": {
+            "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+            "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+            "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+          }
+        }
+      },
+      {
+        "stage": "known-event-snapshot",
+        "exit_code": 0,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/known-event-snapshot.txt",
+        "result": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": [
+            {
+              "offset": 1,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "offset": 5,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "offset": 7,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "database_batches_committed": 1,
+          "database_retries": 0,
+          "deadletter_inserted": 1,
+          "deliveries_inserted": 7,
+          "elapsed_seconds": 1.2471789000264835,
+          "event_conflicts": 1,
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+          "kafka_commits": 1,
+          "logical_duplicates": 2,
+          "mode": "batch",
+          "prediction_inserted": 2,
+          "quarantine_duplicates": 0,
+          "quarantine_inserted": 5,
+          "raw_inserted": 2,
+          "records": 12,
+          "rejected": 5,
+          "snapshot": [
+            {
+              "end": 1,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "end": 5,
+              "partition": 0,
+              "start": 1,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "end": 7,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "status": "complete",
+          "topics": {
+            "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+            "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+            "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+          }
+        }
+      },
+      {
+        "stage": "new-group-full-replay",
+        "exit_code": 0,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/new-group-full-replay.txt",
+        "result": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": [
+            {
+              "offset": 1,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "offset": 5,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "offset": 7,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "database_batches_committed": 1,
+          "database_retries": 0,
+          "deadletter_inserted": 0,
+          "deliveries_inserted": 0,
+          "elapsed_seconds": 1.252733100001933,
+          "event_conflicts": 1,
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68-replay",
+          "kafka_commits": 1,
+          "logical_duplicates": 8,
+          "mode": "batch",
+          "prediction_inserted": 0,
+          "quarantine_duplicates": 5,
+          "quarantine_inserted": 0,
+          "raw_inserted": 0,
+          "records": 13,
+          "rejected": 5,
+          "snapshot": [
+            {
+              "end": 1,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "end": 5,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "end": 7,
+              "partition": 0,
+              "start": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "status": "complete",
+          "topics": {
+            "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+            "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+            "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+          }
+        }
+      },
+      {
+        "stage": "completed-group-restart",
+        "exit_code": 0,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/completed-group-restart.txt",
+        "result": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": [],
+          "database_batches_committed": 0,
+          "database_retries": 0,
+          "deadletter_inserted": 0,
+          "deliveries_inserted": 0,
+          "elapsed_seconds": 1.1262939000152983,
+          "event_conflicts": 0,
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+          "kafka_commits": 0,
+          "logical_duplicates": 0,
+          "mode": "batch",
+          "prediction_inserted": 0,
+          "quarantine_duplicates": 0,
+          "quarantine_inserted": 0,
+          "raw_inserted": 0,
+          "records": 0,
+          "rejected": 0,
+          "snapshot": [
+            {
+              "end": 1,
+              "partition": 0,
+              "start": 1,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "end": 5,
+              "partition": 0,
+              "start": 5,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "end": 7,
+              "partition": 0,
+              "start": 7,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "status": "complete",
+          "topics": {
+            "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+            "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+            "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+          }
+        }
+      },
+      {
+        "stage": "crash-before-database-commit",
+        "exit_code": 86,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/crash-before-database-commit.txt",
+        "result": null
+      },
+      {
+        "stage": "restart-before-commit",
+        "exit_code": 0,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/restart-before-commit.txt",
+        "result": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": [
+            {
+              "offset": 8,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "database_batches_committed": 1,
+          "database_retries": 0,
+          "deadletter_inserted": 0,
+          "deliveries_inserted": 1,
+          "elapsed_seconds": 8.271652499999618,
+          "event_conflicts": 0,
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+          "kafka_commits": 1,
+          "logical_duplicates": 0,
+          "mode": "batch",
+          "prediction_inserted": 0,
+          "quarantine_duplicates": 0,
+          "quarantine_inserted": 0,
+          "raw_inserted": 1,
+          "records": 1,
+          "rejected": 0,
+          "snapshot": [
+            {
+              "end": 1,
+              "partition": 0,
+              "start": 1,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "end": 5,
+              "partition": 0,
+              "start": 5,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "end": 8,
+              "partition": 0,
+              "start": 7,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "status": "complete",
+          "topics": {
+            "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+            "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+            "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+          }
+        }
+      },
+      {
+        "stage": "database-unavailable",
+        "exit_code": 1,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/database-unavailable.txt",
+        "result": {
+          "error_type": "ConnectionTimeout",
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68",
+          "message": "Analytics ingestion stopped; inspect readiness/configuration and rerun the same group for safe replay",
+          "status": "failed"
+        }
+      },
+      {
+        "stage": "bounded-streaming",
+        "exit_code": 0,
+        "log": "docs/evidence/analytics/20261020T093243Z-426960ab/bounded-streaming.txt",
+        "result": {
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": [
+            {
+              "offset": 1,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter"
+            },
+            {
+              "offset": 5,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions"
+            },
+            {
+              "offset": 8,
+              "partition": 0,
+              "topic": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+            }
+          ],
+          "database_batches_committed": 1,
+          "database_retries": 0,
+          "deadletter_inserted": 0,
+          "deliveries_inserted": 0,
+          "elapsed_seconds": 4.24766140000429,
+          "event_conflicts": 1,
+          "group_id": "opsyntra-analytics-verify-2b66b7dd7de54ce5bda5bb4962c93b68-stream",
+          "kafka_commits": 1,
+          "logical_duplicates": 9,
+          "mode": "streaming",
+          "prediction_inserted": 0,
+          "quarantine_duplicates": 5,
+          "quarantine_inserted": 0,
+          "raw_inserted": 0,
+          "records": 14,
+          "rejected": 5,
+          "snapshot": [],
+          "status": "complete",
+          "topics": {
+            "deadletter": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter",
+            "predictions": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions",
+            "raw": "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw"
+          }
+        }
+      }
+    ],
+    "final_counts": {
+      "deliveries": 9,
+      "errors": 5,
+      "predictions": 3,
+      "metrics": [
+        {
+          "engine": "sklearn",
+          "prediction_volume": 2,
+          "unique_customers": 1,
+          "matched_raw_predictions": 2
+        },
+        {
+          "engine": "spark",
+          "prediction_volume": 1,
+          "unique_customers": 1,
+          "matched_raw_predictions": 1
+        }
+      ]
+    },
+    "offsets_before_hard_exit": {
+      "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw": -1001,
+      "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions": -1001,
+      "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter": -1001
+    },
+    "offsets_after_hard_exit": {
+      "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.raw": -1001,
+      "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.predictions": -1001,
+      "opsyntra.analytics.verify.2b66b7dd7de54ce5bda5bb4962c93b68.deadletter": -1001
+    },
+    "scope": "Real broker, separate PostgreSQL test database, isolated diagnostic topics/groups; hard exits are os._exit(86)"
+  },
+  "regression": {
+    "passed": 110,
+    "tests_run": 114,
+    "skipped": 4,
+    "failures": 0,
+    "errors": 0,
+    "tests": [
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_changed_snapshot_and_changed_approved_model_fail",
+        "status": "passed",
+        "seconds": 3.447276300023077,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_complete_sequence_reuses_memberships_and_retry_does_not_duplicate_results",
+        "status": "passed",
+        "seconds": 2.058137699990766,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_failed_gate_blocks_selected_model_and_success_pointer",
+        "status": "passed",
+        "seconds": 1.814748899982078,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_run_paths_are_distinct_and_snapshot_is_reused",
+        "status": "passed",
+        "seconds": 0.22852319999947213,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.NativeArtifactPathTests.test_deep_spark_files_are_included_in_integrity_checks",
+        "status": "passed",
+        "seconds": 0.0064270999864675105,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_ambiguous_database_commit_retries_idempotently_before_input_commit",
+        "status": "passed",
+        "seconds": 0.10633569999481551,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_before_commit_failure_rolls_back_facts_and_quarantine",
+        "status": "passed",
+        "seconds": 0.05327499998384155,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_changed_quarantined_or_accepted_coordinates_stop_without_new_facts",
+        "status": "passed",
+        "seconds": 0.05769380001584068,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_database_failure_never_commits_inputs",
+        "status": "passed",
+        "seconds": 0.1516115999838803,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_graceful_stop_finishes_current_database_and_input_commit",
+        "status": "passed",
+        "seconds": 0.11383919999934733,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_input_commit_observes_durable_database_rows_and_auto_commit_disabled",
+        "status": "passed",
+        "seconds": 0.10062039998592809,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_late_raw_and_prediction_recompute_old_time_buckets",
+        "status": "passed",
+        "seconds": 0.1267257999861613,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_malformed_tombstones_oversized_and_conflicts_are_durable_rejections",
+        "status": "passed",
+        "seconds": 0.08775999999488704,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner",
+        "status": "passed",
+        "seconds": 0.5249049999983981,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_conflicting_prediction_and_model_alias_are_rejected",
+        "status": "passed",
+        "seconds": 0.10796639998443425,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_coordinate_conflict_rolls_back_entire_new_logical_event",
+        "status": "passed",
+        "seconds": 0.04885410002316348,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_database_enforces_probability_foreign_keys_and_labels",
+        "status": "passed",
+        "seconds": 0.065301399998134,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_deadletter_replay_and_conflicting_error_are_separate_from_predictions",
+        "status": "passed",
+        "seconds": 0.06126879999646917,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_distinct_models_engines_and_event_counts_are_not_customer_counts",
+        "status": "passed",
+        "seconds": 0.06546220000018366,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_failed_migration_rolls_back_ddl_and_version",
+        "status": "passed",
+        "seconds": 0.07531330001074821,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_logical_duplicates_keep_first_processing_time_and_count_deliveries",
+        "status": "passed",
+        "seconds": 0.06806130000040866,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_migrations_rerun_and_detect_checksum_changes",
+        "status": "passed",
+        "seconds": 0.06692050001583993,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_prediction_first_then_raw_joins_by_original_event",
+        "status": "passed",
+        "seconds": 0.06367060000775382,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_and_prediction_customer_or_time_conflicts_in_either_order",
+        "status": "passed",
+        "seconds": 0.06380519998492673,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_duplicates_and_conflicting_features",
+        "status": "passed",
+        "seconds": 0.10328810001374222,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_reader_cannot_write_and_writer_cannot_update_delete_or_migrate",
+        "status": "passed",
+        "seconds": 0.05247639998560771,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_repeated_customer_uses_event_profile_not_latest_profile",
+        "status": "passed",
+        "seconds": 0.09169470000779256,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_transaction_rollback_removes_fact_identity_and_provenance",
+        "status": "passed",
+        "seconds": 0.08620829999563284,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_utc_storage_keeps_timezone_display_out_of_the_fact",
+        "status": "passed",
+        "seconds": 0.06307210001978092,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_archive_import_outputs_and_byte_for_byte_rerun",
+        "status": "passed",
+        "seconds": 0.22450360000948422,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_existing_raw_data_is_never_overwritten_by_a_different_archive",
+        "status": "passed",
+        "seconds": 0.15859229999477975,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_infinity_produces_a_serializable_failure_report",
+        "status": "passed",
+        "seconds": 0.07307119999313727,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_invalid_data_writes_a_failure_report_without_creating_splits",
+        "status": "passed",
+        "seconds": 0.07306190000963397,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_invalid_fractions_and_input_output_collisions_fail",
+        "status": "passed",
+        "seconds": 0.05236769997281954,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_actual_pipeline_loads_once_and_matches_direct_unlabelled_predictions",
+        "status": "passed",
+        "seconds": 0.25393310000072233,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_commit_failure_restarts_without_republishing_acknowledged_outputs",
+        "status": "passed",
+        "seconds": 0.06376059999456629,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_conflicting_event_identity_is_deadlettered",
+        "status": "passed",
+        "seconds": 0.05130969997844659,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_duplicate_events_are_suppressed_within_chunk_and_across_restarts",
+        "status": "passed",
+        "seconds": 0.061906499991891906,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_malformed_records_do_not_block_valid_records",
+        "status": "passed",
+        "seconds": 0.05119070000364445,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_offset_window_uses_saved_commits_and_completes_without_waiting",
+        "status": "passed",
+        "seconds": 0.055341700004646555,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_output_ack_before_ledger_crash_replays_identical_outbox_payload",
+        "status": "passed",
+        "seconds": 0.058752400014782324,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_output_and_deadletter_delivery_failure_never_commit_input",
+        "status": "passed",
+        "seconds": 0.05735029999050312,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_outputs_are_acknowledged_and_ledger_is_durable_before_input_commit",
+        "status": "passed",
+        "seconds": 0.0591961000172887,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_restart_after_ledger_before_input_commit_suppresses_duplicate_output",
+        "status": "passed",
+        "seconds": 0.05192460000398569,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_same_artifact_matches_single_csv_reload_batch_and_streaming_predictions",
+        "status": "passed",
+        "seconds": 2.942186900007073,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_same_group_cannot_silently_switch_models_and_empty_count_is_bounded",
+        "status": "passed",
+        "seconds": 0.08206759998574853,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_unseen_category_is_supported_by_model_but_rejected_by_strict_event_contract",
+        "status": "passed",
+        "seconds": 0.10862660000566393,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_active_checkpoint_is_exclusive_and_released_after_exit",
+        "status": "passed",
+        "seconds": 0.014308900019386783,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_chunk_resume_and_completed_rerun_publish_each_row_once",
+        "status": "passed",
+        "seconds": 0.06678319998900406,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_duplicate_ids_and_invalid_rates_fail_before_publishing",
+        "status": "passed",
+        "seconds": 0.029259700007969514,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_invalid_late_csv_row_is_rejected_before_any_publishing",
+        "status": "passed",
+        "seconds": 0.01984920000541024,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_partial_failed_chunk_does_not_advance_cursor_and_replays_stable_events",
+        "status": "passed",
+        "seconds": 0.05233750000479631,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_queue_backpressure_is_serviced_and_all_events_confirmed",
+        "status": "passed",
+        "seconds": 0.037982899986673146,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_resume_rejects_changed_data_cluster_and_label_policy",
+        "status": "passed",
+        "seconds": 0.04825620001065545,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_stop_keeps_resumable_cursor_and_existing_checkpoint_needs_resume",
+        "status": "passed",
+        "seconds": 0.0521776000095997,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_streaming_repeated_customer_has_distinct_events_and_optional_labels",
+        "status": "passed",
+        "seconds": 0.05871710000792518,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_unconfirmed_deliveries_never_advance_checkpoint",
+        "status": "passed",
+        "seconds": 0.03143540001474321,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_batch_predictions_and_summary_are_complete_and_retry_does_not_append",
+        "status": "passed",
+        "seconds": 0.3350279000005685,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_failed_publication_reuses_checkpoint_and_preserves_window_lower_bound",
+        "status": "passed",
+        "seconds": 0.16203000000678003,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_health_retry_reuses_snapshot_and_rejects_tampering",
+        "status": "passed",
+        "seconds": 0.14869989998987876,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_new_streaming_group_initializes_only_missing_partition_offsets",
+        "status": "passed",
+        "seconds": 0.13734660000773147,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_parameters_and_run_paths_cannot_escape_workflow_root",
+        "status": "passed",
+        "seconds": 0.06513840000843629,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_streaming_stop_marker_stops_owned_consumer_and_restores_handlers",
+        "status": "passed",
+        "seconds": 0.15812609999557026,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_artifact_contains_pipeline_and_selection_did_not_use_test",
+        "status": "passed",
+        "seconds": 9.310001041740179e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_changed_membership_is_rejected_before_training",
+        "status": "passed",
+        "seconds": 0.018880500021623448,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_fresh_process_single_and_batch_inference_match_in_memory",
+        "status": "passed",
+        "seconds": 4.5014568000042345,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_inference_output_cannot_overwrite_raw_input",
+        "status": "passed",
+        "seconds": 1.9671314999868628,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_mlflow_model_reloads_with_the_persisted_threshold",
+        "status": "passed",
+        "seconds": 0.10814749999553896,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_tracking_has_comparable_runs_artifacts_and_test_only_for_winner",
+        "status": "passed",
+        "seconds": 0.16234770001028664,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_all_three_real_estimators_can_fit_and_persist",
+        "status": "skipped",
+        "seconds": 4.7600013203918934e-05,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_bad_numeric_and_missing_feature_columns_fail",
+        "status": "skipped",
+        "seconds": 1.0000017937272787e-05,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes",
+        "status": "skipped",
+        "seconds": 7.700000423938036e-06,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload",
+        "status": "skipped",
+        "seconds": 8.100003469735384e-06,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_batch_predictions_and_summary_match_the_saved_pipeline",
+        "status": "passed",
+        "seconds": 0.12888989999191836,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_empty_and_oversized_batches_are_rejected",
+        "status": "passed",
+        "seconds": 0.03549939999356866,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_health_reports_readiness_and_unavailable_model",
+        "status": "passed",
+        "seconds": 0.019950299989432096,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_invalid_customer_input_returns_a_useful_validation_error",
+        "status": "passed",
+        "seconds": 0.014007399993715808,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_missing_project_reports_return_unavailable_instead_of_fake_data",
+        "status": "passed",
+        "seconds": 0.008161699981428683,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_single_prediction_matches_existing_pipeline_without_churn",
+        "status": "passed",
+        "seconds": 0.1015219000109937,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_commit_is_synchronous_and_checks_partition_errors",
+        "status": "passed",
+        "seconds": 0.00010710000060498714,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_options_reject_unbounded_batch_bad_limits_and_inference_group",
+        "status": "passed",
+        "seconds": 0.00014570000348612666,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_readiness_failure_does_not_create_kafka_client",
+        "status": "passed",
+        "seconds": 6.429999484680593e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retention_loss_is_not_reset_to_earliest",
+        "status": "passed",
+        "seconds": 4.52000240329653e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retries_are_bounded_and_stop_interrupts_backoff",
+        "status": "passed",
+        "seconds": 0.02736529998946935,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_runtime_needs_only_write_credentials",
+        "status": "passed",
+        "seconds": 8.800000068731606e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_configuration_requires_credentials_and_hides_them",
+        "status": "passed",
+        "seconds": 7.179999374784529e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_corrupt_bytes_and_nonobject_errors_are_rejected",
+        "status": "passed",
+        "seconds": 0.00034520000917837024,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_matches_existing_inference_contract",
+        "status": "passed",
+        "seconds": 0.0001281999866478145,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_logical_hash_excludes_retry_processing_time_but_not_probability",
+        "status": "passed",
+        "seconds": 0.0045162000169511884,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_missing_total_charges_preserved_and_source_validated",
+        "status": "passed",
+        "seconds": 0.0037702000117860734,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_wire_validation_rejects_bad_keys_versions_probabilities_and_times",
+        "status": "passed",
+        "seconds": 0.003818700002739206,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_blank_charges_become_numeric_missing_without_dropping_rows",
+        "status": "passed",
+        "seconds": 0.02238860001671128,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_corrupt_values_fail_instead_of_becoming_missing",
+        "status": "passed",
+        "seconds": 0.11113259999547154,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_duplicate_ids_missing_required_values_and_schema_errors_fail",
+        "status": "passed",
+        "seconds": 0.05335130001185462,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_identifiers_and_target_are_not_features",
+        "status": "passed",
+        "seconds": 2.8999987989664078e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_memberships_are_complete_disjoint_and_stratified",
+        "status": "passed",
+        "seconds": 0.05014589999336749,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_memberships_are_reproducible_even_after_reordering",
+        "status": "passed",
+        "seconds": 0.09145300000091083,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_saved_memberships_rejoin_by_id_and_reject_partial_coverage",
+        "status": "passed",
+        "seconds": 0.07830929997726344,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_engine_metrics.EngineMetricsTests.test_comparison_uses_churn_f1_and_non_interpolated_average_precision",
+        "status": "passed",
+        "seconds": 0.011237500002607703,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_altered_payload_is_rejected",
+        "status": "passed",
+        "seconds": 0.016759199992520735,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_restore_is_idempotent_and_refuses_conflicting_models",
+        "status": "passed",
+        "seconds": 0.07415179998497479,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_restore_rejects_dataset_change_before_writing_any_model",
+        "status": "passed",
+        "seconds": 0.026352500019129366,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_traversal_unexpected_files_and_case_collisions_are_rejected",
+        "status": "passed",
+        "seconds": 0.06233690000954084,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_verified_bundle_has_payload_and_archive_checksums",
+        "status": "passed",
+        "seconds": 0.0035143999848514795,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_all_four_estimators_fit_and_predict_raw_records",
+        "status": "passed",
+        "seconds": 0.2832848000107333,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_bad_numeric_values_and_missing_feature_columns_fail",
+        "status": "passed",
+        "seconds": 0.0948696999985259,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_cv_relearns_medians_inside_each_training_fold",
+        "status": "passed",
+        "seconds": 0.3062620000273455,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_imputer_scaler_and_encoder_learn_only_from_fitted_rows",
+        "status": "passed",
+        "seconds": 0.10988780000479892,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_label_identifier_and_column_order_cannot_change_predictions",
+        "status": "passed",
+        "seconds": 0.09009750001132488,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_missing_values_and_unknown_categories_work_without_label_or_identifier",
+        "status": "passed",
+        "seconds": 0.07229780001216568,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_spark_archive.SparkArchiveTests.test_archive_cannot_be_written_inside_its_source_model",
+        "status": "passed",
+        "seconds": 0.0017861999804154038,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_spark_archive.SparkArchiveTests.test_archive_retains_deep_native_model_files_and_their_digest",
+        "status": "passed",
+        "seconds": 0.020491800009040162,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_threshold_selection.ThresholdSelectionTests.test_f1_ties_prefer_threshold_closest_to_half",
+        "status": "passed",
+        "seconds": 0.0007689000049140304,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_threshold_selection.ThresholdSelectionTests.test_threshold_finds_best_f1_with_duplicate_probabilities",
+        "status": "passed",
+        "seconds": 0.007084800017764792,
+        "detail": null
+      }
+    ],
+    "status": "PASS"
+  },
+  "files": [
+    {
+      "path": "backend/analytics_consumer.py",
+      "sha256": "c028b5ef4662c949a3947d9a6cf63d39dba61ca8fd277304d12c626b01f720f2"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/__init__.py",
+      "sha256": "ea92de285ec65f81fa50cc0dd0f127a95500277c5df7fb451ae3b87dacf0bd8d"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/config.py",
+      "sha256": "f0ef575e635b27ed9a80d39fa00cbb80c2825b52879d373904022f71a15488be"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/consumer.py",
+      "sha256": "9c8fee741d5c3c497bab75729693f571ef6c4aa88e62f9100e0c769cd0142178"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/contracts.py",
+      "sha256": "d010f582ffe1dc9b42b280a239cf756d4fa7a699453d6c8b70396f5a96ff9f52"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/ingestion.py",
+      "sha256": "2ad82e90b28a93927e50c1d56e0c842e13b46ee51253e1da317ec09c634a1c3b"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/migrations.py",
+      "sha256": "3eff7bb5315109a39f7b8e85c1a06ef7d757621f2bd8953ac9c34f05bc985f48"
+    },
+    {
+      "path": "backend/src/opsyntra/analytics/storage.py",
+      "sha256": "3aea8e0224c46e21392e1a5847cf5fdcd4bb2ea5043d7751f30d1cbd325b5ac3"
+    },
+    {
+      "path": "backend/migrations/0001_event_storage.sql",
+      "sha256": "0280ada4839732bfc4eac60ebc91de6ce71d411a0c61e9762384486ac8592c3c"
+    },
+    {
+      "path": "backend/migrations/0002_analytics_views.sql",
+      "sha256": "de8e9e25e47c221699cdf00b75d05e4ac3497604beccc8cbbb09d35d31ef4268"
+    },
+    {
+      "path": "backend/migrations/0003_ingestion_errors.sql",
+      "sha256": "ac76b51385a572ebaaa233b216bb044be0010d8efdd2f8ba88df2146255c5d74"
+    },
+    {
+      "path": "backend/migrations/0004_event_time_views.sql",
+      "sha256": "2e6ef99fe3781b02e0e8335629aefedfeab7f684cc21328da8236cd2a2f0a253"
+    },
+    {
+      "path": "backend/pipelines/analytics_consumer_check.py",
+      "sha256": "56db2ef72986768e9c4882242d7ab964343360023e48535575fc82fbf8dcc449"
+    },
+    {
+      "path": "backend/tests/unit/test_analytics_consumer.py",
+      "sha256": "2e78d01e47f2f44c77e8eb8c53258d40cd4fefa01478f12d0f4db56520041287"
+    },
+    {
+      "path": "backend/tests/integration/test_analytics_ingestion.py",
+      "sha256": "2bd0451ed2d1d4cb2d648024465ef0a7ac7769b0ac35a1f08b0a13c868f7a80e"
+    },
+    {
+      "path": "backend/requirements/analytics-consumer.txt",
+      "sha256": "1793aa68a9c61119ded9d69487e638c5bd49c8ea37f9242ee52d08e600e83ad9"
+    },
+    {
+      "path": "start-analytics.ps1",
+      "sha256": "a041c3c0b52679ca9f9adc0b6895a2ff406d163c0bd6b2201b14ded46c5de356"
+    },
+    {
+      "path": "docs/ANALYTICS_CONSUMER.md",
+      "sha256": "40b4d5f1a288f368bb8f584ca4dac5f7565ec4e47a653813d61999da71d8cae8"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/bounded-streaming.txt",
+      "sha256": "8bbb950b2cf7dd4b4ed5de28c8b0dda3d4fc9fb9bdc1de6a5e27484478459660"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/completed-group-restart.txt",
+      "sha256": "22d83e1a502ef342add985da077c95ccd09f2950c9fa620479e468a8bcc88a64"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/crash-after-database-commit.txt",
+      "sha256": "6b5157606f1b61736cc704f0ce9f981669f0d65efcb82c3697d318513e552aa9"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/crash-before-database-commit.txt",
+      "sha256": "121aaa60040c236cd8b06575aebb53a9297b45bf29edf9617a458890c2570cac"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/database-unavailable.txt",
+      "sha256": "f512bacbb89b7f1e06b6b709abbc141e46a43658b526b01506693d7c923b1264"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/known-event-snapshot.txt",
+      "sha256": "74f0754d6d81fe773589f31e8f4572c8fd18f9ce1f8c7294b760506f5dd4ba0c"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/new-group-full-replay.txt",
+      "sha256": "edf585bd60774d52808abb749a6b1a36a25d47f52d717c0899a78e8248468b5d"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/restart-after-commit.txt",
+      "sha256": "f3f6ee25debc665c8a6fe7f3c77592d4b996dd3a46d93f8e73d1dce8f47c9941"
+    },
+    {
+      "path": "docs/evidence/analytics/20261020T093243Z-426960ab/restart-before-commit.txt",
+      "sha256": "45276932ba3be47850aa84373d7852344ba6afa2f046ed4a1f12173823463cc2"
+    },
+    {
+      "path": "docs/evidence/analytics/bounded-streaming.txt",
+      "sha256": "0abf4105a6d5636dcb583088189196d4f775905e6594eb3dc33bd3ce958aa295"
+    },
+    {
+      "path": "docs/evidence/analytics/completed-group-restart.txt",
+      "sha256": "e73059ab8fb7022b270f87140d80198ccc2c38d071954be0103a44355da78ccb"
+    },
+    {
+      "path": "docs/evidence/analytics/crash-after-database-commit.txt",
+      "sha256": "232822aedc212a4deba216254070f0699d718a314283c3e29fa029f9b965b777"
+    },
+    {
+      "path": "docs/evidence/analytics/crash-before-database-commit.txt",
+      "sha256": "77166383e359ceff9c9bfd712e59db745d236b858f46d6843a595ba04c0a298d"
+    },
+    {
+      "path": "docs/evidence/analytics/database-unavailable.txt",
+      "sha256": "5e4f625a731d895f191a8ba087d2efd80c99a03589ccbacf66ba8d344d2fd5f3"
+    },
+    {
+      "path": "docs/evidence/analytics/known-event-snapshot.txt",
+      "sha256": "4bac6ec76df089a7947f25633ede6f1cb1a0ee071dcfa58a403c00a5d5e80847"
+    },
+    {
+      "path": "docs/evidence/analytics/new-group-full-replay.txt",
+      "sha256": "6331ef3a3a571dcca8f275d057c3164b2d5fe84faceaf1778db989e2ccde4654"
+    },
+    {
+      "path": "docs/evidence/analytics/restart-after-commit.txt",
+      "sha256": "71362d1424ada9699997e5793b685bf46d5052f308c9790aafa788e811282752"
+    },
+    {
+      "path": "docs/evidence/analytics/restart-before-commit.txt",
+      "sha256": "b066b6bc6614d71e38cd8af0c1f0bcc8bd590d4a4cbcf2a32b7886b626b3da07"
+    }
+  ]
+}
