@@ -1,0 +1,1 @@
+{'experiment_name': 'Opsyntra-Telco-Spark', 'experiment_id': '2', 'runs': {'logistic_regression': '3ac2466d4c514471be9726a27754da43', 'random_forest': '13472d781658492c8a40ea84c07add41', 'xgboost': '6742a309b4a347ec8e781017ad769032'}}

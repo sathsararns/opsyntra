@@ -1,0 +1,6 @@
+{
+  "customerID": "DEMO-NEW-001",
+  "churn_probability": 0.460548507757735,
+  "prediction": "Yes",
+  "model_version": "d9a13b4cf6839ed4"
+}

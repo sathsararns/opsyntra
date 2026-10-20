@@ -1,0 +1,596 @@
+{
+  "status": "PASS",
+  "captured_at": "2026-10-19T15:40:47.126360+00:00",
+  "host_tests": {
+    "tests_run": 71,
+    "passed": 67,
+    "skipped": 4,
+    "failures": 0,
+    "errors": 0
+  },
+  "spark_tests": {
+    "tests_run": 4,
+    "passed": 4,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "unique_tests_passed_across_runtimes": 71,
+  "model_version": "d9a13b4cf6839ed4",
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "split_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+  "bonus_dags": {
+    "batch": {
+      "scheduler": {
+        "dag_id": "opsyntra_kafka_batch",
+        "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+        "engine": "sklearn",
+        "state": "success",
+        "tasks": [
+          {
+            "dag_id": "opsyntra_kafka_batch",
+            "logical_date": "",
+            "task_id": "health_checks",
+            "state": "success",
+            "start_date": "2026-10-19T15:28:45.381290+00:00",
+            "end_date": "2026-10-19T15:28:55.664636+00:00"
+          },
+          {
+            "dag_id": "opsyntra_kafka_batch",
+            "logical_date": "",
+            "task_id": "publish_batch",
+            "state": "success",
+            "start_date": "2026-10-19T15:28:55.822690+00:00",
+            "end_date": "2026-10-19T15:29:04.957548+00:00"
+          },
+          {
+            "dag_id": "opsyntra_kafka_batch",
+            "logical_date": "",
+            "task_id": "predict_batch",
+            "state": "success",
+            "start_date": "2026-10-19T15:29:05.932312+00:00",
+            "end_date": "2026-10-19T15:29:40.411347+00:00"
+          },
+          {
+            "dag_id": "opsyntra_kafka_batch",
+            "logical_date": "",
+            "task_id": "summarize",
+            "state": "success",
+            "start_date": "2026-10-19T15:29:41.454253+00:00",
+            "end_date": "2026-10-19T15:29:54.927053+00:00"
+          }
+        ],
+        "dag_run": {
+          "dag_id": "opsyntra_kafka_batch",
+          "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+          "state": "success",
+          "run_after": "2026-10-19T15:27:35.905484+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T15:28:45.332186+00:00",
+          "end_date": "2026-10-19T15:29:54.946267+00:00"
+        }
+      },
+      "result": {
+        "completed_at": "2026-10-19T15:29:54.643412Z",
+        "consumer": {
+          "batch_size": 100,
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": {
+            "0": 15799,
+            "1": 15904,
+            "2": 15580
+          },
+          "committed_records": 7043,
+          "deadletters_published": 0,
+          "deduplicated": 0,
+          "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+          "elapsed_seconds": 22.895752600999913,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T15:29:38.738380Z",
+          "group_id": "opsyntra-airflow-batch-sklearn-cffc444babbe85e55f67",
+          "inference_batches": 71,
+          "invocation_id": "5939f2c4-ea2b-4e00-a2dd-0f97ec0eded5",
+          "max_messages": null,
+          "mode": "batch",
+          "model_loads": 1,
+          "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+          "model_version": "d9a13b4cf6839ed4",
+          "offset_window": {
+            "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+            "partitions": {
+              "0": {
+                "end": 15799,
+                "start": 13443
+              },
+              "1": {
+                "end": 15904,
+                "start": 13529
+              },
+              "2": {
+                "end": 15580,
+                "start": 13268
+              }
+            },
+            "topic": "telco.raw.customers"
+          },
+          "predictions_published": 7043,
+          "reason": "offset_window_exhausted",
+          "received_records": 7043,
+          "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67/recovery/27bf0433579337603a35e4aa.sqlite3",
+          "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67/consumer_runs/5939f2c4-ea2b-4e00-a2dd-0f97ec0eded5",
+          "started_at": "2026-10-19T15:29:15.842566Z",
+          "status": "completed"
+        },
+        "dag_id": "opsyntra_kafka_batch",
+        "deadletters_in_window": 0,
+        "delivery_semantics": "at-least-once; durable group ledger and stable prediction IDs; no exactly-once claim",
+        "engine": "sklearn",
+        "group_id": "opsyntra-airflow-batch-sklearn-cffc444babbe85e55f67",
+        "kind": "batch",
+        "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+        "model_version": "d9a13b4cf6839ed4",
+        "predictions": 7043,
+        "predictions_csv": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67/predictions.csv",
+        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67",
+        "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+        "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+        "status": "PASS"
+      },
+      "predictions_csv_sha256": "90be23f3965fe08d331a3958d9c8f7daebfa92977b0eed993c8158698e4a56f2"
+    },
+    "streaming": {
+      "scheduler": {
+        "dag_id": "opsyntra_kafka_streaming",
+        "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+        "engine": "sklearn",
+        "state": "success",
+        "tasks": [
+          {
+            "dag_id": "opsyntra_kafka_streaming",
+            "logical_date": "",
+            "task_id": "health_checks",
+            "state": "success",
+            "start_date": "2026-10-19T15:29:29.333557+00:00",
+            "end_date": "2026-10-19T15:29:46.257739+00:00"
+          },
+          {
+            "dag_id": "opsyntra_kafka_streaming",
+            "logical_date": "",
+            "task_id": "start_and_monitor_consumer",
+            "state": "success",
+            "start_date": "2026-10-19T15:29:46.536668+00:00",
+            "end_date": "2026-10-19T15:30:29.955267+00:00"
+          },
+          {
+            "dag_id": "opsyntra_kafka_streaming",
+            "logical_date": "",
+            "task_id": "publish_samples",
+            "state": "success",
+            "start_date": "2026-10-19T15:29:54.961688+00:00",
+            "end_date": "2026-10-19T15:30:08.968197+00:00"
+          },
+          {
+            "dag_id": "opsyntra_kafka_streaming",
+            "logical_date": "",
+            "task_id": "summarize",
+            "state": "success",
+            "start_date": "2026-10-19T15:30:30.167099+00:00",
+            "end_date": "2026-10-19T15:30:42.746920+00:00"
+          }
+        ],
+        "dag_run": {
+          "dag_id": "opsyntra_kafka_streaming",
+          "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+          "state": "success",
+          "run_after": "2026-10-19T15:29:24.550515+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-19T15:29:29.084607+00:00",
+          "end_date": "2026-10-19T15:30:42.898589+00:00"
+        }
+      },
+      "result": {
+        "completed_at": "2026-10-19T15:30:42.373819Z",
+        "consumer": {
+          "batch_size": 100,
+          "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+          "committed_offsets": {
+            "0": 15807,
+            "1": 15909,
+            "2": 15587
+          },
+          "committed_records": 20,
+          "deadletters_published": 0,
+          "deduplicated": 0,
+          "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+          "elapsed_seconds": 30.773292198999115,
+          "engine": "sklearn",
+          "finished_at": "2026-10-19T15:30:28.442045Z",
+          "group_id": "opsyntra-airflow-streaming-sklearn-0b85d3f2354312214cdb",
+          "inference_batches": 7,
+          "invocation_id": "391055ff-5a64-46c3-9ee5-4541cbde4c31",
+          "max_messages": null,
+          "mode": "streaming",
+          "model_loads": 1,
+          "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+          "model_version": "d9a13b4cf6839ed4",
+          "predictions_published": 20,
+          "reason": "stop_requested",
+          "received_records": 20,
+          "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb/recovery/287a02ff485e597b60af60a4.sqlite3",
+          "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb/consumer_runs/391055ff-5a64-46c3-9ee5-4541cbde4c31",
+          "started_at": "2026-10-19T15:29:55.834068Z",
+          "status": "stopped"
+        },
+        "dag_id": "opsyntra_kafka_streaming",
+        "deadletters_in_window": 0,
+        "delivery_semantics": "at-least-once; durable group ledger and stable prediction IDs; no exactly-once claim",
+        "engine": "sklearn",
+        "group_id": "opsyntra-airflow-streaming-sklearn-0b85d3f2354312214cdb",
+        "kind": "streaming",
+        "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+        "model_version": "d9a13b4cf6839ed4",
+        "predictions": 20,
+        "predictions_csv": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb/predictions.csv",
+        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb",
+        "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+        "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+        "status": "PASS"
+      },
+      "predictions_csv_sha256": "f35d72e9507562e874f4ac600f5f48cc2002fe0f1ab872cd71debf31301d3942"
+    }
+  },
+  "rubric": [
+    {
+      "requirement": "Missing values, unseen categories, leakage and reload",
+      "evidence": [
+        "backend/reports/test_results.json",
+        "backend/tests/unit/test_model_pipeline.py"
+      ]
+    },
+    {
+      "requirement": "Single, CSV, batch Kafka and streaming Kafka probabilities match",
+      "evidence": [
+        "backend/reports/test_results.json",
+        "backend/tests/integration/test_kafka_consumer.py"
+      ]
+    },
+    {
+      "requirement": "Native Spark models, unseen categories, persistence and fresh-process inference",
+      "evidence": [
+        "backend/reports/test_results_spark.json",
+        "backend/tests/integration/test_spark_workflow.py"
+      ]
+    },
+    {
+      "requirement": "Comparable MLflow runs and validation-based selection",
+      "evidence": [
+        "backend/reports/model_selection.md",
+        "docs/screenshots/mlflow-comparison.png"
+      ]
+    },
+    {
+      "requirement": "Same held-out customers and honest engine timings",
+      "evidence": [
+        "backend/reports/engine_comparison.md",
+        "backend/reports/engine_comparison.json"
+      ]
+    },
+    {
+      "requirement": "Required eight-task ML DAG, both engines",
+      "evidence": [
+        "backend/reports/airflow_workflow_report.md",
+        "docs/screenshots/airflow-evidence.json"
+      ]
+    },
+    {
+      "requirement": "Batch/streaming producer and checkpoint resume",
+      "evidence": [
+        "backend/reports/kafka_publishing_report.md",
+        "docs/screenshots/kafka-input-output.png"
+      ]
+    },
+    {
+      "requirement": "Invalid records, deduplication and real crash recovery",
+      "evidence": [
+        "backend/reports/kafka_consumption_report.md",
+        "docs/screenshots/kafka-recovery.png"
+      ]
+    },
+    {
+      "requirement": "Remaining output-ack/ledger replay window",
+      "evidence": [
+        "docs/evidence/restart_after_output_ack.log",
+        "docs/screenshots/kafka-replay-window.png"
+      ]
+    },
+    {
+      "requirement": "Bonus scheduled batch Kafka DAG",
+      "evidence": [
+        "backend/dags/opsyntra_kafka_workflows.py",
+        "docs/screenshots/kafka-airflow-batch-grid.png"
+      ]
+    },
+    {
+      "requirement": "Bonus managed streaming DAG, heartbeats and graceful stop",
+      "evidence": [
+        "backend/dags/opsyntra_kafka_workflows.py",
+        "docs/screenshots/kafka-airflow-streaming-log.png"
+      ]
+    },
+    {
+      "requirement": "Reproducible setup and operating limits",
+      "evidence": [
+        "docs/VERIFICATION.md",
+        "backend/KAFKA.md"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "backend/KAFKA.md",
+      "bytes": 21311,
+      "sha256": "5922c79053d0f70fbf3a52fb55fc0b32aca765ebfeb61599ce8cdc70347f3a0d"
+    },
+    {
+      "path": "backend/config.yaml",
+      "bytes": 3383,
+      "sha256": "1ee536a4ccccd82a269cb62b85d7ccbee7bf4a4d9c6a6c742c7639d6c31e77d4"
+    },
+    {
+      "path": "backend/consumer.py",
+      "bytes": 3109,
+      "sha256": "eac86bcdb569a27aaf1ccc2284fdcb8bcd318588e0e54edb6fea327f985a5fc4"
+    },
+    {
+      "path": "backend/dags/opsyntra_kafka_workflows.py",
+      "bytes": 2906,
+      "sha256": "4be0dd3c91771657b81c90f5e487a917284e6f85c5956101a7548061730dd8dc"
+    },
+    {
+      "path": "backend/pipelines/verification.py",
+      "bytes": 3785,
+      "sha256": "dd750a808ed91593d1d09b938e63771e06b746842812e4480d8462415ad094fc"
+    },
+    {
+      "path": "backend/producer.py",
+      "bytes": 2501,
+      "sha256": "1ef3abdfe6bac33fcf328d39f64ee3edc955bd9a96812ed58c4b9988becff18d"
+    },
+    {
+      "path": "backend/reports/airflow_workflow_report.md",
+      "bytes": 5781,
+      "sha256": "dcf5939e0aeaeda83bc3d012036c54711e5efe8a436d1a2a762ab3f799cb256d"
+    },
+    {
+      "path": "backend/reports/engine_comparison.json",
+      "bytes": 4743,
+      "sha256": "612ba6a11f1373e4977a5381b092a638633ee211d2e9cbd73f69755d68185c1b"
+    },
+    {
+      "path": "backend/reports/engine_comparison.md",
+      "bytes": 3751,
+      "sha256": "7f686967aa168ec568cd5369022ddf41a7747ddb7c575869886e7e2676811b46"
+    },
+    {
+      "path": "backend/reports/kafka_consumption_report.md",
+      "bytes": 2806,
+      "sha256": "7d9931edcfee1b27888305204afe0e0094f331dca3196c682ff5864f5c564377"
+    },
+    {
+      "path": "backend/reports/kafka_publishing_report.md",
+      "bytes": 2195,
+      "sha256": "4a6c46c172b3c24adb8607b5c49508642fe4abcf6c56d58a7cf86753f887654e"
+    },
+    {
+      "path": "backend/reports/model_selection.md",
+      "bytes": 1842,
+      "sha256": "b1942718c20af2ece7d3e8689b57cdda58c2bb54906ad93278a930004f8702c3"
+    },
+    {
+      "path": "backend/reports/test_results.json",
+      "bytes": 17649,
+      "sha256": "06100e2168e8dbe946ed94990594d8d34fd0883bff1278f34b6a3005254c7646"
+    },
+    {
+      "path": "backend/reports/test_results.log",
+      "bytes": 13743,
+      "sha256": "580318b9fa380c397fcbba80516095d58760b922aaee0d1e672e54559b86e669"
+    },
+    {
+      "path": "backend/reports/test_results_spark.json",
+      "bytes": 1506,
+      "sha256": "a6c24d207638eb921a4afaa6b315bb4efcf8a18275f85adae75d73a429fe1850"
+    },
+    {
+      "path": "backend/reports/test_results_spark.log",
+      "bytes": 852,
+      "sha256": "fb8c88fa56fc477408907c88600b76c0d74f8ca74eefc8cf57727866d1d496a0"
+    },
+    {
+      "path": "backend/src/opsyntra/kafka_consumption.py",
+      "bytes": 19693,
+      "sha256": "faa1a4f4c22237fcb683b0e2fe62d28925f7dfb63d33a7fba0e8cf910b12bd9b"
+    },
+    {
+      "path": "backend/src/opsyntra/kafka_workflow.py",
+      "bytes": 16499,
+      "sha256": "3bf8a0f949f56b081a85615867f247c6a91882230b5309d2d752587c1dd415e7"
+    },
+    {
+      "path": "backend/tests/integration/test_kafka_consumer.py",
+      "bytes": 17748,
+      "sha256": "9826c7e1289b3e4c8ba283a772ea8af54c514f722accb98d7bc5b8f8ad0f5956"
+    },
+    {
+      "path": "backend/tests/integration/test_spark_workflow.py",
+      "bytes": 7244,
+      "sha256": "c807691783242863848b76a61787879f8a48679b7b97ef96d1c1b3c69a84a12f"
+    },
+    {
+      "path": "backend/tests/unit/test_model_pipeline.py",
+      "bytes": 4784,
+      "sha256": "7a85c61e48e0ba333ecf4db4cb1055e148f8a700d3ba87d2e304cf21554dc1e3"
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "bytes": 7862,
+      "sha256": "41bf3399b61f7c5233cf53102de4bf96dd1457fcfc1ff3937d50e96eaddc0a00"
+    },
+    {
+      "path": "docs/evidence/crash_after_ledger_commit.log",
+      "bytes": 226,
+      "sha256": "20536f849cb8aeb82645b69f1118cd4803791a5f70b31a86a56e05716f58ce74"
+    },
+    {
+      "path": "docs/evidence/crash_after_output_ack.log",
+      "bytes": 223,
+      "sha256": "d87a91527aad8e0de434f203dd7379325559b3e3e14e2474ce4ea714547890c4"
+    },
+    {
+      "path": "docs/evidence/kafka-capture.json",
+      "bytes": 6149,
+      "sha256": "a16db8058c3dd720608db77b3d3b146008396002ee30904c63bcca8e9f102d4e"
+    },
+    {
+      "path": "docs/evidence/kafka-deadletter.html",
+      "bytes": 3927,
+      "sha256": "8bb2fe559d6647b9dcd0ce769921297a277868430cbc970acd99325c38b5ce44"
+    },
+    {
+      "path": "docs/evidence/kafka-deadletter.txt",
+      "bytes": 3225,
+      "sha256": "e4bdb9f2688dd7430cbe8da2266feb5285daf4f3490bff16ec5f6917cc12f2fa"
+    },
+    {
+      "path": "docs/evidence/kafka-input-output.html",
+      "bytes": 5101,
+      "sha256": "4d70d41809f22b2f57169531877dc823b27fbf0002d3320dcbbc8c7d4fba3cb3"
+    },
+    {
+      "path": "docs/evidence/kafka-predictions.txt",
+      "bytes": 1943,
+      "sha256": "4f094612ee8d945606f6ccfd54a8e82a05ed065d7472fed9389cb3b02a4f94cf"
+    },
+    {
+      "path": "docs/evidence/kafka-raw.txt",
+      "bytes": 2415,
+      "sha256": "972bcbfd2cf58059576774fe0c9ece160454585c16810c1cb1508656bcb4ceb1"
+    },
+    {
+      "path": "docs/evidence/kafka-recovery.html",
+      "bytes": 3056,
+      "sha256": "56f65f0fe5e593eeb5ee6e2c70556c21c92ca9dc45ed0a2e06deb2bd5fb46218"
+    },
+    {
+      "path": "docs/evidence/kafka-replay-window.html",
+      "bytes": 3051,
+      "sha256": "d2f4f399d99bf605b9850bd431a462074db59e557ae4adc606d2ec6d37e718fa"
+    },
+    {
+      "path": "docs/evidence/restart_after_ledger_commit.log",
+      "bytes": 2013,
+      "sha256": "2c0aaca1ab740c0d7ebdf5ff92482294d278a0ce8edcfd227d36f805acd8bcd5"
+    },
+    {
+      "path": "docs/evidence/restart_after_output_ack.log",
+      "bytes": 2013,
+      "sha256": "a3eea7100d92508ca47fd5859784426beceffbf3ba8c7bba327cdcf3cbb02069"
+    },
+    {
+      "path": "docs/screenshots/airflow-evidence.json",
+      "bytes": 6293,
+      "sha256": "0e8fdbec340bd51446f1030b350d3753f36eaccdf9bbeee924a5c531031bdf98"
+    },
+    {
+      "path": "docs/screenshots/airflow-grid-sklearn.png",
+      "bytes": 122581,
+      "sha256": "f57dd8f42e0e13ba893c954fc02f3c4bf7b59a3a0fd980b24be8becbd4f03f5a"
+    },
+    {
+      "path": "docs/screenshots/airflow-grid-spark.png",
+      "bytes": 121970,
+      "sha256": "51e9ed8ff33b340e0e902ace21e4833e0a2dac2ae5e21b751427773c42afd54b"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-batch-graph.png",
+      "bytes": 51850,
+      "sha256": "ad8a65f25a34ffa9212e3c4d3f3b9edc260fc338b09be58612d151297bf691f7"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-batch-grid.png",
+      "bytes": 93391,
+      "sha256": "c2fc74d52571125ad6ec19ffb938009c567135d8c97e392ea5a05d68efcbfd99"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-batch-log.png",
+      "bytes": 179318,
+      "sha256": "e3de7b5e7fca51e447344969db718f68d563df3a227bad30193655f1a60ec656"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-streaming-graph.png",
+      "bytes": 70237,
+      "sha256": "c91ba77b5e5f6ac0d66c618b8f9920f79f596a6656075dd2986dd88dad2c27f2"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-streaming-grid.png",
+      "bytes": 93622,
+      "sha256": "891dc94225c6972928248d7e0d3febf40c6eda515672b6117afd26547b4e8de4"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-streaming-log.png",
+      "bytes": 209737,
+      "sha256": "7870875914c0f3ba219e871b0747cc9ab624b1b18015604f5780374e0d2e549d"
+    },
+    {
+      "path": "docs/screenshots/kafka-deadletter.png",
+      "bytes": 151579,
+      "sha256": "f0fb5691eb896278ecab8d609f55afc357cac589095d387cc68b169419c80c96"
+    },
+    {
+      "path": "docs/screenshots/kafka-evidence.json",
+      "bytes": 4802,
+      "sha256": "2e29a388bf2b24a271517fa6a632da51e9f3ca2234313793ad73f3fc551db4e0"
+    },
+    {
+      "path": "docs/screenshots/kafka-input-output.png",
+      "bytes": 206376,
+      "sha256": "d12c3d23b807286ce9b76a599a46ba9f20f83a3c31b4de5559169549f8c3e39c"
+    },
+    {
+      "path": "docs/screenshots/kafka-recovery.png",
+      "bytes": 122274,
+      "sha256": "75f0c7a681f3bd167e07e6a59ae976b43111eb0b618e7a2f2b37e21ef5f55c3d"
+    },
+    {
+      "path": "docs/screenshots/kafka-replay-window.png",
+      "bytes": 120943,
+      "sha256": "a9a3cdbb9011554c3616fa6a169fcf4c2263308d603cbd998d2c5d54a84a04ee"
+    },
+    {
+      "path": "docs/screenshots/mlflow-comparison.png",
+      "bytes": 70808,
+      "sha256": "c3d30a5d46357bd5646bfbd03d77f9bb28d202a6767624a9eee2832cfa97c78f"
+    },
+    {
+      "path": "docs/screenshots/mlflow-evidence.json",
+      "bytes": 1117,
+      "sha256": "71db4088d764f1c095cf3063d63583741f1babcc4bd6032e95059e6fa1022c9a"
+    },
+    {
+      "path": "docs/screenshots/mlflow-selected-model.png",
+      "bytes": 120594,
+      "sha256": "2f8f38501ca497c82056ada0e36e0e9eda8d6f5e8641fc9455e50570840e9c0d"
+    },
+    {
+      "path": "start-airflow.ps1",
+      "bytes": 2426,
+      "sha256": "0be2c444c8a7c24e843244b5b5c58082019aa38b2829ea99cba4d20530d56e43"
+    }
+  ],
+  "limits": [
+    "Single local WSL broker/LocalExecutor; not a multi-host benchmark",
+    "At-least-once delivery; no exactly-once claim",
+    "Model accepts unknown categories; Kafka deliberately enforces the documented categorical schema",
+    "Screenshots are dated evidence; recorded CLI transcript pages are explicitly labelled"
+  ]
+}

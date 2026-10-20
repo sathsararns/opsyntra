@@ -1,0 +1,42 @@
+{
+  "reason": "Prior successful evidence retained before latest-run refresh",
+  "captured_at": "2026-10-19T15:38:36.897Z",
+  "files": [
+    {
+      "path": "docs/screenshots/kafka-evidence.json",
+      "sha256": "2e29a388bf2b24a271517fa6a632da51e9f3ca2234313793ad73f3fc551db4e0"
+    },
+    {
+      "path": "backend/reports/submission_evidence.json",
+      "sha256": "5aee142fff2add6fec5d858481e580bf4fa0359e6d2905cda1a7a34c30dc103e"
+    },
+    {
+      "path": "backend/reports/submission_evidence.md",
+      "sha256": "cb4f3f981fa25eea26ec420c6c9704403d43686b5f671117ef84a9eb084d0b53"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-batch-grid.png",
+      "sha256": "c2fc74d52571125ad6ec19ffb938009c567135d8c97e392ea5a05d68efcbfd99"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-batch-graph.png",
+      "sha256": "ad8a65f25a34ffa9212e3c4d3f3b9edc260fc338b09be58612d151297bf691f7"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-batch-log.png",
+      "sha256": "e3de7b5e7fca51e447344969db718f68d563df3a227bad30193655f1a60ec656"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-streaming-grid.png",
+      "sha256": "891dc94225c6972928248d7e0d3febf40c6eda515672b6117afd26547b4e8de4"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-streaming-graph.png",
+      "sha256": "c91ba77b5e5f6ac0d66c618b8f9920f79f596a6656075dd2986dd88dad2c27f2"
+    },
+    {
+      "path": "docs/screenshots/kafka-airflow-streaming-log.png",
+      "sha256": "7870875914c0f3ba219e871b0747cc9ab624b1b18015604f5780374e0d2e549d"
+    }
+  ]
+}

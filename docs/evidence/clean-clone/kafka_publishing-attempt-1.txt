@@ -1,0 +1,5 @@
+batch_pause: paused; acknowledged 1000; run b4f53cec-1250-4355-a335-04ee2a56931b
+batch_resume: completed; acknowledged 6043; run b4f53cec-1250-4355-a335-04ee2a56931b
+batch_completed_resume: completed; acknowledged 0; run b4f53cec-1250-4355-a335-04ee2a56931b
+streaming: completed; acknowledged 30; run 0d2e0aa4-e5a2-406c-b7a3-0fac8bcd0bee
+PASS: both producer modes, full CSV resume, all event schemas/keys/IDs and original customer values verified.

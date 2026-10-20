@@ -79,12 +79,45 @@ def main():
         ("Bonus managed streaming DAG, heartbeats and graceful stop", "backend/dags/opsyntra_kafka_workflows.py", "docs/screenshots/kafka-airflow-streaming-log.png"),
         ("Reproducible setup and operating limits", "docs/VERIFICATION.md", "backend/KAFKA.md"),
     ]
+    phase1 = None
+    if (ROOT / "reports/clean_clone_verification.json").exists():
+        clean = read("backend/reports/clean_clone_verification.json")
+        frontend = read("backend/reports/frontend_verification.json")
+        if clean["status"] != "PASS" or not clean.get("includes_fresh_airflow_runs") or frontend["status"] != "PASS":
+            raise ValueError("Phase 1 clean-clone/frontend verification is incomplete")
+        if frontend["browser"]["stats"]["unexpected"] or frontend["browser"]["stats"]["skipped"]:
+            raise ValueError("Frontend verification contains failed/skipped flows")
+        phase1 = {"source_commit": clean["source_commit"], "completed_at": clean["completed_at"],
+                  "source_patches": clean.get("source_patches", []),
+                  "clean_clone_status": clean["status"], "fresh_airflow_runs": clean["fresh_airflow_runs"],
+                  "frontend": clean["frontend"], "reused_prerequisites": clean["reused_prerequisites"]}
+        rows += [
+            ("Independent clean clone, fresh model training and scheduler runs", "backend/reports/clean_clone_verification.md", "backend/reports/clean_clone_verification.json"),
+            ("Frontend typecheck/build and six real browser flows", "backend/reports/frontend_verification.json", "docs/screenshots/frontend-prediction.png"),
+            ("Submission demonstration and optional saved-model setup", "docs/DEMO_GUIDE.md", "docs/VERIFICATION.md"),
+            ("Checksum-verified saved-model restore and both engines' inference", "backend/reports/model_bundle_verification.json", "backend/pipelines/model_bundle.py"),
+            ("Isolated native-Linux environment setup and repeat setup", "backend/reports/spark_environment_verification.json", "backend/pipelines/spark_environment.py"),
+        ]
     paths = {path for _, *files in rows for path in files}
     paths.update("docs/screenshots/" + name for name in required)
     paths.update(p.relative_to(PROJECT).as_posix() for p in (PROJECT / "docs/evidence").glob("*") if p.is_file())
+    paths.update(p.relative_to(PROJECT).as_posix() for p in (PROJECT / "docs/evidence/clean-clone").glob("*") if p.is_file())
+    paths.update(p.relative_to(PROJECT).as_posix() for p in (PROJECT / "docs/evidence/saved-model").glob("*.txt"))
+    paths.update(p.relative_to(PROJECT).as_posix() for p in (PROJECT / "docs/evidence/history").rglob("manifest.json"))
+    for historical in (PROJECT / "docs/evidence/history").rglob("manifest.json"):
+        for member in json.loads(historical.read_text(encoding="utf-8"))["files"]:
+            archived = (historical.parent / member["path"]).resolve()
+            if not archived.is_relative_to(PROJECT / "docs/evidence/history") or hashlib.sha256(archived.read_bytes()).hexdigest() != member["sha256"]:
+                raise ValueError("Archived evidence was changed: " + member["path"])
+            paths.add(archived.relative_to(PROJECT).as_posix())
     paths.update({"backend/reports/test_results.log", "backend/reports/test_results_spark.log", "docs/screenshots/mlflow-evidence.json", "docs/screenshots/kafka-evidence.json"})
     paths.update({"backend/src/opsyntra/kafka_workflow.py", "backend/src/opsyntra/kafka_consumption.py", "backend/config.yaml",
                   "backend/producer.py", "backend/consumer.py", "start-airflow.ps1", "backend/pipelines/verification.py"})
+    if phase1:
+        paths.update({"backend/pipelines/clean_clone_check.py", "backend/pipelines/phase1_evidence.py", "backend/pipelines/model_bundle.py",
+                      "backend/requirements/worker.txt", "start-spark.ps1", "backend/src/opsyntra/spark_tracking.py",
+                      "backend/tests/unit/test_spark_archive.py", "backend/tests/unit/test_model_bundle.py",
+                      "docs/DEMO_GUIDE.md", "docs/screenshots/frontend-desktop.png", "docs/screenshots/frontend-mobile.png"})
     artifacts = []
     for relative in sorted(paths):
         path = PROJECT / relative
@@ -100,6 +133,8 @@ def main():
               "limits": ["Single local WSL broker/LocalExecutor; not a multi-host benchmark", "At-least-once delivery; no exactly-once claim",
                          "Model accepts unknown categories; Kafka deliberately enforces the documented categorical schema",
                          "Screenshots are dated evidence; recorded CLI transcript pages are explicitly labelled"]}
+    if phase1:
+        report["phase1"] = phase1
     (ROOT / "reports/submission_evidence.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     lines = ["# Opsyntra verification and evidence", "", f"Generated: {report['captured_at']}", "",
              f"Host: {host['passed']} passed, {host['skipped']} Spark checks skipped. Native WSL Spark: {spark['passed']} passed, no skips. "
@@ -112,6 +147,13 @@ def main():
     for kind, info in bonus.items():
         result = info["result"]
         lines += [f"- **{kind}**: `{result['run_id']}`; all four tasks successful; {result['predictions']} confirmed prediction rows; model `{result['model_version']}`."]
+    if phase1:
+        lines += ["", "## Phase 1 clean-clone handoff", "",
+                  f"A separate local clone of `{phase1['source_commit']}` rebuilt both engines in fresh ML environments, passed six real browser flows, "
+                  "and completed both required eight-task DAGs using fresh clone-specific Airflow metadata. "
+                  "Host WSL/Java/Node/Edge, the Kafka broker and the Airflow tool installation were reused explicitly. "
+                  "The linked report records the exact portability patch applied to its baseline commit. "
+                  "See that report and retained command logs for the tested candidate, commands and prerequisites."]
     lines += ["", "The JSON index records SHA-256 and sizes of the evidence files, exact scheduler task states, run/group IDs, model/source/split hashes and output CSV hashes. "
               "Raw source data, saved models, service metadata and run ledgers stay ignored by Git; recreate them using the documented commands. "
               "Recovery transcripts and test logs needed for assessment are retained in the repository.", "",

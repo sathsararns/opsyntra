@@ -1,0 +1,49 @@
+{
+  "customerID": "DEMO-NEW-001",
+  "churn_probability": 0.429738421953112,
+  "prediction": "Yes",
+  "model_version": "6172478f6bdcb515"
+}
+
+
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/20 13:14:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/20 13:14:59 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+
+[Stage 0:>                                                          (0 + 1) / 1]
+
+                                                                                
+
+[Stage 6:>                                                          (0 + 1) / 1]
+
+                                                                                
+
+[Stage 10:>                                                         (0 + 1) / 1]
+
+                                                                                
+
+[Stage 20:>                                                         (0 + 1) / 1]
+
+[Stage 21:>                                                         (0 + 1) / 1]
+
+                                                                                
+
+[Stage 23:>                                                         (0 + 1) / 1]
+
+[Stage 24:>                                                         (0 + 2) / 2]
+
+                                                                                
+
+[Stage 26:>                                                         (0 + 2) / 2]
+
+[Stage 27:>                                                         (0 + 2) / 2]
+
+                                                                                
+
+[Stage 31:>                                                         (0 + 1) / 1]
+
+                                                                                
+INFO Closing down clientserver connection

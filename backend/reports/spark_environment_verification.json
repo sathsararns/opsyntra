@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "created": {
+    "status": "created",
+    "project_path": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/.verification/native-environment-check/backend/.venv-spark",
+    "runtime_path": "/root/.local/share/opsyntra/spark-venv-a54d5a3132e6",
+    "include_system_site_packages": false
+  },
+  "second_call": {
+    "status": "existing",
+    "project_path": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/.verification/native-environment-check/backend/.venv-spark",
+    "runtime_path": "/root/.local/share/opsyntra/spark-venv-a54d5a3132e6",
+    "note": "Existing environments are preserved; no automatic migration"
+  },
+  "note": "Fresh setup helper tested separately; main clean-clone run completed the earlier directory-based installer"
+}

@@ -1,6 +1,11 @@
 # Shared project documentation
 
 - [Project roadmap](../OPSYNTRA_ROADMAP.md)
+- [Submission and extension roadmap](../OPSYNTRA_EXTENSION_ROADMAP.md)
+- [Phase 1 clean-clone verification](../backend/reports/clean_clone_verification.md)
+- [Frontend typecheck/build/browser evidence](../backend/reports/frontend_verification.json)
+- [Submission demo guide](DEMO_GUIDE.md)
+- [Separate saved-model setup evidence](../backend/reports/model_bundle_verification.json)
 - [Frontend setup](../frontend/README.md)
 - [Backend and ML workflows](../backend/README.md)
 - [Desktop screenshot](screenshots/frontend-desktop.png)

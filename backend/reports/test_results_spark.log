@@ -4,6 +4,6 @@ test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes (tests.
 test_training_statistics_unknown_categories_and_complete_model_reload (tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload) ... ok
 
 ----------------------------------------------------------------------
-Ran 4 tests in 263.887s
+Ran 4 tests in 213.796s
 
 OK

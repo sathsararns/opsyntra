@@ -61,16 +61,23 @@ test_memberships_are_complete_disjoint_and_stratified (tests.unit.test_data_cont
 test_memberships_are_reproducible_even_after_reordering (tests.unit.test_data_contract.DataContractTests.test_memberships_are_reproducible_even_after_reordering) ... ok
 test_saved_memberships_rejoin_by_id_and_reject_partial_coverage (tests.unit.test_data_contract.DataContractTests.test_saved_memberships_rejoin_by_id_and_reject_partial_coverage) ... ok
 test_comparison_uses_churn_f1_and_non_interpolated_average_precision (tests.unit.test_engine_metrics.EngineMetricsTests.test_comparison_uses_churn_f1_and_non_interpolated_average_precision) ... ok
+test_altered_payload_is_rejected (tests.unit.test_model_bundle.ModelBundleTests.test_altered_payload_is_rejected) ... ok
+test_restore_is_idempotent_and_refuses_conflicting_models (tests.unit.test_model_bundle.ModelBundleTests.test_restore_is_idempotent_and_refuses_conflicting_models) ... ok
+test_restore_rejects_dataset_change_before_writing_any_model (tests.unit.test_model_bundle.ModelBundleTests.test_restore_rejects_dataset_change_before_writing_any_model) ... ok
+test_traversal_unexpected_files_and_case_collisions_are_rejected (tests.unit.test_model_bundle.ModelBundleTests.test_traversal_unexpected_files_and_case_collisions_are_rejected) ... ok
+test_verified_bundle_has_payload_and_archive_checksums (tests.unit.test_model_bundle.ModelBundleTests.test_verified_bundle_has_payload_and_archive_checksums) ... ok
 test_all_four_estimators_fit_and_predict_raw_records (tests.unit.test_model_pipeline.ModelPipelineTests.test_all_four_estimators_fit_and_predict_raw_records) ... ok
 test_bad_numeric_values_and_missing_feature_columns_fail (tests.unit.test_model_pipeline.ModelPipelineTests.test_bad_numeric_values_and_missing_feature_columns_fail) ... ok
 test_cv_relearns_medians_inside_each_training_fold (tests.unit.test_model_pipeline.ModelPipelineTests.test_cv_relearns_medians_inside_each_training_fold) ... ok
 test_imputer_scaler_and_encoder_learn_only_from_fitted_rows (tests.unit.test_model_pipeline.ModelPipelineTests.test_imputer_scaler_and_encoder_learn_only_from_fitted_rows) ... ok
 test_label_identifier_and_column_order_cannot_change_predictions (tests.unit.test_model_pipeline.ModelPipelineTests.test_label_identifier_and_column_order_cannot_change_predictions) ... ok
 test_missing_values_and_unknown_categories_work_without_label_or_identifier (tests.unit.test_model_pipeline.ModelPipelineTests.test_missing_values_and_unknown_categories_work_without_label_or_identifier) ... ok
+test_archive_cannot_be_written_inside_its_source_model (tests.unit.test_spark_archive.SparkArchiveTests.test_archive_cannot_be_written_inside_its_source_model) ... ok
+test_archive_retains_deep_native_model_files_and_their_digest (tests.unit.test_spark_archive.SparkArchiveTests.test_archive_retains_deep_native_model_files_and_their_digest) ... ok
 test_f1_ties_prefer_threshold_closest_to_half (tests.unit.test_threshold_selection.ThresholdSelectionTests.test_f1_ties_prefer_threshold_closest_to_half) ... ok
 test_threshold_finds_best_f1_with_duplicate_probabilities (tests.unit.test_threshold_selection.ThresholdSelectionTests.test_threshold_finds_best_f1_with_duplicate_probabilities) ... ok
 
 ----------------------------------------------------------------------
-Ran 71 tests in 54.695s
+Ran 78 tests in 50.993s
 
 OK (skipped=4)

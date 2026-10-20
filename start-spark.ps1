@@ -17,7 +17,7 @@ if ($Task -eq "setup") {
     if ($LASTEXITCODE -ne 0) { throw "Ubuntu package index update failed." }
     & wsl -d Ubuntu -u root --exec apt-get install -y -qq openjdk-21-jre-headless python3-venv
     if ($LASTEXITCODE -ne 0) { throw "Ubuntu Java/Python installation failed." }
-    & wsl -d Ubuntu --cd $linuxBackend --exec python3 -m venv --copies .venv-spark
+    & wsl -d Ubuntu --cd $linuxBackend --exec python3 -m pipelines.spark_environment
     if ($LASTEXITCODE -ne 0) { throw "Spark environment creation failed." }
     & wsl -d Ubuntu --cd $linuxBackend --exec $pythonBinary -m pip install -r requirements/spark.txt
     if ($LASTEXITCODE -ne 0) { throw "Spark dependency installation failed." }

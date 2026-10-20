@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "captured_at": "2026-10-19T15:40:47.126360+00:00",
+  "captured_at": "2026-10-20T08:32:42.690095+00:00",
   "host_tests": {
-    "tests_run": 71,
-    "passed": 67,
+    "tests_run": 78,
+    "passed": 74,
     "skipped": 4,
     "failures": 0,
     "errors": 0
@@ -15,7 +15,7 @@
     "failures": 0,
     "errors": 0
   },
-  "unique_tests_passed_across_runtimes": 71,
+  "unique_tests_passed_across_runtimes": 78,
   "model_version": "d9a13b4cf6839ed4",
   "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
   "split_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
@@ -23,7 +23,7 @@
     "batch": {
       "scheduler": {
         "dag_id": "opsyntra_kafka_batch",
-        "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+        "run_id": "manual__opsyntra_kafka_batch_20261019T154505200671Z",
         "engine": "sklearn",
         "state": "success",
         "tasks": [
@@ -32,64 +32,64 @@
             "logical_date": "",
             "task_id": "health_checks",
             "state": "success",
-            "start_date": "2026-10-19T15:28:45.381290+00:00",
-            "end_date": "2026-10-19T15:28:55.664636+00:00"
+            "start_date": "2026-10-19T15:45:09.307794+00:00",
+            "end_date": "2026-10-19T15:45:18.486335+00:00"
           },
           {
             "dag_id": "opsyntra_kafka_batch",
             "logical_date": "",
             "task_id": "publish_batch",
             "state": "success",
-            "start_date": "2026-10-19T15:28:55.822690+00:00",
-            "end_date": "2026-10-19T15:29:04.957548+00:00"
+            "start_date": "2026-10-19T15:45:18.769245+00:00",
+            "end_date": "2026-10-19T15:45:29.888365+00:00"
           },
           {
             "dag_id": "opsyntra_kafka_batch",
             "logical_date": "",
             "task_id": "predict_batch",
             "state": "success",
-            "start_date": "2026-10-19T15:29:05.932312+00:00",
-            "end_date": "2026-10-19T15:29:40.411347+00:00"
+            "start_date": "2026-10-19T15:45:30.002355+00:00",
+            "end_date": "2026-10-19T15:45:48.344759+00:00"
           },
           {
             "dag_id": "opsyntra_kafka_batch",
             "logical_date": "",
             "task_id": "summarize",
             "state": "success",
-            "start_date": "2026-10-19T15:29:41.454253+00:00",
-            "end_date": "2026-10-19T15:29:54.927053+00:00"
+            "start_date": "2026-10-19T15:45:48.899199+00:00",
+            "end_date": "2026-10-19T15:46:00.552206+00:00"
           }
         ],
         "dag_run": {
           "dag_id": "opsyntra_kafka_batch",
-          "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+          "run_id": "manual__opsyntra_kafka_batch_20261019T154505200671Z",
           "state": "success",
-          "run_after": "2026-10-19T15:27:35.905484+00:00",
+          "run_after": "2026-10-19T15:45:06.618093+00:00",
           "logical_date": "",
-          "start_date": "2026-10-19T15:28:45.332186+00:00",
-          "end_date": "2026-10-19T15:29:54.946267+00:00"
+          "start_date": "2026-10-19T15:45:09.081632+00:00",
+          "end_date": "2026-10-19T15:46:01.378088+00:00"
         }
       },
       "result": {
-        "completed_at": "2026-10-19T15:29:54.643412Z",
+        "completed_at": "2026-10-19T15:46:00.246012Z",
         "consumer": {
           "batch_size": 100,
           "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
           "committed_offsets": {
-            "0": 15799,
-            "1": 15904,
-            "2": 15580
+            "0": 18163,
+            "1": 18284,
+            "2": 17899
           },
           "committed_records": 7043,
           "deadletters_published": 0,
           "deduplicated": 0,
           "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
-          "elapsed_seconds": 22.895752600999913,
+          "elapsed_seconds": 11.033969880001678,
           "engine": "sklearn",
-          "finished_at": "2026-10-19T15:29:38.738380Z",
-          "group_id": "opsyntra-airflow-batch-sklearn-cffc444babbe85e55f67",
+          "finished_at": "2026-10-19T15:45:48.052329Z",
+          "group_id": "opsyntra-airflow-batch-sklearn-cfb028978a0dece8501c",
           "inference_batches": 71,
-          "invocation_id": "5939f2c4-ea2b-4e00-a2dd-0f97ec0eded5",
+          "invocation_id": "fdb348c6-3378-4ae4-a79c-58acf7e254f9",
           "max_messages": null,
           "mode": "batch",
           "model_loads": 1,
@@ -99,16 +99,16 @@
             "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
             "partitions": {
               "0": {
-                "end": 15799,
-                "start": 13443
+                "end": 18163,
+                "start": 15807
               },
               "1": {
-                "end": 15904,
-                "start": 13529
+                "end": 18284,
+                "start": 15909
               },
               "2": {
-                "end": 15580,
-                "start": 13268
+                "end": 17899,
+                "start": 15587
               }
             },
             "topic": "telco.raw.customers"
@@ -116,32 +116,32 @@
           "predictions_published": 7043,
           "reason": "offset_window_exhausted",
           "received_records": 7043,
-          "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67/recovery/27bf0433579337603a35e4aa.sqlite3",
-          "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67/consumer_runs/5939f2c4-ea2b-4e00-a2dd-0f97ec0eded5",
-          "started_at": "2026-10-19T15:29:15.842566Z",
+          "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cfb028978a0dece8501c/recovery/31614e47185185eade0ef161.sqlite3",
+          "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cfb028978a0dece8501c/consumer_runs/fdb348c6-3378-4ae4-a79c-58acf7e254f9",
+          "started_at": "2026-10-19T15:45:37.018367Z",
           "status": "completed"
         },
         "dag_id": "opsyntra_kafka_batch",
         "deadletters_in_window": 0,
         "delivery_semantics": "at-least-once; durable group ledger and stable prediction IDs; no exactly-once claim",
         "engine": "sklearn",
-        "group_id": "opsyntra-airflow-batch-sklearn-cffc444babbe85e55f67",
+        "group_id": "opsyntra-airflow-batch-sklearn-cfb028978a0dece8501c",
         "kind": "batch",
         "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
         "model_version": "d9a13b4cf6839ed4",
         "predictions": 7043,
-        "predictions_csv": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67/predictions.csv",
-        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cffc444babbe85e55f67",
-        "run_id": "manual__opsyntra_kafka_batch_20261019T152734317462Z",
+        "predictions_csv": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cfb028978a0dece8501c/predictions.csv",
+        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/batch/cfb028978a0dece8501c",
+        "run_id": "manual__opsyntra_kafka_batch_20261019T154505200671Z",
         "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
         "status": "PASS"
       },
-      "predictions_csv_sha256": "90be23f3965fe08d331a3958d9c8f7daebfa92977b0eed993c8158698e4a56f2"
+      "predictions_csv_sha256": "ef7d23b4c5582d1af0641a23fba30c8394a746c287294f89d2587092787ab4b0"
     },
     "streaming": {
       "scheduler": {
         "dag_id": "opsyntra_kafka_streaming",
-        "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+        "run_id": "manual__opsyntra_kafka_streaming_20261019T154755633634Z",
         "engine": "sklearn",
         "state": "success",
         "tasks": [
@@ -150,64 +150,64 @@
             "logical_date": "",
             "task_id": "health_checks",
             "state": "success",
-            "start_date": "2026-10-19T15:29:29.333557+00:00",
-            "end_date": "2026-10-19T15:29:46.257739+00:00"
+            "start_date": "2026-10-19T15:47:59.936484+00:00",
+            "end_date": "2026-10-19T15:48:09.384482+00:00"
           },
           {
             "dag_id": "opsyntra_kafka_streaming",
             "logical_date": "",
             "task_id": "start_and_monitor_consumer",
             "state": "success",
-            "start_date": "2026-10-19T15:29:46.536668+00:00",
-            "end_date": "2026-10-19T15:30:29.955267+00:00"
+            "start_date": "2026-10-19T15:48:09.975872+00:00",
+            "end_date": "2026-10-19T15:48:52.337405+00:00"
           },
           {
             "dag_id": "opsyntra_kafka_streaming",
             "logical_date": "",
             "task_id": "publish_samples",
             "state": "success",
-            "start_date": "2026-10-19T15:29:54.961688+00:00",
-            "end_date": "2026-10-19T15:30:08.968197+00:00"
+            "start_date": "2026-10-19T15:48:09.977207+00:00",
+            "end_date": "2026-10-19T15:48:23.591911+00:00"
           },
           {
             "dag_id": "opsyntra_kafka_streaming",
             "logical_date": "",
             "task_id": "summarize",
             "state": "success",
-            "start_date": "2026-10-19T15:30:30.167099+00:00",
-            "end_date": "2026-10-19T15:30:42.746920+00:00"
+            "start_date": "2026-10-19T15:48:52.510973+00:00",
+            "end_date": "2026-10-19T15:49:00.651246+00:00"
           }
         ],
         "dag_run": {
           "dag_id": "opsyntra_kafka_streaming",
-          "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+          "run_id": "manual__opsyntra_kafka_streaming_20261019T154755633634Z",
           "state": "success",
-          "run_after": "2026-10-19T15:29:24.550515+00:00",
+          "run_after": "2026-10-19T15:47:57.321189+00:00",
           "logical_date": "",
-          "start_date": "2026-10-19T15:29:29.084607+00:00",
-          "end_date": "2026-10-19T15:30:42.898589+00:00"
+          "start_date": "2026-10-19T15:47:59.902581+00:00",
+          "end_date": "2026-10-19T15:49:01.611659+00:00"
         }
       },
       "result": {
-        "completed_at": "2026-10-19T15:30:42.373819Z",
+        "completed_at": "2026-10-19T15:49:00.384422Z",
         "consumer": {
           "batch_size": 100,
           "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
           "committed_offsets": {
-            "0": 15807,
-            "1": 15909,
-            "2": 15587
+            "0": 18171,
+            "1": 18289,
+            "2": 17906
           },
           "committed_records": 20,
           "deadletters_published": 0,
           "deduplicated": 0,
           "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
-          "elapsed_seconds": 30.773292198999115,
+          "elapsed_seconds": 30.63541989100122,
           "engine": "sklearn",
-          "finished_at": "2026-10-19T15:30:28.442045Z",
-          "group_id": "opsyntra-airflow-streaming-sklearn-0b85d3f2354312214cdb",
+          "finished_at": "2026-10-19T15:48:52.087918Z",
+          "group_id": "opsyntra-airflow-streaming-sklearn-97096d92ba4fb5e021ba",
           "inference_batches": 7,
-          "invocation_id": "391055ff-5a64-46c3-9ee5-4541cbde4c31",
+          "invocation_id": "1df56204-e786-4eac-800d-a48f916f89bd",
           "max_messages": null,
           "mode": "streaming",
           "model_loads": 1,
@@ -216,27 +216,27 @@
           "predictions_published": 20,
           "reason": "stop_requested",
           "received_records": 20,
-          "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb/recovery/287a02ff485e597b60af60a4.sqlite3",
-          "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb/consumer_runs/391055ff-5a64-46c3-9ee5-4541cbde4c31",
-          "started_at": "2026-10-19T15:29:55.834068Z",
+          "recovery_database": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/97096d92ba4fb5e021ba/recovery/ec027f330eae1a8cb5d0f09c.sqlite3",
+          "report_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/97096d92ba4fb5e021ba/consumer_runs/1df56204-e786-4eac-800d-a48f916f89bd",
+          "started_at": "2026-10-19T15:48:19.347014Z",
           "status": "stopped"
         },
         "dag_id": "opsyntra_kafka_streaming",
         "deadletters_in_window": 0,
         "delivery_semantics": "at-least-once; durable group ledger and stable prediction IDs; no exactly-once claim",
         "engine": "sklearn",
-        "group_id": "opsyntra-airflow-streaming-sklearn-0b85d3f2354312214cdb",
+        "group_id": "opsyntra-airflow-streaming-sklearn-97096d92ba4fb5e021ba",
         "kind": "streaming",
         "model_sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
         "model_version": "d9a13b4cf6839ed4",
         "predictions": 20,
-        "predictions_csv": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb/predictions.csv",
-        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/0b85d3f2354312214cdb",
-        "run_id": "manual__opsyntra_kafka_streaming_20261019T152921722006Z",
+        "predictions_csv": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/97096d92ba4fb5e021ba/predictions.csv",
+        "run_directory": "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/artifacts/kafka/airflow/streaming/97096d92ba4fb5e021ba",
+        "run_id": "manual__opsyntra_kafka_streaming_20261019T154755633634Z",
         "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
         "status": "PASS"
       },
-      "predictions_csv_sha256": "f35d72e9507562e874f4ac600f5f48cc2002fe0f1ab872cd71debf31301d3942"
+      "predictions_csv_sha256": "34134c4e66db8b6de2ddc72e97f71df099c0727df5adf18ad476d56077e243e5"
     }
   },
   "rubric": [
@@ -323,6 +323,41 @@
         "docs/VERIFICATION.md",
         "backend/KAFKA.md"
       ]
+    },
+    {
+      "requirement": "Independent clean clone, fresh model training and scheduler runs",
+      "evidence": [
+        "backend/reports/clean_clone_verification.md",
+        "backend/reports/clean_clone_verification.json"
+      ]
+    },
+    {
+      "requirement": "Frontend typecheck/build and six real browser flows",
+      "evidence": [
+        "backend/reports/frontend_verification.json",
+        "docs/screenshots/frontend-prediction.png"
+      ]
+    },
+    {
+      "requirement": "Submission demonstration and optional saved-model setup",
+      "evidence": [
+        "docs/DEMO_GUIDE.md",
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "requirement": "Checksum-verified saved-model restore and both engines' inference",
+      "evidence": [
+        "backend/reports/model_bundle_verification.json",
+        "backend/pipelines/model_bundle.py"
+      ]
+    },
+    {
+      "requirement": "Isolated native-Linux environment setup and repeat setup",
+      "evidence": [
+        "backend/reports/spark_environment_verification.json",
+        "backend/pipelines/spark_environment.py"
+      ]
     }
   ],
   "artifacts": [
@@ -347,6 +382,26 @@
       "sha256": "4be0dd3c91771657b81c90f5e487a917284e6f85c5956101a7548061730dd8dc"
     },
     {
+      "path": "backend/pipelines/clean_clone_check.py",
+      "bytes": 13307,
+      "sha256": "608baa0cc52bd0c509ce51a5d3854ba0dc86e3da4313b4d01f7b2090b6fe8e51"
+    },
+    {
+      "path": "backend/pipelines/model_bundle.py",
+      "bytes": 6718,
+      "sha256": "735ae562e685287d3da1e9a8cd38f1a74244bb2e2c61808103d512d829a92a99"
+    },
+    {
+      "path": "backend/pipelines/phase1_evidence.py",
+      "bytes": 8993,
+      "sha256": "c06ab02bc10bbb5e68a770183f6af92e2000b67209b045314effdbf468d65eaf"
+    },
+    {
+      "path": "backend/pipelines/spark_environment.py",
+      "bytes": 1598,
+      "sha256": "68a75707d78126af662b4aa7b0eca367021d2a030fbabf879610444a29bb8d6f"
+    },
+    {
       "path": "backend/pipelines/verification.py",
       "bytes": 3785,
       "sha256": "dd750a808ed91593d1d09b938e63771e06b746842812e4480d8462415ad094fc"
@@ -362,6 +417,16 @@
       "sha256": "dcf5939e0aeaeda83bc3d012036c54711e5efe8a436d1a2a762ab3f799cb256d"
     },
     {
+      "path": "backend/reports/clean_clone_verification.json",
+      "bytes": 746865,
+      "sha256": "efbfc3ab68ba2f42ceb96845591b47f46e70269be3350fe741167d1f74002a3b"
+    },
+    {
+      "path": "backend/reports/clean_clone_verification.md",
+      "bytes": 6219,
+      "sha256": "3d0816ad642f6e6592d580ffd75fdc561fb266912ff7d1cb9930c451ec2bd242"
+    },
+    {
       "path": "backend/reports/engine_comparison.json",
       "bytes": 4743,
       "sha256": "612ba6a11f1373e4977a5381b092a638633ee211d2e9cbd73f69755d68185c1b"
@@ -370,6 +435,11 @@
       "path": "backend/reports/engine_comparison.md",
       "bytes": 3751,
       "sha256": "7f686967aa168ec568cd5369022ddf41a7747ddb7c575869886e7e2676811b46"
+    },
+    {
+      "path": "backend/reports/frontend_verification.json",
+      "bytes": 13636,
+      "sha256": "324e3f3b91a6d14a470498e58c6eaba89707a812bce511e78844cab2cae6cfd4"
     },
     {
       "path": "backend/reports/kafka_consumption_report.md",
@@ -382,29 +452,44 @@
       "sha256": "4a6c46c172b3c24adb8607b5c49508642fe4abcf6c56d58a7cf86753f887654e"
     },
     {
+      "path": "backend/reports/model_bundle_verification.json",
+      "bytes": 20986,
+      "sha256": "2e02a501b9892d5d04033f08b2e1aec152047717675325bdbb7b1ddc18b2f91c"
+    },
+    {
       "path": "backend/reports/model_selection.md",
       "bytes": 1842,
       "sha256": "b1942718c20af2ece7d3e8689b57cdda58c2bb54906ad93278a930004f8702c3"
     },
     {
+      "path": "backend/reports/spark_environment_verification.json",
+      "bytes": 746,
+      "sha256": "fbd449730a7227ffb22cc02be1504ad965b7220df1d1befffa26812b217a68c9"
+    },
+    {
       "path": "backend/reports/test_results.json",
-      "bytes": 17649,
-      "sha256": "06100e2168e8dbe946ed94990594d8d34fd0883bff1278f34b6a3005254c7646"
+      "bytes": 19216,
+      "sha256": "950e21e32255d67cda2b1215a67a983c7ed3ceaa7e807ec5f916fae764524757"
     },
     {
       "path": "backend/reports/test_results.log",
-      "bytes": 13743,
-      "sha256": "580318b9fa380c397fcbba80516095d58760b922aaee0d1e672e54559b86e669"
+      "bytes": 14917,
+      "sha256": "54e301dbc7ee5d7e46fa101853b48fde4da6516633f1bde9a21c91870d92f9f5"
     },
     {
       "path": "backend/reports/test_results_spark.json",
-      "bytes": 1506,
-      "sha256": "a6c24d207638eb921a4afaa6b315bb4efcf8a18275f85adae75d73a429fe1850"
+      "bytes": 1923,
+      "sha256": "a0c2f7f9a58d37dd20cd41134df2a556b167e7407ea3cfc2a1fcd538decfa9b3"
     },
     {
       "path": "backend/reports/test_results_spark.log",
       "bytes": 852,
-      "sha256": "fb8c88fa56fc477408907c88600b76c0d74f8ca74eefc8cf57727866d1d496a0"
+      "sha256": "d10dbf9bdd0c4d3fd9179e86e4fa7935450979f5b3028394636971adcd954beb"
+    },
+    {
+      "path": "backend/requirements/worker.txt",
+      "bytes": 148,
+      "sha256": "7ca14ad2d3e009730480a81e26fee5d13b7818e09ab8c0c99e73572ec2e2736a"
     },
     {
       "path": "backend/src/opsyntra/kafka_consumption.py",
@@ -417,6 +502,11 @@
       "sha256": "3bf8a0f949f56b081a85615867f247c6a91882230b5309d2d752587c1dd415e7"
     },
     {
+      "path": "backend/src/opsyntra/spark_tracking.py",
+      "bytes": 8211,
+      "sha256": "7b54c87cc2f5b88168774e1004ba6f4c6d390e6981b0750ea736a9c82be4173b"
+    },
+    {
       "path": "backend/tests/integration/test_kafka_consumer.py",
       "bytes": 17748,
       "sha256": "9826c7e1289b3e4c8ba283a772ea8af54c514f722accb98d7bc5b8f8ad0f5956"
@@ -427,14 +517,179 @@
       "sha256": "c807691783242863848b76a61787879f8a48679b7b97ef96d1c1b3c69a84a12f"
     },
     {
+      "path": "backend/tests/unit/test_model_bundle.py",
+      "bytes": 4066,
+      "sha256": "c5e54b0dd86bbc1ca87dabd5d00a70a0bcec99176b67886f086261933a29bc02"
+    },
+    {
       "path": "backend/tests/unit/test_model_pipeline.py",
       "bytes": 4784,
       "sha256": "7a85c61e48e0ba333ecf4db4cb1055e148f8a700d3ba87d2e304cf21554dc1e3"
     },
     {
+      "path": "backend/tests/unit/test_spark_archive.py",
+      "bytes": 2034,
+      "sha256": "5b0d4dc63e1f2721ac52f0636e579d9b93b349cd4492a3b9a36e95e177d21e05"
+    },
+    {
+      "path": "docs/DEMO_GUIDE.md",
+      "bytes": 6359,
+      "sha256": "ae44a93764d454817b4f1dbf847a6b546c4e5557f1554d4e8d9c0ae05db63c3a"
+    },
+    {
       "path": "docs/VERIFICATION.md",
-      "bytes": 7862,
-      "sha256": "41bf3399b61f7c5233cf53102de4bf96dd1457fcfc1ff3937d50e96eaddc0a00"
+      "bytes": 13056,
+      "sha256": "0bd78dfc8ecc4b64ea3e10b5816f50d2dcbffc87cfa66e90be45f3ad595308e8"
+    },
+    {
+      "path": "docs/evidence/clean-clone/airflow_sklearn-attempt-1.txt",
+      "bytes": 3022,
+      "sha256": "f56f76b96a0bb3f915f3ada08ca92cb6fbdce4f08910c6af62ac97e4bd6bb70f"
+    },
+    {
+      "path": "docs/evidence/clean-clone/airflow_spark-attempt-1.txt",
+      "bytes": 2417,
+      "sha256": "361cfe0c03c49c035382804d898770f44ff1c4d3209027368a255a7772474dd1"
+    },
+    {
+      "path": "docs/evidence/clean-clone/backend_tests-attempt-1.txt",
+      "bytes": 2584,
+      "sha256": "abd9f67bad088d86274cce2a11a2538a664187c33291cc97aaba5846f50beaf2"
+    },
+    {
+      "path": "docs/evidence/clean-clone/clone.txt",
+      "bytes": 106,
+      "sha256": "2234eafb9f757205df5ce69ffa209f889a12375e229a3cd874a5067650f50280"
+    },
+    {
+      "path": "docs/evidence/clean-clone/clone_airflow_stop-attempt-1.txt",
+      "bytes": 40,
+      "sha256": "f562e16df70b34513f23fde8c2129edacd819ad60f771e65a10f3fa97ffa0cfb"
+    },
+    {
+      "path": "docs/evidence/clean-clone/data_import.txt",
+      "bytes": 460,
+      "sha256": "3940984846c85c91ad082d760465ddc414a2ad0e7a87f8708a5854bfd522dd99"
+    },
+    {
+      "path": "docs/evidence/clean-clone/frontend-first-pass.json",
+      "bytes": 13349,
+      "sha256": "26bb68cd4f8ece7d9120f69ffd546a172b778c47f82ad7fc991666da066c7f69"
+    },
+    {
+      "path": "docs/evidence/clean-clone/frontend-fresh-servers.txt",
+      "bytes": 9778,
+      "sha256": "9ec987621be0ecbdf34175145d990af7591bbbb8c5699075763a6274ef01a27e"
+    },
+    {
+      "path": "docs/evidence/clean-clone/frontend_browser-attempt-1.txt",
+      "bytes": 9461,
+      "sha256": "2879b4c48d358f5850dc7d45722d5e4f5069a96c73fa56d6ad5e4b51cd38ce7d"
+    },
+    {
+      "path": "docs/evidence/clean-clone/frontend_build-attempt-1.txt",
+      "bytes": 768,
+      "sha256": "a0e1c361aafae8c29c3881db66bdf825178bee980c468778b9197f06a3e27ceb"
+    },
+    {
+      "path": "docs/evidence/clean-clone/frontend_typecheck-attempt-1.txt",
+      "bytes": 53,
+      "sha256": "7da161d8c2522865f67c7af7d958d61801b0e8f9d5416216255ead298f38a7bc"
+    },
+    {
+      "path": "docs/evidence/clean-clone/kafka_consumption-attempt-1.txt",
+      "bytes": 866,
+      "sha256": "7f29ef4db7fcabfd441781744f15f1095459a284e11d253fed463639fb32542b"
+    },
+    {
+      "path": "docs/evidence/clean-clone/kafka_publishing-attempt-1.txt",
+      "bytes": 453,
+      "sha256": "4b6064d94492c33089e47d3d26b5f806651da8d6cf8e95bb06f1a4ed4c27cd87"
+    },
+    {
+      "path": "docs/evidence/clean-clone/main_airflow_restore-attempt-1.txt",
+      "bytes": 39,
+      "sha256": "7a3e615052b5db8e99ada1955ee54aeece1f1a06f37c2fdd1edee2522eaff139"
+    },
+    {
+      "path": "docs/evidence/clean-clone/main_airflow_stop-attempt-1.txt",
+      "bytes": 40,
+      "sha256": "f562e16df70b34513f23fde8c2129edacd819ad60f771e65a10f3fa97ffa0cfb"
+    },
+    {
+      "path": "docs/evidence/clean-clone/npm_install-attempt-1.txt",
+      "bytes": 141,
+      "sha256": "c86cfc0a01a4ca645b8635858274ba2ba99a970186ce8086256f4e90e49139ba"
+    },
+    {
+      "path": "docs/evidence/clean-clone/sklearn_batch.txt",
+      "bytes": 67,
+      "sha256": "1c82f082616fae247d4707bc3eb89abb972dbc9b91f5c37b3047acedec40b753"
+    },
+    {
+      "path": "docs/evidence/clean-clone/sklearn_single.txt",
+      "bytes": 145,
+      "sha256": "8ad53a8e0bdf5e60d7814d30014e4cf4ab3eea51f04d5015adba1597955d228a"
+    },
+    {
+      "path": "docs/evidence/clean-clone/sklearn_training.txt",
+      "bytes": 2416,
+      "sha256": "6b3eaf70a5a2f9d2e325b4ee77c5f4f8f5e95e0df05ac50a487405dd6cd0b40f"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark-tracking-portability.patch",
+      "bytes": 3258,
+      "sha256": "625e969bea819f07dad58f147b1baba80b3c0b82dadec52ff57bf9e0e451f558"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_batch-attempt-1.txt",
+      "bytes": 1376,
+      "sha256": "f20cb7db0e2934c2fe499c5975b76a6010b7e91dd13b867389a5dbe7fa121a2c"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_dependencies.txt",
+      "bytes": 32226,
+      "sha256": "ee9b20d4a16986c81f21a0468bde6445e6c9ccf8a039c37950a2dcbe53064333"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_environment.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_single-attempt-1.txt",
+      "bytes": 1052,
+      "sha256": "7a38828d24b02d34975c5dd39119262c00ce7afa98f805c053f25d0519256145"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_tests-attempt-1.txt",
+      "bytes": 4674,
+      "sha256": "29796178605a0da3dfd172260cdf0e5bda06eb250038b8c4a4d362ed68bcd516"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_tracking-attempt-2.txt",
+      "bytes": 236,
+      "sha256": "9b519ca796d6e4b0d8de1451ad4aed98406c4fac69f11392d097348d399c7456"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_tracking.txt",
+      "bytes": 2496,
+      "sha256": "530a3a845073459327bf92f24f187b43f8709145851ef682de5af0ebac8b6e31"
+    },
+    {
+      "path": "docs/evidence/clean-clone/spark_training.txt",
+      "bytes": 11874,
+      "sha256": "25a221b76585a5f1f477f9b1cb3bd271cbfbd1eb899a362e0df6c6a9cf67e683"
+    },
+    {
+      "path": "docs/evidence/clean-clone/windows_dependencies.txt",
+      "bytes": 30958,
+      "sha256": "b7ec54a92cd97477315e79d4c7d1e00d2677be817caf3a431045ce2d4ae19832"
+    },
+    {
+      "path": "docs/evidence/clean-clone/windows_environment.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "docs/evidence/crash_after_ledger_commit.log",
@@ -445,6 +700,71 @@
       "path": "docs/evidence/crash_after_output_ack.log",
       "bytes": 223,
       "sha256": "d87a91527aad8e0de434f203dd7379325559b3e3e14e2474ce4ea714547890c4"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/backend/reports/submission_evidence.json",
+      "bytes": 22767,
+      "sha256": "5aee142fff2add6fec5d858481e580bf4fa0359e6d2905cda1a7a34c30dc103e"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/backend/reports/submission_evidence.md",
+      "bytes": 3943,
+      "sha256": "cb4f3f981fa25eea26ec420c6c9704403d43686b5f671117ef84a9eb084d0b53"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-airflow-batch-graph.png",
+      "bytes": 51850,
+      "sha256": "ad8a65f25a34ffa9212e3c4d3f3b9edc260fc338b09be58612d151297bf691f7"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-airflow-batch-grid.png",
+      "bytes": 93391,
+      "sha256": "c2fc74d52571125ad6ec19ffb938009c567135d8c97e392ea5a05d68efcbfd99"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-airflow-batch-log.png",
+      "bytes": 179318,
+      "sha256": "e3de7b5e7fca51e447344969db718f68d563df3a227bad30193655f1a60ec656"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-airflow-streaming-graph.png",
+      "bytes": 70237,
+      "sha256": "c91ba77b5e5f6ac0d66c618b8f9920f79f596a6656075dd2986dd88dad2c27f2"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-airflow-streaming-grid.png",
+      "bytes": 93622,
+      "sha256": "891dc94225c6972928248d7e0d3febf40c6eda515672b6117afd26547b4e8de4"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-airflow-streaming-log.png",
+      "bytes": 209737,
+      "sha256": "7870875914c0f3ba219e871b0747cc9ab624b1b18015604f5780374e0d2e549d"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/docs/screenshots/kafka-evidence.json",
+      "bytes": 4802,
+      "sha256": "2e29a388bf2b24a271517fa6a632da51e9f3ca2234313793ad73f3fc551db4e0"
+    },
+    {
+      "path": "docs/evidence/history/kafka-2026-10-19T153836-897Z/manifest.json",
+      "bytes": 1605,
+      "sha256": "365414b92bb79e18c3156d78816bf4af673406ba0f60030e1538d8e3961c065a"
+    },
+    {
+      "path": "docs/evidence/history/native-spark-tests-20261019/backend/reports/test_results_spark.json",
+      "bytes": 1506,
+      "sha256": "a6c24d207638eb921a4afaa6b315bb4efcf8a18275f85adae75d73a429fe1850"
+    },
+    {
+      "path": "docs/evidence/history/native-spark-tests-20261019/backend/reports/test_results_spark.log",
+      "bytes": 852,
+      "sha256": "fb8c88fa56fc477408907c88600b76c0d74f8ca74eefc8cf57727866d1d496a0"
+    },
+    {
+      "path": "docs/evidence/history/native-spark-tests-20261019/manifest.json",
+      "bytes": 415,
+      "sha256": "0317c7fb9e03f57c7e235bd7ddde6f13823690bbfd38d0e221bf1cb84ed33ed0"
     },
     {
       "path": "docs/evidence/kafka-capture.json",
@@ -497,9 +817,39 @@
       "sha256": "a3eea7100d92508ca47fd5859784426beceffbf3ba8c7bba327cdcf3cbb02069"
     },
     {
+      "path": "docs/evidence/saved-model/clone.txt",
+      "bytes": 94,
+      "sha256": "ab0f8f1d989d0f764d24e3869d49c4f6e24772a5c19d602ad7eef21fe008d9e9"
+    },
+    {
+      "path": "docs/evidence/saved-model/data_import.txt",
+      "bytes": 430,
+      "sha256": "e30d241e12ed0d29452a53ba19e3b5567b810f20654af13d000de684605214b9"
+    },
+    {
+      "path": "docs/evidence/saved-model/sklearn_batch.txt",
+      "bytes": 70,
+      "sha256": "555872082aa9757dc5ed83c7183237c62e91b110de5fb2b68293688e9cd4d0c0"
+    },
+    {
+      "path": "docs/evidence/saved-model/sklearn_single.txt",
+      "bytes": 147,
+      "sha256": "85f2e908cf3156ff0db7e837af1a3c3f8c27ebca6163d58c30bab2f95d5b71f7"
+    },
+    {
+      "path": "docs/evidence/saved-model/spark_batch.txt",
+      "bytes": 2075,
+      "sha256": "f4c7ce5ffc10d61877fb25125fd3bf088b5694d30aad3a22553526022b8be5d8"
+    },
+    {
+      "path": "docs/evidence/saved-model/spark_single.txt",
+      "bytes": 2226,
+      "sha256": "0b8264c2662af5dad7ab954fd7519308162a3dfcdac8634de37a25355843cd73"
+    },
+    {
       "path": "docs/screenshots/airflow-evidence.json",
       "bytes": 6293,
-      "sha256": "0e8fdbec340bd51446f1030b350d3753f36eaccdf9bbeee924a5c531031bdf98"
+      "sha256": "4a53ee19aaa54a488b48ce6ddeafdd38133a290a0963984e12cf3163928f0942"
     },
     {
       "path": "docs/screenshots/airflow-grid-sklearn.png",
@@ -512,34 +862,49 @@
       "sha256": "51e9ed8ff33b340e0e902ace21e4833e0a2dac2ae5e21b751427773c42afd54b"
     },
     {
+      "path": "docs/screenshots/frontend-desktop.png",
+      "bytes": 176279,
+      "sha256": "a3ef9d693765d9c1611888623c1cf5c273f62863006877ef6ff7b781ff54932c"
+    },
+    {
+      "path": "docs/screenshots/frontend-mobile.png",
+      "bytes": 108097,
+      "sha256": "ed0ed83a61b7da81c237f52684b533d07f86f1095c937c0cf0e518e851158130"
+    },
+    {
+      "path": "docs/screenshots/frontend-prediction.png",
+      "bytes": 135293,
+      "sha256": "3562d7cd347a2bd7cc7d59abcc8f0746b2c49e60b4fcee588c97aac29988acda"
+    },
+    {
       "path": "docs/screenshots/kafka-airflow-batch-graph.png",
-      "bytes": 51850,
-      "sha256": "ad8a65f25a34ffa9212e3c4d3f3b9edc260fc338b09be58612d151297bf691f7"
+      "bytes": 51684,
+      "sha256": "d9f196af62a207366c2a683a06a57c1e0c4455e83abb37a2af46232c14f41bed"
     },
     {
       "path": "docs/screenshots/kafka-airflow-batch-grid.png",
-      "bytes": 93391,
-      "sha256": "c2fc74d52571125ad6ec19ffb938009c567135d8c97e392ea5a05d68efcbfd99"
+      "bytes": 92615,
+      "sha256": "4670feac365ef0f1a9bb7f96a2c6d1243e187d81558a110c621b7fa18737cd92"
     },
     {
       "path": "docs/screenshots/kafka-airflow-batch-log.png",
-      "bytes": 179318,
-      "sha256": "e3de7b5e7fca51e447344969db718f68d563df3a227bad30193655f1a60ec656"
+      "bytes": 175451,
+      "sha256": "f1fdfded27086a58586bf14194b9fe8858e8507878ea6257fbb9566524b274a2"
     },
     {
       "path": "docs/screenshots/kafka-airflow-streaming-graph.png",
-      "bytes": 70237,
-      "sha256": "c91ba77b5e5f6ac0d66c618b8f9920f79f596a6656075dd2986dd88dad2c27f2"
+      "bytes": 81743,
+      "sha256": "19315b6e81c284755804e7e4467b25d1621b23716ab2ef949845d5e83603fa24"
     },
     {
       "path": "docs/screenshots/kafka-airflow-streaming-grid.png",
-      "bytes": 93622,
-      "sha256": "891dc94225c6972928248d7e0d3febf40c6eda515672b6117afd26547b4e8de4"
+      "bytes": 97123,
+      "sha256": "f762c030ee4a883b646e257563aa1e71fa3a5bdb2b685661dfa725c6c32cb880"
     },
     {
       "path": "docs/screenshots/kafka-airflow-streaming-log.png",
-      "bytes": 209737,
-      "sha256": "7870875914c0f3ba219e871b0747cc9ab624b1b18015604f5780374e0d2e549d"
+      "bytes": 211333,
+      "sha256": "4c00b37c36be5c16afd3a123b211a3659fe217d3c82f48ec33e9419a18b26619"
     },
     {
       "path": "docs/screenshots/kafka-deadletter.png",
@@ -549,7 +914,7 @@
     {
       "path": "docs/screenshots/kafka-evidence.json",
       "bytes": 4802,
-      "sha256": "2e29a388bf2b24a271517fa6a632da51e9f3ca2234313793ad73f3fc551db4e0"
+      "sha256": "0cbdf2d3b7a61e6141f237e33adb02aa8c4a15373daede5c5d46d8efd117264a"
     },
     {
       "path": "docs/screenshots/kafka-input-output.png",
@@ -568,23 +933,28 @@
     },
     {
       "path": "docs/screenshots/mlflow-comparison.png",
-      "bytes": 70808,
-      "sha256": "c3d30a5d46357bd5646bfbd03d77f9bb28d202a6767624a9eee2832cfa97c78f"
+      "bytes": 70570,
+      "sha256": "b7da52f0118fa6b7a5c25a573f4771ad27e00a08c18ff0a6cda8b4e795a93cd7"
     },
     {
       "path": "docs/screenshots/mlflow-evidence.json",
       "bytes": 1117,
-      "sha256": "71db4088d764f1c095cf3063d63583741f1babcc4bd6032e95059e6fa1022c9a"
+      "sha256": "f4578746f8929de928ba07f24b6c9e6d6dcb12703e5ce3566dac5fb17213136e"
     },
     {
       "path": "docs/screenshots/mlflow-selected-model.png",
-      "bytes": 120594,
-      "sha256": "2f8f38501ca497c82056ada0e36e0e9eda8d6f5e8641fc9455e50570840e9c0d"
+      "bytes": 120556,
+      "sha256": "eecf8550d6b1cee75fd4c47be085960c01b5d2d587e070cf0994ac3c25da8b72"
     },
     {
       "path": "start-airflow.ps1",
-      "bytes": 2426,
-      "sha256": "0be2c444c8a7c24e843244b5b5c58082019aa38b2829ea99cba4d20530d56e43"
+      "bytes": 2669,
+      "sha256": "1f8e9b77828ecb83ec625e511a9c5c2f79dba292768e852d2c4ce39c5185865a"
+    },
+    {
+      "path": "start-spark.ps1",
+      "bytes": 3065,
+      "sha256": "a9732f6aac6ff9f85d40177fbc699249b1ebe1fa6a63b1d0788184a629b1355f"
     }
   ],
   "limits": [
@@ -592,5 +962,198 @@
     "At-least-once delivery; no exactly-once claim",
     "Model accepts unknown categories; Kafka deliberately enforces the documented categorical schema",
     "Screenshots are dated evidence; recorded CLI transcript pages are explicitly labelled"
-  ]
+  ],
+  "phase1": {
+    "source_commit": "8a027da66ba0772eec2a397bb75ba1a541595ed4",
+    "completed_at": "2026-10-20T08:28:57.897920+00:00",
+    "source_patches": [
+      {
+        "path": "backend/src/opsyntra/spark_tracking.py",
+        "reason": "Native Spark MLflow directory copies fail with long Windows paths; log a complete checksum-verified archive",
+        "patch_file": "docs/evidence/clean-clone/spark-tracking-portability.patch",
+        "sha256": "7b54c87cc2f5b88168774e1004ba6f4c6d390e6981b0750ea736a9c82be4173b",
+        "patch_sha256": "625e969bea819f07dad58f147b1baba80b3c0b82dadec52ff57bf9e0e451f558"
+      }
+    ],
+    "clean_clone_status": "PASS",
+    "fresh_airflow_runs": {
+      "sklearn": {
+        "dag_id": "opsyntra_ml_workflow",
+        "run_id": "manual__opsyntra_sklearn_20261020T081904081091Z",
+        "engine": "sklearn",
+        "state": "success",
+        "tasks": [
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "validate_data",
+            "state": "success",
+            "start_date": "2026-10-20T08:19:06.394677+00:00",
+            "end_date": "2026-10-20T08:19:17.938459+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "prepare_splits",
+            "state": "success",
+            "start_date": "2026-10-20T08:19:18.475007+00:00",
+            "end_date": "2026-10-20T08:19:26.428820+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "tune_and_train",
+            "state": "success",
+            "start_date": "2026-10-20T08:19:27.403427+00:00",
+            "end_date": "2026-10-20T08:19:47.816511+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "evaluate",
+            "state": "success",
+            "start_date": "2026-10-20T08:19:48.525196+00:00",
+            "end_date": "2026-10-20T08:20:05.875767+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "validate_candidate",
+            "state": "success",
+            "start_date": "2026-10-20T08:20:06.562894+00:00",
+            "end_date": "2026-10-20T08:20:14.443375+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "save_selected_model",
+            "state": "success",
+            "start_date": "2026-10-20T08:20:15.467156+00:00",
+            "end_date": "2026-10-20T08:20:22.846496+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "predict",
+            "state": "success",
+            "start_date": "2026-10-20T08:20:23.763240+00:00",
+            "end_date": "2026-10-20T08:20:31.488884+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "save_results",
+            "state": "success",
+            "start_date": "2026-10-20T08:20:31.740085+00:00",
+            "end_date": "2026-10-20T08:20:38.978700+00:00"
+          }
+        ],
+        "dag_run": {
+          "dag_id": "opsyntra_ml_workflow",
+          "run_id": "manual__opsyntra_sklearn_20261020T081904081091Z",
+          "state": "success",
+          "run_after": "2026-10-20T08:19:05.566945+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-20T08:19:06.240773+00:00",
+          "end_date": "2026-10-20T08:20:39.681495+00:00"
+        },
+        "airflow_version": "3.3.2"
+      },
+      "spark": {
+        "dag_id": "opsyntra_ml_workflow",
+        "run_id": "manual__opsyntra_spark_20261020T082059520644Z",
+        "engine": "spark",
+        "state": "success",
+        "tasks": [
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "validate_data",
+            "state": "success",
+            "start_date": "2026-10-20T08:21:02.759999+00:00",
+            "end_date": "2026-10-20T08:21:10.362450+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "prepare_splits",
+            "state": "success",
+            "start_date": "2026-10-20T08:21:10.810777+00:00",
+            "end_date": "2026-10-20T08:21:18.549337+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "tune_and_train",
+            "state": "success",
+            "start_date": "2026-10-20T08:21:18.767984+00:00",
+            "end_date": "2026-10-20T08:25:04.783863+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "evaluate",
+            "state": "success",
+            "start_date": "2026-10-20T08:25:06.756363+00:00",
+            "end_date": "2026-10-20T08:27:16.736788+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "validate_candidate",
+            "state": "success",
+            "start_date": "2026-10-20T08:27:17.650375+00:00",
+            "end_date": "2026-10-20T08:27:27.926681+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "save_selected_model",
+            "state": "success",
+            "start_date": "2026-10-20T08:27:28.785830+00:00",
+            "end_date": "2026-10-20T08:27:39.960366+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "predict",
+            "state": "success",
+            "start_date": "2026-10-20T08:27:40.868010+00:00",
+            "end_date": "2026-10-20T08:28:22.827791+00:00"
+          },
+          {
+            "dag_id": "opsyntra_ml_workflow",
+            "logical_date": "",
+            "task_id": "save_results",
+            "state": "success",
+            "start_date": "2026-10-20T08:28:23.081469+00:00",
+            "end_date": "2026-10-20T08:28:31.406405+00:00"
+          }
+        ],
+        "dag_run": {
+          "dag_id": "opsyntra_ml_workflow",
+          "run_id": "manual__opsyntra_spark_20261020T082059520644Z",
+          "state": "success",
+          "run_after": "2026-10-20T08:21:01.036738+00:00",
+          "logical_date": "",
+          "start_date": "2026-10-20T08:21:02.724113+00:00",
+          "end_date": "2026-10-20T08:28:31.977560+00:00"
+        },
+        "airflow_version": "3.3.2"
+      }
+    },
+    "frontend": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "reused_prerequisites": [
+      "Installed Windows Python interpreter (fresh isolated venv)",
+      "Installed Node/npm and Microsoft Edge",
+      "Ubuntu WSL, python3 and Java 21 (fresh isolated Spark venv)",
+      "Existing local Kafka broker/data and downloaded Kafka installation",
+      "Existing Airflow 3.3.2 tool installation; clone metadata/state newly created when --include-airflow is used",
+      "Package download caches; no existing Python environments/node_modules copied"
+    ]
+  }
 }

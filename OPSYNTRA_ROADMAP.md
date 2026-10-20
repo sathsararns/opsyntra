@@ -1,5 +1,9 @@
 # Opsyntra: Telco Churn ML and Kafka Project Roadmap
 
+For the next phases, see [the extension roadmap](OPSYNTRA_EXTENSION_ROADMAP.md):
+submission verification, PostgreSQL analytics, live frontend, notebooks,
+GitHub Actions, Docker and AWS deployment.
+
 This plan is based on both supplied assignment PDFs, the supplied CSV, and the lecture project reviewed earlier. Steps 1–8 and the Kafka Airflow bonus are implemented: data validation, fixed splits, sklearn/Spark pipelines, training-only CV, validation selection, persisted inference, MLflow, engine comparison, required ML DAG, Kafka publishing/prediction/recovery, tests and evidence. See docs/VERIFICATION.md and backend/reports/submission_evidence.md for reproduction commands, actual runtime results and the evidence matrix. Optional cloud/analytics extensions remain outside the assessed local scope.
 
 ## 1. Requirements and priorities
@@ -241,13 +245,19 @@ Done when: both modes publish correct results; malformed input does not stop val
 
 ### Phase 8: Automated tests and evidence
 
-Implemented: the host suite has 67 passing tests and four Spark-runtime skips;
-those exact four checks passed in native WSL Spark. All 71 unique tests pass
+Implemented: the current host suite has 74 passing tests and four Spark-runtime skips;
+those exact four checks passed in fresh WSL Spark. All 78 unique tests pass
 across both runtimes. Additional checks explicitly compare the same model/input
 through single, CSV, batch Kafka and streaming Kafka inference. Actual MLflow and
 Airflow screenshots, labelled Kafka CLI/recovery transcripts and a SHA-256
 evidence index are retained. See `docs/VERIFICATION.md` and
 `backend/reports/submission_evidence.md`.
+
+Extension Phase 1 is complete: independent clean-clone training/inference,
+fresh Airflow metadata/runs, six production-browser flows, updated evidence,
+portable setup fixes and a demo guide. See the extension roadmap and
+`backend/reports/clean_clone_verification.md` for the exact tested candidate,
+source patch and reused host prerequisites.
 
 Test the behavior that matters:
 

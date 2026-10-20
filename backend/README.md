@@ -316,14 +316,18 @@ its earlier CV duration is not compared against a single Spark fit. The first
 inference action is separate from repeated warm measurements. These local[2]
 measurements do not demonstrate multi-node scaling.
 
-After WSL training, the Windows launcher logs the Spark runs and native pipeline
-directories into `Opsyntra-Telco-Spark` using the existing Windows MLflow store.
+After WSL training, the Windows launcher logs Spark runs and complete native
+pipeline ZIP archives into `Opsyntra-Telco-Spark` using the Windows MLflow store.
+Each archive has a manifest with the original model-tree digest and ZIP checksum;
+this avoids Windows directory-copy failures for deeply nested Spark files.
 This keeps artifact paths accessible through http://127.0.0.1:5000. If training
 finished but logging was interrupted, run `python -m pipelines.spark_tracking`
 from `backend/`; an already-recorded batch is not duplicated.
 Each run also contains the custom stage modules under `code/opsyntra` and pinned
 requirements under `environment/`. A downloaded native pipeline needs that code
 package available on Python's import path, along with its Spark/XGBoost runtime.
+Extract the native archive into a short path or Linux filesystem before loading
+it with Spark. Older runs can contain the original model directory layout.
 
 In a native Linux environment, use the same requirements and install
 `mlflow==3.17.1 matplotlib==3.11.2` for tracking, then run

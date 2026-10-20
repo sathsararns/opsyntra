@@ -1,0 +1,13 @@
+{
+  "reason": "Previous native test evidence retained before Phase 1 refresh",
+  "files": [
+    {
+      "path": "backend/reports/test_results_spark.json",
+      "sha256": "a6c24d207638eb921a4afaa6b315bb4efcf8a18275f85adae75d73a429fe1850"
+    },
+    {
+      "path": "backend/reports/test_results_spark.log",
+      "sha256": "fb8c88fa56fc477408907c88600b76c0d74f8ca74eefc8cf57727866d1d496a0"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+batch_count: input=5; predictions=3; deadletters=2; deduplicated=0
+batch_resume_window: input=9; predictions=3; deadletters=5; deduplicated=1
+batch_completed_window: input=0; predictions=0; deadletters=0; deduplicated=0
+duplicate_replay: input=2; predictions=0; deadletters=0; deduplicated=2
+streaming: input=3; predictions=3; deadletters=0; deduplicated=0
+crash_after_ledger_commit: confirmed hard process exit at after_ledger_commit
+restart_after_ledger_commit: input=1; predictions=0; deadletters=0; deduplicated=1
+crash_after_output_ack: confirmed hard process exit at after_output_ack
+restart_after_output_ack: input=1; predictions=1; deadletters=0; deduplicated=0
+spark_batch: input=1; predictions=1; deadletters=0; deduplicated=0
+PASS: real prediction, bounded consumption, malformed records, deduplication and both crash/restart windows verified.

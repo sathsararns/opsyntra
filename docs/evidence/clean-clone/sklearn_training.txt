@@ -1,0 +1,16 @@
+INFO Training dummy with 3-fold CV
+INFO dummy validation average_precision: 0.2654
+INFO Training logistic_regression with 3-fold CV
+INFO logistic_regression validation average_precision: 0.6505
+INFO Training random_forest with 3-fold CV
+INFO random_forest validation average_precision: 0.6626
+INFO Training xgboost with 3-fold CV
+INFO xgboost validation average_precision: 0.6522
+2026/10/20 13:04:53 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/10/20 13:04:53 INFO mlflow.store.db.utils: Updating database tables
+2026/10/20 13:04:58 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+2026/10/20 13:05:04 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+2026/10/20 13:05:06 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+2026/10/20 13:05:09 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+INFO Selected random_forest; saved complete pipeline to C:\Users\SATHSARA\Desktop\Opsyntra\.verification\20261020T072728Z-8c0d3a\checkout\backend\artifacts\models\best_pipeline.joblib
+INFO Test accuracy 0.7417; recall 0.7968; F1 0.6208; ROC-AUC 0.8439

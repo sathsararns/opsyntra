@@ -1,0 +1,13 @@
+Airflow is already running at http://localhost:8080
+Triggered manual__opsyntra_spark_20261020T082059520644Z; watching eight scheduled tasks.
+{"validate_data": "running", "prepare_splits": "", "tune_and_train": "", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "running", "tune_and_train": "", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "running", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "running", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "running", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "running", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "running", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "success", "save_results": "running"}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "success", "save_results": "success"}
+SUCCESS: complete spark DAG run manual__opsyntra_spark_20261020T082059520644Z
+{"experiment_name": "Opsyntra-Airflow", "experiment_id": "3", "workflow_run_id": "92912afcd8fc475ba74e1a98e97ee4ee", "candidate_runs": {"logistic_regression": "23f5e8c6d79c4a299a4820f34ef3c448", "random_forest": "300c354657504fe6841a61b9d01c48ea", "xgboost": "01942bd108fe4a31907973226af4fa1a"}, "dag_run_id": "manual__opsyntra_spark_20261020T082059520644Z"}

@@ -1,0 +1,5 @@
+INFO Validating C:\Users\SATHSARA\Desktop\Opsyntra\.verification\20261020T072728Z-8c0d3a\checkout\backend\data\raw\WA_Fn-UseC_-Telco-Customer-Churn.csv
+INFO train: 4225 customers, 26.5325% churn
+INFO validation: 1409 customers, 26.5436% churn
+INFO test: 1409 customers, 26.5436% churn
+INFO Validation PASS_WITH_WARNINGS; report: C:\Users\SATHSARA\Desktop\Opsyntra\.verification\20261020T072728Z-8c0d3a\checkout\backend\reports\data_validation_report.json

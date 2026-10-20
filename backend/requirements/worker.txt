@@ -1,0 +1,5 @@
+# Linux ML task runtime; Airflow itself belongs in its separate environment.
+-r spark.txt
+mlflow==3.17.1
+matplotlib==3.11.2
+confluent-kafka==2.16.0

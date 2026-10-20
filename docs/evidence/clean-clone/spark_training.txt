@@ -1,0 +1,89 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/20 13:29:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/20 13:29:43 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+[Stage 5:>                                                          (0 + 1) / 1]                                                                                INFO Spark logistic_regression {'regParam': 0.0} fold 1/3
+INFO Spark logistic_regression {'regParam': 0.0} fold 2/3
+INFO Spark logistic_regression {'regParam': 0.0} fold 3/3
+INFO Spark logistic_regression {'regParam': 0.01} fold 1/3
+INFO Spark logistic_regression {'regParam': 0.01} fold 2/3
+INFO Spark logistic_regression {'regParam': 0.01} fold 3/3
+INFO Spark logistic_regression final training fit
+[Stage 477:>                                                        (0 + 1) / 1]                                                                                [Stage 478:>                                                        (0 + 1) / 1]                                                                                [Stage 482:>                                                        (0 + 1) / 1]                                                                                [Stage 486:>                                                        (0 + 1) / 1]                                                                                [Stage 490:>                                                        (0 + 1) / 1]                                                                                [Stage 493:>                                                        (0 + 1) / 1]                                                                                INFO Spark logistic_regression validation AP 0.6477; threshold 0.334226
+INFO Spark random_forest {'maxDepth': 5} fold 1/3
+INFO Spark random_forest {'maxDepth': 5} fold 2/3
+INFO Spark random_forest {'maxDepth': 5} fold 3/3
+INFO Spark random_forest {'maxDepth': 8} fold 1/3
+[Stage 637:>                                                        (0 + 1) / 1]                                                                                [Stage 639:>                                                        (0 + 1) / 1]                                                                                [Stage 641:>                                                        (0 + 1) / 1]                                                                                INFO Spark random_forest {'maxDepth': 8} fold 2/3
+[Stage 671:>                                                        (0 + 1) / 1]                                                                                [Stage 673:>                                                        (0 + 1) / 1]                                                                                [Stage 675:>                                                        (0 + 1) / 1]                                                                                INFO Spark random_forest {'maxDepth': 8} fold 3/3
+[Stage 705:>                                                        (0 + 1) / 1]                                                                                [Stage 707:>                                                        (0 + 1) / 1]                                                                                [Stage 709:>                                                        (0 + 1) / 1]                                                                                INFO Spark random_forest final training fit
+[Stage 737:>                                                        (0 + 1) / 1]                                                                                [Stage 739:>                                                        (0 + 1) / 1]                                                                                [Stage 741:>                                                        (0 + 1) / 1]                                                                                [Stage 743:>                                                        (0 + 1) / 1][Stage 744:>                                                        (0 + 2) / 2]                                                                                [Stage 746:>                                                        (0 + 1) / 1]                                                                                [Stage 747:>                                                        (0 + 1) / 1]                                                                                [Stage 753:>                                                        (0 + 1) / 1]                                                                                [Stage 763:>                                                        (0 + 1) / 1]                                                                                [Stage 764:>                                                        (0 + 1) / 1]                                                                                [Stage 790:============================>                            (1 + 1) / 2]                                                                                INFO Spark random_forest validation AP 0.6618; threshold 0.259173
+INFO Spark xgboost {'max_depth': 3} fold 1/3
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 3, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 814:>                                                        (0 + 1) / 1]2026-10-20 13:34:17,988 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:34:19] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:34:22,404 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost {'max_depth': 3} fold 2/3
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 3, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 832:>                                                        (0 + 1) / 1]2026-10-20 13:34:27,369 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:34:28] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:34:31,401 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost {'max_depth': 3} fold 3/3
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 3, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 850:>                                                        (0 + 1) / 1]2026-10-20 13:34:35,920 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:34:36] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:34:39,978 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost {'max_depth': 5} fold 1/3
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 5, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 868:>                                                        (0 + 1) / 1]2026-10-20 13:34:44,253 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:34:45] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:34:48,175 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost {'max_depth': 5} fold 2/3
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 5, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 886:>                                                        (0 + 1) / 1]2026-10-20 13:34:52,547 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:34:53] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:34:57,058 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost {'max_depth': 5} fold 3/3
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 5, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 904:>                                                        (0 + 1) / 1]2026-10-20 13:35:01,237 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:35:02] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:35:05,005 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost final training fit
+INFO Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'learning_rate': 0.05, 'max_depth': 3, 'random_state': 42, 'tree_method': 'hist', 'verbosity': 0, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': False, 'num_boost_round': 200}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 922:>                                                        (0 + 1) / 1]2026-10-20 13:35:09,373 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:35:10] Task 0 got rank 0
+                                                                                INFO Finished xgboost training!
+2026-10-20 13:35:13,470 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+[Stage 924:>                                                        (0 + 1) / 1]                                                                                [Stage 925:>                                                        (0 + 1) / 1]                                                                                2026-10-20 13:35:30,008 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+INFO Spark xgboost validation AP 0.6522; threshold 0.375186
+INFO Selected Spark random_forest; test F1 0.6234; AP 0.6539
+INFO Closing down clientserver connection

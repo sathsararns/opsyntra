@@ -1,0 +1,2 @@
+
+INFO Saved 2 predictions to artifacts\predictions\bundle_batch.csv

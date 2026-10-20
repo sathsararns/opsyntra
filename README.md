@@ -1,5 +1,7 @@
 # Opsyntra
 
+Next work: [submission, live analytics, CI/Docker and AWS roadmap](OPSYNTRA_EXTENSION_ROADMAP.md).
+
 A local Telco customer churn workspace with a Next.js + Tailwind frontend and a
 Python API backed by reproducible ML pipelines.
 
@@ -7,6 +9,11 @@ Steps 1–8 and the Kafka Airflow bonus workflows are implemented. See the
 [verification guide](docs/VERIFICATION.md) and
 [submission evidence matrix](backend/reports/submission_evidence.md) for actual
 test results, screenshots, recovery logs and successful scheduler runs.
+
+Phase 1 handoff: [clean-clone verification](backend/reports/clean_clone_verification.md),
+[frontend checks](backend/reports/frontend_verification.json) and
+[presentation/demo sequence](docs/DEMO_GUIDE.md). Rebuild models from the supplied
+dataset or use the separately labelled [saved-model bundle path](docs/VERIFICATION.md#optional-saved-model-setup).
 
 ## Repository structure
 

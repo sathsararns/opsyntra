@@ -1,0 +1,45 @@
+PASS: 4 tests; 4 passed, 0 skipped; 213.90s
+Evidence: /mnt/c/Users/SATHSARA/Desktop/Opsyntra/.verification/20261020T072728Z-8c0d3a/checkout/backend/reports/test_results_spark.json
+st logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/20 13:41:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/20 13:41:44 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+[Stage 26:>                                                         (0 + 1) / 1]                                                                                [Stage 31:>                                                         (0 + 1) / 1]                                                                                2026-10-20 13:42:43,859 INFO XGBoost-PySpark: _fit Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'max_depth': 2, 'random_state': 42, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': True, 'num_boost_round': 5}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 160:>                                                        (0 + 1) / 1]2026-10-20 13:42:52,867 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[13:42:53] Task 0 got rank 0
+[13:42:53] [0]	training-logloss:0.59099
+[13:42:53] [1]	training-logloss:0.57210
+[13:42:53] [2]	training-logloss:0.53505
+[13:42:53] [3]	training-logloss:0.52369
+[13:42:53] [4]	training-logloss:0.50491
+                                                                                2026-10-20 13:42:55,083 INFO XGBoost-PySpark: _fit Finished xgboost training!
+2026-10-20 13:43:07,803 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+26/10/20 13:43:08 ERROR Executor: Exception in task 0.0 in stage 200.0 (TID 193)
+org.apache.spark.SparkRuntimeException: [USER_RAISED_EXCEPTION] TotalCharges: invalid numeric value SQLSTATE: P0001
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.raiseError(QueryExecutionErrors.scala:2782)
+	at org.apache.spark.sql.errors.QueryExecutionErrors.raiseError(QueryExecutionErrors.scala)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+26/10/20 13:43:08 ERROR TaskSetManager: Task 0 in stage 200.0 failed 1 times; aborting job
+[Stage 239:>                                                        (0 + 1) / 1]                                                                                [Stage 263:>                                                        (0 + 1) / 1]                                                                                [Stage 279:>                                                        (0 + 1) / 1]                                                                                

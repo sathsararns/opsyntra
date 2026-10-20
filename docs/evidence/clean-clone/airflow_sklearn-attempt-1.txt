@@ -1,0 +1,16 @@
+Airflow ready at http://localhost:8080
+Triggered manual__opsyntra_sklearn_20261020T081904081091Z; watching eight scheduled tasks.
+{"validate_data": "queued", "prepare_splits": "", "tune_and_train": "", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "running", "prepare_splits": "", "tune_and_train": "", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "", "tune_and_train": "", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "running", "tune_and_train": "", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "running", "evaluate": "", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "running", "validate_candidate": "", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "running", "save_selected_model": "", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "running", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "running", "save_results": ""}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "success", "save_results": "running"}
+{"validate_data": "success", "prepare_splits": "success", "tune_and_train": "success", "evaluate": "success", "validate_candidate": "success", "save_selected_model": "success", "predict": "success", "save_results": "success"}
+SUCCESS: complete sklearn DAG run manual__opsyntra_sklearn_20261020T081904081091Z
+{"experiment_name": "Opsyntra-Airflow", "experiment_id": "3", "workflow_run_id": "102ec9f5e14f47bcbea369782cd1f828", "candidate_runs": {"dummy": "14b228e976a14e89b3fd379015253843", "logistic_regression": "c9c325265dd446189c259ef869d5af33", "random_forest": "d0414f8599214a8a85873daf3ae2b8c3", "xgboost": "06a702dbcc374b5bb1d2fce370c3b543"}, "dag_run_id": "manual__opsyntra_sklearn_20261020T081904081091Z"}

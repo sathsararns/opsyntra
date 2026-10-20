@@ -9,6 +9,8 @@ environment. See [backend setup](../backend/README.md) for prerequisites.
 ## Clean checkout
 
 ```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r backend/requirements/web.txt
 python -m pip install -r backend/requirements/kafka.txt
 npm --prefix frontend ci
@@ -19,6 +21,14 @@ Provide the assignment CSV at
 `python -m pipelines.data_pipeline --archive "C:\path\archive.zip"` from
 `backend/`. Raw data, service state, saved models and ledgers are ignored by Git;
 reports and screenshots are evidence, not substitutes for those artifacts.
+
+The dataset source referenced by the assignment is
+[Kaggle Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn).
+For checksum-exact reproduction, use the supplied original archive. The expected
+CSV SHA-256 is `88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a`.
+Compare the CSV bytes after extraction; a newly downloaded archive can have a
+different ZIP hash even when its CSV is identical. The repository deliberately
+does not bundle raw data, model binaries or a complete MLflow tracking database.
 
 ```powershell
 Push-Location backend
@@ -38,6 +48,93 @@ The setup launchers require an installed Ubuntu WSL distribution and access to
 official package sources. Saved stratified memberships are shared by both
 engines. Training-only CV fits preprocessing; validation AP selects the model,
 validation F1 selects its threshold, and test data selects neither.
+
+For new installations, Spark setup creates its Python environment in native
+Linux storage under `~/.local/share/opsyntra/` and links the familiar
+`backend/.venv-spark` path to it. This avoids slow package installation/imports
+through the Windows filesystem. Existing `.venv-spark` environments are preserved.
+
+Airflow setup installs `requirements/worker.txt` into the separate
+`backend/.venv-spark` runtime as well as installing constrained Airflow into its
+own environment. The worker needs MLflow/matplotlib for ML task artifacts and
+the Kafka client for bonus tasks; the scheduler does not execute ML code in its
+own constrained environment. On an existing setup, install the worker file
+directly with that Linux environment's Python if those packages are missing.
+
+## Phase 1 clean-clone verification
+
+```powershell
+Push-Location backend
+python -m pipelines.clean_clone_check --archive "C:\Users\SATHSARA\Downloads\archive.zip" --include-airflow
+python -m pipelines.phase1_evidence
+Pop-Location
+```
+
+Change the archive path on another computer. The verifier creates an independent
+Git clone under ignored `.verification/`, new Windows and Linux ML environments,
+and fresh `node_modules`. It imports the supplied archive, retrains both engines,
+executes single/CSV inference, backend/Spark/browser tests, and Kafka recovery
+checks. With `--include-airflow`, it temporarily stops the original Airflow
+service, executes both eight-task ML DAGs with fresh clone-specific metadata,
+then restores the original service. Allow the full command to finish.
+
+The clone starts at Git **HEAD**, not the uncommitted working tree. Commit the
+intended application fixes before starting a new verification. The Phase 1
+report identifies its baseline commit and an exact, retained Spark logging
+portability patch applied after the first attempt exposed a long-path failure.
+It does not silently treat pending source changes as committed code.
+
+The existing WSL/Java/Node/Edge installation, package caches, Kafka broker and
+Airflow tool installation are explicitly recorded as reused prerequisites. This
+is a clean application clone, not a new operating system. Main models and
+tracking storage remain separate from the clone. If a stage fails, the report
+retains its log; use `--resume <verification-directory>` with the same archive
+and source commit after correcting the cause. Do not present a RUNNING/FAIL
+report as successful evidence.
+
+The retained [clean-clone report](../backend/reports/clean_clone_verification.md),
+its JSON companion, [frontend report](../backend/reports/frontend_verification.json)
+and [demo sequence](DEMO_GUIDE.md) are the Phase 1 handoff documents.
+
+## Optional saved-model setup
+
+This path is labelled separately from the clean rebuild. Export a bundle only
+after training both engines, choosing a new output name:
+
+```powershell
+Push-Location backend
+python -m pipelines.model_bundle --export artifacts/releases/opsyntra-models.zip
+python -m pipelines.model_bundle --verify artifacts/releases/opsyntra-models.zip
+Pop-Location
+```
+
+The ZIP contains the selected sklearn pipeline, complete native Spark pipeline,
+selection metadata and model/comparison reports. It includes a member manifest
+and an adjacent `.zip.sha256` file. It does not contain the CSV, credentials,
+Python packages, consumer checkpoints or the MLflow tracking database. The
+verifier rejects checksum mismatches, unexpected paths and duplicate entries.
+
+To use a supplied bundle, install compatible dependencies in a separate checkout
+and run the data pipeline on the original archive first. Confirm that its raw
+CSV and saved membership hashes match `bundle_manifest.json`. Verify the ZIP
+checksum against the supplied handoff hash, then use the guarded restore command
+from the checkout that contains the bundle tool:
+
+```powershell
+Push-Location backend
+python -m pipelines.model_bundle --restore artifacts/releases/opsyntra-models.zip --backend "C:\path\separate-checkout\backend"
+Pop-Location
+```
+
+Restore checks the actual destination dataset/membership hashes, refuses
+conflicting existing model artifacts, and supports long Windows native Spark
+filenames. Ordinary ZIP extraction can fail at the Windows path-length limit.
+Then run the normal single/CSV inference commands in the destination checkout.
+Use bundles from a trusted source, as Joblib contains serialized Python objects.
+
+The saved-model path speeds up inference setup but does not recreate MLflow
+experiments or demonstrate retraining. Run training normally when demonstrating
+model selection, experiment artifacts and the tracking UI.
 
 ## Tests and real recovery checks
 

@@ -1,0 +1,411 @@
+{
+  "status": "PASS",
+  "purpose": "Optional saved-model setup; not clean retraining proof",
+  "source": "Original workspace deployed artifacts",
+  "bundle": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\releases\\opsyntra-models-phase1.zip",
+  "bundle_bytes": 1822868,
+  "bundle_sha256": "8b7a617fd8d99451650cc8bc2433431b12aa241ab3c46bd97f19e6f22c7c9a0b",
+  "manifest": {
+    "format_version": 1,
+    "purpose": "Optional saved-model setup; not proof of fresh training",
+    "dataset_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+    "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+    "sklearn_model_version": "d9a13b4cf6839ed4",
+    "spark_model_version": "6172478f6bdcb515",
+    "contains_dataset": false,
+    "contains_mlflow_database": false,
+    "members": [
+      {
+        "path": "artifacts/models/best_pipeline.joblib",
+        "bytes": 1152500,
+        "sha256": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36"
+      },
+      {
+        "path": "artifacts/models/model_metadata.json",
+        "bytes": 304982,
+        "sha256": "02ffda5871a677ee026534fe176bfb950f67e3e1952763d72ecf270112482409"
+      },
+      {
+        "path": "artifacts/spark/selected_model.json",
+        "bytes": 272,
+        "sha256": "90952c3f77c5431e5fa3c0c2238b288aa124bc78ebc299fa840329b7b84e6da4"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/metadata/.part-00000-c5a00719-27b7-4e78-8937-adfd681b75f3-c000.txt.crc",
+        "bytes": 12,
+        "sha256": "5a29a909dec74924407af11e542154b7edd7c40b2e894e13c488fb0ac08fd4c3"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/metadata/part-00000-c5a00719-27b7-4e78-8937-adfd681b75f3-c000.txt",
+        "bytes": 417,
+        "sha256": "5e1a588ac17a96112c7c4620d3b304cdd5d6eec195ab0fd1893598d852a74dc0"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/6_SparkChurnDecision_f88de4f10a53/metadata/.part-00000-fc72a170-8735-4b2e-ac50-cc7aa57e44f9-c000.txt.crc",
+        "bytes": 12,
+        "sha256": "83e9b37efef856e45b68a570bf31c3bb1f8dd5fb7c48fa0054df582005ad978c"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/6_SparkChurnDecision_f88de4f10a53/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/6_SparkChurnDecision_f88de4f10a53/metadata/part-00000-fc72a170-8735-4b2e-ac50-cc7aa57e44f9-c000.txt",
+        "bytes": 287,
+        "sha256": "934fe353f3d4a50b1c53c0332b2c44436247c41dee2fbbbbe5a9438af29dc86f"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/6_SparkChurnDecision_f88de4f10a53/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/data/.part-00000-ff16b1c5-a1c2-49c3-816b-bae2d777ae08-c000.snappy.parquet.crc",
+        "bytes": 3436,
+        "sha256": "3d215c04e42b9cc10e3bb7a86db85f2117b07b319666318ae99cd560a00e659f"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/data/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/data/part-00000-ff16b1c5-a1c2-49c3-816b-bae2d777ae08-c000.snappy.parquet",
+        "bytes": 438409,
+        "sha256": "e3ac80e32f0a25f18c391d581446accb5798ca8447b50f0845586c278b58af4a"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/data/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/metadata/.part-00000-a73341a1-7417-4f08-b7ee-a2bf853c6735-c000.txt.crc",
+        "bytes": 16,
+        "sha256": "3ca908a4a155637a6a69880bf80f700a2398079442693f9901bc16a8549aa77c"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/metadata/part-00000-a73341a1-7417-4f08-b7ee-a2bf853c6735-c000.txt",
+        "bytes": 870,
+        "sha256": "eb7d3654db820cc980ccb680fa39e8ad60266b77468b0a6b9a1642edabe23b0b"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/treesMetadata/.part-00000-0912d568-f06a-470f-a067-8002c3c25dc7-c000.snappy.parquet.crc",
+        "bytes": 200,
+        "sha256": "7b77d4d465bf10b9e22bd73055fe42e04974d4cb70281a9d1fd9ac3e5a1ea5dd"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/treesMetadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/treesMetadata/part-00000-0912d568-f06a-470f-a067-8002c3c25dc7-c000.snappy.parquet",
+        "bytes": 24550,
+        "sha256": "e5fc2eee58583502d27847ee9a040d15e0d06d8e7557db140b7eee220a0bc385"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/5_RandomForestClassifier_4e40e3b56b60/treesMetadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/4_VectorAssembler_c2c35c9a69a0/metadata/.part-00000-add25e40-5cc2-47a6-8466-e433a82a4fef-c000.txt.crc",
+        "bytes": 12,
+        "sha256": "c36d538812b4a5a70b6c05b18264450cc5513bffacb7b8b2dc210a80bd56868d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/4_VectorAssembler_c2c35c9a69a0/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/4_VectorAssembler_c2c35c9a69a0/metadata/part-00000-add25e40-5cc2-47a6-8466-e433a82a4fef-c000.txt",
+        "bytes": 487,
+        "sha256": "3037c4d28f9854070ae63d3bd18673fcf46cd3eea43d7bc51427f506292a14b5"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/4_VectorAssembler_c2c35c9a69a0/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/data/.part-00000-8aba10d6-b98b-48b8-9d6f-a652f0d0a736-c000.snappy.parquet.crc",
+        "bytes": 16,
+        "sha256": "989ac48bcc43943f671406d712322038b9904f29bf2af6ea317239db9a62ac6c"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/data/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/data/part-00000-8aba10d6-b98b-48b8-9d6f-a652f0d0a736-c000.snappy.parquet",
+        "bytes": 657,
+        "sha256": "c7e574af00a57cb1a85f9f1fee8c4d63639a143c0e1c33fcdb7307dacc5498ed"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/data/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/metadata/.part-00000-62acbb11-de07-48db-b864-dcafafbdf9fc-c000.txt.crc",
+        "bytes": 16,
+        "sha256": "9af579f031c57c3a3d15e0b98bf3855a4b0af785e41196b305dbde43f0b1ed01"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/metadata/part-00000-62acbb11-de07-48db-b864-dcafafbdf9fc-c000.txt",
+        "bytes": 614,
+        "sha256": "1830b2750e1a6bda1dfb49bc25ec81c5ebe21c0fd6d7d03ddeab7775070c51e7"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/3_OneHotEncoder_2f228a6d174c/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/data/.part-00000-03b4d03a-f60b-4cbe-99d3-c517a516c148-c000.snappy.parquet.crc",
+        "bytes": 16,
+        "sha256": "153a24ea47af6ae216a0b3e995b767a77b9e2d5e06d91136ad97a731db581b1d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/data/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/data/part-00000-03b4d03a-f60b-4cbe-99d3-c517a516c148-c000.snappy.parquet",
+        "bytes": 1023,
+        "sha256": "d6e52a8def05cf3772f23cb28a975cca83b1b57ddeaa8c8a4dc660778cc43b71"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/data/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/metadata/.part-00000-38b82ddc-772f-4581-81bd-d2a9849d6ae1-c000.txt.crc",
+        "bytes": 16,
+        "sha256": "c9dcb8faca52fc5527e8e2e7b8f744fdf5e02c607c03f049c4ad5e5f403314b3"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/metadata/part-00000-38b82ddc-772f-4581-81bd-d2a9849d6ae1-c000.txt",
+        "bytes": 731,
+        "sha256": "d99e1d9e04effadbf163f563e44dd80228b54f5c9b9ca410d155922bba328771"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/2_StringIndexer_6f1bf74a940a/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/data/.part-00000-0b708ac0-732e-4dc4-8a87-c5e6585bc216-c000.snappy.parquet.crc",
+        "bytes": 20,
+        "sha256": "a49edb5122bc50682623e78ee30696c47dbd80fdb9ff5073a6dc7923b5f729b6"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/data/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/data/part-00000-0b708ac0-732e-4dc4-8a87-c5e6585bc216-c000.snappy.parquet",
+        "bytes": 1357,
+        "sha256": "0fb2a4a9e804c08e640b8a4265acd4ae6f6fe527573eb063cf880ad81cb1a72a"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/data/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/metadata/.part-00000-deec2109-9f5c-4169-80a8-173cf9de5d77-c000.txt.crc",
+        "bytes": 12,
+        "sha256": "cfe60410cd8efa03ad62afa86c9fe5706b9b4b64ac1d64da8795465a94cbb940"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/metadata/part-00000-deec2109-9f5c-4169-80a8-173cf9de5d77-c000.txt",
+        "bytes": 430,
+        "sha256": "f3e55ab237876f030c032c2891d674d145ee1908e71c2407ea962f9b4411cf7c"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/1_Imputer_5d88a8d24197/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/0_NormalizeSparkTelco_a1e1fa90762a/metadata/.part-00000-98102927-c2da-4076-9531-37f173b4d9d3-c000.txt.crc",
+        "bytes": 12,
+        "sha256": "cc106052fce1b3e9745ca0a2cc6e65fa804ecab0801bb1789881eea77edc3171"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/0_NormalizeSparkTelco_a1e1fa90762a/metadata/._SUCCESS.crc",
+        "bytes": 8,
+        "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/0_NormalizeSparkTelco_a1e1fa90762a/metadata/part-00000-98102927-c2da-4076-9531-37f173b4d9d3-c000.txt",
+        "bytes": 181,
+        "sha256": "f1d581223f69b8e38a586406a580f0084adb7034d56d3178bba26b07fe244740"
+      },
+      {
+        "path": "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest/stages/0_NormalizeSparkTelco_a1e1fa90762a/metadata/_SUCCESS",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "reports/engine_comparison.json",
+        "bytes": 4743,
+        "sha256": "612ba6a11f1373e4977a5381b092a638633ee211d2e9cbd73f69755d68185c1b"
+      },
+      {
+        "path": "reports/engine_comparison.md",
+        "bytes": 3751,
+        "sha256": "7f686967aa168ec568cd5369022ddf41a7747ddb7c575869886e7e2676811b46"
+      },
+      {
+        "path": "reports/engine_validation_comparison.csv",
+        "bytes": 1078,
+        "sha256": "ffdc2c06de4635ac4688e7ff6cf8e781bd9a9a7e01504aa9a4e5bd30bce15f01"
+      },
+      {
+        "path": "reports/model_comparison.csv",
+        "bytes": 961,
+        "sha256": "572c6cd88e4529c421145d7ae3839adabbfc753521b760d302c7e88d7437d8de"
+      },
+      {
+        "path": "reports/model_selection.md",
+        "bytes": 1842,
+        "sha256": "b1942718c20af2ece7d3e8689b57cdda58c2bb54906ad93278a930004f8702c3"
+      },
+      {
+        "path": "reports/model_training_report.json",
+        "bytes": 304982,
+        "sha256": "02ffda5871a677ee026534fe176bfb950f67e3e1952763d72ecf270112482409"
+      },
+      {
+        "path": "reports/spark_training_report.json",
+        "bytes": 278932,
+        "sha256": "2b091d13489001e5b3764c7fa4f7252006c5eed51ced07724cdf5b89066887e4"
+      }
+    ]
+  },
+  "restored_to": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\.verification\\saved-model-demo\\backend",
+  "dataset_and_memberships_match": true,
+  "checkout": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\.verification\\saved-model-demo",
+  "models_trained_in_this_checkout": false,
+  "mlflow_database_included": false,
+  "reused_runtimes": [
+    "Fresh Windows venv from clean-rebuild check",
+    "Existing main Spark runtime"
+  ],
+  "commands": [
+    {
+      "name": "sklearn_single",
+      "command": [
+        "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\.verification\\20261020T072728Z-8c0d3a\\windows-python\\Scripts\\python.exe",
+        "-m",
+        "pipelines.inference_pipeline",
+        "--record",
+        "examples/customer.json",
+        "--output",
+        "artifacts/predictions/bundle_single.json"
+      ],
+      "exit_code": 0,
+      "log": "docs/evidence/saved-model/sklearn_single.txt"
+    },
+    {
+      "name": "sklearn_batch",
+      "command": [
+        "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\.verification\\20261020T072728Z-8c0d3a\\windows-python\\Scripts\\python.exe",
+        "-m",
+        "pipelines.inference_pipeline",
+        "--input",
+        "examples/customers.csv",
+        "--output",
+        "artifacts/predictions/bundle_batch.csv"
+      ],
+      "exit_code": 0,
+      "log": "docs/evidence/saved-model/sklearn_batch.txt"
+    },
+    {
+      "name": "spark_single",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/.verification/saved-model-demo/backend",
+        "--exec",
+        "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/.venv-spark/bin/python",
+        "-m",
+        "pipelines.spark_inference_pipeline",
+        "--record",
+        "examples/customer.json",
+        "--output",
+        "artifacts/predictions/bundle_spark_single.json"
+      ],
+      "exit_code": 0,
+      "log": "docs/evidence/saved-model/spark_single.txt"
+    },
+    {
+      "name": "spark_batch",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/.verification/saved-model-demo/backend",
+        "--exec",
+        "/mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend/.venv-spark/bin/python",
+        "-m",
+        "pipelines.spark_inference_pipeline",
+        "--input",
+        "examples/customers.csv",
+        "--output",
+        "artifacts/predictions/bundle_spark_batch.csv"
+      ],
+      "exit_code": 0,
+      "log": "docs/evidence/saved-model/spark_batch.txt"
+    }
+  ],
+  "portability_fix": "Ordinary ZIP extraction exceeded Windows path limits; verified restore uses extended paths and resumed safely",
+  "tested_bundle_path": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\.verification\\releases\\opsyntra-models.zip"
+}

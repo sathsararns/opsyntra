@@ -1,0 +1,8 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/20 13:40:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/20 13:40:06 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in standalone/kubernetes and LOCAL_DIRS in YARN).
+[Stage 10:>                                                         (0 + 1) / 1]                                                                                [Stage 24:>                                                         (0 + 2) / 2]                                                                                [Stage 26:>                                                         (0 + 2) / 2][Stage 26:=============================>                            (1 + 1) / 2][Stage 27:>                                                         (0 + 2) / 2]                                                                                INFO Saved 2 Spark predictions to artifacts/predictions/clean_spark_batch.csv
+INFO Closing down clientserver connection

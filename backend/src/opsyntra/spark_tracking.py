@@ -1,7 +1,9 @@
 """Log native Spark artifacts without importing PySpark into the Windows host."""
 
 import json
-from pathlib import Path
+import hashlib
+import zipfile
+from pathlib import Path, PurePosixPath
 
 import pandas as pd
 import yaml
@@ -16,6 +18,31 @@ def log_source_files(client, run_id, root):
         client.log_artifact(run_id, str(root / "src/opsyntra" / filename), "code/opsyntra")
     for filename in ("data.txt", "spark.txt"):
         client.log_artifact(run_id, str(root / "requirements" / filename), "environment")
+
+
+def archive_pipeline(pipeline_path, archive_path):
+    """Keep every native model file while avoiding Windows CopyFile2 limits."""
+    from .orchestration_models import filesystem_path, model_digest
+    pipeline_path, archive_path = Path(pipeline_path).resolve(), Path(archive_path).resolve()
+    if archive_path.is_relative_to(pipeline_path):
+        raise ValueError("Pipeline archive must live outside the native model directory")
+    source = filesystem_path(pipeline_path)
+    expected = model_digest(source)
+    destination = filesystem_path(archive_path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    files = sorted((p for p in source.rglob("*") if p.is_file()), key=lambda p: p.relative_to(source).parts)
+    with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for file in files:
+            archive.write(file, file.relative_to(source).as_posix())
+    with zipfile.ZipFile(destination) as archive:
+        checksum = hashlib.sha256()
+        for name in sorted(archive.namelist(), key=lambda name: PurePosixPath(name).parts):
+            checksum.update(name.encode())
+            checksum.update(archive.read(name))
+        if checksum.hexdigest() != expected or model_digest(source) != expected:
+            raise ValueError("Native pipeline archive is incomplete or its source changed")
+    return {"format": "native_spark_pipeline_zip", "native_pipeline_sha256": expected,
+            "archive_sha256": hashlib.sha256(destination.read_bytes()).hexdigest(), "files": len(files)}
 
 
 def log_spark_runs(config_path):
@@ -68,7 +95,11 @@ def log_spark_runs(config_path):
                 mlflow.log_dict(result, "evaluation/candidate.json")
                 mlflow.log_dict(report["provenance"], "data/provenance.json")
                 mlflow.log_artifact(str(config_path), "configuration")
-                mlflow.log_artifacts(str(root / result["pipeline_path"]), "spark_pipeline")
+                archive = artifacts / "archives" / f"{name}_pipeline.zip"
+                archive_info = archive_pipeline(root / result["pipeline_path"], archive)
+                mlflow.log_artifact(str(archive), "spark_pipeline")
+                mlflow.log_dict(archive_info, "spark_pipeline/manifest.json")
+                mlflow.set_tag("pipeline_format", "native_spark_pipeline_zip")
                 log_source_files(mlflow.MlflowClient(), run.info.run_id, root)
                 validation = pd.read_csv(artifacts / f"{name}_validation_scores.csv")
                 plot_directory = artifacts / "plots" / name

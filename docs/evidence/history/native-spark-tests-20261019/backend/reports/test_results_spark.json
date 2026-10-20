@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-19T15:35:14.107737+00:00",
+  "command": "python -m pipelines.verification --spark-only",
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "dependencies": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "pyspark": "4.0.2",
+    "confluent-kafka": "2.16.0"
+  },
+  "tests_run": 4,
+  "passed": 4,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 264.17711595000037,
+  "tests": [
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_all_three_real_estimators_can_fit_and_persist",
+      "status": "passed",
+      "seconds": 99.90871380099998,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_bad_numeric_and_missing_feature_columns_fail",
+      "status": "passed",
+      "seconds": 1.0054196619985305,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes",
+      "status": "passed",
+      "seconds": 92.81420207299925,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload",
+      "status": "passed",
+      "seconds": 29.14622347600016,
+      "detail": null
+    }
+  ],
+  "log": "test_results_spark.log"
+}
