@@ -11,10 +11,10 @@ application and the supplied Telco dataset, rather than a hosted deployment.
 2. Run these in separate terminals as appropriate:
 
    ```powershell
-   .\start-kafka.ps1 -Task start
-   .\start-airflow.ps1 -Task start
-   .\start-mlflow.ps1
-   .\start-frontend.ps1
+   .\scripts\windows\start-kafka.ps1 -Task start
+   .\scripts\windows\start-airflow.ps1 -Task start
+   .\scripts\windows\start-mlflow.ps1
+   .\scripts\windows\start-frontend.ps1
    ```
 
 3. Open the application at http://127.0.0.1:3000, MLflow at
@@ -51,7 +51,7 @@ python -m pipelines.inference_pipeline --input examples/customers.csv --output a
 Pop-Location
 
 # Native Spark saved pipeline
-.\start-spark.ps1 -Task predict -Record examples/customer.json
+.\scripts\windows\start-spark.ps1 -Task predict -Record examples/customer.json
 
 # Read-only historical samples; does not change application offsets
 python backend/pipelines/kafka_messages.py --topic raw --max-messages 2
@@ -62,9 +62,9 @@ python backend/pipelines/kafka_messages.py --topic deadletter --max-messages 3
 Use the following only when demonstrating fresh runs, allowing time for training:
 
 ```powershell
-.\start-airflow.ps1 -Task run -Engine sklearn
-.\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
-.\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
+.\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn
+.\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
+.\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
 ```
 
 Each command waits for an actual successful DagRun. The streaming command ends
@@ -97,7 +97,7 @@ same consumer group and state directory to demonstrate restart.
   evidence, not failures of an otherwise successful demonstration.
 
 To repeat those controlled live checks, run
-`.\start-kafka.ps1 -Task verify-consumer`. They publish diagnostic invalid events
+`.\scripts\windows\start-kafka.ps1 -Task verify-consumer`. They publish diagnostic invalid events
 under isolated groups/windows; normal consumers can also see those source events.
 
 ## Evidence refresh after new runs

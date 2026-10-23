@@ -11,9 +11,9 @@ Run from the repository root in PowerShell, using the Python environment in
 which you installed the project's backend dependencies:
 
 ```powershell
-.\start-analytics.ps1 -Task setup
-.\start-analytics.ps1 -Task status
-.\start-analytics.ps1 -Task test
+.\scripts\windows\start-analytics.ps1 -Task setup
+.\scripts\windows\start-analytics.ps1 -Task status
+.\scripts\windows\start-analytics.ps1 -Task test
 ```
 
 `setup` installs the optional [analytics requirements](../backend/requirements/analytics.txt),
@@ -34,9 +34,9 @@ The ignored `backend/.analytics-runtime/local.json` is local bootstrap state
 and contains passwords; do not share it or `.env`.
 
 ```powershell
-.\start-analytics.ps1 -Task start    # after a WSL/computer restart
-.\start-analytics.ps1 -Task migrate # apply new migrations or verify existing hashes
-.\start-analytics.ps1 -Task stop    # stops only this cluster; keeps data
+.\scripts\windows\start-analytics.ps1 -Task start    # after a WSL/computer restart
+.\scripts\windows\start-analytics.ps1 -Task migrate # apply new migrations or verify existing hashes
+.\scripts\windows\start-analytics.ps1 -Task stop    # stops only this cluster; keeps data
 ```
 
 Select a free port on first setup with `-Port 5543`. Further starts use the
@@ -224,7 +224,7 @@ produce large ingestion delays; do not present those as inference benchmarks.
 [Actual PostgreSQL results](../backend/reports/analytics_verification.md),
 [JSON evidence](../backend/reports/analytics_verification.json) and
 [test log](../backend/reports/analytics_verification.log) record the outcome.
-Run `start-analytics.ps1 -Task test` for all Phase 2 checks. Ordinary backend
+Run `scripts/windows/start-analytics.ps1 -Task test` for all Phase 2 checks. Ordinary backend
 discovery runs contract tests but skips opt-in PostgreSQL integration tests;
 the dedicated verifier fails if any Phase 2 test is skipped. Fixtures use UUIDs
 inside `opsyntra_analytics_test`; no truncation or existing Kafka offsets are used.

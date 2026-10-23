@@ -11,10 +11,10 @@ Telco customer churn prediction and streaming ML project.
 Phase 2 PostgreSQL analytics storage is available independently of inference:
 see [schema/setup/metric definitions](../docs/ANALYTICS_STORAGE.md) and
 [database verification](reports/analytics_verification.md). From the repository
-root run `.\start-analytics.ps1 -Task setup`, then `.\start-analytics.ps1 -Task test`.
+root run `.\scripts\windows\start-analytics.ps1 -Task setup`, then `.\scripts\windows\start-analytics.ps1 -Task test`.
 Phase 3 [Kafka analytics ingestion](../docs/ANALYTICS_CONSUMER.md) is implemented.
 From this backend directory run `python analytics_consumer.py --mode streaming`;
-from root run `.\start-analytics.ps1 -Task test-consumer` for real recovery checks.
+from root run `.\scripts\windows\start-analytics.ps1 -Task test-consumer` for real recovery checks.
 See [verification evidence](reports/analytics_consumer_verification.md).
 Phase 4 [analytics APIs and live monitoring](../docs/LIVE_MONITORING.md) are
 implemented in the existing FastAPI application. Install
@@ -213,7 +213,7 @@ After installing `requirements/web.txt` and running `npm ci` inside the sibling
 `frontend/` folder, launch both services from this backend directory with:
 
 ```powershell
-..\start-frontend.ps1
+..\scripts\windows\start-frontend.ps1
 ```
 
 Open http://127.0.0.1:3000. The frontend connects to the saved Python pipeline
@@ -244,7 +244,7 @@ From `backend/`, open the UI with:
 python -m pipelines.mlflow_server
 ```
 
-From the repository root, use `.\start-mlflow.ps1` instead. Visit
+From the repository root, use `.\scripts\windows\start-mlflow.ps1` instead. Visit
 http://127.0.0.1:5000, open the experiment, select the four runs from a batch,
 and click **Compare**. Use `validation_average_precision` for model ranking;
 `validation_f1`, `validation_recall` and `decision_threshold` explain the
@@ -287,21 +287,21 @@ From the repository root:
 
 ```powershell
 # One-time dependency setup in an existing Ubuntu WSL distribution.
-.\start-spark.ps1 -Task setup
+.\scripts\windows\start-spark.ps1 -Task setup
 
 # Train Logistic Regression, Random Forest and SparkXGBClassifier.
 # This also generates the engine comparison and records Spark runs in MLflow.
-.\start-spark.ps1 -Task train
+.\scripts\windows\start-spark.ps1 -Task train
 
 # Load the saved Spark pipeline in a fresh process; Churn is not required.
-.\start-spark.ps1 -Task predict -Record examples/customer.json
-.\start-spark.ps1 -Task predict -InputCsv examples/customers.csv -Output artifacts/predictions/spark_batch.csv
+.\scripts\windows\start-spark.ps1 -Task predict -Record examples/customer.json
+.\scripts\windows\start-spark.ps1 -Task predict -InputCsv examples/customers.csv -Output artifacts/predictions/spark_batch.csv
 
 # Execute the Spark integration checks in the same isolated runtime.
-.\start-spark.ps1 -Task test
+.\scripts\windows\start-spark.ps1 -Task test
 ```
 
-When your terminal is already inside `backend/`, use `..\start-spark.ps1`.
+When your terminal is already inside `backend/`, use `..\scripts\windows\start-spark.ps1`.
 Record/input/output paths supplied to the launcher are relative to `backend/`.
 The setup task installs Ubuntu Java and Python venv support, then Python
 dependencies. It requires the existing Ubuntu WSL distribution and internet
@@ -380,13 +380,13 @@ retries, timeouts and per-attempt logs.
 From this backend directory:
 
 ```powershell
-..\start-airflow.ps1 -Task start
-..\start-airflow.ps1 -Task run -Engine sklearn
-..\start-airflow.ps1 -Task run -Engine spark
+..\scripts\windows\start-airflow.ps1 -Task start
+..\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn
+..\scripts\windows\start-airflow.ps1 -Task run -Engine spark
 ```
 
 Open http://localhost:8080. On a new environment first run
-`..\start-airflow.ps1 -Task setup` after setting up the Spark ML runtime.
+`..\scripts\windows\start-airflow.ps1 -Task setup` after setting up the Spark ML runtime.
 Read [DAG operations and outputs](dags/README.md) and
 [successful execution evidence](reports/airflow_workflow_report.md).
 The launcher records successful workflow/candidate runs in **Opsyntra-Airflow**
@@ -398,7 +398,7 @@ One `producer.py` supports both publishing modes. Start the local WSL broker and
 its three required topics from this backend directory:
 
 ```powershell
-..\start-kafka.ps1 -Task start
+..\scripts\windows\start-kafka.ps1 -Task start
 python producer.py --mode batch --batch-size 500
 python producer.py --mode batch --batch-size 500 --resume
 python producer.py --mode streaming --events-per-sec 5
@@ -419,7 +419,7 @@ streaming. Each process loads the selected complete pipeline once. From this
 backend directory:
 
 ```powershell
-..\start-kafka.ps1 -Task start
+..\scripts\windows\start-kafka.ps1 -Task start
 python consumer.py --mode batch --max-messages 1000
 python consumer.py --mode streaming
 python -m pipelines.kafka_messages --topic predictions --max-messages 5
@@ -432,7 +432,7 @@ The remaining output-ack/local-ledger crash window is documented and tested;
 downstream duplicate handling uses stable prediction IDs.
 
 For native Spark use
-`..\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
+`..\scripts\windows\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
 See [consumer setup, batch windows and recovery limits](KAFKA.md#prediction-consumer-step-7)
 and [the completed live-broker checkpoint](reports/kafka_consumption_report.md).
 
@@ -442,8 +442,8 @@ From this backend directory:
 
 ```powershell
 python -m pipelines.verification
-..\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
-..\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
+..\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
+..\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
 ```
 
 The bonus batch DAG has a daily schedule and acknowledged checkpoint/resume;

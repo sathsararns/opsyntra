@@ -52,7 +52,7 @@ def start():
         print("Airflow is already running at http://localhost:8080", flush=True)
         return
     if not AIRFLOW.is_file():
-        raise RuntimeError("Airflow environment missing. Run start-airflow.ps1 -Task setup.")
+        raise RuntimeError("Airflow environment missing. Run scripts/windows/start-airflow.ps1 -Task setup.")
     STATE.mkdir(parents=True, exist_ok=True)
     LOCAL.mkdir(exist_ok=True)
     with (STATE / "standalone.log").open("a") as log:
@@ -101,7 +101,7 @@ def run(engine, prediction_input):
             break
         time.sleep(2)
     else:
-        raise RuntimeError("DAG was not imported. Run start-airflow.ps1 -Task imports.")
+        raise RuntimeError("DAG was not imported. Run scripts/windows/start-airflow.ps1 -Task imports.")
     cli("dags", "unpause", DAG_ID)
     run_id = f"manual__opsyntra_{engine}_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}"
     conf = json.dumps({"engine": engine, "prediction_input": prediction_input})

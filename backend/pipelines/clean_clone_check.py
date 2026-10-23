@@ -161,12 +161,12 @@ def main():
         run("kafka_publishing", [python, "-m", "pipelines.kafka_publishing_check"], cwd=checkout / "backend")
         run("kafka_consumption", [python, "-m", "pipelines.kafka_consumption_check", "--include-spark"], cwd=checkout / "backend")
         if args.include_airflow:
-            run("main_airflow_stop", ["powershell", "-NoProfile", "-File", ROOT / "start-airflow.ps1", "-Task", "stop"], cwd=ROOT, force=True)
+            run("main_airflow_stop", ["powershell", "-NoProfile", "-File", ROOT / "scripts/windows/start-airflow.ps1", "-Task", "stop"], cwd=ROOT, force=True)
             airflow_switched = True
             for engine in ("sklearn", "spark"):
-                run("airflow_" + engine, ["powershell", "-NoProfile", "-File", checkout / "start-airflow.ps1", "-Task", "run", "-Engine", engine])
-            run("clone_airflow_stop", ["powershell", "-NoProfile", "-File", checkout / "start-airflow.ps1", "-Task", "stop"], force=True)
-            run("main_airflow_restore", ["powershell", "-NoProfile", "-File", ROOT / "start-airflow.ps1", "-Task", "start"], cwd=ROOT, force=True)
+                run("airflow_" + engine, ["powershell", "-NoProfile", "-File", checkout / "scripts/windows/start-airflow.ps1", "-Task", "run", "-Engine", engine])
+            run("clone_airflow_stop", ["powershell", "-NoProfile", "-File", checkout / "scripts/windows/start-airflow.ps1", "-Task", "stop"], force=True)
+            run("main_airflow_restore", ["powershell", "-NoProfile", "-File", ROOT / "scripts/windows/start-airflow.ps1", "-Task", "start"], cwd=ROOT, force=True)
             airflow_switched = False
         else:
             report["limits"] = ["Fresh clone Airflow DAG execution not requested; use --include-airflow for complete Phase 1"]
@@ -183,8 +183,8 @@ def main():
         raise
     finally:
         if airflow_switched:
-            subprocess.run(["powershell", "-NoProfile", "-File", checkout / "start-airflow.ps1", "-Task", "stop"], cwd=checkout, env=environment)
-            subprocess.run(["powershell", "-NoProfile", "-File", ROOT / "start-airflow.ps1", "-Task", "start"], cwd=ROOT, env=environment)
+            subprocess.run(["powershell", "-NoProfile", "-File", checkout / "scripts/windows/start-airflow.ps1", "-Task", "stop"], cwd=checkout, env=environment)
+            subprocess.run(["powershell", "-NoProfile", "-File", ROOT / "scripts/windows/start-airflow.ps1", "-Task", "start"], cwd=ROOT, env=environment)
 
 
 if __name__ == "__main__":

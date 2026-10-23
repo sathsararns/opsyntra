@@ -72,7 +72,7 @@ def start():
         print("Kafka is already listening on 127.0.0.1:9092", flush=True)
         return
     if not INSTALL.exists():
-        raise RuntimeError("Run start-kafka.ps1 -Task setup first")
+        raise RuntimeError("Run scripts/windows/start-kafka.ps1 -Task setup first")
     STATE.mkdir(parents=True, exist_ok=True)
     config = STATE / "server.properties"
     config.write_text("\n".join([

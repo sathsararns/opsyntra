@@ -195,7 +195,7 @@ def main():
         passed=False
         report["error"]={"type":type(error).__name__,"message":str(error)[:700]}
     report["status"]="PASS" if passed else "FAIL"
-    files=[ROOT/"analytics_consumer.py",*sorted((ROOT/"src/opsyntra/analytics").glob("*.py")),*sorted((ROOT/"migrations").glob("*.sql")),ROOT/"pipelines/analytics_consumer_check.py",ROOT/"tests/unit/test_analytics_consumer.py",ROOT/"tests/integration/test_analytics_ingestion.py",ROOT/"requirements/analytics-consumer.txt",ROOT.parent/"start-analytics.ps1",ROOT.parent/"docs/ANALYTICS_CONSUMER.md",*sorted((ROOT.parent/"docs/evidence/analytics").rglob("*.txt"))]
+    files=[ROOT/"analytics_consumer.py",*sorted((ROOT/"src/opsyntra/analytics").glob("*.py")),*sorted((ROOT/"migrations").glob("*.sql")),ROOT/"pipelines/analytics_consumer_check.py",ROOT/"tests/unit/test_analytics_consumer.py",ROOT/"tests/integration/test_analytics_ingestion.py",ROOT/"requirements/analytics-consumer.txt",ROOT.parent / "scripts/windows/start-analytics.ps1",ROOT.parent/"docs/ANALYTICS_CONSUMER.md",*sorted((ROOT.parent/"docs/evidence/analytics").rglob("*.txt"))]
     report["files"]=[{"path":str(p.relative_to(ROOT.parent)).replace('\\','/'),"sha256":hashlib.sha256(p.read_bytes()).hexdigest()} for p in files]
     path.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     lines=["# Phase 3: Kafka analytics verification", "", f"Status: **{report['status']}**. Contract/PostgreSQL checks: {report['passed']}/{report['tests_run']}; skipped: {report['skipped']}.", "",

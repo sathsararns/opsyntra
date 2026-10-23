@@ -5,7 +5,8 @@ param(
     [int]$Port = 5433
 )
 $ErrorActionPreference = 'Stop'
-$Backend = Join-Path $PSScriptRoot 'backend'
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
+$Backend = Join-Path $opsyntraRoot 'backend'
 function Assert-Success([string]$Action) {
     if ($LASTEXITCODE -ne 0) { throw "$Action failed (exit $LASTEXITCODE)" }
 }

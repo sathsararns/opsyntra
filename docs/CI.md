@@ -70,8 +70,8 @@ Kafka checks use that test database and isolated diagnostic topics/groups:
 
 ```powershell
 # From repository root, start existing services first.
-.\start-analytics.ps1 -Task start
-.\start-kafka.ps1 -Task start
+.\scripts\windows\start-analytics.ps1 -Task start
+.\scripts\windows\start-kafka.ps1 -Task start
 cd backend
 python -m pipelines.ci_checks --profile postgres
 python -m pipelines.ci_kafka

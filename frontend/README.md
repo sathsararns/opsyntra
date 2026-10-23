@@ -23,7 +23,7 @@ cd ..
 Then start both services from the repository root:
 
 ```powershell
-.\start-frontend.ps1
+.\scripts\windows\start-frontend.ps1
 ```
 
 Open http://127.0.0.1:3000. The API binds to 127.0.0.1:8000. The launch script

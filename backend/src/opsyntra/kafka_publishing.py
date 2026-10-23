@@ -115,7 +115,7 @@ def broker_identity(producer, settings):
     metadata = producer.list_topics(timeout=10)
     topic = metadata.topics.get(settings["topics"]["raw"])
     if topic is None or topic.error or not topic.partitions:
-        raise ValueError("Raw customer topic is unavailable; run start-kafka.ps1 -Task topics")
+        raise ValueError("Raw customer topic is unavailable; run scripts/windows/start-kafka.ps1 -Task topics")
     if not metadata.cluster_id:
         raise ValueError("Broker did not return its cluster identifier")
     return metadata.cluster_id

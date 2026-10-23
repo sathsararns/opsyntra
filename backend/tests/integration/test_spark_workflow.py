@@ -14,7 +14,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 
 
-@unittest.skipUnless(os.environ.get("OPSYNTRA_RUN_SPARK_TESTS") == "1", "Run via start-spark.ps1 -Task test in the Spark runtime")
+@unittest.skipUnless(os.environ.get("OPSYNTRA_RUN_SPARK_TESTS") == "1", "Run via scripts/windows/start-spark.ps1 -Task test in the Spark runtime")
 class SparkWorkflowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--skip-tracking", action="store_true", help="Windows launcher logs artifacts from the host after WSL training.")
     args = parser.parse_args()
     if sys.platform == "win32":
-        parser.error("Use ..\\start-spark.ps1 -Task train from backend, or .\\start-spark.ps1 -Task train from the repository root.")
+        parser.error("Use ..\\scripts\\windows\\start-spark.ps1 -Task train from backend, or .\\scripts\\windows\\start-spark.ps1 -Task train from the repository root.")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     from opsyntra.spark_training import run_spark_training
     run_spark_training(args.config, track=not args.skip_tracking)

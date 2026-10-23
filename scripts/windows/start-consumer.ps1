@@ -12,7 +12,8 @@ param(
     [switch]$SetupSparkClient
 )
 $ErrorActionPreference = "Stop"
-$backendDirectory = Join-Path $PSScriptRoot "backend"
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
+$backendDirectory = Join-Path $opsyntraRoot "backend"
 function Resolve-BackendPath([string]$Value) {
     if ([IO.Path]::IsPathRooted($Value)) { return [IO.Path]::GetFullPath($Value) }
     return [IO.Path]::GetFullPath((Join-Path $backendDirectory $Value))

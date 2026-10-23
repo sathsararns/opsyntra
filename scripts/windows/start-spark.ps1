@@ -7,7 +7,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$backendDirectory = Join-Path $PSScriptRoot "backend"
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
+$backendDirectory = Join-Path $opsyntraRoot "backend"
 $linuxBackendResult = & wsl -d Ubuntu --exec wslpath -a ($backendDirectory -replace '\\', '/')
 if ($LASTEXITCODE -ne 0 -or -not $linuxBackendResult) { throw "The Ubuntu WSL runtime is required. See backend/README.md." }
 $linuxBackend = $linuxBackendResult.Trim()

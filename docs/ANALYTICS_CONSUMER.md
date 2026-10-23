@@ -10,9 +10,9 @@ From **Opsyntra repository root** in PowerShell:
 
 ```powershell
 python -m pip install -r backend/requirements/analytics-consumer.txt
-.\start-kafka.ps1 -Task start
-.\start-analytics.ps1 -Task start
-.\start-analytics.ps1 -Task migrate
+.\scripts\windows\start-kafka.ps1 -Task start
+.\scripts\windows\start-analytics.ps1 -Task start
+.\scripts\windows\start-analytics.ps1 -Task migrate
 python backend/analytics_consumer.py --mode streaming
 ```
 
@@ -169,7 +169,7 @@ churn or accuracy. See [metric definitions](ANALYTICS_STORAGE.md).
 With Kafka and PostgreSQL running, from root:
 
 ```powershell
-.\start-analytics.ps1 -Task test-consumer
+.\scripts\windows\start-analytics.ps1 -Task test-consumer
 ```
 
 Or from `backend/`:

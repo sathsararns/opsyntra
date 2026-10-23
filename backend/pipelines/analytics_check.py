@@ -49,7 +49,7 @@ def main():
              ROOT / "pipelines/analytics_check.py", ROOT / "pipelines/analytics_db.py", ROOT / "pipelines/analytics_local.py",
              ROOT / "tests/unit/test_analytics_contracts.py", ROOT / "tests/integration/test_analytics_storage.py", ROOT / "tests/analytics_helpers.py",
              ROOT / "requirements/analytics.txt", ROOT / ".env.example", ROOT / "migrations/README.md",
-             ROOT.parent / "start-analytics.ps1", ROOT.parent / "docs/ANALYTICS_STORAGE.md"]
+             ROOT.parent / "scripts/windows/start-analytics.ps1", ROOT.parent / "docs/ANALYTICS_STORAGE.md"]
     report = {"status": "PASS" if passed else "FAIL", "checked_at": datetime.now(timezone.utc).isoformat(),
               "command": "python -m pipelines.analytics_check", "database": database, "server": version,
               "driver": importlib.metadata.version("psycopg"), "tests_run": result.testsRun,

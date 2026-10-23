@@ -3,7 +3,8 @@ param(
     [string]$Task = "start"
 )
 $ErrorActionPreference = "Stop"
-$backendDirectory = Join-Path $PSScriptRoot "backend"
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
+$backendDirectory = Join-Path $opsyntraRoot "backend"
 if ($Task -eq "setup") {
     & python -m pip install -r (Join-Path $backendDirectory "requirements/kafka.txt")
     if ($LASTEXITCODE -ne 0) { throw "Kafka Python dependency setup failed." }

@@ -1,6 +1,6 @@
 # Opsyntra
 
-Next work: [submission, live analytics, CI/Docker and AWS roadmap](OPSYNTRA_EXTENSION_ROADMAP.md).
+Project plan: [ML, Kafka, submission, live analytics, CI/Docker and optional AWS roadmap](OPSYNTRA_ROADMAP.md).
 
 A local Telco customer churn workspace with a Next.js + Tailwind frontend and a
 Python API backed by reproducible ML pipelines.
@@ -17,7 +17,7 @@ dataset or use the separately labelled [saved-model bundle path](docs/VERIFICATI
 
 Phase 2 analytics storage is implemented: [PostgreSQL setup, schema and metric
 definitions](docs/ANALYTICS_STORAGE.md), with [real database verification](backend/reports/analytics_verification.md).
-Run `.\start-analytics.ps1 -Task setup` then `.\start-analytics.ps1 -Task test`
+Run `.\scripts\windows\start-analytics.ps1 -Task setup` then `.\scripts\windows\start-analytics.ps1 -Task test`
 from this root. Phase 3 Kafka-to-database ingestion is also implemented:
 [consumer/recovery guide](docs/ANALYTICS_CONSUMER.md) and
 [real Kafka verification](backend/reports/analytics_consumer_verification.md).
@@ -33,7 +33,7 @@ segments and consumer health. See [startup and metric definitions](docs/LIVE_MON
 and [measured browser/SQL verification](backend/reports/live_dashboard_verification.md).
 Install `backend/requirements/analytics-web.txt` for the complete prediction and
 analytics API. Run both Kafka consumers and the producer alongside
-`.\start-frontend.ps1` to see new events automatically.
+`.\scripts\windows\start-frontend.ps1` to see new events automatically.
 
 Phase 5 adds [three executed notebooks](backend/notebooks/README.md) for
 training-only EDA, saved model comparison and a read-only streaming analytics
@@ -79,17 +79,17 @@ Opsyntra/
   .gitignore
   OPSYNTRA_ROADMAP.md
   README.md
-  start-frontend.ps1        Starts both local services
-  start-mlflow.ps1          Opens the local experiment tracking UI
-  start-spark.ps1           Runs Spark setup, training, inference and checks in Ubuntu WSL
-  start-airflow.ps1         Starts Airflow and runs the complete ML DAG in Ubuntu WSL
-  start-kafka.ps1           Starts Kafka, creates topics and verifies publishing/consumption
-  start-consumer.ps1        Runs sklearn or native Spark Kafka prediction consumers
-  start-analytics.ps1       Sets up local PostgreSQL, applies migrations and tests storage
+  scripts/windows/         Windows and WSL launchers
+    start-frontend.ps1     Starts the local frontend and API
+    start-containers.ps1   Starts the Docker Compose core stack
+    start-*.ps1            Airflow, Kafka, analytics, MLflow and Spark helpers
 ```
 
 The Git repository remains at this root. `.review-tools/` is an ignored local
 PDF-reading utility; it is separate from the application.
+
+All Windows/WSL launchers are grouped under `scripts/windows/`; see the
+[launcher guide](scripts/README.md). Commands below use their new locations.
 
 ## Start the application
 
@@ -105,7 +105,7 @@ The API expects the data reports and model artifacts described below. Once those
 are available, start both services with:
 
 ```powershell
-.\start-frontend.ps1
+.\scripts\windows\start-frontend.ps1
 ```
 
 Open http://127.0.0.1:3000. The local API listens on http://127.0.0.1:8000.
@@ -157,7 +157,7 @@ classification. Model selection uses validation data after training-only CV;
 the chosen model is assessed on held-out test data.
 Each training invocation records four comparable MLflow runs, tunes the
 decision threshold on validation F1, and logs complete models and evaluation
-plots. Start the tracking UI from this root with `.\start-mlflow.ps1` and visit
+plots. Start the tracking UI from this root with `.\scripts\windows\start-mlflow.ps1` and visit
 http://127.0.0.1:5000. From `backend/`, use `python -m pipelines.mlflow_server`.
 See [model selection evidence](backend/reports/model_selection.md) and
 [MLflow screenshots](docs/README.md). Restart the API after retraining.
@@ -173,14 +173,14 @@ Spark workflows use a separate Linux environment in the existing Ubuntu WSL
 distribution. From this repository root:
 
 ```powershell
-.\start-spark.ps1 -Task setup
-.\start-spark.ps1 -Task train
-.\start-spark.ps1 -Task predict -Record examples/customer.json
-.\start-spark.ps1 -Task predict -InputCsv examples/customers.csv -Output artifacts/predictions/spark_batch.csv
-.\start-spark.ps1 -Task test
+.\scripts\windows\start-spark.ps1 -Task setup
+.\scripts\windows\start-spark.ps1 -Task train
+.\scripts\windows\start-spark.ps1 -Task predict -Record examples/customer.json
+.\scripts\windows\start-spark.ps1 -Task predict -InputCsv examples/customers.csv -Output artifacts/predictions/spark_batch.csv
+.\scripts\windows\start-spark.ps1 -Task test
 ```
 
-Use `..\start-spark.ps1` when your terminal is already inside `backend/`.
+Use `..\scripts\windows\start-spark.ps1` when your terminal is already inside `backend/`.
 Prediction paths above resolve relative to `backend/`. Spark outputs are kept
 under `backend/artifacts/spark/`; both engines keep using the authoritative
 saved memberships. Read [Spark setup and timing details](backend/README.md#spark-training-and-engine-comparison).
@@ -227,12 +227,12 @@ batch and streaming modes is implemented, with model prediction consumers and du
 From this repository root, start the local Airflow UI and run either engine:
 
 ```powershell
-.\start-airflow.ps1 -Task start
-.\start-airflow.ps1 -Task run -Engine sklearn
-.\start-airflow.ps1 -Task run -Engine spark
+.\scripts\windows\start-airflow.ps1 -Task start
+.\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn
+.\scripts\windows\start-airflow.ps1 -Task run -Engine spark
 ```
 
-From `backend/`, use `..\start-airflow.ps1`. Open http://localhost:8080 and
+From `backend/`, use `..\scripts\windows\start-airflow.ps1`. Open http://localhost:8080 and
 select **opsyntra_ml_workflow**. The launcher waits for all eight scheduled tasks
 and the DagRun to succeed, then records the workflow and candidates in MLflow.
 Each run has its own data snapshot, approved saved pipeline, logs and prediction
@@ -249,14 +249,14 @@ From this repository root:
 
 ```powershell
 # Already installed on this machine; use setup once on a new environment.
-.\start-kafka.ps1 -Task start
+.\scripts\windows\start-kafka.ps1 -Task start
 python backend/producer.py --mode batch --batch-size 500
 python backend/producer.py --mode batch --batch-size 500 --resume
 python backend/producer.py --mode streaming --events-per-sec 5
 ```
 
 Stop continuous streaming with Ctrl+C. From `backend/`, use
-`..\start-kafka.ps1` and `python producer.py`. The WSL broker is reachable at
+`..\scripts\windows\start-kafka.ps1` and `python producer.py`. The WSL broker is reachable at
 `127.0.0.1:9092`. Topics are `telco.raw.customers`, `telco.churn.predictions` and
 `telco.deadletter`. Publisher messages use customerID keys, typed customer fields,
 UTC timestamps and stable batch event IDs. Checkpoints advance after confirmed
@@ -272,7 +272,7 @@ then validated the actual messages read back from Kafka.
 From the repository root:
 
 ```powershell
-.\start-kafka.ps1 -Task start
+.\scripts\windows\start-kafka.ps1 -Task start
 python backend/consumer.py --mode batch --max-messages 1000
 python backend/consumer.py --mode streaming
 ```
@@ -291,6 +291,6 @@ python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5
 ```
 
 Native Spark is supported through
-`.\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
+`.\scripts\windows\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30`.
 See [consumer commands and recovery guarantees](backend/KAFKA.md#prediction-consumer-step-7)
 and [real crash/restart evidence](backend/reports/kafka_consumption_report.md).

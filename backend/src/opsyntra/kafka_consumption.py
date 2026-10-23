@@ -237,7 +237,7 @@ def run_consumer(settings, *, mode, engine="sklearn", group_id=None, model_path=
         metadata = consumer.list_topics(timeout=10)
         for topic in settings["topics"].values():
             if topic not in metadata.topics or metadata.topics[topic].error:
-                raise ValueError(f"Topic unavailable: {topic}; run start-kafka.ps1 -Task topics")
+                raise ValueError(f"Topic unavailable: {topic}; run scripts/windows/start-kafka.ps1 -Task topics")
         stats["cluster_id"] = metadata.cluster_id
         scope = hashlib.sha256((metadata.cluster_id + ":" + group_id).encode()).hexdigest()[:24]
         ledger_path = state_dir / (scope + ".sqlite3")

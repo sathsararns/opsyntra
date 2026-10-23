@@ -21,15 +21,15 @@ From **Opsyntra/**:
 
 ```powershell
 # Once on a new environment: pinned Python client and SHA512-verified Apache download.
-.\start-kafka.ps1 -Task setup
+.\scripts\windows\start-kafka.ps1 -Task setup
 
 # Start/reuse the broker and create/verify all three required topics.
-.\start-kafka.ps1 -Task start
-.\start-kafka.ps1 -Task status
-.\start-kafka.ps1 -Task topics
+.\scripts\windows\start-kafka.ps1 -Task start
+.\scripts\windows\start-kafka.ps1 -Task status
+.\scripts\windows\start-kafka.ps1 -Task topics
 ```
 
-From **Opsyntra/backend/** use `..\start-kafka.ps1` instead. Relative paths in
+From **Opsyntra/backend/** use `..\scripts\windows\start-kafka.ps1` instead. Relative paths in
 `config.yaml` resolve against `backend/`; CLI `--input` and `--checkpoint` paths
 resolve against your current terminal directory.
 
@@ -172,7 +172,7 @@ under `kafka:` in `backend/config.yaml`.
 
 ```powershell
 # From Opsyntra/: real broker; publishes a NEW full dataset replay and 30 samples.
-.\start-kafka.ps1 -Task verify
+.\scripts\windows\start-kafka.ps1 -Task verify
 
 # From backend/: isolated functional failure/restart tests, no broker required.
 python -m unittest tests.integration.test_kafka_producer -v
@@ -194,7 +194,7 @@ invalid input, checkpoint locking and changed-data resume rejection.
 Stop the broker when finished:
 
 ```powershell
-.\start-kafka.ps1 -Task stop
+.\scripts\windows\start-kafka.ps1 -Task stop
 ```
 
 References: [Apache Kafka quickstart](https://kafka.apache.org/quickstart/),
@@ -214,7 +214,7 @@ predictor; customerID and all event metadata also stay outside the feature frame
 ### Start from Opsyntra/
 
 ```powershell
-.\start-kafka.ps1 -Task start
+.\scripts\windows\start-kafka.ps1 -Task start
 
 # Consume at most 1,000 INPUT records and exit.
 python backend/consumer.py --mode batch --max-messages 1000
@@ -227,7 +227,7 @@ python backend/producer.py --mode streaming --events-per-sec 5
 ```
 
 From `backend/`, use `python consumer.py`, `python producer.py`, and
-`..\start-kafka.ps1`. The application group defaults to
+`..\scripts\windows\start-kafka.ps1`. The application group defaults to
 `opsyntra-churn-sklearn` or `opsyntra-churn-spark`. Restart with the same group and
 state directory to resume Kafka offsets and reuse durable deduplication. The CLI
 has no extra resume flag; Kafka's committed offsets provide the resume position.
@@ -276,16 +276,16 @@ terminal's current folder. From Opsyntra/:
 
 ```powershell
 # Once on a fresh Spark runtime; already installed for this checkpoint.
-.\start-consumer.ps1 -SetupSparkClient
+.\scripts\windows\start-consumer.ps1 -SetupSparkClient
 
-.\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30
-.\start-consumer.ps1 -Engine spark -Mode streaming
+.\scripts\windows\start-consumer.ps1 -Engine spark -Mode batch -MaxMessages 30
+.\scripts\windows\start-consumer.ps1 -Engine spark -Mode streaming
 
 # Optional window; wrapper paths here are relative to backend/.
-.\start-consumer.ps1 -Engine spark -Mode batch -OffsetWindow artifacts/kafka/windows/my_batch.json
+.\scripts\windows\start-consumer.ps1 -Engine spark -Mode batch -OffsetWindow artifacts/kafka/windows/my_batch.json
 ```
 
-From `backend/` use `..\start-consumer.ps1`. Spark uses the existing Ubuntu
+From `backend/` use `..\scripts\windows\start-consumer.ps1`. Spark uses the existing Ubuntu
 `.venv-spark`, loads `artifacts/spark/selected_model.json` once and keeps one Spark
 session alive. The default sklearn model is
 `artifacts/models/best_pipeline.joblib`. `--model` overrides either artifact; the
@@ -397,7 +397,7 @@ source messages long enough for the chosen replay policy.
 
 ```powershell
 # From Opsyntra/: isolated diagnostic groups; publishes a small labelled test set.
-.\start-kafka.ps1 -Task verify-consumer
+.\scripts\windows\start-kafka.ps1 -Task verify-consumer
 
 # From backend/: additionally exercise the saved Spark model.
 python -m pipelines.kafka_consumption_check --include-spark

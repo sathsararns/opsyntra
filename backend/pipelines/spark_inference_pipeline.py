@@ -23,7 +23,7 @@ def main():
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     if sys.platform == "win32":
-        parser.error("Use ..\\start-spark.ps1 -Task predict -Record examples/customer.json from backend. Spark runs in Ubuntu WSL.")
+        parser.error("Use ..\\scripts\\windows\\start-spark.ps1 -Task predict -Record examples/customer.json from backend. Spark runs in Ubuntu WSL.")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     from opsyntra.config import load_config, load_training_config
     from opsyntra.spark_training import load_spark_settings

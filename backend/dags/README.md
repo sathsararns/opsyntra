@@ -6,7 +6,7 @@ The two additional bonus DAGs are defined in `opsyntra_kafka_workflows.py`:
 - `opsyntra_kafka_streaming`: health checks → managed consumer and optional sample producer → summary.
 
 Both use the existing ML runtime (install `requirements/kafka.txt` there with
-`..\start-consumer.ps1 -SetupSparkClient`), retries, timeouts, frozen models,
+`..\scripts\windows\start-consumer.ps1 -SetupSparkClient`), retries, timeouts, frozen models,
 separate groups and run-specific recovery/artifacts. Batch is daily with no
 catchup, initially paused; streaming is a manual managed session with heartbeat
 logs and graceful stop. Read [bonus operation](../../docs/VERIFICATION.md) for
@@ -27,25 +27,25 @@ environment, which already contains sklearn and Spark dependencies. The Windows
 Python environment continues serving the frontend and recording MLflow runs.
 
 ```powershell
-# Once on a new machine, after start-spark.ps1 -Task setup:
-..\start-airflow.ps1 -Task setup
+# Once on a new machine, after scripts/windows/start-spark.ps1 -Task setup:
+..\scripts\windows\start-airflow.ps1 -Task setup
 
 # Start or reuse the local scheduler, DAG processor, API and LocalExecutor.
-..\start-airflow.ps1 -Task start
+..\scripts\windows\start-airflow.ps1 -Task start
 
 # Trigger real scheduled tasks and wait for the complete DagRun state.
-..\start-airflow.ps1 -Task run -Engine sklearn
-..\start-airflow.ps1 -Task run -Engine spark
+..\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn
+..\scripts\windows\start-airflow.ps1 -Task run -Engine spark
 
 # Optional alternate CSV; path is relative to backend/ and Churn is unnecessary.
-..\start-airflow.ps1 -Task run -Engine sklearn -PredictionInput examples/customers.csv
+..\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn -PredictionInput examples/customers.csv
 
-..\start-airflow.ps1 -Task status
-..\start-airflow.ps1 -Task imports
-..\start-airflow.ps1 -Task stop
+..\scripts\windows\start-airflow.ps1 -Task status
+..\scripts\windows\start-airflow.ps1 -Task imports
+..\scripts\windows\start-airflow.ps1 -Task stop
 ```
 
-From the repository root use `.\start-airflow.ps1` instead. Open
+From the repository root use `.\scripts\windows\start-airflow.ps1` instead. Open
 http://localhost:8080, choose **opsyntra_ml_workflow**, and select a run. Grid,
 Graph, Task Instances and individual task logs show the actual task states.
 The local development UI binds to loopback and uses Airflow's simple automatic
@@ -117,8 +117,8 @@ in the same candidate run. Extract the ZIP in Linux and load its directory with
 or triggered through the Airflow UI, export the successful run and log it with:
 
 ```powershell
-..\start-airflow.ps1 -Task record -Engine sklearn
-..\start-airflow.ps1 -Task track -Engine sklearn
+..\scripts\windows\start-airflow.ps1 -Task record -Engine sklearn
+..\scripts\windows\start-airflow.ps1 -Task track -Engine sklearn
 ```
 
 Use `-Engine spark` for Spark. Recording verifies Airflow's eight task states and

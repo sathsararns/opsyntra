@@ -12,7 +12,7 @@ from opsyntra.analytics.contracts import EventConflict, Source
 from tests.analytics_helpers import deadletter_event, prediction_event, raw_event
 
 
-@unittest.skipUnless(os.environ.get("OPSYNTRA_RUN_ANALYTICS_TESTS") == "1", "Run start-analytics.ps1 -Task test against the separate PostgreSQL test database")
+@unittest.skipUnless(os.environ.get("OPSYNTRA_RUN_ANALYTICS_TESTS") == "1", "Run scripts/windows/start-analytics.ps1 -Task test against the separate PostgreSQL test database")
 class AnalyticsStorageTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -1,7 +1,6 @@
 # Shared project documentation
 
-- [Project roadmap](../OPSYNTRA_ROADMAP.md)
-- [Submission and extension roadmap](../OPSYNTRA_EXTENSION_ROADMAP.md)
+- [Complete project roadmap: ML, Kafka, analytics, CI/Docker and optional cloud](../OPSYNTRA_ROADMAP.md)
 - [Phase 1 clean-clone verification](../backend/reports/clean_clone_verification.md)
 - [Frontend typecheck/build/browser evidence](../backend/reports/frontend_verification.json)
 - [Submission demo guide](DEMO_GUIDE.md)
@@ -49,7 +48,7 @@ version, dataset/split hashes, run IDs, and test metrics. Images show the actual
 local MLflow UI. Its run Duration covers artifact logging; `training_seconds`
 records model training and CV time.
 
-To refresh evidence after training, start `.\start-mlflow.ps1` from the repository
+To refresh evidence after training, start `.\scripts\windows\start-mlflow.ps1` from the repository
 root, then run in another terminal:
 
 ```powershell

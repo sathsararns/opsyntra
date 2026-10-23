@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$opsyntraRoot = $PSScriptRoot
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
 $opsyntraBackend = Join-Path $opsyntraRoot 'backend'
 $apiProcess = $null
 $pythonExecutable = (Get-Command python -ErrorAction Stop).Source
@@ -22,7 +22,7 @@ try {
     if ($apiReady) {
         $apiSchema = Invoke-RestMethod -Uri 'http://127.0.0.1:8000/openapi.json' -TimeoutSec 3
         if (-not $apiSchema.paths.PSObject.Properties['/api/analytics/summary']) {
-            throw 'The existing API is using older code. Stop that API, then rerun .\start-frontend.ps1 to load Live monitoring.'
+            throw 'The existing API is using older code. Stop that API, then rerun .\scripts\windows\start-frontend.ps1 to load Live monitoring.'
         }
     }
 

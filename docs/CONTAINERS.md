@@ -5,6 +5,12 @@ Python 3 is needed only for the optional setup/verification helpers. The Docker
 images install their own pinned Python 3.12 dependencies and Node 22 dependencies.
 The normal core does not start Spark, MLflow or Airflow.
 
+If startup reports a missing `dockerDesktopLinuxEngine` pipe, open Docker
+Desktop and wait for its Linux engine to finish starting. Confirm that
+`docker info --format '{{.OSType}}'` prints `linux`, then retry the launcher.
+The launcher checks engine availability before preparing `.env` or starting
+services. An existing `.env` being preserved is normal.
+
 ```mermaid
 flowchart LR
   P[Optional producer] --> K[Kafka raw topic]
@@ -40,7 +46,7 @@ docker compose up --build
 For background startup with health checks:
 
 ```powershell
-.\start-containers.ps1 -Task start
+.\scripts\windows\start-containers.ps1 -Task start
 docker compose ps --all
 ```
 
@@ -56,7 +62,7 @@ the saved model; they do not retrain silently. No host Joblib file is imported.
 Generate real events, then select **Live monitoring** in the UI:
 
 ```powershell
-.\start-containers.ps1 -Task demo -DemoEvents 20
+.\scripts\windows\start-containers.ps1 -Task demo -DemoEvents 20
 # Continuous sampling, foreground; Ctrl+C stops this producer:
 docker compose run --rm --no-deps producer producer --mode streaming --events-per-sec 5 --exclude-churn
 # Batch with a persistent checkpoint; repeat this command to resume:
@@ -111,9 +117,9 @@ Scaling or Fargate replacement needs a separately designed shared recovery store
 
 ```powershell
 # Preserve every named volume:
-.\start-containers.ps1 -Task stop
+.\scripts\windows\start-containers.ps1 -Task stop
 # Or: docker compose --profile '*' down
-.\start-containers.ps1 -Task start
+.\scripts\windows\start-containers.ps1 -Task start
 docker compose restart inference analytics api frontend
 ```
 
@@ -126,7 +132,7 @@ To intentionally delete **all data for this Compose project**, including models,
 broker offsets and recovery history:
 
 ```powershell
-.\start-containers.ps1 -Task reset -ConfirmReset
+.\scripts\windows\start-containers.ps1 -Task reset -ConfirmReset
 # Equivalent destructive command: docker compose --profile '*' down --volumes
 ```
 
@@ -169,7 +175,7 @@ path; the verification report states which optional profiles were exercised.
 
 ```powershell
 python containers/verify.py
-# Or: .\start-containers.ps1 -Task test
+# Or: .\scripts\windows\start-containers.ps1 -Task test
 ```
 
 The runner requires the source CSV plus frontend Playwright/Edge (or installed

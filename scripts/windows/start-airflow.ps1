@@ -14,7 +14,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$backendDirectory = Join-Path $PSScriptRoot "backend"
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
+$backendDirectory = Join-Path $opsyntraRoot "backend"
 $linuxBackendResult = & wsl -d Ubuntu --exec wslpath -a ($backendDirectory -replace '\\', '/')
 if ($LASTEXITCODE -ne 0 -or -not $linuxBackendResult) { throw "The existing Ubuntu WSL distribution is required." }
 $linuxBackend = $linuxBackendResult.Trim()
@@ -35,7 +36,7 @@ if ($Task -eq "setup") {
     & wsl -d Ubuntu --cd $linuxBackend --exec $venvPython -m pip install -r requirements/airflow.txt
     if ($LASTEXITCODE -ne 0) { throw "Airflow installation failed." }
     & wsl -d Ubuntu --cd $linuxBackend --exec .venv-spark/bin/python -m pip install -r requirements/worker.txt
-    if ($LASTEXITCODE -ne 0) { throw "ML worker setup failed. Run start-spark.ps1 -Task setup first, then retry Airflow setup." }
+    if ($LASTEXITCODE -ne 0) { throw "ML worker setup failed. Run scripts/windows/start-spark.ps1 -Task setup first, then retry Airflow setup." }
     return
 }
 & wsl -d Ubuntu --cd $linuxBackend --exec $venvPython -m pipelines.airflow_service $Task --engine $Engine --prediction-input $PredictionInput --kafka-kind $KafkaKind --duration-seconds $DurationSeconds --demo-events $DemoEvents --events-per-sec $EventsPerSec

@@ -35,13 +35,13 @@ Push-Location backend
 python -m pipelines.data_pipeline
 python -m pipelines.training_pipeline
 Pop-Location
-.\start-spark.ps1 -Task setup
-.\start-spark.ps1 -Task train
-.\start-airflow.ps1 -Task setup
-.\start-kafka.ps1 -Task setup
-.\start-kafka.ps1 -Task start
-.\start-consumer.ps1 -SetupSparkClient
-.\start-airflow.ps1 -Task start
+.\scripts\windows\start-spark.ps1 -Task setup
+.\scripts\windows\start-spark.ps1 -Task train
+.\scripts\windows\start-airflow.ps1 -Task setup
+.\scripts\windows\start-kafka.ps1 -Task setup
+.\scripts\windows\start-kafka.ps1 -Task start
+.\scripts\windows\start-consumer.ps1 -SetupSparkClient
+.\scripts\windows\start-airflow.ps1 -Task start
 ```
 
 The setup launchers require an installed Ubuntu WSL distribution and access to
@@ -157,7 +157,7 @@ The model encoder supports unknown categories. The Kafka wire schema deliberatel
 rejects categories outside its documented vocabulary; these are separate policies.
 
 ```powershell
-.\start-kafka.ps1 -Task verify
+.\scripts\windows\start-kafka.ps1 -Task verify
 Push-Location backend
 python -m pipelines.kafka_consumption_check --include-spark
 Pop-Location
@@ -174,10 +174,10 @@ output-ack/before-ledger duplicate window. Downstream sinks should upsert by
 ## Required and bonus Airflow workflows
 
 ```powershell
-.\start-airflow.ps1 -Task run -Engine sklearn
-.\start-airflow.ps1 -Task run -Engine spark
-.\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
-.\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20 -EventsPerSec 5
+.\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn
+.\scripts\windows\start-airflow.ps1 -Task run -Engine spark
+.\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
+.\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20 -EventsPerSec 5
 ```
 
 The required ML DAG trains and logs to MLflow. Bonus DAGs reuse frozen copies of
@@ -229,7 +229,7 @@ task states. The local development Airflow UI is http://localhost:8080.
 
 ## Capture and audit evidence
 
-Run `.\start-mlflow.ps1` in a separate terminal and keep Airflow/Kafka running.
+Run `.\scripts\windows\start-mlflow.ps1` in a separate terminal and keep Airflow/Kafka running.
 
 ```powershell
 node frontend/scripts/capture-mlflow.mjs

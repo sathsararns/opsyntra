@@ -12,7 +12,7 @@ sklearn models and API dependencies:
 
 ```powershell
 python -m pip install -r backend/requirements/notebooks.txt
-.\start-analytics.ps1 -Task start
+.\scripts\windows\start-analytics.ps1 -Task start
 cd backend
 python -m pipelines.notebook_check
 ```
@@ -44,7 +44,7 @@ The notebooks require these existing project inputs:
 Raw data and model artifacts are excluded from Git. On a new checkout, obtain
 the supplied dataset and follow the [main setup](../README.md) to prepare splits
 and sklearn artifacts, then rebuild native Spark and the comparison report with
-`..\start-spark.ps1 -Task train` from `backend/`. This prepares the Spark saved
+`..\scripts\windows\start-spark.ps1 -Task train` from `backend/`. This prepares the Spark saved
 validation scores as well. The model notebook validates dataset/split hashes,
 champion versions and thresholds across reports; if training has changed,
 regenerate the matching comparison rather than mixing old and new runs.

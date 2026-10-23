@@ -12,8 +12,8 @@ dependencies once in the Python environment used by the frontend launcher:
 
 ```powershell
 python -m pip install -r backend/requirements/analytics-web.txt
-.\start-kafka.ps1 -Task start
-.\start-analytics.ps1 -Task start
+.\scripts\windows\start-kafka.ps1 -Task start
+.\scripts\windows\start-analytics.ps1 -Task start
 ```
 
 On a new machine, follow [PostgreSQL setup](ANALYTICS_STORAGE.md) and
@@ -30,7 +30,7 @@ python backend/consumer.py --mode streaming --engine sklearn
 python backend/analytics_consumer.py --mode streaming
 
 # Terminal 3: Python API and Next.js frontend
-.\start-frontend.ps1
+.\scripts\windows\start-frontend.ps1
 
 # Terminal 4: sample customer events; Ctrl+C stops publishing
 python backend/producer.py --mode streaming --events-per-sec 5

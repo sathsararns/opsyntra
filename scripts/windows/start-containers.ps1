@@ -5,7 +5,26 @@ param(
     [switch]$ConfirmReset
 )
 $ErrorActionPreference = 'Stop'
-Push-Location $PSScriptRoot
+if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
+    throw 'Docker CLI was not found. Install Docker Desktop and reopen PowerShell before using this launcher.'
+}
+if ($Task -ne 'setup') {
+    $dockerReady = $false
+    try {
+        $dockerEngine = & docker info --format '{{.OSType}}' 2>$null
+        $dockerReady = $LASTEXITCODE -eq 0
+    } catch {
+        $dockerReady = $false
+    }
+    if (-not $dockerReady) {
+        throw 'Docker engine is unavailable. Open Docker Desktop, wait until its engine is running, then rerun this command. Check Docker Desktop and the active Docker context if it is already open.'
+    }
+    if (($dockerEngine | Out-String).Trim() -ne 'linux') {
+        throw 'Opsyntra requires Linux containers. Switch Docker Desktop to Linux containers, wait until the engine is running, then rerun this command.'
+    }
+}
+$opsyntraRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
+Push-Location $opsyntraRoot
 try {
     if ($Task -eq 'setup' -or $Task -eq 'start') {
         python containers/configure.py
