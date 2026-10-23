@@ -19,6 +19,13 @@ try {
         $apiReady = $health.status -eq 'ready' -and [bool]$health.model_version
     } catch { $apiReady = $false }
 
+    if ($apiReady) {
+        $apiSchema = Invoke-RestMethod -Uri 'http://127.0.0.1:8000/openapi.json' -TimeoutSec 3
+        if (-not $apiSchema.paths.PSObject.Properties['/api/analytics/summary']) {
+            throw 'The existing API is using older code. Stop that API, then rerun .\start-frontend.ps1 to load Live monitoring.'
+        }
+    }
+
     if (-not $apiReady) {
         $logDirectory = Join-Path $opsyntraBackend 'logs'
         New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null

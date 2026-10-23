@@ -90,12 +90,15 @@ class SparkWorkflowTests(unittest.TestCase):
                 self.assertTrue(result.churn_probability.between(0, 1).all())
 
     def test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes(self):
-        pointer_path = ROOT / "artifacts/spark/selected_model.json"
-        if not pointer_path.is_file():
-            self.skipTest("Run the full Spark training workflow first.")
+        from opsyntra.spark_training import fit_candidate
+        from opsyntra.spark_pipeline import SparkChurnDecision
+        # Fit a tiny training-only fixture; clean checkouts have no production model.
+        fitted, _ = fit_candidate("logistic_regression", {"maxIter": 10, "regParam": .01}, self.train, 42)
+        fitted.stages.append(SparkChurnDecision(.4, "fresh-process-fixture"))
+        model_path = self.directory / "selected-fixture"
+        fitted.save(model_path.as_uri())
         from opsyntra.spark_inference import load_spark_pipeline, predict_spark_frame
-        pointer = json.loads(pointer_path.read_text())
-        model = load_spark_pipeline(ROOT / pointer["pipeline_path"])
+        model = load_spark_pipeline(model_path)
         sample = pd.read_csv(ROOT / "examples/customers.csv", dtype="string", keep_default_na=False)
         frame = self.spark.read.option("header", True).csv((ROOT / "examples/customers.csv").as_uri())
         expected = predict_spark_frame(model, frame)
@@ -103,7 +106,7 @@ class SparkWorkflowTests(unittest.TestCase):
             (["--record", str(ROOT / "examples/customer.json")], self.directory / "single.json"),
             (["--input", str(ROOT / "examples/customers.csv")], self.directory / "batch.csv"),
         ):
-            process = subprocess.run([sys.executable, "-m", "pipelines.spark_inference_pipeline", *arguments,
+            process = subprocess.run([sys.executable, "-m", "pipelines.spark_inference_pipeline", "--model", str(model_path), *arguments,
                                       "--output", str(output)], cwd=ROOT, capture_output=True, text=True, timeout=180)
             self.assertEqual(process.returncode, 0, process.stderr[-8000:])
             if output.suffix == ".csv":

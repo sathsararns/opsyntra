@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "project": "opsyntra-verify-20261021064526",
+  "started_at": "2026-10-21T06:45:26.446994+00:00",
+  "ports": {
+    "FRONTEND_PORT": 1490,
+    "API_PORT": 1491,
+    "KAFKA_PORT": 1492,
+    "POSTGRES_PORT": 1493,
+    "MLFLOW_PORT": 1494,
+    "AIRFLOW_PORT": 1495
+  },
+  "checks": [
+    "documented core up --build and healthy empty dashboard",
+    "real producer -> saved model -> PostgreSQL -> Next.js proxy; SQL counts agree; reader cannot insert",
+    "production browser shows actual event/model IDs and matching count",
+    "service restart preserves database, broker offsets, model hash and SQLite outbox",
+    "down/up container recreation preserves all named-volume results and recovery state",
+    "three repeated raw events add physical deliveries without logical prediction inflation"
+  ],
+  "producer_to_proxy_seconds": 4.544381699990481,
+  "before": {
+    "counts": {
+      "raw_customer_events": 3,
+      "prediction_events": 3,
+      "kafka_deliveries": 6,
+      "ingestion_errors": 0
+    },
+    "predictions": [
+      {
+        "prediction_id": "58a27698b9a12f2446daa1376e312b4340b534818ffe8243170dd7f45d3bd98e",
+        "event_id": "dc0878e4-dfd6-5fef-a82f-7bb911e6c0bb",
+        "customer_id": "7841-FCRQD",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "a88b700aaacb370057d0f789b196665a82fc6d64f2544c48235c87119ba2e99f",
+        "event_id": "dfcff6c3-ab08-57d1-9937-c66dbd09b6e9",
+        "customer_id": "1839-UMACK",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "bb3a7b0b6e0d1c1603b79a3e99bed260a949a845caf2af91ba32b9ad1eba9fef",
+        "event_id": "7d8328f4-be1e-5cd9-9978-c02de2b08d9f",
+        "customer_id": "3797-VTIDR",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      }
+    ],
+    "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+    "reader": {
+      "role": "opsyntra_read",
+      "can_insert": false
+    },
+    "input_offsets": {
+      "0": 1,
+      "1": 2,
+      "2": -1001
+    }
+  },
+  "after": {
+    "counts": {
+      "raw_customer_events": 3,
+      "prediction_events": 3,
+      "kafka_deliveries": 9,
+      "ingestion_errors": 0
+    },
+    "predictions": [
+      {
+        "prediction_id": "58a27698b9a12f2446daa1376e312b4340b534818ffe8243170dd7f45d3bd98e",
+        "event_id": "dc0878e4-dfd6-5fef-a82f-7bb911e6c0bb",
+        "customer_id": "7841-FCRQD",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "a88b700aaacb370057d0f789b196665a82fc6d64f2544c48235c87119ba2e99f",
+        "event_id": "dfcff6c3-ab08-57d1-9937-c66dbd09b6e9",
+        "customer_id": "1839-UMACK",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "bb3a7b0b6e0d1c1603b79a3e99bed260a949a845caf2af91ba32b9ad1eba9fef",
+        "event_id": "7d8328f4-be1e-5cd9-9978-c02de2b08d9f",
+        "customer_id": "3797-VTIDR",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      }
+    ],
+    "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+    "reader": {
+      "role": "opsyntra_read",
+      "can_insert": false
+    },
+    "input_offsets": {
+      "0": 2,
+      "1": 4,
+      "2": -1001
+    }
+  },
+  "ledger": [
+    {
+      "file": "artifacts/kafka/consumer_state/70eff39c54836ca42e278107.sqlite3",
+      "outbox_rows": 3
+    }
+  ],
+  "replay": {
+    "replayed": 3,
+    "event_ids": [
+      "dfcff6c3-ab08-57d1-9937-c66dbd09b6e9",
+      "dc0878e4-dfd6-5fef-a82f-7bb911e6c0bb",
+      "7d8328f4-be1e-5cd9-9978-c02de2b08d9f"
+    ]
+  },
+  "finished_at": "2026-10-21T06:51:23.021296+00:00",
+  "volumes_preserved": true,
+  "source_sha256": {
+    "compose.yaml": "45e42bd0ed1591ca268a12d7f7e3bd02ff8419beea407fac7ac0503541d09c02",
+    ".dockerignore": "2fcfe8b1db2c603ff640613ce873e9755b9950ee52eeae8bb38f82c7e6ac9702",
+    "containers/airflow.Dockerfile": "acb05af64805c5cbeb93f7e8f4a5fe5ba2a2a572ec3c5640713b8795595b5b02",
+    "containers/backend.Dockerfile": "ad5a2d58d45c67b323aee06e444c1d3293e389a016b83925c0e9e88df1672a9d",
+    "containers/browser-check.mjs": "fc6516191d1c87d8cd4ab289094cdf2b03e70d07aab5a3a2ea04676c1e324fcd",
+    "containers/checks.py": "c9127baec3990c77bdf71dac4dca277e6c41c67bc927c00721fc3bb1f1315249",
+    "containers/configure.py": "7eaff6c8d12d3fc0400154272b320c71d56fdb0b49ff266f466d80c17a706de7",
+    "containers/frontend.Dockerfile": "502a75528d613b317e8448d225a7a4dc48d3cca391e48903e48f1a92270a2a5c",
+    "containers/runtime.py": "828aebd3484dc92a6d9cd2feeb2be33ec3c1151b601a26375afce0f36b3f966d",
+    "containers/verify.py": "55b8e98c814d45c73cd435ecce40256754e209dcdbefa5a8e589efff2d99b6d5"
+  }
+}

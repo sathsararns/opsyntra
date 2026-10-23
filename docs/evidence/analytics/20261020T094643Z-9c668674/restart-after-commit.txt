@@ -1,0 +1,54 @@
+{
+  "status": "complete",
+  "group_id": "opsyntra-analytics-verify-63d1139f23244389a210bbe781f1916a",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "topics": {
+    "raw": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.raw",
+    "predictions": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions",
+    "deadletter": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.deadletter"
+  },
+  "mode": "batch",
+  "records": 1,
+  "raw_inserted": 0,
+  "prediction_inserted": 0,
+  "deadletter_inserted": 0,
+  "logical_duplicates": 1,
+  "deliveries_inserted": 0,
+  "rejected": 0,
+  "quarantine_inserted": 0,
+  "quarantine_duplicates": 0,
+  "event_conflicts": 0,
+  "database_batches_committed": 1,
+  "kafka_commits": 1,
+  "database_retries": 0,
+  "elapsed_seconds": 9.185213600023417,
+  "committed_offsets": [
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions",
+      "partition": 0,
+      "offset": 1
+    }
+  ],
+  "snapshot": [
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.deadletter",
+      "partition": 0,
+      "start": 0,
+      "end": 0
+    },
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions",
+      "partition": 0,
+      "start": 0,
+      "end": 1
+    },
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.raw",
+      "partition": 0,
+      "start": 0,
+      "end": 0
+    }
+  ]
+}
+{"ts":"2026-10-20T09:46:46.517563+00:00","event":"ready","group_id":"opsyntra-analytics-verify-63d1139f23244389a210bbe781f1916a","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"raw":"opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.raw","predictions":"opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions","deadletter":"opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.deadletter"},"mode":"batch"}
+{"ts":"2026-10-20T09:46:55.592089+00:00","event":"batch_committed","group_id":"opsyntra-analytics-verify-63d1139f23244389a210bbe781f1916a","records":1,"raw_inserted":0,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":1,"deliveries_inserted":0,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}

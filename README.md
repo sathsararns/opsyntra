@@ -21,10 +21,38 @@ Run `.\start-analytics.ps1 -Task setup` then `.\start-analytics.ps1 -Task test`
 from this root. Phase 3 Kafka-to-database ingestion is also implemented:
 [consumer/recovery guide](docs/ANALYTICS_CONSUMER.md) and
 [real Kafka verification](backend/reports/analytics_consumer_verification.md).
+The [application backlog check](backend/reports/analytics_application_verification.md)
+also records ingestion of the existing topics and a zero-record completed restart.
 Start the analytics sink from root with `python backend/analytics_consumer.py --mode streaming`.
 It uses its own Kafka group and the writer login; it saves existing predictions
-without running the model again. Live analytics APIs/screens remain Phase 4.
-The existing prediction UI continues to use its Python API.
+without running the model again.
+
+Phase 4 adds five read-only analytics APIs and a **Live monitoring** screen with
+automatic refresh, engine/model filters, event traceability, SQL-backed metrics,
+segments and consumer health. See [startup and metric definitions](docs/LIVE_MONITORING.md)
+and [measured browser/SQL verification](backend/reports/live_dashboard_verification.md).
+Install `backend/requirements/analytics-web.txt` for the complete prediction and
+analytics API. Run both Kafka consumers and the producer alongside
+`.\start-frontend.ps1` to see new events automatically.
+
+Phase 5 adds [three executed notebooks](backend/notebooks/README.md) for
+training-only EDA, saved model comparison and a read-only streaming analytics
+snapshot. See [notebook setup and metric scope](docs/NOTEBOOKS.md) and
+[execution/export verification](backend/reports/notebook_verification.md).
+
+Phase 6 CI workflows are implemented and verified locally: [job scopes and setup](docs/CI.md),
+[local verification/failure proof](backend/reports/ci_verification.md), and
+[repository Actions runs](https://github.com/sathsararns/opsyntra/actions).
+The first hosted run is pending commit/push; the local report does not claim a
+GitHub-hosted pass.
+
+Phase 7 provides a [local Docker/Compose setup](docs/CONTAINERS.md): Next.js,
+Python API, Kafka inference, PostgreSQL analytics and persistent recovery state.
+Run `python containers/configure.py` then `docker compose up --build` from root.
+Use `docker compose run --rm --no-deps producer producer --mode streaming --events-per-sec 5 --exclude-churn`
+to populate Live monitoring. Spark, MLflow and isolated Airflow are optional profiles.
+Normal `docker compose down` preserves data; see the guide for explicit reset and
+[actual container verification](backend/reports/container_verification.md).
 
 ## Repository structure
 

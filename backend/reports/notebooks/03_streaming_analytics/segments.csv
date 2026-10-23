@@ -1,0 +1,13 @@
+contract,payment_method,prediction_volume,mean_risk
+Month-to-month,Electronic check,2602,0.5195786078060275
+Month-to-month,Mailed check,1283,0.3384315474413001
+Month-to-month,Bank transfer (automatic),840,0.34666980778455697
+Two year,Bank transfer (automatic),835,0.04370213589254672
+Two year,Credit card (automatic),822,0.038829949636722726
+Month-to-month,Credit card (automatic),766,0.33857930885011
+One year,Bank transfer (automatic),596,0.11027437163504569
+One year,Credit card (automatic),572,0.10661165645057667
+Two year,Mailed check,566,0.027395192288037183
+One year,Mailed check,505,0.07003206907531558
+One year,Electronic check,480,0.17828116158147841
+Two year,Electronic check,245,0.09387924539262486

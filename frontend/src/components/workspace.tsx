@@ -13,9 +13,11 @@ import type { Overview, Prediction, Segment, View } from "@/lib/types";
 import { api, downloadFile } from "@/lib/api";
 import { CustomerPredictor } from "./customer-predictor";
 import { BatchPredictor } from "./batch-predictor";
+import { LiveMonitoring } from "./live-monitoring";
 
 const navigation: { id: View; label: string; icon: LucideIcon }[] = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
+  { id: "live", label: "Live monitoring", icon: Activity },
   { id: "predict", label: "Customer prediction", icon: UserRound },
   { id: "batch", label: "Batch predictions", icon: Upload },
   { id: "models", label: "Model performance", icon: ChartNoAxesCombined },
@@ -92,7 +94,7 @@ export function Workspace({ initialData }: { initialData: Overview }) {
       <p className="nav-label">WORKSPACE</p>
       <nav aria-label="Main navigation">
         {navigation.map(({ id, label, icon: Icon }, index) => <div key={id}>
-          {index === 4 && <p className="nav-label nav-label-second">RESOURCES</p>}
+          {id === "quality" && <p className="nav-label nav-label-second">RESOURCES</p>}
           <button className={`nav-item ${view === id ? "nav-item-active" : ""}`} aria-current={view === id ? "page" : undefined} onClick={() => navigate(id)}><Icon size={18} strokeWidth={1.7} /><span>{label}</span>{view === id && <span className="nav-active-dot" />}</button>
         </div>)}
       </nav>
@@ -126,6 +128,7 @@ export function Workspace({ initialData }: { initialData: Overview }) {
           {recent.length > 0 && <RecentPredictions predictions={recent.slice(0, 5)} onClear={clearHistory} />}
         </>}
         {view === "predict" && <CustomerPredictor connected={connected} onPredicted={recordPredictions} onReconnect={reconnect} />}
+        {view === "live" && <LiveMonitoring />}
         {view === "batch" && <BatchPredictor connected={connected} onPredicted={recordPredictions} onReconnect={reconnect} />}
         {view === "models" && <ModelPerformance data={data} />}
         {view === "quality" && <DataQuality data={data} />}

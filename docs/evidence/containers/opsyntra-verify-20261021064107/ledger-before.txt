@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/app/backend/container_checks.py", line 72, in <module>
+    print(json.dumps({"snapshot": snapshot, "ledger": ledger, "replay": replay}[sys.argv[1]](), default=str))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/backend/container_checks.py", line 38, in ledger
+    result.append({"file": str(path.relative_to(ROOT)), "outbox_rows": c.execute("SELECT count(*) FROM outbox").fetchone()[0]})
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: outbox

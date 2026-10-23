@@ -54,8 +54,20 @@ def live_check(config, directory):
         producer.produce(topics[kind], partition=0, key=key.encode(), value=wire, on_delivery=ack)
         if producer.flush(20) or errors: raise RuntimeError("Verification publication not acknowledged")
     def offsets(identifier):
+        from confluent_kafka import KafkaException, KafkaError
         client = Consumer({"bootstrap.servers": settings["bootstrap_servers"], "group.id": identifier, "enable.auto.commit": False})
-        try: return {p.topic: p.offset for p in client.committed([TopicPartition(t,0) for t in topics.values()],timeout=10)}
+        # A fresh CI broker can accept metadata before its group coordinator is ready.
+        # Retry only transient coordinator/timeout errors, with an overall deadline.
+        deadline = time.monotonic() + 20
+        transient = {getattr(KafkaError, name) for name in ("NOT_COORDINATOR", "COORDINATOR_LOAD_IN_PROGRESS", "COORDINATOR_NOT_AVAILABLE", "_WAIT_COORD", "_TIMED_OUT") if hasattr(KafkaError, name)}
+        try:
+            while True:
+                try:
+                    return {p.topic: p.offset for p in client.committed([TopicPartition(t,0) for t in topics.values()],timeout=3)}
+                except KafkaException as error:
+                    if error.args[0].code() not in transient or time.monotonic() >= deadline:
+                        raise
+                    time.sleep(.2)
         finally: client.close()
     def rows():
         with config.connect("read") as connection:

@@ -1,0 +1,25 @@
+{
+    "experiments":  {
+                        "experiments":  [
+                                            {
+                                                "experiment_id":  "1",
+                                                "name":  "Opsyntra-Telco-sklearn",
+                                                "artifact_location":  "file:///app/backend/mlartifacts",
+                                                "lifecycle_stage":  "active",
+                                                "last_update_time":  1792565181914,
+                                                "creation_time":  1792565181914,
+                                                "workspace":  "default"
+                                            },
+                                            {
+                                                "experiment_id":  "0",
+                                                "name":  "Default",
+                                                "artifact_location":  "/app/backend/mlruns/0",
+                                                "lifecycle_stage":  "active",
+                                                "last_update_time":  1792565181904,
+                                                "creation_time":  1792565181904,
+                                                "workspace":  "default"
+                                            }
+                                        ]
+                    },
+    "health":  "OK"
+}

@@ -1,0 +1,3 @@
+# Existing prediction API plus PostgreSQL reads and Kafka health inspection.
+-r web.txt
+-r analytics-consumer.txt

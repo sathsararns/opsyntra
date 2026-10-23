@@ -1,0 +1,3 @@
+bucket_start,engine,model_version,prediction_volume,unique_events,unique_customers,predicted_churn_share,mean_risk,mean_processing_latency_seconds,mean_ingestion_latency_seconds,matched_raw_predictions
+2026-10-20 08:00:00+00:00,sklearn,d9a13b4cf6839ed4,7085,7085,7043,0.4136908962597036,0.2685874981419065,24290.518500399812,1144.9438464375419,7085
+2026-10-20 15:00:00+00:00,sklearn,d9a13b4cf6839ed4,3027,3027,2119,0.3987446316484969,0.26043122534374813,105.57901142979847,143.6120217201851,3027

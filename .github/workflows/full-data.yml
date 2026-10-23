@@ -1,0 +1,106 @@
+name: Opsyntra full-data verification
+'on':
+  workflow_dispatch:
+    inputs:
+      dataset_url:
+        description: Public HTTPS URL to the original CSV; required SHA-256 is documented in docs/CI.md
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  PYTHONUNBUFFERED: '1'
+  PYTHONHASHSEED: '0'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  MLFLOW_DISABLE_AGENT_HINT: '1'
+  NEXT_TELEMETRY_DISABLED: '1'
+jobs:
+  full-data:
+    name: Verified dataset, both engines, real browser stream and notebooks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    services:
+      postgres:
+        image: postgres:17.6
+        env:
+          POSTGRES_PASSWORD: ci-local-only
+        ports:
+        - 5432:5432
+        options: --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 12
+      kafka:
+        image: apache/kafka:4.3.1
+        ports:
+        - 9092:9092
+        options: --health-cmd "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092" --health-interval
+          10s --health-timeout 10s --health-retries 12
+        env:
+          KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: '0'
+    env:
+      OPSYNTRA_CI_POSTGRES_ADMIN_URL: postgresql://postgres:ci-local-only@127.0.0.1:5432/postgres
+      OPSYNTRA_CI_DATASET_URL: ${{ inputs.dataset_url }}
+      SPARK_LOCAL_IP: 127.0.0.1
+      PYSPARK_PYTHON: python
+      PYSPARK_DRIVER_PYTHON: python
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      with:
+        python-version: '3.12'
+        cache: pip
+        cache-dependency-path: backend/requirements/*linux.lock
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+      with:
+        node-version: '22'
+        cache: npm
+        cache-dependency-path: frontend/package-lock.json
+    - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961
+      with:
+        distribution: temurin
+        java-version: '21'
+    - name: Install locked CPU Spark environment
+      run: python -m pip install --require-hashes -r backend/requirements/ci-spark-py312-linux.lock
+    - name: Provision fresh application/test analytics databases
+      run: python -m pipelines.ci_database
+      working-directory: backend
+    - name: Verify dataset bytes and rebuild sklearn models
+      run: python -m pipelines.ci_prepare --directory . --full-data
+      working-directory: backend
+    - name: Train native Spark and compare held-out customers
+      run: python -m pipelines.spark_training_pipeline
+      working-directory: backend
+    - name: Install frontend and Chromium
+      run: 'npm ci
+
+        npx playwright install --with-deps chromium'
+      working-directory: frontend
+    - name: Fresh servers, SQL agreement, real producer-to-browser measurement
+      run: python -m pipelines.analytics_dashboard_check --regression
+      working-directory: backend
+    - name: Execute notebooks and verify SQL/exports
+      run: python -m pipelines.notebook_check
+      working-directory: backend
+    - name: Upload reports even on failure
+      if: always()
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: full-data-results
+        path: 'backend/reports/
+
+          docs/evidence/dashboard/
+
+          docs/evidence/notebooks/
+
+          docs/screenshots/phase4/
+
+          frontend/test-results/
+
+          backend/notebooks/*.ipynb'
+        retention-days: 14
+        if-no-files-found: error

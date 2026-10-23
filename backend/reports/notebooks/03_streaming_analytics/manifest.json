@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "inputs": {},
+  "outputs": {
+    "models.csv": "6e08e835a35cd42cef75fde878c89183443714d7c27730932b45b19d9db1655f",
+    "summary.csv": "52d0fc3b8e9d8b3602656f0c4a49c987ddc0b1a910bf419f3f5a0afc1c085cd8",
+    "hourly.csv": "3a770028346aa47b504f44deff03acac18dfac4fdda712fe0e1a3fc03537214c",
+    "segments.csv": "2ac767474175668713d451c8c71565337f39e291b214b28751affa0a64e5375f",
+    "recent.csv": "20d7cc84a71d5f5ab61fda79bb36eb0c6c8b6d8ae98cd41f95314df9ea591884",
+    "risk_distribution.csv": "1da0fa4b1dd3be3d1303481276a4801491fa80d685ce12d49bba45c3ffb5e0af",
+    "late_events.csv": "42da14ff664539cd5ef5aaa6f2e3d6fbed28cf75f9832c076664c49757e21560",
+    "late_summary.csv": "1902dfbefdcd538efbc54e2c70a255e0c01c2fc79d2022a659302f612f97fb90",
+    "deliveries.csv": "755c422baeae1b1fb29aad2ec723277de3edf8611f571902a8afd2f26a5e6782",
+    "quarantine.csv": "104382cdb9be9c04eb463c044917510698744a46ae5f3cb68165973482bffe2a",
+    "hourly_gap_filled.csv": "2287ccd3558759e243836195246090e7e45aac9add6e7210e42a38e872822f81",
+    "hourly_activity.png": "6a523257c6245e546925608102a702814bb256e4f3c61dd61d67708762ac666d",
+    "hourly_activity.svg": "2e9a4f13b620fed09dc09b40ce57ae4519709828f0affc69eb93758c98856fa1",
+    "contract_segments.csv": "a5e262f8288b070f174f2b69810c38da5801b42f49f2076380241cb5f18643d4",
+    "payment_method_segments.csv": "02db84e2207dc604fd5f5e3cc214a8ccfac5b3add9b9c871f6500a7d8596b8a9",
+    "original_event_segments.png": "8ecc7313ef10251234147de922cd2bc8153e5fdb6ab1463be637ba347dec415a",
+    "original_event_segments.svg": "d0fddb8b176feb0019260bd1ffa63470614058da96d4f309aa45e650e45d8cd3"
+  },
+  "engine": "sklearn",
+  "model_version": "d9a13b4cf6839ed4",
+  "start": "2026-10-19T16:00:00+00:00",
+  "end": "2026-10-20T16:00:00+00:00",
+  "snapshot_at": "2026-10-20T16:00:32.208815+00:00",
+  "display_timezone": "Asia/Colombo",
+  "window": "last complete UTC hours; current partial hour excluded",
+  "late_threshold_seconds": 3600,
+  "synthetic_replay": true,
+  "quarantine_scope": "all engines/models, by quarantine ingestion time",
+  "dashboard_query": "/api/analytics/summary?engine=sklearn&model_version=d9a13b4cf6839ed4&start=2026-10-19T16%3A00%3A00%2B00%3A00&end=2026-10-20T16%3A00%3A00%2B00%3A00",
+  "logical_predictions": 10112,
+  "read_only": true,
+  "fitted_models": 0,
+  "checks": {
+    "hourly_sum_matches_summary": true,
+    "segment_sum_matches_summary": true,
+    "risk_sum_matches_summary": true
+  }
+}

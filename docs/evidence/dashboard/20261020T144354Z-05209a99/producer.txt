@@ -1,0 +1,26 @@
+{
+  "invocation_id": "329e80ee-9d22-4289-8a95-1e0ae7cebe30",
+  "mode": "streaming",
+  "source_sha256": "18eed3808f3e9951744b251a39af0734ec6c60047d3afa196129b1fec4985b66",
+  "source_rows": 1,
+  "bootstrap_servers": "127.0.0.1:9092",
+  "topic": "opsyntra.dashboard.20261020T144354Z-05209a99.raw",
+  "started_at": "2026-10-20T14:45:20.622391Z",
+  "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+  "include_churn": false,
+  "report_directory": "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\backend\\artifacts\\analytics\\dashboard\\20261020T144354Z-05209a99\\producer-runs\\329e80ee-9d22-4289-8a95-1e0ae7cebe30",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "run_id": "355daaa8-bbb5-4bdc-91a0-59ebe3a700e9",
+  "requested_events_per_sec": 1.0,
+  "seed": 42,
+  "jitter_seconds": 60,
+  "status": "completed",
+  "enqueued": 1,
+  "acknowledged": 1,
+  "acknowledged_offsets": {
+    "0": 0
+  },
+  "finished_at": "2026-10-20T14:45:20.848694Z",
+  "elapsed_seconds": 0.22632690001046285
+}
+2026-10-20 20:15:20,848 INFO COMPLETED mode=streaming acknowledged=1 run_id=355daaa8-bbb5-4bdc-91a0-59ebe3a700e9

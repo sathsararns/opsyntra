@@ -36,6 +36,6 @@ test_late_raw_and_prediction_recompute_old_time_buckets (tests.integration.test_
 test_malformed_tombstones_oversized_and_conflicts_are_durable_rejections (tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_malformed_tombstones_oversized_and_conflicts_are_durable_rejections) ... ok
 
 ----------------------------------------------------------------------
-Ran 36 tests in 2.375s
+Ran 36 tests in 2.466s
 
 OK

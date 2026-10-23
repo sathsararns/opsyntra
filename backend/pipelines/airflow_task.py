@@ -15,5 +15,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     context = WorkflowContext(ROOT, os.environ["OPSYNTRA_RUN_ID"], os.environ.get("OPSYNTRA_ENGINE", "sklearn"),
-                              os.environ.get("OPSYNTRA_PREDICTION_INPUT"))
+                              os.environ.get("OPSYNTRA_PREDICTION_INPUT"), config_path=os.environ.get("OPSYNTRA_CONFIG"))
     execute_task(args.task, context, int(os.environ.get("OPSYNTRA_TASK_TRY", "1")))

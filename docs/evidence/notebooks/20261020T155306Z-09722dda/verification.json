@@ -1,0 +1,101 @@
+{
+  "status": "FAIL",
+  "command": "python -m pipelines.notebook_check",
+  "started_at": "2026-10-20T15:53:06.913112+00:00",
+  "python": "3.14.6",
+  "packages": {
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.3.0",
+    "jupyter-client": "8.10.0",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.2",
+    "scikit-learn": "1.9.1",
+    "psycopg": "3.3.6"
+  },
+  "notebooks": [],
+  "tests": {
+    "run": 5,
+    "passed": 3,
+    "skipped": 0,
+    "results": [
+      {
+        "test": "tests.unit.test_notebooks.NotebookInputTests.test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials",
+        "status": "passed",
+        "seconds": 0.0006624999805353582,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_notebooks.NotebookInputTests.test_only_requested_partition_is_read_and_tampering_fails",
+        "status": "passed",
+        "seconds": 0.11602630000561476,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_notebooks.NotebookInputTests.test_portable_report_paths_cannot_escape_backend",
+        "status": "passed",
+        "seconds": 0.0024941999872680753,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_empty_snapshot_has_real_zero_counts_and_null_risk",
+        "status": "error",
+        "seconds": 0.21210010000504553,
+        "detail": "Analytics snapshot unavailable. Start PostgreSQL, apply migrations and configure the reader login; see docs/NOTEBOOKS.md."
+      },
+      {
+        "test": "tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_out_of_order_and_duplicate_events_match_dashboard_and_views",
+        "status": "error",
+        "seconds": 0.14852000001701526,
+        "detail": "Analytics snapshot unavailable. Start PostgreSQL, apply migrations and configure the reader login; see docs/NOTEBOOKS.md."
+      }
+    ]
+  },
+  "error": {
+    "type": "RuntimeError",
+    "message": "Notebook input/real PostgreSQL API-agreement checks failed; see tests.txt"
+  },
+  "finished_at": "2026-10-20T15:53:11.831454+00:00",
+  "files": [
+    {
+      "path": "backend/pipelines/notebook_check.py",
+      "sha256": "54dd9420c1dd22e1e3e5f7d4bda54f73080f2f1007e93fa7a65146f86d4816f9"
+    },
+    {
+      "path": "backend/src/opsyntra/notebook_support.py",
+      "sha256": "1e46acf4000f43b50c5f60e8c9d2fc571610f964173d6170f50b4fa36d8d0b91"
+    },
+    {
+      "path": "backend/requirements/notebooks.txt",
+      "sha256": "4635f3998e120252402d82f38fb3b763b1fdefc88d0f9dd2809ad85d56315311"
+    },
+    {
+      "path": "backend/tests/unit/test_notebooks.py",
+      "sha256": "5b868fdf2f6468f8b9f8deeef04df50c69eaf5dfd0be319a53fdb7f9aff82830"
+    },
+    {
+      "path": "backend/tests/integration/test_notebook_analytics.py",
+      "sha256": "5c224fff17f84a1bc6d6a7a605b9229da766482ee697c8180fcd51689b74c97f"
+    },
+    {
+      "path": "backend/notebooks/01_telco_eda.ipynb",
+      "sha256": "ffddb8ab06cb5745267d6ea6fb78161fe6bad3574744b36196ff8afe20b93127"
+    },
+    {
+      "path": "backend/notebooks/02_model_comparison.ipynb",
+      "sha256": "3adf1cd8a9598c5c75d6b5249c7f1908275badb32dc737672f012ceaedeae7bf"
+    },
+    {
+      "path": "backend/notebooks/03_streaming_analytics.ipynb",
+      "sha256": "3449f519cb05aa5e524fb6155f468068a4d7a8457f99b20e657f9373b3d7a9a7"
+    },
+    {
+      "path": "docs/evidence/notebooks/20261020T155306Z-09722dda/error.txt",
+      "sha256": "3f22a66cd1ca5c56050f8960371a545625d20efb478d2e4e2e2a4084f77bfc85"
+    },
+    {
+      "path": "docs/evidence/notebooks/20261020T155306Z-09722dda/tests.txt",
+      "sha256": "662bc5edfee2f4d14aac31534ceae18b6338cd46330738725b027f24b22c2245"
+    }
+  ]
+}

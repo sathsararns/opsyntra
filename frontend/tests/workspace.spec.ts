@@ -19,7 +19,7 @@ test("overview shows real reports, changes cohorts and exports data", async ({ p
   expect(report.dataset.customers).toBe(7043);
   expect(report.model.name).toBe("random_forest");
   expect(errors).toEqual([]);
-  await page.screenshot({ path: path.resolve("../docs/screenshots/frontend-desktop.png"), fullPage: true });
+  await page.screenshot({ path: path.resolve(process.env.OPSYNTRA_SCREENSHOT_DIR || "../docs/screenshots", "frontend-desktop.png"), fullPage: true });
 });
 
 test("a customer form uses the real pipeline and stores clearable history", async ({ page }) => {
@@ -33,7 +33,7 @@ test("a customer form uses the real pipeline and stores clearable history", asyn
   await expect(page.getByText(result.prediction === "Yes" ? "Predicted to churn" : "Predicted to stay", { exact: true })).toBeVisible();
   await expect(page.locator(".risk-gauge strong")).toHaveText(`${(result.churn_probability * 100).toFixed(1)}%`);
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
-  await page.screenshot({ path: path.resolve("../docs/screenshots/frontend-prediction.png"), fullPage: true });
+  await page.screenshot({ path: path.resolve(process.env.OPSYNTRA_SCREENSHOT_DIR || "../docs/screenshots", "frontend-prediction.png"), fullPage: true });
   await page.getByRole("button", { name: "Overview", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Recent predictions" })).toBeVisible();
   await expect(page.getByRole("cell", { name: "DEMO-NEW-001" })).toBeVisible();
@@ -85,7 +85,7 @@ test("mobile navigation works without page overflow", async ({ page }) => {
   await expect(page.getByText("Model connected", { exact: true })).toHaveCount(1);
   await expect(page.getByRole("heading", { name: "Retention, in focus." })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-  await page.screenshot({ path: path.resolve("../docs/screenshots/frontend-mobile.png"), fullPage: true });
+  await page.screenshot({ path: path.resolve(process.env.OPSYNTRA_SCREENSHOT_DIR || "../docs/screenshots", "frontend-mobile.png"), fullPage: true });
   await page.getByRole("button", { name: "Open navigation" }).click();
   await page.getByRole("button", { name: "Batch predictions", exact: true }).click();
   await expect(page.getByRole("heading", { name: "A bigger picture. In one go." })).toBeVisible();

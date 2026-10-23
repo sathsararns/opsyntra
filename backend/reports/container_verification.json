@@ -1,0 +1,323 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-21T07:10:56.572814+00:00",
+  "core_evidence": "docs/evidence/containers/opsyntra-verify-20261021064526/verification.json",
+  "acceptance_checks": [
+    "documented core up --build and healthy empty dashboard",
+    "real producer -> saved model -> PostgreSQL -> Next.js proxy; SQL counts agree; reader cannot insert",
+    "production browser shows actual event/model IDs and matching count",
+    "service restart preserves database, broker offsets, model hash and SQLite outbox",
+    "down/up container recreation preserves all named-volume results and recovery state",
+    "three repeated raw events add physical deliveries without logical prediction inflation"
+  ],
+  "producer_to_proxy_seconds": 4.544381699990481,
+  "before": {
+    "counts": {
+      "raw_customer_events": 3,
+      "prediction_events": 3,
+      "kafka_deliveries": 6,
+      "ingestion_errors": 0
+    },
+    "predictions": [
+      {
+        "prediction_id": "58a27698b9a12f2446daa1376e312b4340b534818ffe8243170dd7f45d3bd98e",
+        "event_id": "dc0878e4-dfd6-5fef-a82f-7bb911e6c0bb",
+        "customer_id": "7841-FCRQD",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "a88b700aaacb370057d0f789b196665a82fc6d64f2544c48235c87119ba2e99f",
+        "event_id": "dfcff6c3-ab08-57d1-9937-c66dbd09b6e9",
+        "customer_id": "1839-UMACK",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "bb3a7b0b6e0d1c1603b79a3e99bed260a949a845caf2af91ba32b9ad1eba9fef",
+        "event_id": "7d8328f4-be1e-5cd9-9978-c02de2b08d9f",
+        "customer_id": "3797-VTIDR",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      }
+    ],
+    "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+    "reader": {
+      "role": "opsyntra_read",
+      "can_insert": false
+    },
+    "input_offsets": {
+      "0": 1,
+      "1": 2,
+      "2": -1001
+    }
+  },
+  "after": {
+    "counts": {
+      "raw_customer_events": 3,
+      "prediction_events": 3,
+      "kafka_deliveries": 9,
+      "ingestion_errors": 0
+    },
+    "predictions": [
+      {
+        "prediction_id": "58a27698b9a12f2446daa1376e312b4340b534818ffe8243170dd7f45d3bd98e",
+        "event_id": "dc0878e4-dfd6-5fef-a82f-7bb911e6c0bb",
+        "customer_id": "7841-FCRQD",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "a88b700aaacb370057d0f789b196665a82fc6d64f2544c48235c87119ba2e99f",
+        "event_id": "dfcff6c3-ab08-57d1-9937-c66dbd09b6e9",
+        "customer_id": "1839-UMACK",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      },
+      {
+        "prediction_id": "bb3a7b0b6e0d1c1603b79a3e99bed260a949a845caf2af91ba32b9ad1eba9fef",
+        "event_id": "7d8328f4-be1e-5cd9-9978-c02de2b08d9f",
+        "customer_id": "3797-VTIDR",
+        "engine": "sklearn",
+        "model_version": "34e84e9fa5d1de06"
+      }
+    ],
+    "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+    "reader": {
+      "role": "opsyntra_read",
+      "can_insert": false
+    },
+    "input_offsets": {
+      "0": 2,
+      "1": 4,
+      "2": -1001
+    }
+  },
+  "ledger": [
+    {
+      "file": "artifacts/kafka/consumer_state/70eff39c54836ca42e278107.sqlite3",
+      "outbox_rows": 3
+    }
+  ],
+  "tests": {
+    "linux_core": {
+      "status": "PASS",
+      "python": "3.12.15",
+      "tests_run": 95,
+      "passed": 95,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 146.8501899339999
+    },
+    "windows_core": {
+      "status": "PASS",
+      "python": "3.14.6",
+      "tests_run": 95,
+      "passed": 95,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 51.744470299978275
+    },
+    "spark": {
+      "status": "PASS",
+      "python": "3.12.15",
+      "tests_run": 4,
+      "passed": 4,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 553.14685427
+    }
+  },
+  "optional_profiles": {
+    "prediction_api": {
+      "status": "PASS",
+      "customers": 7043,
+      "selected_model": "random_forest",
+      "model_version": "34e84e9fa5d1de06",
+      "single": {
+        "predictions": [
+          {
+            "customerID": "DEMO-NEW-001",
+            "churn_probability": 0.460548507757735,
+            "prediction": "Yes",
+            "model_version": "34e84e9fa5d1de06"
+          }
+        ],
+        "model_version": "34e84e9fa5d1de06",
+        "summary": {
+          "total": 1,
+          "predicted_churn": 1,
+          "average_probability": 0.46054850775773537
+        }
+      },
+      "batch": {
+        "predictions": [
+          {
+            "customerID": "DEMO-NEW-001",
+            "churn_probability": 0.460548507757735,
+            "prediction": "Yes",
+            "model_version": "34e84e9fa5d1de06"
+          }
+        ],
+        "model_version": "34e84e9fa5d1de06",
+        "summary": {
+          "total": 1,
+          "predicted_churn": 1,
+          "average_probability": 0.46054850775773537
+        }
+      },
+      "churn_required": false,
+      "blank_total_charges_supported": true
+    },
+    "airflow": {
+      "status": "PASS",
+      "dag_ids": [
+        "opsyntra_kafka_batch",
+        "opsyntra_kafka_streaming",
+        "opsyntra_ml_workflow"
+      ],
+      "tasks": 16,
+      "ml_python": "/opt/opsyntra-ml/bin/python",
+      "task_probes": [
+        "validate_data",
+        "prepare_splits"
+      ],
+      "run_id": "container-runtime-probe-0c67417057f2455eb8de2592c39bd0e3",
+      "shared_artifacts": "True",
+      "health": {
+        "metadatabase": {
+          "status": "healthy"
+        },
+        "scheduler": {
+          "status": "healthy",
+          "latest_scheduler_heartbeat": "2026-10-21T07:06:56.283616+00:00"
+        },
+        "triggerer": {
+          "status": "healthy",
+          "latest_triggerer_heartbeat": "2026-10-21T07:06:57.588890+00:00"
+        },
+        "dag_processor": {
+          "status": "healthy",
+          "latest_dag_processor_heartbeat": "2026-10-21T07:06:56.121607+00:00"
+        }
+      }
+    },
+    "mlflow": {
+      "experiments": {
+        "experiments": [
+          {
+            "experiment_id": "1",
+            "name": "Opsyntra-Telco-sklearn",
+            "artifact_location": "file:///app/backend/mlartifacts",
+            "lifecycle_stage": "active",
+            "last_update_time": 1792565181914,
+            "creation_time": 1792565181914,
+            "workspace": "default"
+          },
+          {
+            "experiment_id": "0",
+            "name": "Default",
+            "artifact_location": "/app/backend/mlruns/0",
+            "lifecycle_stage": "active",
+            "last_update_time": 1792565181904,
+            "creation_time": 1792565181904,
+            "workspace": "default"
+          }
+        ]
+      },
+      "health": "OK"
+    }
+  },
+  "source_sha256": {
+    "compose.yaml": "8722e1c5c2197e04a35dd26d0e1ab4186809d7fd58a959bd60758eabb9303b9b",
+    ".dockerignore": "2fcfe8b1db2c603ff640613ce873e9755b9950ee52eeae8bb38f82c7e6ac9702",
+    ".env.example": "98bdcbb4f31cbb0ac25eae66dabfd36ef8dbf0b86afe24dcad30337dfc2b7164",
+    "start-containers.ps1": "6cabf1b20cb800136bff241e9b8af3ef1f08c137fa5d5e62e4e9f2a20210a23c",
+    "frontend/next.config.ts": "565a60f2990dd8b0ef1bc9b90e2cae5e1adff7f08376e0038d5e7f6ecd896f44",
+    "backend/src/opsyntra/web_api.py": "194d999f90623806293c4afb3ba6d9171824984c282fb5a7a1f9b2f60058fbfc",
+    "backend/src/opsyntra/kafka_workflow.py": "587b4e847e191a34855047e6cedf442dc633487c5fdece9f0388f2d60bf93b1a",
+    "backend/pipelines/airflow_task.py": "29cbba57ae8ab6d1fd0f17f656703c9d9471b2ad3db02f0e452c51d14fafca23",
+    "backend/dags/opsyntra_kafka_workflows.py": "37edbf55022eb5d8d3a3d23f20727b8c2d40467ef544564e72d7adbf64f496e0",
+    "backend/dags/opsyntra_ml_workflow.py": "4a1a565b9cf089a1f894edbe4940b0140f6afe0ed990e7ace3c13e17f730fb0b",
+    "containers/airflow.Dockerfile": "1e9209472b0e3f4bad7a7c9c9da903668c9c4f1539f83cc6eab4cde1751f8f76",
+    "containers/backend.Dockerfile": "ad5a2d58d45c67b323aee06e444c1d3293e389a016b83925c0e9e88df1672a9d",
+    "containers/browser-check.mjs": "fc6516191d1c87d8cd4ab289094cdf2b03e70d07aab5a3a2ea04676c1e324fcd",
+    "containers/checks.py": "c9127baec3990c77bdf71dac4dca277e6c41c67bc927c00721fc3bb1f1315249",
+    "containers/configure.py": "7eaff6c8d12d3fc0400154272b320c71d56fdb0b49ff266f466d80c17a706de7",
+    "containers/frontend.Dockerfile": "502a75528d613b317e8448d225a7a4dc48d3cca391e48903e48f1a92270a2a5c",
+    "containers/runtime.py": "828aebd3484dc92a6d9cd2feeb2be33ec3c1151b601a26375afce0f36b3f966d",
+    "containers/verify.py": "55b8e98c814d45c73cd435ecce40256754e209dcdbefa5a8e589efff2d99b6d5"
+  },
+  "core_acceptance_source_sha256": {
+    "compose.yaml": "45e42bd0ed1591ca268a12d7f7e3bd02ff8419beea407fac7ac0503541d09c02",
+    ".dockerignore": "2fcfe8b1db2c603ff640613ce873e9755b9950ee52eeae8bb38f82c7e6ac9702",
+    "containers/airflow.Dockerfile": "acb05af64805c5cbeb93f7e8f4a5fe5ba2a2a572ec3c5640713b8795595b5b02",
+    "containers/backend.Dockerfile": "ad5a2d58d45c67b323aee06e444c1d3293e389a016b83925c0e9e88df1672a9d",
+    "containers/browser-check.mjs": "fc6516191d1c87d8cd4ab289094cdf2b03e70d07aab5a3a2ea04676c1e324fcd",
+    "containers/checks.py": "c9127baec3990c77bdf71dac4dca277e6c41c67bc927c00721fc3bb1f1315249",
+    "containers/configure.py": "7eaff6c8d12d3fc0400154272b320c71d56fdb0b49ff266f466d80c17a706de7",
+    "containers/frontend.Dockerfile": "502a75528d613b317e8448d225a7a4dc48d3cca391e48903e48f1a92270a2a5c",
+    "containers/runtime.py": "828aebd3484dc92a6d9cd2feeb2be33ec3c1151b601a26375afce0f36b3f966d",
+    "containers/verify.py": "55b8e98c814d45c73cd435ecce40256754e209dcdbefa5a8e589efff2d99b6d5"
+  },
+  "changes_after_core_run": {
+    "compose.yaml": {
+      "core": "45e42bd0ed1591ca268a12d7f7e3bd02ff8419beea407fac7ac0503541d09c02",
+      "final": "8722e1c5c2197e04a35dd26d0e1ab4186809d7fd58a959bd60758eabb9303b9b"
+    },
+    "containers/airflow.Dockerfile": {
+      "core": "acb05af64805c5cbeb93f7e8f4a5fe5ba2a2a572ec3c5640713b8795595b5b02",
+      "final": "1e9209472b0e3f4bad7a7c9c9da903668c9c4f1539f83cc6eab4cde1751f8f76"
+    }
+  },
+  "limitations": [
+    "Full eight-task Airflow scheduler run was not repeated inside Docker; standalone health, three DAG imports, interpreter configuration and two real task entry points passed.",
+    "Producer-to-proxy interval includes producer process startup and is not a browser latency SLA.",
+    "Local amd64 Docker Desktop verification only; synthetic replay is not real company churn.",
+    "Hosted GitHub Actions and cloud deployment remain separate checkpoints."
+  ],
+  "verification_containers_stopped": true,
+  "volumes_preserved": true,
+  "evidence_sha256": {
+    "docs/evidence/containers/opsyntra-verify-20261021064526/after-recreate.txt": "8ce245aea1a0e27fefb425c943b9becc3a6abd5d3cf7c7feac18e1563fad9f26",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/after-replay.txt": "9a66529ea427aec7a81dd21b451724229d7b641eaeca1c7be8ccf9d38d6b5413",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/after-restart.txt": "8ce245aea1a0e27fefb425c943b9becc3a6abd5d3cf7c7feac18e1563fad9f26",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/before.txt": "8ce245aea1a0e27fefb425c943b9becc3a6abd5d3cf7c7feac18e1563fad9f26",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/browser.json": "97d57390f43eca3aa60953dd3990c4f08718f93ef3b6ae09c6b4479664008dab",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/browser.txt": "371a98fd8487114e12863fe65ee46c960158461e958637550cef32f1e7f1ca0f",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/config.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/down-preserve.txt": "f8d8ba249d7f70a062b2353edb6a362a0aaada4df971c85a67c9c8d41c3620ea",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/final-stop-preserves-volumes.txt": "c2ba237d1a7320c325f66799883b3a561d0ef09b4aeabe8cb758cba95a832674",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/ledger-after-recreate.txt": "286766de38b24ca43c77e333173b63d1efe302fda2183a5aafc4c1e0af94364c",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/ledger-after-replay.txt": "286766de38b24ca43c77e333173b63d1efe302fda2183a5aafc4c1e0af94364c",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/ledger-after-restart.txt": "286766de38b24ca43c77e333173b63d1efe302fda2183a5aafc4c1e0af94364c",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/ledger-before.txt": "286766de38b24ca43c77e333173b63d1efe302fda2183a5aafc4c1e0af94364c",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/live-monitoring.png": "d3b3620fe0e14851b2cd7513a364ed1cdf60acd887a6a1e9f3e30a6e45b265ab",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/producer-three.txt": "e5c4a643cd6abf6386144bcdddc4e1c0def4c6eacb740d1d102544503425b9cc",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/recreate.txt": "28cb9e79a1572acc57ab07e5500f15cdda46dceed5c29e23d40e85e18450daca",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/replay-observed.txt": "9a66529ea427aec7a81dd21b451724229d7b641eaeca1c7be8ccf9d38d6b5413",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/replay.txt": "0b53b162f79f7e354a0d822a92b656b4c04e8ed899db76905e54ac92df16c1d7",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/restart-readiness.txt": "58b75540191dd485b066c06843a95ba4b1b05207a87bedabcc106907990c8a59",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/restart.txt": "ee1482ce326f750c83094410d7bb99b9fbc6b7e0a9cee78b2b1390ea72404117",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/services-log.txt": "838aa69e5bb991d59db790078e1c8502870547c130012085f0e862c32bb1a2c0",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/services.txt": "ff5d5b7277b6a5c77a80ea158ed13a8f9d3ef6ea5ee76c06a4b05e2e7c23fb93",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/summary.json": "5fcfcf86d696256ac82c4227e60fde7305ce1ec6caba0a1fd02c2f13528a0dea",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/up-build.txt": "d722d63182037499fccb2348cb58ec3c492a229ca7b15fc9147e4f342403ff1c",
+    "docs/evidence/containers/opsyntra-verify-20261021064526/verification.json": "18971f43c3a75efc51cd950192aa3351b979ac086a97ffd72bfa6a4811063e88",
+    "docs/evidence/containers/runtime/airflow.json": "bcc05e433964f9f79c40244aa61bfffe0705bda7866af1ef9b6c498e882fa5d7",
+    "docs/evidence/containers/runtime/airflow_probe.py": "46962355fe17c601d1a694a245974e1a8b55453f58b7fb83a186870697d0c865",
+    "docs/evidence/containers/runtime/http_probe.py": "9a40177891a604bf778a2926d51e2fd6f5d8eabe548d0ed38d1f57e2c155ce18",
+    "docs/evidence/containers/runtime/images.txt": "97dca289e15733233e2a6f39c754b04af40e37282353b6a0fbd32431464d2a58",
+    "docs/evidence/containers/runtime/linux-core.json": "8c587562afc1292603402355205f7c1dd913886cc5209e4979a6f24f716bd6ed",
+    "docs/evidence/containers/runtime/linux-core.xml": "3ba5a1c5491a74a796ff06240f030f053093a1b1d397da649e9ef0f056090dc8",
+    "docs/evidence/containers/runtime/mlflow.json": "2dde67198e60d06231a918e3a3fcf4d9ad716cbdf3f1ca2127fd2a0e6f9c9445",
+    "docs/evidence/containers/runtime/prediction-api.json": "2d62308d6ea1c5724a2b19d0e315b9f86e59baf3b3e2ae2341a823aec01fede6",
+    "docs/evidence/containers/runtime/spark-tests.txt": "a1ecf97565a5dc0eed0cf4459ea26c132a16d58275a09164226227972ebc2b31",
+    "docs/evidence/containers/runtime/spark.json": "343e68dc68291732de52410acbc83115ad8c79d2cf1f48a3bc53c8bc905af95e",
+    "docs/evidence/containers/runtime/spark.xml": "804f7eb83a4956f1809ee9569f76cf25b0ed99d038edfeffa657c6a65a6bc8e6",
+    "docs/evidence/containers/runtime/windows-core.json": "7acf5e8a050b0e4b2623337a810519e3d2890dff40026e9623cf47580c450245"
+  }
+}

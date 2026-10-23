@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "postgres_port": 55433,
+  "kafka_port": 19092,
+  "kafka_version": "4.3.1",
+  "ephemeral_databases": true,
+  "ci_database_provisioning": "PASS",
+  "containers": false
+}

@@ -54,6 +54,13 @@ If PowerShell restricts script execution, use the two-terminal commands.
 - Data quality checks and reproducible partition summaries.
 - Browser-local recent predictions with a clear-history control.
 - Responsive sidebar navigation and a workspace setup guide.
+- Live monitoring with configurable polling, original-event segments, recent and
+  highest-risk predictions, engine/model filters, full event/prediction IDs and
+  separate database, broker, inactive-consumer and no-activity states.
+
+For the live stream screen install `backend/requirements/analytics-web.txt` and
+follow [Live monitoring](../docs/LIVE_MONITORING.md) to start Kafka, PostgreSQL
+and both consumers. Direct form/CSV predictions remain independent of streaming.
 
 The initial dashboard snapshot is generated from the actual dataset and reports.
 When the API is offline, it is explicitly labelled as a saved snapshot; prediction
@@ -77,6 +84,9 @@ variable (default `http://127.0.0.1:8000`). To override it, copy `.env.example` 
 
 Endpoints: GET `/api/health`, GET `/api/overview`, POST `/api/predict` with
 `{"record": {...}}`, POST `/api/predict/batch` with `{"csv_text": "..."}`.
+Analytics adds GET `/api/analytics/summary`, `/timeseries`, `/predictions`,
+`/high-risk`, and `/health` under the same `/api/analytics` prefix; query strings
+are forwarded by the server proxy. PostgreSQL credentials remain in Python.
 Batches are limited to 2 MB and 10,000 rows. The API runs tree inference with one
 worker for small local requests; it does not change or retrain the artifact.
 

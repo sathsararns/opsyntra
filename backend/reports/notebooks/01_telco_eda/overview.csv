@@ -1,0 +1,2 @@
+partition,customers,columns,churn_share,missing_TotalCharges,source_sha256,membership_sha256
+train,4225,21,0.26532544378698225,8,88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a,b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c

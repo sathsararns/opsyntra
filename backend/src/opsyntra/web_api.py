@@ -3,6 +3,7 @@
 import io
 import json
 import logging
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -16,7 +17,7 @@ from .data_pipeline import sha256_file
 from .model_inference import load_pipeline, predict_records
 
 ROOT = Path(__file__).resolve().parents[2]
-CONFIG_PATH = ROOT / "config.yaml"
+CONFIG_PATH = Path(os.environ.get("OPSYNTRA_CONFIG", ROOT / "config.yaml")).resolve()
 logger = logging.getLogger(__name__)
 MAX_BATCH_ROWS = 10_000
 
@@ -99,6 +100,8 @@ def get_model():
 
 
 app = FastAPI(title="Opsyntra Local API", version="0.1.0")
+from .analytics.read_api import router as analytics_router
+app.include_router(analytics_router)
 
 
 @app.get("/api/health")

@@ -1,0 +1,29 @@
+{
+  "invocation_id": "772cd532-bea6-4c7b-b6f4-b3927feaea37",
+  "mode": "streaming",
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "source_rows": 7043,
+  "bootstrap_servers": "kafka:29092",
+  "topic": "telco.raw.customers",
+  "started_at": "2026-10-21T06:44:01.895122Z",
+  "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+  "include_churn": false,
+  "report_directory": "/app/backend/artifacts/kafka/runs/772cd532-bea6-4c7b-b6f4-b3927feaea37",
+  "cluster_id": "MkU3OEVBNTcwNTJENDM2Qk",
+  "run_id": "cbaa70e4-d7ae-498f-9db5-a8b91d7fcd0d",
+  "requested_events_per_sec": 5.0,
+  "seed": 42,
+  "jitter_seconds": 60,
+  "status": "completed",
+  "enqueued": 3,
+  "acknowledged": 3,
+  "acknowledged_offsets": {
+    "1": 1,
+    "0": 0
+  },
+  "finished_at": "2026-10-21T06:44:02.647227Z",
+  "elapsed_seconds": 0.7521527459999788
+}
+ Container opsyntra-verify-20261021064259-producer-run-2e60e2832686 Creating 
+ Container opsyntra-verify-20261021064259-producer-run-2e60e2832686 Created 
+2026-10-21 06:44:02,646 INFO COMPLETED mode=streaming acknowledged=3 run_id=cbaa70e4-d7ae-498f-9db5-a8b91d7fcd0d

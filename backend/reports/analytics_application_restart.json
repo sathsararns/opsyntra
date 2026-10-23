@@ -1,0 +1,82 @@
+{
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "committed_offsets": [],
+  "database_batches_committed": 0,
+  "database_retries": 0,
+  "deadletter_inserted": 0,
+  "deliveries_inserted": 0,
+  "elapsed_seconds": 1.2025992999842856,
+  "event_conflicts": 0,
+  "group_id": "opsyntra-analytics-v1",
+  "kafka_commits": 0,
+  "logical_duplicates": 0,
+  "mode": "batch",
+  "prediction_inserted": 0,
+  "quarantine_duplicates": 0,
+  "quarantine_inserted": 0,
+  "raw_inserted": 0,
+  "records": 0,
+  "rejected": 0,
+  "snapshot": [
+    {
+      "end": 18172,
+      "partition": 0,
+      "start": 18172,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 18291,
+      "partition": 1,
+      "start": 18291,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 17926,
+      "partition": 2,
+      "start": 17926,
+      "topic": "telco.churn.predictions"
+    },
+    {
+      "end": 7,
+      "partition": 0,
+      "start": 7,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 6,
+      "partition": 1,
+      "start": 6,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 8,
+      "partition": 2,
+      "start": 8,
+      "topic": "telco.deadletter"
+    },
+    {
+      "end": 20540,
+      "partition": 0,
+      "start": 20540,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "end": 20676,
+      "partition": 1,
+      "start": 20676,
+      "topic": "telco.raw.customers"
+    },
+    {
+      "end": 20245,
+      "partition": 2,
+      "start": 20245,
+      "topic": "telco.raw.customers"
+    }
+  ],
+  "status": "complete",
+  "topics": {
+    "deadletter": "telco.deadletter",
+    "predictions": "telco.churn.predictions",
+    "raw": "telco.raw.customers"
+  }
+}

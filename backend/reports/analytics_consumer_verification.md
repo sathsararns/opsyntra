@@ -10,21 +10,19 @@ The fixture contains three raw event identities, three prediction identities (tw
 
 | Real process scenario | Expected exit | Evidence |
 |---|---|---|
-| crash-after-database-commit | 86 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/crash-after-database-commit.txt) |
-| restart-after-commit | 0 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/restart-after-commit.txt) |
-| known-event-snapshot | 0 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/known-event-snapshot.txt) |
-| new-group-full-replay | 0 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/new-group-full-replay.txt) |
-| completed-group-restart | 0 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/completed-group-restart.txt) |
-| crash-before-database-commit | 86 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/crash-before-database-commit.txt) |
-| restart-before-commit | 0 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/restart-before-commit.txt) |
-| database-unavailable | 1 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/database-unavailable.txt) |
-| bounded-streaming | 0 | [transcript](../../docs/evidence/analytics/20261020T093243Z-426960ab/bounded-streaming.txt) |
+| crash-after-database-commit | 86 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/crash-after-database-commit.txt) |
+| restart-after-commit | 0 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/restart-after-commit.txt) |
+| known-event-snapshot | 0 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/known-event-snapshot.txt) |
+| new-group-full-replay | 0 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/new-group-full-replay.txt) |
+| completed-group-restart | 0 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/completed-group-restart.txt) |
+| crash-before-database-commit | 86 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/crash-before-database-commit.txt) |
+| restart-before-commit | 0 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/restart-before-commit.txt) |
+| database-unavailable | 1 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/database-unavailable.txt) |
+| bounded-streaming | 0 | [transcript](../../docs/evidence/analytics/20261020T094643Z-9c668674/bounded-streaming.txt) |
 
 Exit 86 is the deliberately injected hard crash. Exit 1 in the database-unavailable stage is the expected refusal with no input commit. Other stages must exit 0.
 
 The after-database-commit crash stores one prediction before exiting; Kafka offsets remain unchanged. Restarting the same group replays it without another logical row. A new group replays all inputs without count inflation. The before-commit crash rolls back its new raw event; restart inserts it once. Late raw features and previous-day predictions repair the event-based joins/time buckets.
-
-Backend regression: **PASS**, 110/114 passed, 4 native Spark checks skipped on Windows.
 
 ## Contract/database checks
 

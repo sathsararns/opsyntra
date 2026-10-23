@@ -1,0 +1,3 @@
+event_kind,error_type,records
+raw,event_conflict,2
+raw,invalid_record,12

@@ -1,0 +1,542 @@
+api-1                                     | INFO:     Started server process [7]
+api-1                                     | INFO:     Waiting for application startup.
+api-1                                     | INFO:     Application startup complete.
+api-1                                     | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                                     | INFO:     127.0.0.1:43478 - "GET /api/health HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:43446 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:43446 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+api-1                                     | INFO:     127.0.0.1:34794 - "GET /api/health HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:43446 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51062 - "GET /api/overview HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51064 - "GET /api/analytics/health HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51062 - "GET /api/analytics/summary?engine=sklearn&lookback_hours=24&min_probability=0&max_probability=1 HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51064 - "GET /api/analytics/timeseries?engine=sklearn&lookback_hours=24&min_probability=0&max_probability=1&start=2026-10-20T06%3A44%3A11.827270%2B00%3A00&end=2026-10-21T06%3A44%3A11.827270%2B00%3A00&model_version=34e84e9fa5d1de06&interval=hour HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51062 - "GET /api/analytics/predictions?engine=sklearn&lookback_hours=24&min_probability=0&max_probability=1&start=2026-10-20T06%3A44%3A11.827270%2B00%3A00&end=2026-10-21T06%3A44%3A11.827270%2B00%3A00&model_version=34e84e9fa5d1de06&limit=10&offset=0 HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51074 - "GET /api/analytics/high-risk?engine=sklearn&lookback_hours=24&min_probability=0&max_probability=1&start=2026-10-20T06%3A44%3A11.827270%2B00%3A00&end=2026-10-21T06%3A44%3A11.827270%2B00%3A00&model_version=34e84e9fa5d1de06&limit=5&threshold=0.7 HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:51062 - "GET /api/analytics/predictions HTTP/1.1" 200 OK
+api-1                                     | INFO:     127.0.0.1:43426 - "GET /api/health HTTP/1.1" 200 OK
+api-1                                     | INFO:     Shutting down
+api-1                                     | INFO:     Waiting for application shutdown.
+api-1                                     | INFO:     Application shutdown complete.
+api-1                                     | INFO:     Finished server process [7]
+opsyntra-verify-20261021064259-inference  |   "committed_offsets": {
+opsyntra-verify-20261021064259-inference  |     "1": 2,
+kafka-1                                   | [2026-10-21 06:44:27,958] INFO [BrokerLifecycleManager id=1] The broker is in RECOVERY. (org.apache.kafka.server.BrokerLifecycleManager)
+kafka-1                                   | [2026-10-21 06:44:28,024] INFO [BrokerLifecycleManager id=1] The broker has been unfenced. Transitioning from RECOVERY to RUNNING. (org.apache.kafka.server.BrokerLifecycleManager)
+kafka-1                                   | [2026-10-21 06:44:28,025] INFO [BrokerServer id=1] Finished waiting for the broker to be unfenced (kafka.server.BrokerServer)
+kafka-1                                   | [2026-10-21 06:44:28,027] INFO [ReplicaFetcherManager on broker 1] Removed fetcher for partitions Set(telco.raw.customers-1, __consumer_offsets-13, __consumer_offsets-46, __consumer_offsets-9, __consumer_offsets-42, __consumer_offsets-21, telco.churn.predictions-2, __consumer_offsets-17, __consumer_offsets-30, telco.deadletter-2, __consumer_offsets-26, __consumer_offsets-5, __consumer_offsets-38, __consumer_offsets-1, __consumer_offsets-34, __consumer_offsets-16, __consumer_offsets-45, __consumer_offsets-12, __consumer_offsets-41, __consumer_offsets-24, telco.raw.customers-2, __consumer_offsets-20, __consumer_offsets-49, __consumer_offsets-0, __consumer_offsets-29, __consumer_offsets-25, __consumer_offsets-8, __consumer_offsets-37, __consumer_offsets-4, __consumer_offsets-33, __consumer_offsets-15, __consumer_offsets-48, __consumer_offsets-11, __consumer_offsets-44, __consumer_offsets-23, __consumer_offsets-19, telco.churn.predictions-0, __consumer_offsets-32, telco.deadletter-0, __consumer_offsets-28, __consumer_offsets-7, __consumer_offsets-40, __consumer_offsets-3, __consumer_offsets-36, __consumer_offsets-47, telco.raw.customers-0, __consumer_offsets-14, __consumer_offsets-43, __consumer_offsets-10, telco.churn.predictions-1, __consumer_offsets-22, __consumer_offsets-18, __consumer_offsets-31, __consumer_offsets-27, telco.deadletter-1, __consumer_offsets-39, __consumer_offsets-6, __consumer_offsets-35, __consumer_offsets-2) (kafka.server.ReplicaFetcherManager)
+kafka-1                                   | [2026-10-21 06:44:28,028] INFO authorizerStart completed for endpoint INTERNAL. Endpoint is now READY. (org.apache.kafka.server.network.EndpointReadyFutures)
+kafka-1                                   | [2026-10-21 06:44:28,028] INFO authorizerStart completed for endpoint EXTERNAL. Endpoint is now READY. (org.apache.kafka.server.network.EndpointReadyFutures)
+kafka-1                                   | [2026-10-21 06:44:28,029] INFO [SocketServer listenerType=BROKER, nodeId=1] Enabling request processing. (kafka.network.SocketServer)
+kafka-1                                   | [2026-10-21 06:44:28,030] INFO Awaiting socket connections on 0.0.0.0:29092. (kafka.network.DataPlaneAcceptor)
+kafka-1                                   | [2026-10-21 06:44:28,033] INFO Awaiting socket connections on 0.0.0.0:9092. (kafka.network.DataPlaneAcceptor)
+kafka-1                                   | [2026-10-21 06:44:28,053] INFO [BrokerServer id=1] Waiting for all of the authorizer futures to be completed (kafka.server.BrokerServer)
+kafka-1                                   | [2026-10-21 06:44:28,054] INFO [BrokerServer id=1] Finished waiting for all of the authorizer futures to be completed (kafka.server.BrokerServer)
+kafka-1                                   | [2026-10-21 06:44:28,054] INFO [BrokerServer id=1] Waiting for all of the SocketServer Acceptors to be started (kafka.server.BrokerServer)
+kafka-1                                   | [2026-10-21 06:44:28,054] INFO [BrokerServer id=1] Finished waiting for all of the SocketServer Acceptors to be started (kafka.server.BrokerServer)
+kafka-1                                   | [2026-10-21 06:44:28,056] INFO [BrokerServer id=1] Transition from STARTING to STARTED (kafka.server.BrokerServer)
+kafka-1                                   | [2026-10-21 06:44:28,057] INFO Kafka version: 4.3.1 (org.apache.kafka.common.utils.AppInfoParser)
+kafka-1                                   | [2026-10-21 06:44:28,058] INFO Kafka commitId: 26b251a451ce941d (org.apache.kafka.common.utils.AppInfoParser)
+kafka-1                                   | [2026-10-21 06:44:28,058] INFO Kafka startTimeMs: 1792565068057 (org.apache.kafka.common.utils.AppInfoParser)
+opsyntra-verify-20261021064259-inference  |     "0": 1
+opsyntra-verify-20261021064259-inference  |   },
+opsyntra-verify-20261021064259-inference  |   "max_messages": null,
+opsyntra-verify-20261021064259-inference  |   "batch_size": 100,
+opsyntra-verify-20261021064259-inference  |   "delivery_semantics": "at-least-once with a durable outbox and ledger; output-ack/local-ledger crash window can duplicate stable prediction IDs",
+opsyntra-verify-20261021064259-inference  |   "cluster_id": "MkU3OEVBNTcwNTJENDM2Qk",
+opsyntra-verify-20261021064259-inference  |   "recovery_database": "/app/backend/artifacts/kafka/consumer_state/70eff39c54836ca42e278107.sqlite3",
+opsyntra-verify-20261021064259-inference  |   "model_version": "34e84e9fa5d1de06",
+opsyntra-verify-20261021064259-inference  |   "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+opsyntra-verify-20261021064259-inference  |   "model_loads": 1,
+opsyntra-verify-20261021064259-inference  |   "status": "stopped",
+opsyntra-verify-20261021064259-inference  |   "reason": "stop_requested",
+opsyntra-verify-20261021064259-inference  |   "finished_at": "2026-10-21T06:44:15.579619Z",
+opsyntra-verify-20261021064259-inference  |   "elapsed_seconds": 23.445065473
+opsyntra-verify-20261021064259-inference  | }
+opsyntra-verify-20261021064259-inference  | %3|1792565062.847|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565062.899|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565062.950|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.001|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.053|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.105|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.156|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.208|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.259|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.310|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.362|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.413|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.465|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.517|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.570|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.621|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.673|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.728|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 4ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.776|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.828|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.880|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.932|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565063.984|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.035|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.086|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.138|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.190|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.242|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.294|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.345|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.398|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.455|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 5ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.502|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.553|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.606|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.657|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.709|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.760|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.812|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.867|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 3ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.917|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565064.967|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.020|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.071|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.123|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.173|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.224|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.276|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.328|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.379|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.431|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.483|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.535|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.586|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.646|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 5ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.696|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.748|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 3ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.796|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.849|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.901|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565065.953|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.004|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.055|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.107|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.158|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.210|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.262|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.313|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.365|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.417|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.469|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.522|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.573|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.624|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.677|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.728|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.780|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.831|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.883|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.935|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565066.987|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.038|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.090|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.142|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.193|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.246|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.296|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.350|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.400|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.451|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.504|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.555|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.606|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.658|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.710|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.761|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.813|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.866|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.918|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565067.970|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | %3|1792565068.021|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+opsyntra-verify-20261021064259-inference  | 2026-10-21 06:44:28,482 INFO Loaded sklearn model once: version=34e84e9fa5d1de06 group=opsyntra-churn-sklearn
+opsyntra-verify-20261021064259-inference  | %4|1792565068.578|GETPID|opsyntra-customer-producer#producer-2| [thrd:main]: Failed to acquire idempotence PID from broker kafka:29092/1: Broker: Coordinator load in progress: retrying
+api-1                                     | INFO:     Started server process [7]
+api-1                                     | INFO:     Waiting for application startup.
+api-1                                     | INFO:     Application startup complete.
+api-1                                     | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                                     | INFO:     172.21.0.3:37058 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+kafka-1                                   | [2026-10-21 06:44:28,063] INFO [KafkaRaftServer nodeId=1] Kafka Server started (kafka.server.KafkaRaftServer)
+kafka-1                                   | [2026-10-21 06:44:28,925] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-13 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,930] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-46 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,931] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-9 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,933] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-42 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,934] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-21 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,935] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-17 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,937] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-30 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,941] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-26 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,941] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-5 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,941] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-38 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,942] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-1 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,942] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-34 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,942] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-16 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,942] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-45 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,942] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-12 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,942] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-41 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,943] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-24 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,943] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-20 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,943] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-49 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,943] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-0 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,943] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-29 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,943] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-25 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,944] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-8 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,944] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-37 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,944] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-4 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,944] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-33 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,947] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-15 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,947] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-48 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,948] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-11 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,948] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-44 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,948] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-23 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,949] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-19 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,949] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-32 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,949] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-28 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,954] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-7 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,955] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-40 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,955] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-3 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,956] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-36 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,956] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-46 with epoch 2 in 6ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,956] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-47 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-14 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-9 with epoch 2 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-41 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-43 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-24 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-10 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-26 with epoch 2 in 6ms where 6ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,957] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-22 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-18 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-31 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-17 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-27 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-15 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-48 with epoch 2 in 4ms where 4ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-39 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-29 with epoch 2 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-6 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-30 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,958] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-35 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-44 with epoch 2 in 6ms where 6ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-2 with epoch 2 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-23 with epoch 2 in 4ms where 4ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-12 with epoch 2 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-45 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-25 with epoch 2 in 4ms where 4ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-37 with epoch 2 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,959] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-10 with epoch 2 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,960] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-42 with epoch 2 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,960] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-49 with epoch 2 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,960] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-1 with epoch 2 in 4ms where 4ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,960] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-34 with epoch 2 in 6ms where 6ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,960] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-5 with epoch 2 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,960] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-0 with epoch 2 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,961] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-13 with epoch 2 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,961] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-38 with epoch 2 in 4ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,961] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-21 with epoch 2 in 6ms where 6ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,961] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-11 with epoch 2 in 4ms where 4ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:28,961] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-33 with epoch 2 in 4ms where 4ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,045] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-8 with epoch 2 in 82ms where 82ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,049] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=18] Loaded classic group opsyntra-churn-sklearn with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:44:29,054] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-18 with epoch 2 in 82ms where 1ms was spent in the scheduler. Loaded 5 records which total to 894 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,054] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-31 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,055] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-40 with epoch 2 in 82ms where 82ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,055] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-3 with epoch 2 in 91ms where 91ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,055] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-14 with epoch 2 in 91ms where 91ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,055] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-43 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,055] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-28 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,055] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-32 with epoch 2 in 91ms where 91ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,056] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-39 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,056] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-7 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,056] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-6 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,056] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-20 with epoch 2 in 93ms where 93ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,056] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-36 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,057] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-35 with epoch 2 in 93ms where 93ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,057] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-16 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,057] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-4 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,060] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-47 with epoch 2 in 91ms where 91ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,060] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=19] Loaded classic group opsyntra-analytics-v1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:44:29,060] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-27 with epoch 2 in 93ms where 93ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,060] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-22 with epoch 2 in 92ms where 92ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,060] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-19 with epoch 2 in 92ms where 82ms was spent in the scheduler. Loaded 7 records which total to 1219 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:44:29,060] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-2 with epoch 2 in 91ms where 91ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+db-init-1                                 | {"database": "ready", "migrations": [{"version": "0001", "name": "0001_event_storage.sql", "status": "applied", "sha256": "0280ada4839732bfc4eac60ebc91de6ce71d411a0c61e9762384486ac8592c3c"}, {"version": "0002", "name": "0002_analytics_views.sql", "status": "applied", "sha256": "de8e9e25e47c221699cdf00b75d05e4ac3497604beccc8cbbb09d35d31ef4268"}, {"version": "0003", "name": "0003_ingestion_errors.sql", "status": "applied", "sha256": "ac76b51385a572ebaaa233b216bb044be0010d8efdd2f8ba88df2146255c5d74"}, {"version": "0004", "name": "0004_event_time_views.sql", "status": "applied", "sha256": "2e6ef99fe3781b02e0e8335629aefedfeab7f684cc21328da8236cd2a2f0a253"}]}
+model-init-1                              | INFO generated new fontManager
+model-init-1                              | INFO Validating /app/backend/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+model-init-1                              | INFO train: 4225 customers, 26.5325% churn
+model-init-1                              | INFO validation: 1409 customers, 26.5436% churn
+model-init-1                              | INFO test: 1409 customers, 26.5436% churn
+model-init-1                              | INFO Validation PASS_WITH_WARNINGS; report: /app/backend/reports/data_validation_report.json
+model-init-1                              | INFO Training dummy with 3-fold CV
+model-init-1                              | INFO dummy validation average_precision: 0.2654
+model-init-1                              | INFO Training logistic_regression with 3-fold CV
+model-init-1                              | INFO logistic_regression validation average_precision: 0.6505
+model-init-1                              | INFO Training random_forest with 3-fold CV
+model-init-1                              | INFO random_forest validation average_precision: 0.6626
+model-init-1                              | INFO Training xgboost with 3-fold CV
+model-init-1                              | INFO xgboost validation average_precision: 0.6522
+model-init-1                              | 2026/10/21 06:43:38 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+model-init-1                              | 2026/10/21 06:43:38 INFO mlflow.store.db.utils: Updating database tables
+model-init-1                              | 2026/10/21 06:43:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+model-init-1                              | The git executable must be specified in one of the following ways:
+model-init-1                              |     - be included in your $PATH
+model-init-1                              |     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+model-init-1                              |     - explicitly set via git.refresh(<full-path-to-git-executable>)
+model-init-1                              | 
+model-init-1                              | All git commands will error until this is rectified.
+model-init-1                              | 
+model-init-1                              | This initial message can be silenced or aggravated in the future by setting the
+model-init-1                              | $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+model-init-1                              |     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+model-init-1                              |     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+model-init-1                              |     - error|e|exception|raise|r|2: for a raised exception
+model-init-1                              | 
+model-init-1                              | Example:
+model-init-1                              |     export GIT_PYTHON_REFRESH=quiet
+model-init-1                              | 
+model-init-1                              | 2026/10/21 06:43:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git branch is not available. Error: Failed to initialize: Bad git executable.
+model-init-1                              | The git executable must be specified in one of the following ways:
+model-init-1                              |     - be included in your $PATH
+model-init-1                              |     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+model-init-1                              |     - explicitly set via git.refresh(<full-path-to-git-executable>)
+model-init-1                              | 
+model-init-1                              | All git commands will error until this is rectified.
+model-init-1                              | 
+model-init-1                              | This initial message can be silenced or aggravated in the future by setting the
+model-init-1                              | $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+model-init-1                              |     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+model-init-1                              |     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+model-init-1                              |     - error|e|exception|raise|r|2: for a raised exception
+model-init-1                              | 
+model-init-1                              | Example:
+model-init-1                              |     export GIT_PYTHON_REFRESH=quiet
+model-init-1                              | 
+model-init-1                              | 2026/10/21 06:43:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git repository URL is not available. Error: Failed to initialize: Bad git executable.
+model-init-1                              | The git executable must be specified in one of the following ways:
+model-init-1                              |     - be included in your $PATH
+model-init-1                              |     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+analytics-1                               | %3|1792565061.913|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565061.964|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.019|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565062.070|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.122|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565062.174|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+analytics-1                               | %3|1792565062.226|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+analytics-1                               | %3|1792565062.276|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.328|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.380|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565062.430|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.482|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.533|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.585|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.637|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565062.688|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.739|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.791|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.842|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.893|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565062.945|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+postgres-1                                | The files belonging to this database system will be owned by user "postgres".
+postgres-1                                | This user must also own the server process.
+postgres-1                                | 
+postgres-1                                | The database cluster will be initialized with locale "en_US.utf8".
+postgres-1                                | The default database encoding has accordingly been set to "UTF8".
+postgres-1                                | The default text search configuration will be set to "english".
+postgres-1                                | 
+postgres-1                                | Data page checksums are disabled.
+postgres-1                                | 
+postgres-1                                | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-1                                | creating subdirectories ... ok
+postgres-1                                | selecting dynamic shared memory implementation ... posix
+postgres-1                                | selecting default "max_connections" ... 100
+postgres-1                                | selecting default "shared_buffers" ... 128MB
+postgres-1                                | selecting default time zone ... Etc/UTC
+postgres-1                                | creating configuration files ... ok
+postgres-1                                | running bootstrap script ... ok
+postgres-1                                | performing post-bootstrap initialization ... ok
+postgres-1                                | initdb: warning: enabling "trust" authentication for local connections
+postgres-1                                | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-1                                | syncing data to disk ... ok
+postgres-1                                | 
+postgres-1                                | 
+postgres-1                                | Success. You can now start the database server using:
+postgres-1                                | 
+postgres-1                                |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-1                                | 
+postgres-1                                | waiting for server to start....2026-10-21 06:43:14.333 UTC [48] LOG:  starting PostgreSQL 17.6 (Debian 17.6-2.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1                                | 2026-10-21 06:43:14.337 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1                                | 2026-10-21 06:43:14.350 UTC [51] LOG:  database system was shut down at 2026-10-21 06:43:13 UTC
+postgres-1                                | 2026-10-21 06:43:14.357 UTC [48] LOG:  database system is ready to accept connections
+postgres-1                                |  done
+postgres-1                                | server started
+postgres-1                                | 
+postgres-1                                | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-1                                | 
+frontend-1                                | ▲ Next.js 16.4.2
+model-init-1                              |     - explicitly set via git.refresh(<full-path-to-git-executable>)
+frontend-1                                | - Local:         http://localhost:3000
+frontend-1                                | - Network:       http://0.0.0.0:3000
+frontend-1                                | ✓ Ready in 0ms
+frontend-1                                | ✓ Running next.config took 1.5ms
+frontend-1                                | ▲ Next.js 16.4.2
+frontend-1                                | - Local:         http://localhost:3000
+frontend-1                                | - Network:       http://0.0.0.0:3000
+frontend-1                                | ✓ Ready in 0ms
+frontend-1                                | ✓ Running next.config took 3ms
+analytics-1                               | %3|1792565062.996|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.048|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.099|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.150|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.201|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.253|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.305|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.357|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.408|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.460|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.511|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.563|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.615|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.667|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.719|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.771|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.821|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.873|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565063.926|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565063.976|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565064.028|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565064.080|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.132|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.183|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.234|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.286|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.338|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.389|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.442|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565064.492|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.545|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.597|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.648|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+analytics-1                               | %3|1792565064.699|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.751|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565064.802|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.856|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.906|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565064.974|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.011|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 2ms in state CONNECT)
+analytics-1                               | %3|1792565065.061|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.112|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.164|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.216|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.267|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.320|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.374|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.428|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 3ms in state CONNECT)
+analytics-1                               | %3|1792565065.477|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.529|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.581|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.646|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.692|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 7ms in state CONNECT)
+analytics-1                               | %3|1792565065.737|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.789|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+postgres-1                                | waiting for server to shut down...2026-10-21 06:43:14.464 UTC [48] LOG:  received fast shutdown request
+postgres-1                                | .2026-10-21 06:43:14.467 UTC [48] LOG:  aborting any active transactions
+postgres-1                                | 2026-10-21 06:43:14.469 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-1                                | 2026-10-21 06:43:14.470 UTC [49] LOG:  shutting down
+postgres-1                                | 2026-10-21 06:43:14.476 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-1                                | 2026-10-21 06:43:14.500 UTC [49] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.003 s, total=0.030 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/14E4FA0, redo lsn=0/14E4FA0
+postgres-1                                | 2026-10-21 06:43:14.503 UTC [48] LOG:  database system is shut down
+analytics-1                               | %3|1792565065.844|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 4ms in state CONNECT)
+analytics-1                               | %3|1792565065.892|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565065.944|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565065.996|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.047|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.099|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.151|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.202|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.254|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.306|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.358|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.409|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.461|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.513|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.564|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.616|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.668|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.720|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.784|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.823|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565066.875|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.927|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565066.979|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565067.031|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565067.082|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+postgres-1                                |  done
+analytics-1                               | %3|1792565067.134|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+postgres-1                                | server stopped
+analytics-1                               | %3|1792565067.186|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+postgres-1                                | 
+postgres-1                                | PostgreSQL init process complete; ready for start up.
+postgres-1                                | 
+postgres-1                                | 2026-10-21 06:43:14.595 UTC [1] LOG:  starting PostgreSQL 17.6 (Debian 17.6-2.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1                                | 2026-10-21 06:43:14.596 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1                                | 2026-10-21 06:43:14.596 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1                                | 2026-10-21 06:43:14.603 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1                                | 2026-10-21 06:43:14.611 UTC [62] LOG:  database system was shut down at 2026-10-21 06:43:14 UTC
+postgres-1                                | 2026-10-21 06:43:14.620 UTC [1] LOG:  database system is ready to accept connections
+postgres-1                                | 2026-10-21 06:44:15.011 UTC [1] LOG:  received fast shutdown request
+postgres-1                                | 2026-10-21 06:44:15.022 UTC [1] LOG:  aborting any active transactions
+postgres-1                                | 2026-10-21 06:44:15.036 UTC [1] LOG:  background worker "logical replication launcher" (PID 65) exited with exit code 1
+postgres-1                                | 2026-10-21 06:44:15.040 UTC [60] LOG:  shutting down
+analytics-1                               | %3|1792565067.238|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+model-init-1                              | 
+analytics-1                               | %3|1792565067.290|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565067.342|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+model-init-1                              | All git commands will error until this is rectified.
+analytics-1                               | %3|1792565067.393|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565067.444|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565067.496|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565067.548|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+model-init-1                              | 
+topics-init-1                             | {"bootstrap_servers": "kafka:29092", "cluster_id": "MkU3OEVBNTcwNTJENDM2Qk", "topics": {"telco.deadletter": {"partitions": 3, "replication_factor": 1}, "telco.churn.predictions": {"partitions": 3, "replication_factor": 1}, "telco.raw.customers": {"partitions": 3, "replication_factor": 1}}}
+model-init-1                              | This initial message can be silenced or aggravated in the future by setting the
+model-init-1                              | $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+model-init-1                              |     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+model-init-1                              |     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+postgres-1                                | 2026-10-21 06:44:15.045 UTC [60] LOG:  checkpoint starting: shutdown immediate
+postgres-1                                | 2026-10-21 06:44:15.814 UTC [60] LOG:  checkpoint complete: wrote 1045 buffers (6.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.324 s, sync=0.417 s, total=0.774 s; sync files=367, longest=0.013 s, average=0.002 s; distance=4849 kB, estimate=4849 kB; lsn=0/19A1680, redo lsn=0/19A1680
+model-init-1                              |     - error|e|exception|raise|r|2: for a raised exception
+postgres-1                                | 2026-10-21 06:44:15.831 UTC [1] LOG:  database system is shut down
+model-init-1                              | 
+analytics-1                               | %3|1792565067.599|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+model-init-1                              | Example:
+analytics-1                               | %3|1792565067.651|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+postgres-1                                | 
+analytics-1                               | %3|1792565067.703|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565067.755|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+postgres-1                                | PostgreSQL Database directory appears to contain a database; Skipping initialization
+model-init-1                              |     export GIT_PYTHON_REFRESH=quiet
+postgres-1                                | 
+postgres-1                                | 2026-10-21 06:44:17.008 UTC [1] LOG:  starting PostgreSQL 17.6 (Debian 17.6-2.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1                                | 2026-10-21 06:44:17.010 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+analytics-1                               | %3|1792565067.806|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+model-init-1                              | 
+postgres-1                                | 2026-10-21 06:44:17.011 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1                                | 2026-10-21 06:44:17.019 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1                                | 2026-10-21 06:44:17.034 UTC [29] LOG:  database system was shut down at 2026-10-21 06:44:15 UTC
+postgres-1                                | 2026-10-21 06:44:17.055 UTC [1] LOG:  database system is ready to accept connections
+model-init-1                              | 2026/10/21 06:43:41 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | 2026/10/21 06:43:42 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | 2026/10/21 06:43:43 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | 2026/10/21 06:43:45 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | INFO Selected random_forest; saved complete pipeline to /app/backend/artifacts/models/best_pipeline.joblib
+model-init-1                              | INFO Test accuracy 0.7417; recall 0.7968; F1 0.6208; ROC-AUC 0.8439
+model-init-1                              | {"model": "trained", "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a", "config_sha256": "8dfbe044d2cb429f6587299c215c76b7bb5cc8edbd35af2da85355d978c8ca05", "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2"}
+analytics-1                               | %3|1792565067.857|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565067.909|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | %3|1792565067.960|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 0ms in state CONNECT)
+analytics-1                               | %3|1792565068.012|FAIL|rdkafka#consumer-1| [thrd:kafka:29092/bootstrap]: kafka:29092/bootstrap: Connect to ipv4#172.21.0.2:29092 failed: Connection refused (after 1ms in state CONNECT)
+analytics-1                               | {"ts":"2026-10-21T06:44:28.210565+00:00","event":"ready","group_id":"opsyntra-analytics-v1","cluster_id":"MkU3OEVBNTcwNTJENDM2Qk","topics":{"deadletter":"telco.deadletter","predictions":"telco.churn.predictions","raw":"telco.raw.customers"},"mode":"streaming"}

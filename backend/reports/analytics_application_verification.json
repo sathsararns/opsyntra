@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-20T09:37:41.649919+00:00",
+  "group_id": "opsyntra-analytics-v1",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "records_processed": 115871,
+  "database_counts": {
+    "customer_events": 61441,
+    "raw_customer_events": 61441,
+    "prediction_events": 54371,
+    "deadletter_events": 14,
+    "kafka_deliveries": 115857,
+    "ingestion_errors": 14
+  },
+  "metrics_by_engine": [
+    {
+      "engine": "sklearn",
+      "prediction_volume": 54367
+    },
+    {
+      "engine": "spark",
+      "prediction_volume": 4
+    }
+  ],
+  "utc": "UTC",
+  "hourly_prediction_sum": 54371,
+  "daily_prediction_sum": 54371,
+  "completed_restart_records": 0,
+  "runs": [
+    {
+      "report": "backend/reports/analytics_initial_ingestion.json",
+      "status": "incomplete",
+      "records": 90000,
+      "elapsed_seconds": 301.2768961999973
+    },
+    {
+      "report": "backend/reports/analytics_backlog_resume.json",
+      "status": "complete",
+      "records": 25871,
+      "elapsed_seconds": 82.42278680001618
+    },
+    {
+      "report": "backend/reports/analytics_application_restart.json",
+      "status": "complete",
+      "records": 0,
+      "elapsed_seconds": 1.2025992999842856
+    }
+  ],
+  "scope": "Actual retained application topics into main database. First run reached its deliberate 300-second bound; same-group resume completed the backlog. No inference offsets were reset. Existing source history includes prior diagnostic events.",
+  "files": [
+    {
+      "path": "backend/reports/analytics_initial_ingestion.json",
+      "sha256": "bdf741e2df52cf082b22103e078f4febc7f2be65bd739c0c0886ff15ab5e4f51"
+    },
+    {
+      "path": "backend/reports/analytics_backlog_resume.json",
+      "sha256": "5f863d504585967dbdc7bdcfd04d0611cd1c1774e3fdc0585bbd099fc399f3c5"
+    },
+    {
+      "path": "backend/reports/analytics_application_restart.json",
+      "sha256": "ee32926c03323d45fdda0e97b268bddf0338e7e17f1b07d686e2e88d4d84a6b3"
+    },
+    {
+      "path": "backend/reports/analytics_initial_ingestion.log",
+      "sha256": "4361dadb8111c034d6baa8b9f66c037112de1eec2977347c85c6c368a5a99e23"
+    },
+    {
+      "path": "backend/reports/analytics_backlog_resume.log",
+      "sha256": "75313f235fe2a69afd25b18e5f367b9d9df2e9b06b61f4727f58d1a6bd9cd833"
+    },
+    {
+      "path": "docs/evidence/analytics/application-restart.txt",
+      "sha256": "87cbde7f3adee6b42eb9594747e631865e77d3b11522116ccc125429ca97257a"
+    }
+  ]
+}

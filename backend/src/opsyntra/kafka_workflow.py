@@ -3,6 +3,7 @@ import csv
 import hashlib
 import json
 import logging
+import os
 import shutil
 import signal
 import sqlite3
@@ -85,7 +86,8 @@ class KafkaWorkflow:
                 if ensure_topics(settings)["cluster_id"] != manifest["cluster_id"]:
                     raise ValueError("Broker cluster changed during workflow recovery")
                 return manifest
-            settings = load_kafka_config(self.backend / "config.yaml")
+            source_config = Path(os.environ.get("OPSYNTRA_CONFIG", self.backend / "config.yaml"))
+            settings = load_kafka_config(source_config)
             broker = ensure_topics(settings)
             source = CustomerSource.inspect(settings["source"])
             source_path = self.run / "customers.csv"
@@ -98,7 +100,7 @@ class KafkaWorkflow:
                 model = self.backend / pointer["pipeline_path"]
                 saved_model = self.run / "model/spark_pipeline"
             model_sha = snapshot_file(model, saved_model)
-            full = yaml.safe_load((self.backend / "config.yaml").read_text(encoding="utf-8"))
+            full = yaml.safe_load(source_config.read_text(encoding="utf-8"))
             full["data"]["raw_path"] = str(source_path)
             full["training"]["artifact_dir"] = str(saved_model.parent)
             full["spark"]["artifact_dir"] = str(settings["model_config"]["spark_pointer"].parent)

@@ -1,0 +1,270 @@
+model-init-1                              | INFO generated new fontManager
+model-init-1                              | INFO Validating /app/backend/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+opsyntra-verify-20261021064107-inference  | 2026-10-21 06:41:49,685 INFO Loaded sklearn model once: version=34e84e9fa5d1de06 group=opsyntra-churn-sklearn
+model-init-1                              | INFO train: 4225 customers, 26.5325% churn
+model-init-1                              | INFO validation: 1409 customers, 26.5436% churn
+model-init-1                              | INFO test: 1409 customers, 26.5436% churn
+opsyntra-verify-20261021064107-inference  | %4|1792564910.217|GETPID|opsyntra-customer-producer#producer-2| [thrd:main]: Failed to acquire idempotence PID from broker kafka:29092/1: Broker: Coordinator load in progress: retrying
+opsyntra-verify-20261021064107-inference  | 2026-10-21 06:42:03,366 INFO COMMITTED input=3 predictions=3 deadletters=0 duplicates=0 offsets={'1': 2, '0': 1}
+model-init-1                              | INFO Validation PASS_WITH_WARNINGS; report: /app/backend/reports/data_validation_report.json
+model-init-1                              | INFO Training dummy with 3-fold CV
+model-init-1                              | INFO dummy validation average_precision: 0.2654
+model-init-1                              | INFO Training logistic_regression with 3-fold CV
+model-init-1                              | INFO logistic_regression validation average_precision: 0.6505
+model-init-1                              | INFO Training random_forest with 3-fold CV
+model-init-1                              | INFO random_forest validation average_precision: 0.6626
+model-init-1                              | INFO Training xgboost with 3-fold CV
+model-init-1                              | INFO xgboost validation average_precision: 0.6522
+model-init-1                              | 2026/10/21 06:41:37 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+model-init-1                              | 2026/10/21 06:41:37 INFO mlflow.store.db.utils: Updating database tables
+model-init-1                              | 2026/10/21 06:41:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+model-init-1                              | The git executable must be specified in one of the following ways:
+model-init-1                              |     - be included in your $PATH
+model-init-1                              |     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+model-init-1                              |     - explicitly set via git.refresh(<full-path-to-git-executable>)
+model-init-1                              | 
+model-init-1                              | All git commands will error until this is rectified.
+model-init-1                              | 
+model-init-1                              | This initial message can be silenced or aggravated in the future by setting the
+model-init-1                              | $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+model-init-1                              |     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+frontend-1                                | ▲ Next.js 16.4.2
+model-init-1                              |     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+model-init-1                              |     - error|e|exception|raise|r|2: for a raised exception
+model-init-1                              | 
+model-init-1                              | Example:
+model-init-1                              |     export GIT_PYTHON_REFRESH=quiet
+model-init-1                              | 
+model-init-1                              | 2026/10/21 06:41:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git branch is not available. Error: Failed to initialize: Bad git executable.
+api-1                                     | INFO:     Started server process [7]
+model-init-1                              | The git executable must be specified in one of the following ways:
+model-init-1                              |     - be included in your $PATH
+model-init-1                              |     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+model-init-1                              |     - explicitly set via git.refresh(<full-path-to-git-executable>)
+model-init-1                              | 
+frontend-1                                | - Local:         http://localhost:3000
+api-1                                     | INFO:     Waiting for application startup.
+api-1                                     | INFO:     Application startup complete.
+api-1                                     | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                                     | INFO:     127.0.0.1:53282 - "GET /api/health HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:52906 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+api-1                                     | INFO:     127.0.0.1:58010 - "GET /api/health HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:52920 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+api-1                                     | INFO:     172.21.0.7:52920 - "GET /api/analytics/summary HTTP/1.1" 200 OK
+frontend-1                                | - Network:       http://0.0.0.0:3000
+frontend-1                                | ✓ Ready in 0ms
+model-init-1                              | All git commands will error until this is rectified.
+db-init-1                                 | {"database": "ready", "migrations": [{"version": "0001", "name": "0001_event_storage.sql", "status": "applied", "sha256": "0280ada4839732bfc4eac60ebc91de6ce71d411a0c61e9762384486ac8592c3c"}, {"version": "0002", "name": "0002_analytics_views.sql", "status": "applied", "sha256": "de8e9e25e47c221699cdf00b75d05e4ac3497604beccc8cbbb09d35d31ef4268"}, {"version": "0003", "name": "0003_ingestion_errors.sql", "status": "applied", "sha256": "ac76b51385a572ebaaa233b216bb044be0010d8efdd2f8ba88df2146255c5d74"}, {"version": "0004", "name": "0004_event_time_views.sql", "status": "applied", "sha256": "2e6ef99fe3781b02e0e8335629aefedfeab7f684cc21328da8236cd2a2f0a253"}]}
+model-init-1                              | 
+model-init-1                              | This initial message can be silenced or aggravated in the future by setting the
+model-init-1                              | $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+model-init-1                              |     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+model-init-1                              |     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+model-init-1                              |     - error|e|exception|raise|r|2: for a raised exception
+model-init-1                              | 
+model-init-1                              | Example:
+model-init-1                              |     export GIT_PYTHON_REFRESH=quiet
+model-init-1                              | 
+model-init-1                              | 2026/10/21 06:41:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git repository URL is not available. Error: Failed to initialize: Bad git executable.
+frontend-1                                | ✓ Running next.config took 1.0ms
+postgres-1                                | The files belonging to this database system will be owned by user "postgres".
+model-init-1                              | The git executable must be specified in one of the following ways:
+model-init-1                              |     - be included in your $PATH
+model-init-1                              |     - be set via $GIT_PYTHON_GIT_EXECUTABLE
+model-init-1                              |     - explicitly set via git.refresh(<full-path-to-git-executable>)
+postgres-1                                | This user must also own the server process.
+postgres-1                                | 
+model-init-1                              | 
+postgres-1                                | The database cluster will be initialized with locale "en_US.utf8".
+model-init-1                              | All git commands will error until this is rectified.
+postgres-1                                | The default database encoding has accordingly been set to "UTF8".
+postgres-1                                | The default text search configuration will be set to "english".
+postgres-1                                | 
+postgres-1                                | Data page checksums are disabled.
+postgres-1                                | 
+model-init-1                              | 
+model-init-1                              | This initial message can be silenced or aggravated in the future by setting the
+model-init-1                              | $GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+model-init-1                              |     - quiet|q|silence|s|silent|none|n|0: for no message or exception
+model-init-1                              |     - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+model-init-1                              |     - error|e|exception|raise|r|2: for a raised exception
+model-init-1                              | 
+postgres-1                                | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+model-init-1                              | Example:
+model-init-1                              |     export GIT_PYTHON_REFRESH=quiet
+model-init-1                              | 
+postgres-1                                | creating subdirectories ... ok
+model-init-1                              | 2026/10/21 06:41:40 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+postgres-1                                | selecting dynamic shared memory implementation ... posix
+model-init-1                              | 2026/10/21 06:41:41 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | 2026/10/21 06:41:42 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | 2026/10/21 06:41:44 WARNING mlflow.sklearn: Saving scikit-learn models in the pickle or cloudpickle format requires exercising caution because these formats rely on Python's object serialization mechanism, which can execute arbitrary code during deserialization. The recommended safe alternative is the 'skops' format. For more information, see: https://scikit-learn.org/stable/model_persistence.html
+model-init-1                              | INFO Selected random_forest; saved complete pipeline to /app/backend/artifacts/models/best_pipeline.joblib
+model-init-1                              | INFO Test accuracy 0.7417; recall 0.7968; F1 0.6208; ROC-AUC 0.8439
+postgres-1                                | selecting default "max_connections" ... 100
+model-init-1                              | {"model": "trained", "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a", "config_sha256": "8dfbe044d2cb429f6587299c215c76b7bb5cc8edbd35af2da85355d978c8ca05", "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2"}
+postgres-1                                | selecting default "shared_buffers" ... 128MB
+postgres-1                                | selecting default time zone ... Etc/UTC
+postgres-1                                | creating configuration files ... ok
+postgres-1                                | running bootstrap script ... ok
+postgres-1                                | performing post-bootstrap initialization ... ok
+postgres-1                                | initdb: warning: enabling "trust" authentication for local connections
+postgres-1                                | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-1                                | syncing data to disk ... ok
+postgres-1                                | 
+postgres-1                                | 
+postgres-1                                | Success. You can now start the database server using:
+postgres-1                                | 
+postgres-1                                |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-1                                | 
+postgres-1                                | waiting for server to start....2026-10-21 06:41:17.893 UTC [48] LOG:  starting PostgreSQL 17.6 (Debian 17.6-2.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1                                | 2026-10-21 06:41:17.896 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1                                | 2026-10-21 06:41:17.907 UTC [51] LOG:  database system was shut down at 2026-10-21 06:41:16 UTC
+postgres-1                                | 2026-10-21 06:41:17.915 UTC [48] LOG:  database system is ready to accept connections
+postgres-1                                |  done
+postgres-1                                | server started
+postgres-1                                | 
+postgres-1                                | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-1                                | 
+postgres-1                                | waiting for server to shut down....2026-10-21 06:41:18.008 UTC [48] LOG:  received fast shutdown request
+postgres-1                                | 2026-10-21 06:41:18.012 UTC [48] LOG:  aborting any active transactions
+postgres-1                                | 2026-10-21 06:41:18.014 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-1                                | 2026-10-21 06:41:18.014 UTC [49] LOG:  shutting down
+postgres-1                                | 2026-10-21 06:41:18.016 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-1                                | 2026-10-21 06:41:18.033 UTC [49] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.003 s, total=0.020 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/14E4FA0, redo lsn=0/14E4FA0
+postgres-1                                | 2026-10-21 06:41:18.036 UTC [48] LOG:  database system is shut down
+postgres-1                                |  done
+postgres-1                                | server stopped
+postgres-1                                | 
+postgres-1                                | PostgreSQL init process complete; ready for start up.
+postgres-1                                | 
+postgres-1                                | 2026-10-21 06:41:18.130 UTC [1] LOG:  starting PostgreSQL 17.6 (Debian 17.6-2.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1                                | 2026-10-21 06:41:18.131 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1                                | 2026-10-21 06:41:18.131 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1                                | 2026-10-21 06:41:18.138 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1                                | 2026-10-21 06:41:18.145 UTC [62] LOG:  database system was shut down at 2026-10-21 06:41:18 UTC
+postgres-1                                | 2026-10-21 06:41:18.154 UTC [1] LOG:  database system is ready to accept connections
+topics-init-1                             | {"bootstrap_servers": "kafka:29092", "cluster_id": "MkU3OEVBNTcwNTJENDM2Qk", "topics": {"telco.deadletter": {"partitions": 3, "replication_factor": 1}, "telco.churn.predictions": {"partitions": 3, "replication_factor": 1}, "telco.raw.customers": {"partitions": 3, "replication_factor": 1}}}
+analytics-1                               | {"ts":"2026-10-21T06:41:26.267196+00:00","event":"ready","group_id":"opsyntra-analytics-v1","cluster_id":"MkU3OEVBNTcwNTJENDM2Qk","topics":{"deadletter":"telco.deadletter","predictions":"telco.churn.predictions","raw":"telco.raw.customers"},"mode":"streaming"}
+analytics-1                               | {"ts":"2026-10-21T06:42:03.366339+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":3,"raw_inserted":3,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":3,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+analytics-1                               | {"ts":"2026-10-21T06:42:04.387558+00:00","event":"batch_committed","group_id":"opsyntra-analytics-v1","records":3,"raw_inserted":0,"prediction_inserted":3,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":3,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+kafka-1                                   | [2026-10-21 06:41:27,034] INFO [Partition __consumer_offsets-6 broker=1] Log loaded for partition __consumer_offsets-6 with initial high watermark 0 (kafka.cluster.Partition)
+kafka-1                                   | [2026-10-21 06:41:27,049] INFO [LogLoader partition=__consumer_offsets-35, dir=/var/lib/kafka/data] Loading producer state till offset 0 (org.apache.kafka.storage.internals.log.UnifiedLog)
+kafka-1                                   | [2026-10-21 06:41:27,049] INFO Created log for partition __consumer_offsets-35 in /var/lib/kafka/data/__consumer_offsets-35 with properties {cleanup.policy=compact, compression.type="producer", segment.bytes=104857600} (kafka.log.LogManager)
+kafka-1                                   | [2026-10-21 06:41:27,049] INFO [Partition __consumer_offsets-35 broker=1] No checkpointed highwatermark is found for partition __consumer_offsets-35 (kafka.cluster.Partition)
+kafka-1                                   | [2026-10-21 06:41:27,050] INFO [Partition __consumer_offsets-35 broker=1] Log loaded for partition __consumer_offsets-35 with initial high watermark 0 (kafka.cluster.Partition)
+kafka-1                                   | [2026-10-21 06:41:27,063] INFO [LogLoader partition=__consumer_offsets-2, dir=/var/lib/kafka/data] Loading producer state till offset 0 (org.apache.kafka.storage.internals.log.UnifiedLog)
+kafka-1                                   | [2026-10-21 06:41:27,063] INFO Created log for partition __consumer_offsets-2 in /var/lib/kafka/data/__consumer_offsets-2 with properties {cleanup.policy=compact, compression.type="producer", segment.bytes=104857600} (kafka.log.LogManager)
+kafka-1                                   | [2026-10-21 06:41:27,064] INFO [Partition __consumer_offsets-2 broker=1] No checkpointed highwatermark is found for partition __consumer_offsets-2 (kafka.cluster.Partition)
+kafka-1                                   | [2026-10-21 06:41:27,064] INFO [Partition __consumer_offsets-2 broker=1] Log loaded for partition __consumer_offsets-2 with initial high watermark 0 (kafka.cluster.Partition)
+kafka-1                                   | [2026-10-21 06:41:27,075] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-13 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,077] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-46 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,077] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-9 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,077] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-42 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,077] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-21 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-17 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-30 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-26 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-5 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-38 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-1 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,078] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-34 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,079] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-16 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,079] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-45 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,079] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-12 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,079] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-41 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,079] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-24 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,079] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-20 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,080] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-49 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,080] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-0 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,080] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-29 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,080] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-25 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,080] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-8 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,080] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-37 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,081] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-4 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,081] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-33 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,081] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-15 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,081] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-48 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,082] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-11 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,082] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-44 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,082] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-23 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,082] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-19 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,082] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-32 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,083] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-28 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,083] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-7 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,083] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-40 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,083] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-3 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,084] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-36 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,084] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-47 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,084] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-14 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,084] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-43 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,084] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-10 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-22 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-18 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-31 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-27 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-39 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-6 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,085] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-35 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,086] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-2 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-9 with epoch 0 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-42 with epoch 0 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-13 with epoch 0 in 3ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-21 with epoch 0 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-30 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-24 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [DynamicConfigPublisher broker id=1] Updating topic __consumer_offsets with new configuration : compression.type -> producer,cleanup.policy -> compact,segment.bytes -> 104857600 (kafka.server.metadata.DynamicConfigPublisher)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-32 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-15 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-20 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,087] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-16 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-41 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-8 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-19 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-44 with epoch 0 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-48 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-34 with epoch 0 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-18 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-11 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-4 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-1 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-29 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-25 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,088] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-17 with epoch 0 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-49 with epoch 0 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-28 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-0 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-26 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-22 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-47 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-3 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-36 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-46 with epoch 0 in 3ms where 3ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-5 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-31 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-7 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,089] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-6 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-10 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-43 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-40 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-37 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-12 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-45 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-27 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-14 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-33 with epoch 0 in 2ms where 2ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-2 with epoch 0 in 1ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-39 with epoch 0 in 0ms where 0ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-35 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-38 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:27,090] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-23 with epoch 0 in 1ms where 1ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+kafka-1                                   | [2026-10-21 06:41:29,199] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=19] Dynamic member with unknown member id joins group opsyntra-analytics-v1 in Empty state. Created a new member id rdkafka-12154b6d-1117-4222-ba94-799d67bd54f5 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:29,222] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=19] Pending dynamic member with id rdkafka-12154b6d-1117-4222-ba94-799d67bd54f5 joins group opsyntra-analytics-v1 in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:29,231] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=19] Preparing to rebalance group opsyntra-analytics-v1 in state PreparingRebalance with old generation 0 (reason: Adding new member rdkafka-12154b6d-1117-4222-ba94-799d67bd54f5 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:29,254] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=19] Stabilized group opsyntra-analytics-v1 generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:29,261] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=19] Assignment received from leader rdkafka-12154b6d-1117-4222-ba94-799d67bd54f5 for group opsyntra-analytics-v1 for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:49,710] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=18] Dynamic member with unknown member id joins group opsyntra-churn-sklearn in Empty state. Created a new member id rdkafka-7d1126fb-84fd-41a1-8121-cf6fd4d2c911 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:49,712] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=18] Pending dynamic member with id rdkafka-7d1126fb-84fd-41a1-8121-cf6fd4d2c911 joins group opsyntra-churn-sklearn in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:49,712] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=18] Preparing to rebalance group opsyntra-churn-sklearn in state PreparingRebalance with old generation 0 (reason: Adding new member rdkafka-7d1126fb-84fd-41a1-8121-cf6fd4d2c911 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:49,712] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=18] Stabilized group opsyntra-churn-sklearn generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+kafka-1                                   | [2026-10-21 06:41:49,714] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=18] Assignment received from leader rdkafka-7d1126fb-84fd-41a1-8121-cf6fd4d2c911 for group opsyntra-churn-sklearn for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)

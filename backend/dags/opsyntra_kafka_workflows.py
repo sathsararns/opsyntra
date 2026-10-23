@@ -1,6 +1,7 @@
 """Bonus scheduled batch and managed streaming Kafka workflows."""
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+import os
 
 from airflow.sdk import DAG, Param
 from airflow.providers.standard.operators.bash import BashOperator
@@ -11,7 +12,7 @@ BACKEND = Path(__file__).resolve().parents[1]
 def task(name, kind):
     return BashOperator(task_id=name, cwd=str(BACKEND),
         bash_command=f'exec "$OPSYNTRA_ML_PYTHON" -m pipelines.kafka_airflow_task --task {name}',
-        env={"OPSYNTRA_ML_PYTHON": str(BACKEND / ".venv-spark/bin/python"),
+        env={"OPSYNTRA_ML_PYTHON": os.environ.get("OPSYNTRA_ML_PYTHON", str(BACKEND / ".venv-spark/bin/python")),
              "OPSYNTRA_RUN_ID": "{{ run_id }}", "OPSYNTRA_ENGINE": "{{ params.engine }}",
              "OPSYNTRA_KAFKA_KIND": kind, "OPSYNTRA_STREAM_SECONDS": "{{ params.duration_seconds }}",
              "OPSYNTRA_DEMO_EVENTS": "{{ params.demo_events }}", "OPSYNTRA_EVENTS_PER_SEC": "{{ params.events_per_sec }}"},

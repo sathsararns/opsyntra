@@ -1,0 +1,32 @@
+test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials (tests.unit.test_notebooks.NotebookInputTests.test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials) ... ok
+test_only_requested_partition_is_read_and_tampering_fails (tests.unit.test_notebooks.NotebookInputTests.test_only_requested_partition_is_read_and_tampering_fails) ... ok
+test_portable_report_paths_cannot_escape_backend (tests.unit.test_notebooks.NotebookInputTests.test_portable_report_paths_cannot_escape_backend) ... ok
+test_empty_snapshot_has_real_zero_counts_and_null_risk (tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_empty_snapshot_has_real_zero_counts_and_null_risk) ... ERROR
+test_out_of_order_and_duplicate_events_match_dashboard_and_views (tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_out_of_order_and_duplicate_events_match_dashboard_and_views) ... ERROR
+
+======================================================================
+ERROR: test_empty_snapshot_has_real_zero_counts_and_null_risk (tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_empty_snapshot_has_real_zero_counts_and_null_risk)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\tests\integration\test_notebook_analytics.py", line 47, in test_empty_snapshot_has_real_zero_counts_and_null_risk
+    tables, _ = analytics_snapshot(model_version=self.version, config=self.config)
+                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\src\opsyntra\notebook_support.py", line 197, in analytics_snapshot
+    raise RuntimeError("Analytics snapshot unavailable. Start PostgreSQL, apply migrations and configure the reader login; see docs/NOTEBOOKS.md.") from None
+RuntimeError: Analytics snapshot unavailable. Start PostgreSQL, apply migrations and configure the reader login; see docs/NOTEBOOKS.md.
+
+======================================================================
+ERROR: test_out_of_order_and_duplicate_events_match_dashboard_and_views (tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_out_of_order_and_duplicate_events_match_dashboard_and_views)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\tests\integration\test_notebook_analytics.py", line 32, in test_out_of_order_and_duplicate_events_match_dashboard_and_views
+    tables, scope = analytics_snapshot(model_version=self.version, as_of="2026-10-20T10:47:00Z", config=self.config)
+                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SATHSARA\Desktop\Opsyntra\backend\src\opsyntra\notebook_support.py", line 197, in analytics_snapshot
+    raise RuntimeError("Analytics snapshot unavailable. Start PostgreSQL, apply migrations and configure the reader login; see docs/NOTEBOOKS.md.") from None
+RuntimeError: Analytics snapshot unavailable. Start PostgreSQL, apply migrations and configure the reader login; see docs/NOTEBOOKS.md.
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.911s
+
+FAILED (errors=2)

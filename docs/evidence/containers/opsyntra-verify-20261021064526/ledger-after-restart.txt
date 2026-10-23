@@ -1,0 +1,1 @@
+[{"file": "artifacts/kafka/consumer_state/70eff39c54836ca42e278107.sqlite3", "outbox_rows": 3}]

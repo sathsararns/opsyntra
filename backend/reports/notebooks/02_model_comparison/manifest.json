@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "reports/model_training_report.json": "02ffda5871a677ee026534fe176bfb950f67e3e1952763d72ecf270112482409",
+    "reports/spark_training_report.json": "2b091d13489001e5b3764c7fa4f7252006c5eed51ced07724cdf5b89066887e4",
+    "reports/engine_comparison.json": "612ba6a11f1373e4977a5381b092a638633ee211d2e9cbd73f69755d68185c1b",
+    "data/splits/manifest.json": "ba3c6e9388f9700a5a9a75e811fcf2777695daaaaad79397394aac53a622690c",
+    "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+    "data/splits/memberships.csv": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+    "data/splits/validation.csv": "437aa573f932c285a1408c146ee81adb1407d73b1e340dec063ebd8b96ac80bf",
+    "artifacts/models/candidates/dummy.joblib": "1a40dd6972045480dba55168d10a72c798e179cc5ea8471abe09743e36e7af7e",
+    "artifacts/models/candidates/logistic_regression.joblib": "91f2eaf13e231e2b08f2c56d29563f41374db2098f4d0eab48e3c8b7c1ba4db7",
+    "artifacts/models/candidates/random_forest.joblib": "ccd5f37458e0ad96aba558ad0d132b9df03bb7cd1ab5cca83783089bbdc32d36",
+    "artifacts/models/candidates/xgboost.joblib": "ee2baa3dab8524fb114bf86ddfc993a7acfb6f3399fe7aa9743be08befb9ecfb",
+    "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/logistic_regression_validation_scores.csv": "47d63323ed9a37ca94e89e1ebf82dfc538955c6f367e7fe636b3418bbaefb593",
+    "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/random_forest_validation_scores.csv": "7688360d46e75e6e024c4a7686895733a39ebf963a12abc591f9870cd4351fc5",
+    "artifacts/spark/runs/74dc8fabe77d42c2b3b18f11ed83f8b3/xgboost_validation_scores.csv": "29266b21bb35ca1d9c0e4a039799889bb356736ddc6a2c99a4b8f967261a0732"
+  },
+  "outputs": {
+    "validation_comparison.csv": "2d25356c9d6ae99a4efa21ac2419fab591874646a2d68bb3704577a69cc40d7f",
+    "validation_ranking.png": "a5b95773af82bf682be24b3e89d75888a42cd94f4542259a9c915581528f1535",
+    "validation_ranking.svg": "add758837db55e66e0e9c346ca9754ea92836fb5582beb1a68bf2f92bb283aeb",
+    "recorded_threshold_search.csv": "be063ed72b9d7194d13032821363f63a6b36c0f6cd2c95828b2f7ef0a5bef801",
+    "validation_thresholds.png": "2b4174dd2ebed22f2b525c709d5800809f485b3a6fdc2ddf6723ad5ca58c7608",
+    "validation_thresholds.svg": "b0deb4e0df8df29540b3b1cf3ce01d0b1031d8daed08177be74bf00959f9011d",
+    "validation_curve_points.csv": "17fbaaafeba1a557ba4243956b2899f0222211d396adb9e6441723bbcd31c734",
+    "validation_curves.png": "8528acfc6b1b2b78a07bcb10d0e9d042071219f3b139a88671fe4c3aa92b15f3",
+    "validation_curves.svg": "36ab8e8e603f3993da2f69012a9cefb793d841b4e48d7748d79c7914edc236b4",
+    "recorded_test_assessment.csv": "62c544202dacb7d9134e2f2bc353e9bec34964b5fe5245af83b7ed6877542339",
+    "recorded_test_confusion.png": "26ec5a60138209911524a4ae76deabdf03a8d9c36895fca789cb57a8873322ae",
+    "recorded_test_confusion.svg": "1c1c2b79198e09b96c3558ae78f282af07fde26a2f38224202b391b235359f79",
+    "recorded_timing.csv": "cc4e7dbe825235b7e6723eb768908998fc0ca89dc9aea4792ba7fa67c538b950",
+    "recorded_timing.png": "d73f50c771c4b811c6ad902bc6451a3757f17a50842e5f00b9535e50863966c8",
+    "recorded_timing.svg": "fe5e26455a82e1f9278293b254a4e6b3579c1a0f072b4ba99fab58142427bbd8"
+  },
+  "fitted_models": 0,
+  "test_feature_rows_read": 0,
+  "validation_rows": 1409,
+  "selection": "Saved validation AP ranking and saved validation F1 threshold; not recomputed selection",
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c"
+}

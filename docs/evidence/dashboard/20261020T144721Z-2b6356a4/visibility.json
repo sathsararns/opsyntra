@@ -1,0 +1,18 @@
+{
+  "event_id": "d9bc6548-6158-51d2-ac5d-b8934dfc3dbd",
+  "prediction_id": "8d3bf472af9a959b7c385dd09ad0214b703e98d9bff7461724633717b9258de8",
+  "model_version": "d9a13b4cf6839ed4",
+  "customer_id": "LIVE-DEMO-feae80246c61",
+  "published_at": "2026-10-20T14:48:42.461705+00:00",
+  "ingested_at": "2026-10-20T14:48:43.776675+00:00",
+  "visible_at": "2026-10-20T14:48:45.983Z",
+  "ingestion_to_visible_seconds": 2.207,
+  "poll_interval_ms": 5000,
+  "sql_agreement": {
+    "prediction_volume": 1,
+    "unique_events": 1,
+    "unique_customers": 1,
+    "mean_risk": 0.46054850775773537,
+    "predicted_churn_share": 1
+  }
+}

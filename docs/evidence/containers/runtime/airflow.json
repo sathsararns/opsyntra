@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "dag_ids": [
+    "opsyntra_kafka_batch",
+    "opsyntra_kafka_streaming",
+    "opsyntra_ml_workflow"
+  ],
+  "tasks": 16,
+  "ml_python": "/opt/opsyntra-ml/bin/python",
+  "task_probes": [
+    "validate_data",
+    "prepare_splits"
+  ],
+  "run_id": "container-runtime-probe-0c67417057f2455eb8de2592c39bd0e3",
+  "shared_artifacts": "True",
+  "health": {
+    "metadatabase": {
+      "status": "healthy"
+    },
+    "scheduler": {
+      "status": "healthy",
+      "latest_scheduler_heartbeat": "2026-10-21T07:06:56.283616+00:00"
+    },
+    "triggerer": {
+      "status": "healthy",
+      "latest_triggerer_heartbeat": "2026-10-21T07:06:57.588890+00:00"
+    },
+    "dag_processor": {
+      "status": "healthy",
+      "latest_dag_processor_heartbeat": "2026-10-21T07:06:56.121607+00:00"
+    }
+  }
+}

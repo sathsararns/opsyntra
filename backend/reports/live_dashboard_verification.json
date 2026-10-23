@@ -1,0 +1,956 @@
+{
+  "status": "PASS",
+  "started_at": "2026-10-20T14:47:21.580089+00:00",
+  "command": "python -m pipelines.analytics_dashboard_check --regression",
+  "stages": [
+    {
+      "name": "typecheck",
+      "exit_code": 0,
+      "seconds": 1.9805500999791548,
+      "command": [
+        "C:\\nvm4w\\nodejs\\node.EXE",
+        "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\frontend\\node_modules\\typescript\\bin\\tsc",
+        "--noEmit"
+      ],
+      "stdout": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/typecheck.stdout.txt",
+      "stderr": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/typecheck.stderr.txt"
+    },
+    {
+      "name": "production-build",
+      "exit_code": 0,
+      "seconds": 11.681038000009721,
+      "command": [
+        "C:\\nvm4w\\nodejs\\node.EXE",
+        "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\frontend\\node_modules\\next\\dist\\bin\\next",
+        "build"
+      ],
+      "stdout": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/production-build.stdout.txt",
+      "stderr": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/production-build.stderr.txt"
+    },
+    {
+      "name": "browser-tests",
+      "exit_code": 0,
+      "seconds": 29.626952599996002,
+      "command": [
+        "C:\\nvm4w\\nodejs\\node.EXE",
+        "C:\\Users\\SATHSARA\\Desktop\\Opsyntra\\frontend\\node_modules\\@playwright\\test\\cli.js",
+        "test",
+        "--reporter=json"
+      ],
+      "stdout": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/browser-tests.stdout.txt",
+      "stderr": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/browser-tests.stderr.txt"
+    }
+  ],
+  "migrations": [
+    {
+      "version": "0001",
+      "name": "0001_event_storage.sql",
+      "status": "already_applied",
+      "sha256": "0280ada4839732bfc4eac60ebc91de6ce71d411a0c61e9762384486ac8592c3c"
+    },
+    {
+      "version": "0002",
+      "name": "0002_analytics_views.sql",
+      "status": "already_applied",
+      "sha256": "de8e9e25e47c221699cdf00b75d05e4ac3497604beccc8cbbb09d35d31ef4268"
+    },
+    {
+      "version": "0003",
+      "name": "0003_ingestion_errors.sql",
+      "status": "already_applied",
+      "sha256": "ac76b51385a572ebaaa233b216bb044be0010d8efdd2f8ba88df2146255c5d74"
+    },
+    {
+      "version": "0004",
+      "name": "0004_event_time_views.sql",
+      "status": "already_applied",
+      "sha256": "2e6ef99fe3781b02e0e8335629aefedfeab7f684cc21328da8236cd2a2f0a253"
+    }
+  ],
+  "backend": {
+    "tests_run": 120,
+    "passed": 116,
+    "skipped": 4,
+    "failures": 0,
+    "errors": 0,
+    "tests": [
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_changed_snapshot_and_changed_approved_model_fail",
+        "status": "passed",
+        "seconds": 3.861161400011042,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_complete_sequence_reuses_memberships_and_retry_does_not_duplicate_results",
+        "status": "passed",
+        "seconds": 2.5793285999970976,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_failed_gate_blocks_selected_model_and_success_pointer",
+        "status": "passed",
+        "seconds": 2.2532337000011466,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_run_paths_are_distinct_and_snapshot_is_reused",
+        "status": "passed",
+        "seconds": 0.2680459000112023,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_airflow_workflow.NativeArtifactPathTests.test_deep_spark_files_are_included_in_integrity_checks",
+        "status": "passed",
+        "seconds": 0.0085753999883309,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_high_risk_uses_latest_customer_event_before_threshold",
+        "status": "passed",
+        "seconds": 0.2130522000079509,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_pagination_identity_and_literal_sql_input",
+        "status": "passed",
+        "seconds": 0.23091270000441,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_summary_counts_and_segments_equal_sql",
+        "status": "passed",
+        "seconds": 0.14588329999241978,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_timeseries_sums_and_successful_empty_response",
+        "status": "passed",
+        "seconds": 0.17448260000674054,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_api.AnalyticsApiValidationTests.test_invalid_filters_fail_before_database_access",
+        "status": "passed",
+        "seconds": 0.013567499991040677,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_api.AnalyticsApiValidationTests.test_unavailable_database_is_not_reported_as_empty_or_model_failure",
+        "status": "passed",
+        "seconds": 0.015613499999744818,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_ambiguous_database_commit_retries_idempotently_before_input_commit",
+        "status": "passed",
+        "seconds": 0.17214189999504015,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_before_commit_failure_rolls_back_facts_and_quarantine",
+        "status": "passed",
+        "seconds": 0.052102899993769825,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_changed_quarantined_or_accepted_coordinates_stop_without_new_facts",
+        "status": "passed",
+        "seconds": 0.057617399987066165,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_database_failure_never_commits_inputs",
+        "status": "passed",
+        "seconds": 0.13740450001205318,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_graceful_stop_finishes_current_database_and_input_commit",
+        "status": "passed",
+        "seconds": 0.12076590000651777,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_input_commit_observes_durable_database_rows_and_auto_commit_disabled",
+        "status": "passed",
+        "seconds": 0.11413859997992404,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_late_raw_and_prediction_recompute_old_time_buckets",
+        "status": "passed",
+        "seconds": 0.09665099999983795,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_malformed_tombstones_oversized_and_conflicts_are_durable_rejections",
+        "status": "passed",
+        "seconds": 0.11895030000596307,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner",
+        "status": "passed",
+        "seconds": 0.5552719999977853,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_conflicting_prediction_and_model_alias_are_rejected",
+        "status": "passed",
+        "seconds": 0.07320640000398271,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_coordinate_conflict_rolls_back_entire_new_logical_event",
+        "status": "passed",
+        "seconds": 0.06625169998733327,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_database_enforces_probability_foreign_keys_and_labels",
+        "status": "passed",
+        "seconds": 0.09561950000352226,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_deadletter_replay_and_conflicting_error_are_separate_from_predictions",
+        "status": "passed",
+        "seconds": 0.08133600000292063,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_distinct_models_engines_and_event_counts_are_not_customer_counts",
+        "status": "passed",
+        "seconds": 0.06954830000177026,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_failed_migration_rolls_back_ddl_and_version",
+        "status": "passed",
+        "seconds": 0.082111800002167,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_logical_duplicates_keep_first_processing_time_and_count_deliveries",
+        "status": "passed",
+        "seconds": 0.08298129998729564,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_migrations_rerun_and_detect_checksum_changes",
+        "status": "passed",
+        "seconds": 0.09791530002257787,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_prediction_first_then_raw_joins_by_original_event",
+        "status": "passed",
+        "seconds": 0.0638930999848526,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_and_prediction_customer_or_time_conflicts_in_either_order",
+        "status": "passed",
+        "seconds": 0.07887979998486117,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_duplicates_and_conflicting_features",
+        "status": "passed",
+        "seconds": 0.11212540001724847,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_reader_cannot_write_and_writer_cannot_update_delete_or_migrate",
+        "status": "passed",
+        "seconds": 0.07070839998777956,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_repeated_customer_uses_event_profile_not_latest_profile",
+        "status": "passed",
+        "seconds": 0.12327999999979511,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_transaction_rollback_removes_fact_identity_and_provenance",
+        "status": "passed",
+        "seconds": 0.07496649998938665,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_utc_storage_keeps_timezone_display_out_of_the_fact",
+        "status": "passed",
+        "seconds": 0.0757486000075005,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_archive_import_outputs_and_byte_for_byte_rerun",
+        "status": "passed",
+        "seconds": 0.2829395000007935,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_existing_raw_data_is_never_overwritten_by_a_different_archive",
+        "status": "passed",
+        "seconds": 0.19317689997842535,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_infinity_produces_a_serializable_failure_report",
+        "status": "passed",
+        "seconds": 0.07958310001413338,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_invalid_data_writes_a_failure_report_without_creating_splits",
+        "status": "passed",
+        "seconds": 0.08813470002496615,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_invalid_fractions_and_input_output_collisions_fail",
+        "status": "passed",
+        "seconds": 0.06528909999178723,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_actual_pipeline_loads_once_and_matches_direct_unlabelled_predictions",
+        "status": "passed",
+        "seconds": 0.2805287999799475,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_commit_failure_restarts_without_republishing_acknowledged_outputs",
+        "status": "passed",
+        "seconds": 0.07261339999968186,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_conflicting_event_identity_is_deadlettered",
+        "status": "passed",
+        "seconds": 0.05933280001045205,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_duplicate_events_are_suppressed_within_chunk_and_across_restarts",
+        "status": "passed",
+        "seconds": 0.07032610001624562,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_malformed_records_do_not_block_valid_records",
+        "status": "passed",
+        "seconds": 0.061733100010314956,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_offset_window_uses_saved_commits_and_completes_without_waiting",
+        "status": "passed",
+        "seconds": 0.08131170002161525,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_output_ack_before_ledger_crash_replays_identical_outbox_payload",
+        "status": "passed",
+        "seconds": 0.06527019999339245,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_output_and_deadletter_delivery_failure_never_commit_input",
+        "status": "passed",
+        "seconds": 0.06527209997875616,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_outputs_are_acknowledged_and_ledger_is_durable_before_input_commit",
+        "status": "passed",
+        "seconds": 0.06992979999631643,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_restart_after_ledger_before_input_commit_suppresses_duplicate_output",
+        "status": "passed",
+        "seconds": 0.05705999999190681,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_same_artifact_matches_single_csv_reload_batch_and_streaming_predictions",
+        "status": "passed",
+        "seconds": 3.3417319000000134,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_same_group_cannot_silently_switch_models_and_empty_count_is_bounded",
+        "status": "passed",
+        "seconds": 0.10407189998659305,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_unseen_category_is_supported_by_model_but_rejected_by_strict_event_contract",
+        "status": "passed",
+        "seconds": 0.12772469999617897,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_active_checkpoint_is_exclusive_and_released_after_exit",
+        "status": "passed",
+        "seconds": 0.015447599987965077,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_chunk_resume_and_completed_rerun_publish_each_row_once",
+        "status": "passed",
+        "seconds": 0.10053740002331324,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_duplicate_ids_and_invalid_rates_fail_before_publishing",
+        "status": "passed",
+        "seconds": 0.03255269999499433,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_invalid_late_csv_row_is_rejected_before_any_publishing",
+        "status": "passed",
+        "seconds": 0.020999200001824647,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_partial_failed_chunk_does_not_advance_cursor_and_replays_stable_events",
+        "status": "passed",
+        "seconds": 0.08434659999329597,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_queue_backpressure_is_serviced_and_all_events_confirmed",
+        "status": "passed",
+        "seconds": 0.049289300019154325,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_resume_rejects_changed_data_cluster_and_label_policy",
+        "status": "passed",
+        "seconds": 0.06455340000684373,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_stop_keeps_resumable_cursor_and_existing_checkpoint_needs_resume",
+        "status": "passed",
+        "seconds": 0.0620098999934271,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_streaming_repeated_customer_has_distinct_events_and_optional_labels",
+        "status": "passed",
+        "seconds": 0.0776231000199914,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_unconfirmed_deliveries_never_advance_checkpoint",
+        "status": "passed",
+        "seconds": 0.04197239998029545,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_batch_predictions_and_summary_are_complete_and_retry_does_not_append",
+        "status": "passed",
+        "seconds": 0.4332932000106666,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_failed_publication_reuses_checkpoint_and_preserves_window_lower_bound",
+        "status": "passed",
+        "seconds": 0.22925460000988096,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_health_retry_reuses_snapshot_and_rejects_tampering",
+        "status": "passed",
+        "seconds": 0.19152990001020953,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_new_streaming_group_initializes_only_missing_partition_offsets",
+        "status": "passed",
+        "seconds": 0.18020629999227822,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_parameters_and_run_paths_cannot_escape_workflow_root",
+        "status": "passed",
+        "seconds": 0.08747060000314377,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_streaming_stop_marker_stops_owned_consumer_and_restores_handlers",
+        "status": "passed",
+        "seconds": 0.19536340000922792,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_artifact_contains_pipeline_and_selection_did_not_use_test",
+        "status": "passed",
+        "seconds": 7.800001185387373e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_changed_membership_is_rejected_before_training",
+        "status": "passed",
+        "seconds": 0.015566000016406178,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_fresh_process_single_and_batch_inference_match_in_memory",
+        "status": "passed",
+        "seconds": 4.621997599984752,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_inference_output_cannot_overwrite_raw_input",
+        "status": "passed",
+        "seconds": 1.897035500005586,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_mlflow_model_reloads_with_the_persisted_threshold",
+        "status": "passed",
+        "seconds": 0.14876760001061484,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_tracking_has_comparable_runs_artifacts_and_test_only_for_winner",
+        "status": "passed",
+        "seconds": 0.2580578000051901,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_all_three_real_estimators_can_fit_and_persist",
+        "status": "skipped",
+        "seconds": 5.269999383017421e-05,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_bad_numeric_and_missing_feature_columns_fail",
+        "status": "skipped",
+        "seconds": 1.1199997970834374e-05,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes",
+        "status": "skipped",
+        "seconds": 8.90000956133008e-06,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload",
+        "status": "skipped",
+        "seconds": 7.90000194683671e-06,
+        "detail": "Run via start-spark.ps1 -Task test in the Spark runtime"
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_batch_predictions_and_summary_match_the_saved_pipeline",
+        "status": "passed",
+        "seconds": 0.14004120000754483,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_empty_and_oversized_batches_are_rejected",
+        "status": "passed",
+        "seconds": 0.014743100007763132,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_health_reports_readiness_and_unavailable_model",
+        "status": "passed",
+        "seconds": 0.029447300010360777,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_invalid_customer_input_returns_a_useful_validation_error",
+        "status": "passed",
+        "seconds": 0.016151799994986504,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_missing_project_reports_return_unavailable_instead_of_fake_data",
+        "status": "passed",
+        "seconds": 0.005992499995045364,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_web_api.WebApiTests.test_single_prediction_matches_existing_pipeline_without_churn",
+        "status": "passed",
+        "seconds": 0.1568021000130102,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_commit_is_synchronous_and_checks_partition_errors",
+        "status": "passed",
+        "seconds": 0.00017630000365898013,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_options_reject_unbounded_batch_bad_limits_and_inference_group",
+        "status": "passed",
+        "seconds": 0.0001765000051818788,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_readiness_failure_does_not_create_kafka_client",
+        "status": "passed",
+        "seconds": 0.00011210000957362354,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retention_loss_is_not_reset_to_earliest",
+        "status": "passed",
+        "seconds": 6.770002073608339e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retries_are_bounded_and_stop_interrupts_backoff",
+        "status": "passed",
+        "seconds": 0.018519200006267056,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_runtime_needs_only_write_credentials",
+        "status": "passed",
+        "seconds": 7.020001066848636e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_configuration_requires_credentials_and_hides_them",
+        "status": "passed",
+        "seconds": 5.830000736750662e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_corrupt_bytes_and_nonobject_errors_are_rejected",
+        "status": "passed",
+        "seconds": 0.0003656999906525016,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_matches_existing_inference_contract",
+        "status": "passed",
+        "seconds": 0.00014259997988119721,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_logical_hash_excludes_retry_processing_time_but_not_probability",
+        "status": "passed",
+        "seconds": 0.004127199994400144,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_missing_total_charges_preserved_and_source_validated",
+        "status": "passed",
+        "seconds": 0.0036660000041592866,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_wire_validation_rejects_bad_keys_versions_probabilities_and_times",
+        "status": "passed",
+        "seconds": 0.004193700005998835,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_blank_charges_become_numeric_missing_without_dropping_rows",
+        "status": "passed",
+        "seconds": 0.029959900013636798,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_corrupt_values_fail_instead_of_becoming_missing",
+        "status": "passed",
+        "seconds": 0.12912840000353754,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_duplicate_ids_missing_required_values_and_schema_errors_fail",
+        "status": "passed",
+        "seconds": 0.07747680001193658,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_identifiers_and_target_are_not_features",
+        "status": "passed",
+        "seconds": 3.309999010525644e-05,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_memberships_are_complete_disjoint_and_stratified",
+        "status": "passed",
+        "seconds": 0.07194240001263097,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_memberships_are_reproducible_even_after_reordering",
+        "status": "passed",
+        "seconds": 0.10304850002285093,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_data_contract.DataContractTests.test_saved_memberships_rejoin_by_id_and_reject_partial_coverage",
+        "status": "passed",
+        "seconds": 0.10210929997265339,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_engine_metrics.EngineMetricsTests.test_comparison_uses_churn_f1_and_non_interpolated_average_precision",
+        "status": "passed",
+        "seconds": 0.022687500022584572,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_altered_payload_is_rejected",
+        "status": "passed",
+        "seconds": 0.03644429999985732,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_restore_is_idempotent_and_refuses_conflicting_models",
+        "status": "passed",
+        "seconds": 0.09225850002258085,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_restore_rejects_dataset_change_before_writing_any_model",
+        "status": "passed",
+        "seconds": 0.0325093999854289,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_traversal_unexpected_files_and_case_collisions_are_rejected",
+        "status": "passed",
+        "seconds": 0.060057700000470504,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_bundle.ModelBundleTests.test_verified_bundle_has_payload_and_archive_checksums",
+        "status": "passed",
+        "seconds": 0.002446700003929436,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_all_four_estimators_fit_and_predict_raw_records",
+        "status": "passed",
+        "seconds": 0.37858849999611266,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_bad_numeric_values_and_missing_feature_columns_fail",
+        "status": "passed",
+        "seconds": 0.1214015000150539,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_cv_relearns_medians_inside_each_training_fold",
+        "status": "passed",
+        "seconds": 0.3850778000196442,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_imputer_scaler_and_encoder_learn_only_from_fitted_rows",
+        "status": "passed",
+        "seconds": 0.1332676000020001,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_label_identifier_and_column_order_cannot_change_predictions",
+        "status": "passed",
+        "seconds": 0.16553529998054728,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_missing_values_and_unknown_categories_work_without_label_or_identifier",
+        "status": "passed",
+        "seconds": 0.11088500000187196,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_spark_archive.SparkArchiveTests.test_archive_cannot_be_written_inside_its_source_model",
+        "status": "passed",
+        "seconds": 0.0017381000216118991,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_spark_archive.SparkArchiveTests.test_archive_retains_deep_native_model_files_and_their_digest",
+        "status": "passed",
+        "seconds": 0.05527310000616126,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_threshold_selection.ThresholdSelectionTests.test_f1_ties_prefer_threshold_closest_to_half",
+        "status": "passed",
+        "seconds": 0.002059599995845929,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_threshold_selection.ThresholdSelectionTests.test_threshold_finds_best_f1_with_duplicate_probabilities",
+        "status": "passed",
+        "seconds": 0.009463399997912347,
+        "detail": null
+      }
+    ]
+  },
+  "browser": {
+    "startTime": "2026-10-20T14:48:26.055Z",
+    "duration": 28936.747,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "measurement": {
+    "event_id": "d9bc6548-6158-51d2-ac5d-b8934dfc3dbd",
+    "prediction_id": "8d3bf472af9a959b7c385dd09ad0214b703e98d9bff7461724633717b9258de8",
+    "model_version": "d9a13b4cf6839ed4",
+    "customer_id": "LIVE-DEMO-feae80246c61",
+    "published_at": "2026-10-20T14:48:42.461705+00:00",
+    "ingested_at": "2026-10-20T14:48:43.776675+00:00",
+    "visible_at": "2026-10-20T14:48:45.983Z",
+    "ingestion_to_visible_seconds": 2.207,
+    "poll_interval_ms": 5000,
+    "sql_agreement": {
+      "prediction_volume": 1,
+      "unique_events": 1,
+      "unique_customers": 1,
+      "mean_risk": 0.46054850775773537,
+      "predicted_churn_share": 1
+    }
+  },
+  "topics": {
+    "raw": "opsyntra.dashboard.20261020T144721Z-2b6356a4.raw",
+    "predictions": "opsyntra.dashboard.20261020T144721Z-2b6356a4.predictions",
+    "deadletter": "opsyntra.dashboard.20261020T144721Z-2b6356a4.deadletter"
+  },
+  "group_id": "opsyntra-dashboard-20261020T144721Z-2b6356a4",
+  "test_database": "separate configured analytics test database",
+  "fresh_servers": true,
+  "finished_at": "2026-10-20T14:48:56.278648+00:00",
+  "files": [
+    {
+      "path": "backend/src/opsyntra/analytics/read_api.py",
+      "sha256": "6004d697a5ceb7339fd6c809abde2d0a1db1b5629947ae4498d50efa4a842876"
+    },
+    {
+      "path": "backend/src/opsyntra/web_api.py",
+      "sha256": "e3d62ec9edea53d12a1e5e560d6b45406cd0917776ecf933ebdc0b82da3d53ae"
+    },
+    {
+      "path": "backend/pipelines/dashboard_event.py",
+      "sha256": "ce66e80dac686642d062f54b7920ac36f988ece24b1194f9aa016101d9913c6a"
+    },
+    {
+      "path": "backend/pipelines/analytics_dashboard_check.py",
+      "sha256": "291293da818357c790738602f6c77a1643a0bdeafe112a53f91ecfdb80bdb390"
+    },
+    {
+      "path": "backend/tests/integration/test_analytics_api.py",
+      "sha256": "a6a1ea598db98d529940234e127fe6b57ef82f598c946747379ff4e454243c31"
+    },
+    {
+      "path": "frontend/src/components/live-monitoring.tsx",
+      "sha256": "fa3a37e1c43dbc5dc7a27ddcbd5813543160b9dbbe7b05ee0b34329dea58c338"
+    },
+    {
+      "path": "frontend/src/lib/analytics-types.ts",
+      "sha256": "3ac79f8d0fa71271b306aa6ce614ee36ab005e1bf00f8a27ce2783e085066e7e"
+    },
+    {
+      "path": "frontend/src/app/api/[...path]/route.ts",
+      "sha256": "231610aa147e6ee81932ab46a1fa37d3889e1a56a0309014f39747966c6d5bde"
+    },
+    {
+      "path": "frontend/src/components/workspace.tsx",
+      "sha256": "3c79fa31a95042df76b9ab9287fc33dcde9649b811cdc7da4d2fcc0f1642aab4"
+    },
+    {
+      "path": "frontend/src/app/globals.css",
+      "sha256": "7b6d15e392acfeaa2763dc9280ac481bf2ddcb82b5f29b3e1d9e74a464665782"
+    },
+    {
+      "path": "frontend/playwright.config.ts",
+      "sha256": "bc9ed79bb1f3a7f44bfcc0da0aa50859183bc36ea0d404e0fc0c329f4fdce6c7"
+    },
+    {
+      "path": "frontend/tests/analytics.spec.ts",
+      "sha256": "833247bdfe4db7fed5d8ce72f9be8f9b513fbf318869f345de4e5b4f58ff7dec"
+    },
+    {
+      "path": "frontend/tests/workspace.spec.ts",
+      "sha256": "d0c38e6ca0c13b1d9569b880a1506ff714f664108520c99b0e5564d3411fbf0e"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/analytics-consumer.txt",
+      "sha256": "bc01420ca867cfe3243a710b25f8cdadaa2502ad96cc5bfb3fa30955ad37ddd6"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/backend-tests.txt",
+      "sha256": "ddb3f22aabbc2a4d06b88466f602277a1108b460f2867da0517fdbe3b35bd0c6"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/browser-summary.json",
+      "sha256": "2161c58017fcaf0c904413d648b735abb7af11c6d0d630535f66b03c69df4381"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/browser-tests.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/browser-tests.stdout.txt",
+      "sha256": "11604610606bad559f48b9897ba3a174fc7770002e72ce74ca143078902bc87f"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/prediction-consumer.txt",
+      "sha256": "10960a846b6baffdb5de994f401a95b4a0787ecabf5b216fdbabee908be4e2bd"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/producer.txt",
+      "sha256": "44a1b8a644b6d14ab5093b86a9400a59cadf09880065e385fc7dfebc603280f7"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/production-build.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/production-build.stdout.txt",
+      "sha256": "a7a8f3fbd89469e9729f573499edfc06b7d4633cdc6d63d3385ef8505e0cc153"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/typecheck.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/typecheck.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/dashboard/20261020T144721Z-2b6356a4/visibility.json",
+      "sha256": "33e154c0de289e8f524082805d9688298f74a3dfa1156113ae22926a8c736256"
+    },
+    {
+      "path": "docs/screenshots/phase4/frontend-desktop.png",
+      "sha256": "cf698c8d0bb055639130b5cc432181207b89ef3dc3166223aa1c5d435f5a0d28"
+    },
+    {
+      "path": "docs/screenshots/phase4/frontend-mobile.png",
+      "sha256": "ed0ed83a61b7da81c237f52684b533d07f86f1095c937c0cf0e518e851158130"
+    },
+    {
+      "path": "docs/screenshots/phase4/frontend-prediction.png",
+      "sha256": "9e3cadb9a24b5270de83f82a68b2ca93aa0b6dcacec16548aebf76521a89f985"
+    },
+    {
+      "path": "docs/screenshots/phase4/live-monitoring-mobile.png",
+      "sha256": "3acd5d2c707df0e959b2f7176389a355648ccf245ae05b400c0cf5dbf579802f"
+    },
+    {
+      "path": "docs/screenshots/phase4/live-monitoring.png",
+      "sha256": "82078048ee3b9d7751e888e3b77d37c6d5778bd7f4392cf8f98d014de9ac0ee9"
+    }
+  ]
+}

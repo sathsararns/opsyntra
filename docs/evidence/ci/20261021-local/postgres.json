@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "profile": "postgres",
+  "python": "3.12.3",
+  "checked_at": "2026-10-21T06:08:16.351398+00:00",
+  "tests_run": 30,
+  "passed": 30,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 1.9142061010000013,
+  "tests": [
+    {
+      "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_high_risk_uses_latest_customer_event_before_threshold",
+      "status": "passed",
+      "seconds": 0.12353720000000123,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_pagination_identity_and_literal_sql_input",
+      "status": "passed",
+      "seconds": 0.10161771799999997,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_summary_counts_and_segments_equal_sql",
+      "status": "passed",
+      "seconds": 0.0849932169999974,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_api.AnalyticsApiDatabaseTests.test_timeseries_sums_and_successful_empty_response",
+      "status": "passed",
+      "seconds": 0.10490003099999967,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_ambiguous_database_commit_retries_idempotently_before_input_commit",
+      "status": "passed",
+      "seconds": 0.0718495180000005,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_before_commit_failure_rolls_back_facts_and_quarantine",
+      "status": "passed",
+      "seconds": 0.0270350619999995,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_changed_quarantined_or_accepted_coordinates_stop_without_new_facts",
+      "status": "passed",
+      "seconds": 0.04300788500000152,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_database_failure_never_commits_inputs",
+      "status": "passed",
+      "seconds": 0.04974312399999903,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_graceful_stop_finishes_current_database_and_input_commit",
+      "status": "passed",
+      "seconds": 0.053771026999999805,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_input_commit_observes_durable_database_rows_and_auto_commit_disabled",
+      "status": "passed",
+      "seconds": 0.05087278699999942,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_late_raw_and_prediction_recompute_old_time_buckets",
+      "status": "passed",
+      "seconds": 0.04783968899999991,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_ingestion.AnalyticsIngestionTests.test_malformed_tombstones_oversized_and_conflicts_are_durable_rejections",
+      "status": "passed",
+      "seconds": 0.04445755699999765,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_concurrent_duplicate_inserts_have_one_logical_winner",
+      "status": "passed",
+      "seconds": 0.3158145119999993,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_conflicting_prediction_and_model_alias_are_rejected",
+      "status": "passed",
+      "seconds": 0.02880765399999774,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_coordinate_conflict_rolls_back_entire_new_logical_event",
+      "status": "passed",
+      "seconds": 0.03284465699999828,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_database_enforces_probability_foreign_keys_and_labels",
+      "status": "passed",
+      "seconds": 0.030632211000000353,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_deadletter_replay_and_conflicting_error_are_separate_from_predictions",
+      "status": "passed",
+      "seconds": 0.0250302220000016,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_distinct_models_engines_and_event_counts_are_not_customer_counts",
+      "status": "passed",
+      "seconds": 0.03734026000000057,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_failed_migration_rolls_back_ddl_and_version",
+      "status": "passed",
+      "seconds": 0.030506549999998356,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_logical_duplicates_keep_first_processing_time_and_count_deliveries",
+      "status": "passed",
+      "seconds": 0.04372495100000151,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_migrations_rerun_and_detect_checksum_changes",
+      "status": "passed",
+      "seconds": 0.052699172000000516,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_prediction_first_then_raw_joins_by_original_event",
+      "status": "passed",
+      "seconds": 0.04206051700000302,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_and_prediction_customer_or_time_conflicts_in_either_order",
+      "status": "passed",
+      "seconds": 0.04074683399999657,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_raw_duplicates_and_conflicting_features",
+      "status": "passed",
+      "seconds": 0.03543365099999818,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_reader_cannot_write_and_writer_cannot_update_delete_or_migrate",
+      "status": "passed",
+      "seconds": 0.032936580999997744,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_repeated_customer_uses_event_profile_not_latest_profile",
+      "status": "passed",
+      "seconds": 0.04811994499999983,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_transaction_rollback_removes_fact_identity_and_provenance",
+      "status": "passed",
+      "seconds": 0.028839353999998707,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_storage.AnalyticsStorageTests.test_utc_storage_keeps_timezone_display_out_of_the_fact",
+      "status": "passed",
+      "seconds": 0.028223464999999948,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_empty_snapshot_has_real_zero_counts_and_null_risk",
+      "status": "passed",
+      "seconds": 0.05661633700000124,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_out_of_order_and_duplicate_events_match_dashboard_and_views",
+      "status": "passed",
+      "seconds": 0.06876686900000095,
+      "detail": null
+    }
+  ]
+}

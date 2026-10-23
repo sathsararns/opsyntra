@@ -184,10 +184,11 @@ class AnalyticsStorageTests(unittest.TestCase):
 
     def test_reader_cannot_write_and_writer_cannot_update_delete_or_migrate(self):
         import psycopg
+        owner_role = psycopg.sql.Identifier(self.owner.info.user).as_string(self.owner)
         # Turn off client-side read-only mode: real GRANTs must still protect it.
         self.read.execute("SET default_transaction_read_only=off")
         for connection, statements in [(self.read, ["DELETE FROM analytics.customer_events", "INSERT INTO analytics.customer_events(event_id,customer_id,event_ts) VALUES (gen_random_uuid(),'x',now())"]),
-            (self.write, ["UPDATE analytics.customer_events SET customer_id='x'", "DELETE FROM analytics.kafka_deliveries", "TRUNCATE analytics.kafka_deliveries", "CREATE SCHEMA forbidden", "CREATE TABLE analytics.forbidden(x int)", "SELECT * FROM analytics.schema_migrations", "SET ROLE opsyntra_analytics_owner"])]:
+            (self.write, ["UPDATE analytics.customer_events SET customer_id='x'", "DELETE FROM analytics.kafka_deliveries", "TRUNCATE analytics.kafka_deliveries", "CREATE SCHEMA forbidden", "CREATE TABLE analytics.forbidden(x int)", "SELECT * FROM analytics.schema_migrations", "SET ROLE " + owner_role])]:
             for statement in statements:
                 with self.subTest(statement=statement), self.assertRaises(psycopg.errors.InsufficientPrivilege): connection.execute(statement)
 

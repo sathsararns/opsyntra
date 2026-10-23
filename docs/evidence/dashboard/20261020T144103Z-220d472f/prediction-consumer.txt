@@ -1,0 +1,3 @@
+2026-10-20 20:12:04,689 INFO Loaded sklearn model once: version=d9a13b4cf6839ed4 group=opsyntra-dashboard-20261020T144103Z-220d472f-inference
+%4|1792507325.260|GETPID|opsyntra-customer-producer#producer-2| [thrd:main]: Failed to acquire idempotence PID from broker 127.0.0.1:9092/1: Broker: Coordinator load in progress: retrying
+2026-10-20 20:12:28,757 INFO COMMITTED input=1 predictions=1 deadletters=0 duplicates=0 offsets={'0': 1}

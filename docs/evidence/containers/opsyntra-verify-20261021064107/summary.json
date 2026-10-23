@@ -1,0 +1,55 @@
+{
+  "scope": {
+    "start": "2026-10-20T06:42:04.636541+00:00",
+    "end": "2026-10-21T06:42:04.636541+00:00",
+    "engine": "sklearn",
+    "model_version": "34e84e9fa5d1de06"
+  },
+  "timezone": "Asia/Colombo",
+  "generated_at": "2026-10-21T06:42:04.642786+00:00",
+  "metrics": {
+    "prediction_volume": 3,
+    "unique_events": 3,
+    "unique_customers": 3,
+    "predicted_churn_share": 0.3333333333333333,
+    "mean_risk": 0.29158870621639393,
+    "matched_raw_predictions": 3,
+    "mean_processing_latency_seconds": 10.933361,
+    "last_ingested_at": "2026-10-21T06:42:04.383467+00:00"
+  },
+  "segments": {
+    "contract": [
+      {
+        "label": "One year",
+        "predictions": 2,
+        "mean_risk": 0.09342531047150898
+      },
+      {
+        "label": "Month-to-month",
+        "predictions": 1,
+        "mean_risk": 0.6879154977061639
+      }
+    ],
+    "payment_method": [
+      {
+        "label": "Electronic check",
+        "predictions": 2,
+        "mean_risk": 0.3716191244618107
+      },
+      {
+        "label": "Credit card (automatic)",
+        "predictions": 1,
+        "mean_risk": 0.13152786972556038
+      }
+    ]
+  },
+  "available_models": [
+    {
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06",
+      "last_ingested_at": "2026-10-21T06:42:04.383467+00:00"
+    }
+  ],
+  "raw_event_volume": 3,
+  "raw_event_scope": "all engines/models in the event-time window"
+}

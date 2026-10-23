@@ -216,14 +216,14 @@
     "selection_metric": "average_precision",
     "decision_threshold": 0.27634161843869615,
     "tracking": {
-      "batch_id": "e9ff7cc485d94719b8f40ac9e98975c7",
+      "batch_id": "9f64a429df7f42b3a72bedc1b8b29b20",
       "experiment_id": "1",
       "experiment_name": "Opsyntra-Telco-sklearn",
       "runs": {
-        "dummy": "b069db745a834e93957a19a4a7461bfb",
-        "logistic_regression": "f8271f72222d4315bef4b3f375b2655b",
-        "random_forest": "2bdb3c5badfc44f594eb7f963ad13fbd",
-        "xgboost": "bd5f72803c5146979c30e506eac9da21"
+        "dummy": "cefaf3f3b2e348da88b1f4990cfb7ad8",
+        "logistic_regression": "323af2b49c2a4a58bb30ba078dc70d1f",
+        "random_forest": "b877c5c27d884d2fb81dab882ee74592",
+        "xgboost": "620bd29aef8840ffb10e718964ea8ce9"
       },
       "uri": "sqlite:///C:/Users/SATHSARA/Desktop/Opsyntra/backend/mlflow.db"
     },
@@ -233,7 +233,7 @@
         "selected": false,
         "best_parameters": {},
         "cv_mean_score": 0.26532541750005373,
-        "training_seconds": 0.7281,
+        "training_seconds": 1.0197,
         "validation": {
           "accuracy": 0.7345635202271115,
           "average_precision": 0.2654364797728886,
@@ -254,7 +254,7 @@
         },
         "model_version": "1e891f9e9fe84343",
         "decision_threshold": 0.5,
-        "mlflow_run_id": "b069db745a834e93957a19a4a7461bfb"
+        "mlflow_run_id": "cefaf3f3b2e348da88b1f4990cfb7ad8"
       },
       {
         "name": "logistic_regression",
@@ -263,7 +263,7 @@
           "classifier__C": 1.0
         },
         "cv_mean_score": 0.6533964076910079,
-        "training_seconds": 1.8896,
+        "training_seconds": 1.4641,
         "validation": {
           "accuracy": 0.765791341376863,
           "average_precision": 0.6504785475097874,
@@ -284,7 +284,7 @@
         },
         "model_version": "f33389edebdc9cb3",
         "decision_threshold": 0.3300580620487482,
-        "mlflow_run_id": "f8271f72222d4315bef4b3f375b2655b"
+        "mlflow_run_id": "323af2b49c2a4a58bb30ba078dc70d1f"
       },
       {
         "name": "random_forest",
@@ -294,7 +294,7 @@
           "classifier__min_samples_leaf": 5
         },
         "cv_mean_score": 0.6607159562809284,
-        "training_seconds": 11.0904,
+        "training_seconds": 7.7053,
         "validation": {
           "accuracy": 0.7466288147622427,
           "average_precision": 0.662602792960054,
@@ -315,7 +315,7 @@
         },
         "model_version": "d9a13b4cf6839ed4",
         "decision_threshold": 0.27634161843869615,
-        "mlflow_run_id": "2bdb3c5badfc44f594eb7f963ad13fbd"
+        "mlflow_run_id": "b877c5c27d884d2fb81dab882ee74592"
       },
       {
         "name": "xgboost",
@@ -325,7 +325,7 @@
           "classifier__max_depth": 3
         },
         "cv_mean_score": 0.663176713604046,
-        "training_seconds": 6.3103,
+        "training_seconds": 4.0719,
         "validation": {
           "accuracy": 0.7828246983676366,
           "average_precision": 0.652192023762028,
@@ -346,7 +346,7 @@
         },
         "model_version": "f1613db4c352f815",
         "decision_threshold": 0.3751855492591858,
-        "mlflow_run_id": "bd5f72803c5146979c30e506eac9da21"
+        "mlflow_run_id": "620bd29aef8840ffb10e718964ea8ce9"
       }
     ]
   },

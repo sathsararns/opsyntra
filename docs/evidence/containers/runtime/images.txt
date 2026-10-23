@@ -1,0 +1,4 @@
+["opsyntra-verify-20261021064526-backend:local"] sha256:6344486cd3a4c2b2df901471a12bf4a3b1e259fd7d57d541a1a91b67bee476ff 1482431240
+["opsyntra-verify-20261021064526-frontend:local"] sha256:985248ca455d6a78819b52f5f6247eeca83f114f4a5cb44e798f51956169cc33 422099017
+["opsyntra-container-tools-spark:local","opsyntra-verify-20261021064526-spark:local"] sha256:00a6932308ba00567f50a57e96c809aa2c67308460cf8bc6d2a3e5152873cadc 2629827849
+["opsyntra-container-tools-airflow:local","opsyntra-verify-20261021064526-airflow:local"] sha256:fc825671e48969fb31928554259b54bb7b3608632ec1a79e03adcc1ec3dc0e2d 5664171087

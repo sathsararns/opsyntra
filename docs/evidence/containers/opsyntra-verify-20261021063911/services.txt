@@ -1,0 +1,10 @@
+NAME                                           IMAGE                                           COMMAND                  SERVICE       CREATED          STATUS                              PORTS
+opsyntra-verify-20261021063911-analytics-1     opsyntra-verify-20261021063911-backend:local    "python container_ru…"   analytics     24 seconds ago   Up 13 seconds (healthy)             
+opsyntra-verify-20261021063911-api-1           opsyntra-verify-20261021063911-backend:local    "python container_ru…"   api           24 seconds ago   Created                             
+opsyntra-verify-20261021063911-db-init-1       opsyntra-verify-20261021063911-backend:local    "python container_ru…"   db-init       24 seconds ago   Exited (0) 14 seconds ago           
+opsyntra-verify-20261021063911-frontend-1      opsyntra-verify-20261021063911-frontend:local   "docker-entrypoint.s…"   frontend      24 seconds ago   Created                             
+opsyntra-verify-20261021063911-inference       opsyntra-verify-20261021063911-backend:local    "python container_ru…"   inference     24 seconds ago   Created                             
+opsyntra-verify-20261021063911-kafka-1         apache/kafka:4.3.1                              "/__cacert_entrypoin…"   kafka         24 seconds ago   Up 22 seconds (healthy)             127.0.0.1:1123->9092/tcp
+opsyntra-verify-20261021063911-model-init-1    opsyntra-verify-20261021063911-backend:local    "python container_ru…"   model-init    24 seconds ago   Exited (1) Less than a second ago   
+opsyntra-verify-20261021063911-postgres-1      postgres:17.6-bookworm                          "docker-entrypoint.s…"   postgres      24 seconds ago   Up 22 seconds (healthy)             127.0.0.1:1124->5432/tcp
+opsyntra-verify-20261021063911-topics-init-1   opsyntra-verify-20261021063911-backend:local    "python container_ru…"   topics-init   24 seconds ago   Exited (0) 13 seconds ago           

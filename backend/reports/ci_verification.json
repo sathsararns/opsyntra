@@ -1,0 +1,345 @@
+{
+  "status": "LOCAL_PASS_HOSTED_PENDING",
+  "checked_at": "2026-10-21T06:14:02.124980+00:00",
+  "baseline_commit": "5dec01175838959c061525deea1747731d6e6ed2",
+  "source_state": "Includes uncommitted Phase 4/5/6 implementation; disposable copy, not a GitHub-hosted runner",
+  "repository": "https://github.com/sathsararns/opsyntra",
+  "default_branch": "master",
+  "hosted_run_urls": [],
+  "profiles": {
+    "core": {
+      "status": "PASS",
+      "python": "3.12.3",
+      "tests_run": 91,
+      "passed": 91,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 79.59114322099998
+    },
+    "postgres": {
+      "status": "PASS",
+      "python": "3.12.3",
+      "tests_run": 30,
+      "passed": 30,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 1.9142061010000013
+    },
+    "spark": {
+      "status": "PASS",
+      "python": "3.12.3",
+      "tests_run": 4,
+      "passed": 4,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 166.901177222
+    }
+  },
+  "browser": {
+    "startTime": "2026-10-21T06:03:43.758Z",
+    "duration": 36810.523,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "frontend": {
+    "npm_ci": "PASS; fresh node_modules from existing offline cache",
+    "typegen": "PASS",
+    "typecheck": "PASS",
+    "production_build": "PASS",
+    "runtime": "Windows Node + Edge; browser uses newly fitted synthetic 120-customer model"
+  },
+  "kafka": {
+    "status": "PASS",
+    "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+    "topics": {
+      "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+      "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+    },
+    "final_counts": {
+      "deliveries": 9,
+      "errors": 5,
+      "predictions": 3,
+      "metrics": [
+        {
+          "engine": "sklearn",
+          "prediction_volume": 2,
+          "unique_customers": 1,
+          "matched_raw_predictions": 2
+        },
+        {
+          "engine": "spark",
+          "prediction_volume": 1,
+          "unique_customers": 1,
+          "matched_raw_predictions": 1
+        }
+      ]
+    },
+    "stages": [
+      {
+        "stage": "crash-after-database-commit",
+        "exit_code": 86
+      },
+      {
+        "stage": "restart-after-commit",
+        "exit_code": 0
+      },
+      {
+        "stage": "known-event-snapshot",
+        "exit_code": 0
+      },
+      {
+        "stage": "new-group-full-replay",
+        "exit_code": 0
+      },
+      {
+        "stage": "completed-group-restart",
+        "exit_code": 0
+      },
+      {
+        "stage": "crash-before-database-commit",
+        "exit_code": 86
+      },
+      {
+        "stage": "restart-before-commit",
+        "exit_code": 0
+      },
+      {
+        "stage": "database-unavailable",
+        "exit_code": 1
+      },
+      {
+        "stage": "bounded-streaming",
+        "exit_code": 0
+      }
+    ]
+  },
+  "services": {
+    "status": "PASS",
+    "postgres_port": 55433,
+    "kafka_port": 19092,
+    "kafka_version": "4.3.1",
+    "ephemeral_databases": true,
+    "ci_database_provisioning": "PASS",
+    "containers": false
+  },
+  "failure_injection": {
+    "status": "PASS",
+    "expected_ci_exit": 1,
+    "actual_exit": 1,
+    "change": "Included Churn among predictors in the disposable checkout only",
+    "real_test_failed": "test_identifiers_and_target_are_not_features",
+    "restored_source_sha256": "a50224535cc66cd83296a2200235b99a98ed387bbb853bd01734f92f7b80e8cc",
+    "failures": 2,
+    "errors": 15
+  },
+  "workflow_validation": {
+    "tool": "actionlint",
+    "version": "1.7.12",
+    "status": "PASS",
+    "archive_sha256": "6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9"
+  },
+  "isolation": {
+    "raw_csv_available_before_tests": false,
+    "model_available_before_tests": false,
+    "all_split_csvs_excluded": true,
+    "project_credentials_excluded": true,
+    "linux_environment": "fresh venv, system site packages disabled; all dependencies installed with --require-hashes",
+    "application_groups_reset": false,
+    "application_services_stopped": false
+  },
+  "limitations": [
+    "No hosted GitHub workflow has run; commit/push is required.",
+    "Local service checks used isolated native PostgreSQL/Kafka, not Docker images.",
+    "Browser proof used Windows/Edge; hosted Chromium remains to be confirmed.",
+    "The full-data workflow is defined, but not executed; it requires a public checksum-exact CSV URL."
+  ],
+  "credential_scan": "PASS",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "7806ff6d8b024b21f74bd2095a9a4ef3466f2c288d4bd66bc0edf0c30a28af72"
+    },
+    {
+      "path": ".github/workflows/full-data.yml",
+      "sha256": "f0f8867ed68f1921fa0a2b9988933acea492b5c3db05e123f6c4e51cacbd2563"
+    },
+    {
+      "path": ".github/workflows/spark.yml",
+      "sha256": "819de9401e540287ac0539f50bae5ffa60e5b3614f0ac718a22131cd798209bf"
+    },
+    {
+      "path": "backend/requirements/ci-py312-linux.lock",
+      "sha256": "0289efbeb683730d4afa2ff50110253d979ee71d5a0f845b950052e9caeef503"
+    },
+    {
+      "path": "backend/requirements/ci-spark-py312-linux.lock",
+      "sha256": "502db95049b5aa1a1f2c121d3c92c03c7c4cdbf60939ee499d9b56e8431bad3b"
+    },
+    {
+      "path": "backend/requirements/ci-spark.in",
+      "sha256": "7b198a446d44cd96cb328e52ae5d434c907665e8ac3c105cc5ad92a56446c953"
+    },
+    {
+      "path": "backend/requirements/ci.in",
+      "sha256": "6dd99c3540287cb1899b76e50159e8b948f33efbadc94db75d28ac9fa0a1bd4c"
+    },
+    {
+      "path": "backend/pipelines/ci_api.py",
+      "sha256": "8bfe0890290db61acaa68b797964d30ba1d21bd5a8585d2858ffe918a0f5b2c5"
+    },
+    {
+      "path": "backend/pipelines/ci_checks.py",
+      "sha256": "dd37cc57bde9dc73272b464d2239202c41d271477b02e17348d03016c3034c7a"
+    },
+    {
+      "path": "backend/pipelines/ci_database.py",
+      "sha256": "5790bab621733db2a670e846dbc9cf71fbe93da8645203d65d80af845fa31076"
+    },
+    {
+      "path": "backend/pipelines/ci_kafka.py",
+      "sha256": "6f6f7fc02b3090da647e53605298704bb899c7e3e7a3594588b23bb12db2ef5e"
+    },
+    {
+      "path": "backend/pipelines/ci_prepare.py",
+      "sha256": "a410e7827dfa07fc4dd67ca37f230cf8b9cefda687ded68f5118ff9307aa9247"
+    },
+    {
+      "path": "backend/pipelines/analytics_consumer_check.py",
+      "sha256": "ad46b9694ed454919b2d4823e324b3f4824740feb9948d2ae9f3e7eb72352dcc"
+    },
+    {
+      "path": "backend/tests/integration/test_analytics_storage.py",
+      "sha256": "afb0eef9a0e0b3776b24bda836f20aaf0778df35c971a8da7a6c441c89c45a48"
+    },
+    {
+      "path": "backend/tests/integration/test_spark_workflow.py",
+      "sha256": "9827f1bacfc92df002c1bddde72928a56ffedbc1ab5849fc1d9a58fe23e12f94"
+    },
+    {
+      "path": "frontend/playwright.ci.config.ts",
+      "sha256": "a5bc7906f1953659c8b24d77214d541bc692923a65046852ee0ffbd66afbb09c"
+    },
+    {
+      "path": "frontend/tests/ci/workspace.ci.ts",
+      "sha256": "817984348e7f4c01df6be89b3a1a781915b1e00daeca82ece0990609a96ba5ce"
+    },
+    {
+      "path": "docs/CI.md",
+      "sha256": "d68c22f97ff02d712b3439f54dedd3efc02f1202e11147cab72940624a498a43"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/broken-proof.json",
+      "sha256": "5f3ed153053ece9b013f317846d9d59304ee3590222b41b5e33457934675723d"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/browser-report.html",
+      "sha256": "d6642178709047fa571f3f681a0cc31fb062e0beb9e5f8ab47c34eaaa37f6c82"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/ci-browser.json",
+      "sha256": "6bd6a2b90ec1577233a633b8a46718eb89ddcb5723583bb9fd9e980f392c3ff7"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/ci-browser.xml",
+      "sha256": "f905ee10ccfac8cd4033ec3698b2fcfbcc8fe947cf00d15aa42762e82430c31f"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/core.json",
+      "sha256": "41bd4d00e4ac4f632d4333fbec199cb42d426530996c97e2eadfed2fbe3d9dcf"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/core.txt",
+      "sha256": "34e9f1459a70c7bb7ab3d6d929c5f540d704771f25f9140f7acb2538e92fa37b"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/core.xml",
+      "sha256": "a8125554703bc25eafe515ae22c9fbea46b1ff9cdca6aeb8394417019af58678"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/deliberately-broken-core.json",
+      "sha256": "a039beb215598c2d94a626490061445092d716e762b13440db823280037e0ea2"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/deliberately-broken-core.txt",
+      "sha256": "c66d51c34fd43e73234376f7914974b366d9c179315b5189f5c4154c61a5ccb4"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/bounded-streaming.txt",
+      "sha256": "df296d6437102ac0fb20300c63ee3ec21b25b6cd2f49425d2560bbd1a75cdc02"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/completed-group-restart.txt",
+      "sha256": "e476a1d1611004fcef78f2338a456cae7bcbd5118381d92180dabf117b67e3fb"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/crash-after-database-commit.txt",
+      "sha256": "69cacb3e045f6176ddd11a3e3844cccb9b0858815489646d56d5b43c627d056d"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/crash-before-database-commit.txt",
+      "sha256": "d0f4a716e0f531272ec0cbae82ae38c7a4dbf32b8cc009009d6fff9213534440"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/database-unavailable.txt",
+      "sha256": "cb09941ee73b32f84f19f3a426b6b2f82e99eaa1fa39ddf8d79dc8f18858b85f"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/known-event-snapshot.txt",
+      "sha256": "9ffb0363ef51264693fb7aff86cb8d1ab3cccf4b044d133f71d544d1c313c76c"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/new-group-full-replay.txt",
+      "sha256": "cc255c093fef6790c77dd93173d499af96c703771d06eaa5730fc14b34587637"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/restart-after-commit.txt",
+      "sha256": "281678246e3cfcd01282389233d7353fb744f1678f247af860c02327c5da0d04"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/restart-before-commit.txt",
+      "sha256": "ddb48d42e34d2c2c30dd63ef9b8c7626d008970214f35c351a69227d4b2a4e76"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka/result.json",
+      "sha256": "2eb56d6c7a8e7fc30f0b5774325d00e4445d79677926b9e30e3ad5a8f445643c"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/kafka-process.txt",
+      "sha256": "f0fe4e244d245651b610b6d6ec422fd823949e1aca876689915957ff05695601"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/postgres.json",
+      "sha256": "654be8c7c26a8cdc10cb3d85ce0ddf9658f84063dce981fbbc30c56e82a3ef64"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/postgres.txt",
+      "sha256": "1001655e7869c89194629a688807265d8053a502738af1992e8c8444cce15930"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/postgres.xml",
+      "sha256": "ac250b8ee4fc51d1c0de1ce3561456da6593b832280d62b7f1e4cb904f786927"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/services.json",
+      "sha256": "5b367b3d1e50fa0b2f78ea49b16801653045053b126be0b29091561fb0d6d4fb"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/spark.json",
+      "sha256": "eb43f0f170c2eccba68af00b870296bd3665ca319fc58e6dfd78724ba0d2a9d6"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/spark.txt",
+      "sha256": "3f0e74e9c79d3e1b94337bed16691ca6d80484bc8f840d9eb9c8252beeff0f82"
+    },
+    {
+      "path": "docs/evidence/ci/20261021-local/spark.xml",
+      "sha256": "548dc8eebfac9ca54c8f5c71a035531d8d4888799dda8bca9e3da16bb901b97c"
+    }
+  ]
+}

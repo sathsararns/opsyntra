@@ -1,0 +1,500 @@
+{
+  "status": "PASS",
+  "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+  "topics": {
+    "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+    "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+    "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+  },
+  "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2",
+  "model_version": "verify-ebc066562f5c4094975467fd8aec20b2",
+  "published": 14,
+  "events": [
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+      "partition": 0,
+      "offset": 0,
+      "kind": "predictions"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 0,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 1,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 2,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 3,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 4,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 5,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 6,
+      "kind": "raw"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+      "partition": 0,
+      "offset": 1,
+      "kind": "predictions"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+      "partition": 0,
+      "offset": 2,
+      "kind": "predictions"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+      "partition": 0,
+      "offset": 3,
+      "kind": "predictions"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+      "partition": 0,
+      "offset": 4,
+      "kind": "predictions"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+      "partition": 0,
+      "offset": 0,
+      "kind": "deadletter"
+    },
+    {
+      "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw",
+      "partition": 0,
+      "offset": 7,
+      "kind": "raw"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "crash-after-database-commit",
+      "exit_code": 86,
+      "log": "backend/artifacts/ci/reports/kafka/crash-after-database-commit.txt",
+      "result": null
+    },
+    {
+      "stage": "restart-after-commit",
+      "exit_code": 0,
+      "log": "backend/artifacts/ci/reports/kafka/restart-after-commit.txt",
+      "result": {
+        "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+        "committed_offsets": [
+          {
+            "offset": 1,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          }
+        ],
+        "database_batches_committed": 1,
+        "database_retries": 0,
+        "deadletter_inserted": 0,
+        "deliveries_inserted": 0,
+        "elapsed_seconds": 10.130793065999999,
+        "event_conflicts": 0,
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2",
+        "kafka_commits": 1,
+        "logical_duplicates": 1,
+        "mode": "batch",
+        "prediction_inserted": 0,
+        "quarantine_duplicates": 0,
+        "quarantine_inserted": 0,
+        "raw_inserted": 0,
+        "records": 1,
+        "rejected": 0,
+        "snapshot": [
+          {
+            "end": 0,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "end": 1,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "end": 0,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "status": "complete",
+        "topics": {
+          "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+          "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+          "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+        }
+      }
+    },
+    {
+      "stage": "known-event-snapshot",
+      "exit_code": 0,
+      "log": "backend/artifacts/ci/reports/kafka/known-event-snapshot.txt",
+      "result": {
+        "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+        "committed_offsets": [
+          {
+            "offset": 1,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "offset": 5,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "offset": 7,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "database_batches_committed": 1,
+        "database_retries": 0,
+        "deadletter_inserted": 1,
+        "deliveries_inserted": 7,
+        "elapsed_seconds": 1.1206701039999984,
+        "event_conflicts": 1,
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2",
+        "kafka_commits": 1,
+        "logical_duplicates": 2,
+        "mode": "batch",
+        "prediction_inserted": 2,
+        "quarantine_duplicates": 0,
+        "quarantine_inserted": 5,
+        "raw_inserted": 2,
+        "records": 12,
+        "rejected": 5,
+        "snapshot": [
+          {
+            "end": 1,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "end": 5,
+            "partition": 0,
+            "start": 1,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "end": 7,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "status": "complete",
+        "topics": {
+          "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+          "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+          "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+        }
+      }
+    },
+    {
+      "stage": "new-group-full-replay",
+      "exit_code": 0,
+      "log": "backend/artifacts/ci/reports/kafka/new-group-full-replay.txt",
+      "result": {
+        "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+        "committed_offsets": [
+          {
+            "offset": 1,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "offset": 5,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "offset": 7,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "database_batches_committed": 1,
+        "database_retries": 0,
+        "deadletter_inserted": 0,
+        "deliveries_inserted": 0,
+        "elapsed_seconds": 1.1164839730000011,
+        "event_conflicts": 1,
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2-replay",
+        "kafka_commits": 1,
+        "logical_duplicates": 8,
+        "mode": "batch",
+        "prediction_inserted": 0,
+        "quarantine_duplicates": 5,
+        "quarantine_inserted": 0,
+        "raw_inserted": 0,
+        "records": 13,
+        "rejected": 5,
+        "snapshot": [
+          {
+            "end": 1,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "end": 5,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "end": 7,
+            "partition": 0,
+            "start": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "status": "complete",
+        "topics": {
+          "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+          "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+          "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+        }
+      }
+    },
+    {
+      "stage": "completed-group-restart",
+      "exit_code": 0,
+      "log": "backend/artifacts/ci/reports/kafka/completed-group-restart.txt",
+      "result": {
+        "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+        "committed_offsets": [],
+        "database_batches_committed": 0,
+        "database_retries": 0,
+        "deadletter_inserted": 0,
+        "deliveries_inserted": 0,
+        "elapsed_seconds": 1.0784977530000006,
+        "event_conflicts": 0,
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2",
+        "kafka_commits": 0,
+        "logical_duplicates": 0,
+        "mode": "batch",
+        "prediction_inserted": 0,
+        "quarantine_duplicates": 0,
+        "quarantine_inserted": 0,
+        "raw_inserted": 0,
+        "records": 0,
+        "rejected": 0,
+        "snapshot": [
+          {
+            "end": 1,
+            "partition": 0,
+            "start": 1,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "end": 5,
+            "partition": 0,
+            "start": 5,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "end": 7,
+            "partition": 0,
+            "start": 7,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "status": "complete",
+        "topics": {
+          "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+          "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+          "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+        }
+      }
+    },
+    {
+      "stage": "crash-before-database-commit",
+      "exit_code": 86,
+      "log": "backend/artifacts/ci/reports/kafka/crash-before-database-commit.txt",
+      "result": null
+    },
+    {
+      "stage": "restart-before-commit",
+      "exit_code": 0,
+      "log": "backend/artifacts/ci/reports/kafka/restart-before-commit.txt",
+      "result": {
+        "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+        "committed_offsets": [
+          {
+            "offset": 8,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "database_batches_committed": 1,
+        "database_retries": 0,
+        "deadletter_inserted": 0,
+        "deliveries_inserted": 1,
+        "elapsed_seconds": 9.118138271999996,
+        "event_conflicts": 0,
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2",
+        "kafka_commits": 1,
+        "logical_duplicates": 0,
+        "mode": "batch",
+        "prediction_inserted": 0,
+        "quarantine_duplicates": 0,
+        "quarantine_inserted": 0,
+        "raw_inserted": 1,
+        "records": 1,
+        "rejected": 0,
+        "snapshot": [
+          {
+            "end": 1,
+            "partition": 0,
+            "start": 1,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "end": 5,
+            "partition": 0,
+            "start": 5,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "end": 8,
+            "partition": 0,
+            "start": 7,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "status": "complete",
+        "topics": {
+          "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+          "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+          "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+        }
+      }
+    },
+    {
+      "stage": "database-unavailable",
+      "exit_code": 1,
+      "log": "backend/artifacts/ci/reports/kafka/database-unavailable.txt",
+      "result": {
+        "error_type": "OperationalError",
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2",
+        "message": "Analytics ingestion stopped; inspect readiness/configuration and rerun the same group for safe replay",
+        "status": "failed"
+      }
+    },
+    {
+      "stage": "bounded-streaming",
+      "exit_code": 0,
+      "log": "backend/artifacts/ci/reports/kafka/bounded-streaming.txt",
+      "result": {
+        "cluster_id": "hkgs1jXwRiiXlKLEMpGBZA",
+        "committed_offsets": [
+          {
+            "offset": 1,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"
+          },
+          {
+            "offset": 5,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions"
+          },
+          {
+            "offset": 8,
+            "partition": 0,
+            "topic": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+          }
+        ],
+        "database_batches_committed": 1,
+        "database_retries": 0,
+        "deadletter_inserted": 0,
+        "deliveries_inserted": 0,
+        "elapsed_seconds": 4.115297080000005,
+        "event_conflicts": 1,
+        "group_id": "opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2-stream",
+        "kafka_commits": 1,
+        "logical_duplicates": 9,
+        "mode": "streaming",
+        "prediction_inserted": 0,
+        "quarantine_duplicates": 5,
+        "quarantine_inserted": 0,
+        "raw_inserted": 0,
+        "records": 14,
+        "rejected": 5,
+        "snapshot": [],
+        "status": "complete",
+        "topics": {
+          "deadletter": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter",
+          "predictions": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions",
+          "raw": "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw"
+        }
+      }
+    }
+  ],
+  "final_counts": {
+    "deliveries": 9,
+    "errors": 5,
+    "predictions": 3,
+    "metrics": [
+      {
+        "engine": "sklearn",
+        "prediction_volume": 2,
+        "unique_customers": 1,
+        "matched_raw_predictions": 2
+      },
+      {
+        "engine": "spark",
+        "prediction_volume": 1,
+        "unique_customers": 1,
+        "matched_raw_predictions": 1
+      }
+    ]
+  },
+  "offsets_before_hard_exit": {
+    "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw": -1001,
+    "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions": -1001,
+    "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter": -1001
+  },
+  "offsets_after_hard_exit": {
+    "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw": -1001,
+    "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions": -1001,
+    "opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter": -1001
+  },
+  "scope": "Real broker, separate PostgreSQL test database, isolated diagnostic topics/groups; hard exits are os._exit(86)"
+}

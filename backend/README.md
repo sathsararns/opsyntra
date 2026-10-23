@@ -1,5 +1,11 @@
 # Opsyntra backend
 
+For a container runtime without the WSL venv layout, use the root
+[Docker/Compose guide](../docs/CONTAINERS.md). The API/ML worker and analytics
+consumer share a pinned image, receive separate service credentials and persist
+their data in named volumes. Core startup trains models once from the mounted
+Telco CSV; optional profiles provide Spark, MLflow and isolated Airflow.
+
 Telco customer churn prediction and streaming ML project.
 
 Phase 2 PostgreSQL analytics storage is available independently of inference:
@@ -10,7 +16,22 @@ Phase 3 [Kafka analytics ingestion](../docs/ANALYTICS_CONSUMER.md) is implemente
 From this backend directory run `python analytics_consumer.py --mode streaming`;
 from root run `.\start-analytics.ps1 -Task test-consumer` for real recovery checks.
 See [verification evidence](reports/analytics_consumer_verification.md).
-Live frontend analytics remains Phase 4.
+Phase 4 [analytics APIs and live monitoring](../docs/LIVE_MONITORING.md) are
+implemented in the existing FastAPI application. Install
+`requirements/analytics-web.txt` for PostgreSQL reads and Kafka health alongside
+the original inference API. See [real browser/SQL verification](reports/live_dashboard_verification.md).
+
+Phase 5 [executed notebooks](notebooks/README.md) cover training-only EDA,
+saved sklearn/Spark validation and timing comparisons, and SQL streaming
+analytics. Install `requirements/notebooks.txt` and run
+`python -m pipelines.notebook_check` from this backend directory. See
+[setup/snapshot definitions](../docs/NOTEBOOKS.md) and
+[actual notebook verification](reports/notebook_verification.md).
+
+Phase 6 adds strict CI profiles (`python -m pipelines.ci_checks --profile core`,
+`postgres`, or Linux `spark`), synthetic browser fixtures and GitHub workflows.
+See [CI reproduction and job scopes](../docs/CI.md) and
+[local verification/hosted status](reports/ci_verification.md).
 
 ## Implemented: Steps 1–7
 

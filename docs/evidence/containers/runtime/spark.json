@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "profile": "spark",
+  "python": "3.12.15",
+  "checked_at": "2026-10-21T07:03:13.988933+00:00",
+  "tests_run": 4,
+  "passed": 4,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 553.14685427,
+  "tests": [
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_all_three_real_estimators_can_fit_and_persist",
+      "status": "passed",
+      "seconds": 287.63495617499984,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_bad_numeric_and_missing_feature_columns_fail",
+      "status": "passed",
+      "seconds": 0.7120970800001487,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes",
+      "status": "passed",
+      "seconds": 108.32983199600017,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload",
+      "status": "passed",
+      "seconds": 44.842988021999645,
+      "detail": null
+    }
+  ]
+}

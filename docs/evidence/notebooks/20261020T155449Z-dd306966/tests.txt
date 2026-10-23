@@ -1,0 +1,10 @@
+test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials (tests.unit.test_notebooks.NotebookInputTests.test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials) ... ok
+test_only_requested_partition_is_read_and_tampering_fails (tests.unit.test_notebooks.NotebookInputTests.test_only_requested_partition_is_read_and_tampering_fails) ... ok
+test_portable_report_paths_cannot_escape_backend (tests.unit.test_notebooks.NotebookInputTests.test_portable_report_paths_cannot_escape_backend) ... ok
+test_empty_snapshot_has_real_zero_counts_and_null_risk (tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_empty_snapshot_has_real_zero_counts_and_null_risk) ... ok
+test_out_of_order_and_duplicate_events_match_dashboard_and_views (tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_out_of_order_and_duplicate_events_match_dashboard_and_views) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.740s
+
+OK

@@ -1,0 +1,416 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 3.96kB done
+#1 DONE 0.0s
+
+#2 [analytics internal] load build definition from backend.Dockerfile
+#2 transferring dockerfile: 1.73kB 0.1s done
+#2 transferring dockerfile: 1.73kB 0.1s done
+#2 DONE 0.1s
+
+#3 [frontend internal] load build definition from frontend.Dockerfile
+#3 transferring dockerfile: 765B 0.1s done
+#3 DONE 0.1s
+
+#4 [analytics] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#4 DONE 6.6s
+
+#5 [inference] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#5 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#5 CACHED
+
+#6 [inference internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#6 ...
+
+#7 [frontend internal] load metadata for docker.io/library/node:22-bookworm-slim
+#7 DONE 2.9s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 1.18kB done
+#8 DONE 0.0s
+
+#9 [frontend internal] load build context
+#9 DONE 0.0s
+
+#10 [frontend build 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:3ed98443660ff48413b5af19ecefce3b9d50845a901a43420d47cc63a9fddbe9
+#10 resolve docker.io/library/node:22-bookworm-slim@sha256:3ed98443660ff48413b5af19ecefce3b9d50845a901a43420d47cc63a9fddbe9 0.0s done
+#10 DONE 0.0s
+
+#6 [analytics internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#6 ...
+
+#9 [frontend internal] load build context
+#9 transferring context: 582.40kB 0.7s done
+#9 DONE 0.7s
+
+#11 [frontend build 5/6] COPY frontend/ ./
+#11 CACHED
+
+#12 [frontend build 4/6] RUN --mount=type=cache,target=/root/.npm npm ci
+#12 CACHED
+
+#13 [frontend runtime 3/5] COPY --from=build --chown=node:node /app/.next/standalone ./
+#13 CACHED
+
+#14 [frontend build 2/6] WORKDIR /app
+#14 CACHED
+
+#15 [frontend build 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#15 CACHED
+
+#16 [frontend build 6/6] RUN npm run build
+#16 CACHED
+
+#17 [frontend runtime 4/5] COPY --from=build --chown=node:node /app/.next/static ./.next/static
+#17 CACHED
+
+#18 [frontend runtime 5/5] COPY --from=build --chown=node:node /app/public ./public
+#18 CACHED
+
+#19 [frontend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:2f02f062631fb394a9cc2b9a7da327a86546d5933ff982d334ae60ebe5c59786 0.0s done
+#19 exporting config sha256:90615b4e026dd3b13def9506ff5c8b4f688c3e106511e0b72c5023e2ff35d0c2 0.0s done
+#19 exporting attestation manifest sha256:1d4da2395dfae99520375a43b53c95f887d85f3d7116e87841d3d8dd836e547d 0.0s done
+#19 exporting manifest list sha256:985248ca455d6a78819b52f5f6247eeca83f114f4a5cb44e798f51956169cc33 0.0s done
+#19 naming to docker.io/library/opsyntra-verify-20261021064526-frontend:local done
+#19 unpacking to docker.io/library/opsyntra-verify-20261021064526-frontend:local 0.0s done
+#19 DONE 0.1s
+
+#6 [analytics internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#6 ...
+
+#20 [frontend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#6 [analytics internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#6 DONE 4.5s
+
+#21 [model-init core  1/16] FROM docker.io/library/python:3.12-slim-bookworm@sha256:5d9e6adc9abd558bc0ce05f9ab16cef71328916fc9728f6b81e337af86a737e2
+#21 resolve docker.io/library/python:3.12-slim-bookworm@sha256:5d9e6adc9abd558bc0ce05f9ab16cef71328916fc9728f6b81e337af86a737e2 0.0s done
+#21 DONE 0.1s
+
+#8 [topics-init internal] load .dockerignore
+#8 CACHED
+
+#22 [model-init internal] load build context
+#22 transferring context: 767.80kB 0.1s done
+#22 transferring context: 767.80kB 0.1s done
+#22 DONE 0.1s
+
+#23 [db-init core 14/16] COPY containers/runtime.py ./container_runtime.py
+#23 CACHED
+
+#24 [api core  8/16] COPY backend/src ./src
+#24 CACHED
+
+#25 [api core  7/16] RUN groupadd -g 1000 opsyntra && useradd -u 1000 -g 1000 -m opsyntra
+#25 CACHED
+
+#26 [api core  3/16] RUN python -m venv /opt/opsyntra-ml
+#26 CACHED
+
+#27 [api core 14/16] COPY containers/runtime.py ./container_runtime.py
+#27 CACHED
+
+#28 [api core 13/16] COPY backend/config.yaml backend/producer.py backend/consumer.py backend/analytics_consumer.py ./
+#28 CACHED
+
+#29 [api core  4/16] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1     && rm -rf /var/lib/apt/lists/*
+#29 CACHED
+
+#30 [api core  9/16] COPY backend/pipelines ./pipelines
+#30 CACHED
+
+#31 [api core 12/16] COPY backend/dags ./dags
+#31 CACHED
+
+#32 [api core  6/16] RUN --mount=type=cache,target=/root/.cache/pip pip install --require-hashes -r /tmp/requirements.lock
+#32 CACHED
+
+#33 [api core  5/16] COPY backend/requirements/ci-py312-linux.lock /tmp/requirements.lock
+#33 CACHED
+
+#34 [api core 11/16] COPY backend/examples ./examples
+#34 CACHED
+
+#35 [api core  2/16] WORKDIR /app/backend
+#35 CACHED
+
+#36 [api core 15/16] COPY containers/checks.py ./container_checks.py
+#36 CACHED
+
+#37 [api core 10/16] COPY backend/migrations ./migrations
+#37 CACHED
+
+#38 [topics-init core 16/16] RUN mkdir -p data artifacts/models reports tracking mlartifacts     && chown -R opsyntra:opsyntra /app/backend
+#38 CACHED
+
+#39 [api] exporting to image
+#39 exporting layers done
+#39 exporting manifest sha256:7c061a0340908b79a41528196fa7fb6d2387b577104d861170baa8261d1d12da 0.1s done
+#39 exporting config sha256:a65bf3c77f3b485253a2c0e1bc660f9dc1bdf591c628f993c9c904d7cdcc2610
+#39 ...
+
+#21 [analytics core  1/16] FROM docker.io/library/python:3.12-slim-bookworm@sha256:5d9e6adc9abd558bc0ce05f9ab16cef71328916fc9728f6b81e337af86a737e2
+#21 resolve docker.io/library/python:3.12-slim-bookworm@sha256:5d9e6adc9abd558bc0ce05f9ab16cef71328916fc9728f6b81e337af86a737e2 0.0s done
+#21 DONE 0.1s
+
+#23 [analytics core 14/16] COPY containers/runtime.py ./container_runtime.py
+#23 CACHED
+
+#22 [analytics internal] load build context
+#22 transferring context: 767.80kB 0.1s done
+#22 DONE 0.1s
+
+#24 [analytics core  8/16] COPY backend/src ./src
+#24 CACHED
+
+#31 [analytics core 12/16] COPY backend/dags ./dags
+#31 CACHED
+
+#35 [analytics core  2/16] WORKDIR /app/backend
+#35 CACHED
+
+#27 [analytics core 14/16] COPY containers/runtime.py ./container_runtime.py
+#27 CACHED
+
+#25 [analytics core  7/16] RUN groupadd -g 1000 opsyntra && useradd -u 1000 -g 1000 -m opsyntra
+#25 CACHED
+
+#37 [analytics core 10/16] COPY backend/migrations ./migrations
+#37 CACHED
+
+#32 [analytics core  6/16] RUN --mount=type=cache,target=/root/.cache/pip pip install --require-hashes -r /tmp/requirements.lock
+#32 CACHED
+
+#29 [analytics core  4/16] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1     && rm -rf /var/lib/apt/lists/*
+#29 CACHED
+
+#28 [analytics core 13/16] COPY backend/config.yaml backend/producer.py backend/consumer.py backend/analytics_consumer.py ./
+#28 CACHED
+
+#36 [analytics core 15/16] COPY containers/checks.py ./container_checks.py
+#36 CACHED
+
+#26 [analytics core  3/16] RUN python -m venv /opt/opsyntra-ml
+#26 CACHED
+
+#33 [analytics core  5/16] COPY backend/requirements/ci-py312-linux.lock /tmp/requirements.lock
+#33 CACHED
+
+#34 [analytics core 11/16] COPY backend/examples ./examples
+#34 CACHED
+
+#30 [analytics core  9/16] COPY backend/pipelines ./pipelines
+#30 CACHED
+
+#38 [analytics core 16/16] RUN mkdir -p data artifacts/models reports tracking mlartifacts     && chown -R opsyntra:opsyntra /app/backend
+#38 CACHED
+
+#39 [api] exporting to image
+#39 exporting config sha256:a65bf3c77f3b485253a2c0e1bc660f9dc1bdf591c628f993c9c904d7cdcc2610 0.1s done
+#39 exporting attestation manifest sha256:2e738a98edc3993617f81de884968864bcf0e892d0eff180faeb0325c000b28f
+#39 exporting attestation manifest sha256:2e738a98edc3993617f81de884968864bcf0e892d0eff180faeb0325c000b28f 0.1s done
+#39 exporting manifest list sha256:041d2192416977fc955e76026f13cd9ce3115c98e4f8e28f03aebeac8fb5ba7f
+#39 ...
+
+#40 [model-init] exporting to image
+#40 exporting layers done
+#40 exporting manifest sha256:cc6e2499a8d3ec41181ca43b1568fd9891e810c78dfffdb2b066b04f8b160e81 0.1s done
+#40 exporting config sha256:b50878e679acb1c68e03534af4305e676ab8a8ba9bf3de500587adf130a6ca4a 0.1s done
+#40 exporting attestation manifest sha256:8995f665710f3b75b307ae35cb6015a0db6f3ba9b6a18304f27ebfba7fa3549d 0.1s done
+#40 exporting manifest list sha256:18602ef8aa2e5a3f016bd537e88ed013e0bcf9d43192aad03e6102943b781525 0.1s done
+#40 naming to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#40 unpacking to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#40 DONE 0.6s
+
+#39 [api] exporting to image
+#39 exporting manifest list sha256:041d2192416977fc955e76026f13cd9ce3115c98e4f8e28f03aebeac8fb5ba7f 0.1s done
+#39 naming to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#39 unpacking to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#39 DONE 0.6s
+
+#41 [db-init] exporting to image
+#41 exporting layers done
+#41 exporting manifest sha256:a5ad34369f5e63f909704028832729d41fdc01e96f962a325a9c764e309cd7f1 0.1s done
+#41 exporting config sha256:8869979c6ca9d693f7497a11cb6c5ad973ef789065bdbdada30d6e40c6509394 0.1s done
+#41 exporting attestation manifest sha256:eb8d9cf52d5bfdea56d6077e56eca31465132b9a0f12973b2297df62a1998519 0.1s done
+#41 exporting manifest list sha256:a54ee90e1d8b6ad96a01b6edd15e032c91413151b24cbfadb0d2f5b049d980c9 0.1s done
+#41 naming to docker.io/library/opsyntra-verify-20261021064526-backend:local done
+#41 unpacking to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#41 DONE 0.6s
+
+#42 [inference] exporting to image
+#42 exporting layers done
+#42 exporting manifest sha256:07814edbefdbc2c36624b1e87b98295579ccd517bb0953f58d6d54da7c2c71a2 0.1s done
+#42 exporting config sha256:3ea25be9842f4b0cd077bd2560598ae47950dcbde6d406d29c69a53ba44ecb37 0.1s done
+#42 exporting attestation manifest sha256:daabcc8a5d4849fabeb30b8dba66bc285620205715e40f4ade21717fe1b68524 0.1s done
+#42 exporting manifest list sha256:0c57e221c1d5007bea7c14da8cfe3d3386f249e378c741f79362ee95757657ea 0.1s done
+#42 naming to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#42 unpacking to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#42 DONE 0.6s
+
+#43 [topics-init] exporting to image
+#43 exporting layers done
+#43 exporting manifest sha256:0695af0db7cad6fa4db1f818bbf242bf889bbe1b3edc577f14717d7751488125 0.1s done
+#43 exporting config sha256:004f0bf241b61bce0c9b72ec1b8a12ad207daa5312323a68dbc16b69544fce67 0.1s done
+#43 exporting attestation manifest sha256:3433cb7bf2f3512bf648e321ec0b6534a255814f385bcebee0be8058002a402d 0.1s done
+#43 exporting manifest list sha256:27601f8b057257a42a0c7b4907fe852fe7a25a050ead2693637dc09feaf03618 0.1s done
+#43 naming to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.1s done
+#43 unpacking to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#43 DONE 0.6s
+
+#44 [analytics] exporting to image
+#44 exporting layers done
+#44 exporting manifest sha256:831522db5f15c0eaf595b530ca8fc594ecf8e2e0957a23925632e5b616cdcaeb 0.1s done
+#44 exporting config sha256:7d16dc7f306fe50ce2e7653a9113b1b5aac396292ec8573e84ffaefc82ad2643 0.1s done
+#44 exporting attestation manifest sha256:a6318a4b66d987cb9eeee39f9a6d100362e031f8736d1084f1ddcdb8e8d4d135 0.1s done
+#44 exporting manifest list sha256:6344486cd3a4c2b2df901471a12bf4a3b1e259fd7d57d541a1a91b67bee476ff 0.0s done
+#44 naming to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.0s done
+#44 unpacking to docker.io/library/opsyntra-verify-20261021064526-backend:local 0.1s done
+#44 DONE 0.6s
+
+#45 [db-init] resolving provenance for metadata file
+#45 DONE 0.1s
+
+#46 [analytics] resolving provenance for metadata file
+#46 ...
+
+#47 [topics-init] resolving provenance for metadata file
+#47 DONE 0.2s
+
+#48 [model-init] resolving provenance for metadata file
+#48 DONE 0.3s
+
+#46 [analytics] resolving provenance for metadata file
+#46 DONE 0.1s
+
+#49 [inference] resolving provenance for metadata file
+#49 DONE 0.3s
+
+#50 [api] resolving provenance for metadata file
+#50 DONE 0.0s
+ Image opsyntra-verify-20261021064526-backend:local Building 
+ Image opsyntra-verify-20261021064526-backend:local Building 
+ Image opsyntra-verify-20261021064526-backend:local Building 
+ Image opsyntra-verify-20261021064526-backend:local Building 
+ Image opsyntra-verify-20261021064526-backend:local Building 
+ Image opsyntra-verify-20261021064526-backend:local Building 
+ Image opsyntra-verify-20261021064526-frontend:local Building 
+ Image opsyntra-verify-20261021064526-backend:local Built 
+ Image opsyntra-verify-20261021064526-backend:local Built 
+ Image opsyntra-verify-20261021064526-backend:local Built 
+ Image opsyntra-verify-20261021064526-backend:local Built 
+ Image opsyntra-verify-20261021064526-backend:local Built 
+ Image opsyntra-verify-20261021064526-frontend:local Built 
+ Image opsyntra-verify-20261021064526-backend:local Built 
+ Volume opsyntra-verify-20261021064526_kafka Creating 
+ Volume opsyntra-verify-20261021064526_mlartifacts Creating 
+ Volume opsyntra-verify-20261021064526_reports Creating 
+ Volume opsyntra-verify-20261021064526_tracking Creating 
+ Volume opsyntra-verify-20261021064526_artifacts Creating 
+ Volume opsyntra-verify-20261021064526_models Creating 
+ Volume opsyntra-verify-20261021064526_postgres Creating 
+ Volume opsyntra-verify-20261021064526_data Creating 
+ Network opsyntra-verify-20261021064526_default Creating 
+ Volume opsyntra-verify-20261021064526_postgres Creating 
+ Volume opsyntra-verify-20261021064526_models Creating 
+ Volume opsyntra-verify-20261021064526_mlartifacts Creating 
+ Network opsyntra-verify-20261021064526_default Creating 
+ Volume opsyntra-verify-20261021064526_data Creating 
+ Volume opsyntra-verify-20261021064526_artifacts Creating 
+ Volume opsyntra-verify-20261021064526_kafka Creating 
+ Volume opsyntra-verify-20261021064526_reports Creating 
+ Volume opsyntra-verify-20261021064526_tracking Creating 
+ Volume opsyntra-verify-20261021064526_reports Created 
+ Volume opsyntra-verify-20261021064526_models Created 
+ Volume opsyntra-verify-20261021064526_reports Created 
+ Volume opsyntra-verify-20261021064526_models Created 
+ Volume opsyntra-verify-20261021064526_mlartifacts Created 
+ Volume opsyntra-verify-20261021064526_mlartifacts Created 
+ Volume opsyntra-verify-20261021064526_postgres Created 
+ Volume opsyntra-verify-20261021064526_postgres Created 
+ Volume opsyntra-verify-20261021064526_kafka Created 
+ Volume opsyntra-verify-20261021064526_kafka Created 
+ Volume opsyntra-verify-20261021064526_artifacts Created 
+ Volume opsyntra-verify-20261021064526_artifacts Created 
+ Volume opsyntra-verify-20261021064526_data Created 
+ Volume opsyntra-verify-20261021064526_data Created 
+ Volume opsyntra-verify-20261021064526_tracking Created 
+ Volume opsyntra-verify-20261021064526_tracking Created 
+ Network opsyntra-verify-20261021064526_default Created 
+ Network opsyntra-verify-20261021064526_default Created 
+ Container opsyntra-verify-20261021064526-postgres-1 Creating 
+ Container opsyntra-verify-20261021064526-kafka-1 Creating 
+ Container opsyntra-verify-20261021064526-model-init-1 Creating 
+ Container opsyntra-verify-20261021064526-kafka-1 Created 
+ Container opsyntra-verify-20261021064526-model-init-1 Created 
+ Container opsyntra-verify-20261021064526-topics-init-1 Creating 
+ Container opsyntra-verify-20261021064526-postgres-1 Created 
+ Container opsyntra-verify-20261021064526-db-init-1 Creating 
+ Container opsyntra-verify-20261021064526-topics-init-1 Created 
+ Container opsyntra-verify-20261021064526-inference Creating 
+ Container opsyntra-verify-20261021064526-db-init-1 Created 
+ Container opsyntra-verify-20261021064526-api-1 Creating 
+ Container opsyntra-verify-20261021064526-analytics-1 Creating 
+ Container opsyntra-verify-20261021064526-inference Created 
+ Container opsyntra-verify-20261021064526-analytics-1 Created 
+ Container opsyntra-verify-20261021064526-api-1 Created 
+ Container opsyntra-verify-20261021064526-frontend-1 Creating 
+ Container opsyntra-verify-20261021064526-frontend-1 Created 
+ Container opsyntra-verify-20261021064526-postgres-1 Starting 
+ Container opsyntra-verify-20261021064526-kafka-1 Starting 
+ Container opsyntra-verify-20261021064526-model-init-1 Starting 
+ Container opsyntra-verify-20261021064526-postgres-1 Started 
+ Container opsyntra-verify-20261021064526-postgres-1 Waiting 
+ Container opsyntra-verify-20261021064526-kafka-1 Started 
+ Container opsyntra-verify-20261021064526-kafka-1 Waiting 
+ Container opsyntra-verify-20261021064526-model-init-1 Started 
+ Container opsyntra-verify-20261021064526-postgres-1 Healthy 
+ Container opsyntra-verify-20261021064526-db-init-1 Starting 
+ Container opsyntra-verify-20261021064526-db-init-1 Started 
+ Container opsyntra-verify-20261021064526-kafka-1 Healthy 
+ Container opsyntra-verify-20261021064526-topics-init-1 Starting 
+ Container opsyntra-verify-20261021064526-topics-init-1 Started 
+ Container opsyntra-verify-20261021064526-topics-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-db-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-topics-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-model-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-model-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-topics-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-db-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-db-init-1 Exited 
+ Container opsyntra-verify-20261021064526-db-init-1 Exited 
+ Container opsyntra-verify-20261021064526-topics-init-1 Exited 
+ Container opsyntra-verify-20261021064526-topics-init-1 Exited 
+ Container opsyntra-verify-20261021064526-topics-init-1 Exited 
+ Container opsyntra-verify-20261021064526-analytics-1 Starting 
+ Container opsyntra-verify-20261021064526-analytics-1 Started 
+ Container opsyntra-verify-20261021064526-model-init-1 Exited 
+ Container opsyntra-verify-20261021064526-model-init-1 Exited 
+ Container opsyntra-verify-20261021064526-inference Starting 
+ Container opsyntra-verify-20261021064526-api-1 Starting 
+ Container opsyntra-verify-20261021064526-inference Started 
+ Container opsyntra-verify-20261021064526-api-1 Started 
+ Container opsyntra-verify-20261021064526-api-1 Waiting 
+ Container opsyntra-verify-20261021064526-api-1 Healthy 
+ Container opsyntra-verify-20261021064526-frontend-1 Starting 
+ Container opsyntra-verify-20261021064526-frontend-1 Started 
+ Container opsyntra-verify-20261021064526-analytics-1 Waiting 
+ Container opsyntra-verify-20261021064526-postgres-1 Waiting 
+ Container opsyntra-verify-20261021064526-inference Waiting 
+ Container opsyntra-verify-20261021064526-model-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-db-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-topics-init-1 Waiting 
+ Container opsyntra-verify-20261021064526-kafka-1 Waiting 
+ Container opsyntra-verify-20261021064526-frontend-1 Waiting 
+ Container opsyntra-verify-20261021064526-api-1 Waiting 
+ Container opsyntra-verify-20261021064526-db-init-1 Exited 
+ Container opsyntra-verify-20261021064526-postgres-1 Healthy 
+ Container opsyntra-verify-20261021064526-analytics-1 Healthy 
+ Container opsyntra-verify-20261021064526-api-1 Healthy 
+ Container opsyntra-verify-20261021064526-kafka-1 Healthy 
+ Container opsyntra-verify-20261021064526-topics-init-1 Exited 
+ Container opsyntra-verify-20261021064526-inference Healthy 
+ Container opsyntra-verify-20261021064526-model-init-1 Exited 
+ Container opsyntra-verify-20261021064526-frontend-1 Healthy 

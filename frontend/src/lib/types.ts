@@ -1,4 +1,4 @@
-export type View = "overview" | "predict" | "batch" | "models" | "quality" | "guide";
+export type View = "overview" | "live" | "predict" | "batch" | "models" | "quality" | "guide";
 export type Prediction = { customerID?: string; churn_probability: number; prediction: "Yes" | "No"; model_version: string };
 export type PredictionResponse = { predictions: Prediction[]; model_version: string; summary: { total: number; predicted_churn: number; average_probability: number } };
 export type Segment = { label: string; customers: number; churn_rate: number; retention_rate: number; monthly_charges: number };

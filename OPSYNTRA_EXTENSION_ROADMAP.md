@@ -1,6 +1,6 @@
 # Opsyntra: submission, live analytics and deployment roadmap
 
-Created: 2026-10-20 (Asia/Colombo). Status: **Phases 1–3 complete; Phases 4–10 planned**.
+Created: 2026-10-20 (Asia/Colombo). Status: **Phases 1–5 and Phase 7 core complete; Phase 6 implemented with hosted verification pending; Phases 8–10 planned**.
 
 The assessed ML/Kafka workflows and bonus DAGs are already implemented. This
 roadmap closes submission checks and adds the analytics/deployment features
@@ -41,9 +41,9 @@ The browser reads FastAPI; Kafka and database credentials stay on the server.
 | 1 (complete) | Submission refresh, clean-clone proof and demo | Existing system | [Verified fresh checkout and retained logs](backend/reports/clean_clone_verification.md) |
 | 2 (complete) | Analytics schema and migrations | 1 | [Real PostgreSQL verification](backend/reports/analytics_verification.md) |
 | 3 (complete) | Kafka-to-database analytics consumer | 2 | [Real crash/replay verification](backend/reports/analytics_consumer_verification.md) |
-| 4 | Analytics API and live frontend | 3 | Published events appear on the dashboard automatically |
-| 5 | EDA and analytics notebooks | 2–4 | Notebooks run from top to bottom and export their figures |
-| 6 | GitHub Actions CI | 1; expand after 3–5 | Pull requests run meaningful checks automatically |
+| 4 (complete) | Analytics API and live frontend | 3 | [Real producer-to-browser visibility and SQL agreement](backend/reports/live_dashboard_verification.md) |
+| 5 (complete) | EDA and analytics notebooks | 2–4 | [Executed notebooks, exported figures and SQL/API checks](backend/reports/notebook_verification.md) |
+| 6 (hosted verification pending) | GitHub Actions CI | 1; expand after 3–5 | [Local checks pass; first hosted runs require commit/push](backend/reports/ci_verification.md) |
 | 7 | Docker/Compose | 3, 4, 6 | A documented container startup runs the local application |
 | 8 | S3 and RDS migration | 7 | Cloud data/model loading and analytics persistence work |
 | 9 | ECR/ECS deployment | 6–8 | Public application, private dependencies and tested rollback |
@@ -95,8 +95,7 @@ roles, immutable logical storage and physical-delivery provenance, event-based
 out-of-order joins, reference metric views, local WSL setup and contract/database
 tests. See [storage setup and definitions](docs/ANALYTICS_STORAGE.md) and
 [actual verification](backend/reports/analytics_verification.md). The main database
-is ready; test fixtures are stored separately. Phase 3 now adds Kafka ingestion;
-Phase 4 live APIs/dashboard remain planned.
+is ready; test fixtures are stored separately. Kafka ingestion and the Phase 4 live APIs/dashboard are also implemented.
 
 - Add database configuration through environment variables and a placeholder
   `.env.example`; use versioned migrations and separate read/write roles.
@@ -134,7 +133,7 @@ hard-exited processes before/after database commit, restarted/replayed input,
 and verified unchanged logical counts and repaired late-event buckets. See
 [operating guide](docs/ANALYTICS_CONSUMER.md) and
 [verification report](backend/reports/analytics_consumer_verification.md).
-The consumer does not load an ML model. Live HTTP/dashboard work is Phase 4.
+The consumer does not load an ML model. Live HTTP/dashboard work is implemented in Phase 4.
 
 - Add `backend/analytics_consumer.py` to consume raw, prediction and dead-letter
   topics with its own group. It does not run the ML model again.
@@ -157,7 +156,16 @@ the consumer, replay it, and confirm no count inflation or lost valid events.
 
 ## Phase 4 — Add analytics APIs and the live Next.js dashboard
 
-Planned read endpoints:
+Completed on 2026-10-20: five read-only FastAPI endpoints, validated bounded
+filters and pagination, server-side proxy/types, and a live monitoring screen
+with five-second polling, original-event segments, traceable IDs, model selection
+and explicit outage/inactive/empty states. Existing single/CSV flows and the supplied
+logo are preserved. Real Kafka, saved-model inference, PostgreSQL and fresh browser
+servers verified automatic visibility and independent SQL agreement; browser tests
+cover updates, outages and mobile layout. See [operating guide](docs/LIVE_MONITORING.md)
+and [measured verification](backend/reports/live_dashboard_verification.md).
+
+Implemented read endpoints:
 
 - `GET /api/analytics/summary`
 - `GET /api/analytics/timeseries`
@@ -185,6 +193,15 @@ measured rather than claimed in advance. Browser tests cover updates and outages
 
 ## Phase 5 — Add reproducible notebooks
 
+Completed on 2026-10-20: all three notebooks execute in fresh kernels and export
+CSV tables plus PNG/SVG figures and provenance manifests. Training-only EDA,
+saved validation/threshold/curve comparisons and recorded benchmark timings are
+kept separate from final test assessment. A read-only SQL snapshot verifies
+hourly/segment/risk counts; real PostgreSQL tests check dashboard API agreement,
+out-of-order profiles and physical duplicates. No fitting or held-out test
+feature exploration occurs. See [notebook guide](docs/NOTEBOOKS.md) and
+[execution evidence](backend/reports/notebook_verification.md).
+
 - `backend/notebooks/01_telco_eda.ipynb`: training-partition distributions,
   missing TotalCharges policy, class balance and contract/tenure relationships.
 - `backend/notebooks/02_model_comparison.ipynb`: load the existing reports for
@@ -201,6 +218,17 @@ and their charts agree with the reports/dashboard. Explain that synthetic
 streaming replay is a simulation, not evidence of real company churn trends.
 
 ## Phase 6 — Add GitHub Actions CI
+
+Implemented on 2026-10-21: push/PR backend, frontend and PostgreSQL/Kafka jobs;
+scheduled/manual native Spark; explicit checksum-gated full-data workflow;
+Linux Python locks with hashes, immutable official action revisions, fresh
+synthetic browser models and retained JSON/JUnit/browser artifacts. Local clean
+checkout checks passed with no selected checks skipped; deliberate feature
+leakage failed the strict runner. Native service provisioning and crash/replay
+were verified separately from the application's existing services.
+Hosted runs are still pending commit/push, so this phase's full completion
+checkpoint remains open. See [CI guide](docs/CI.md) and
+[local evidence and limitations](backend/reports/ci_verification.md).
 
 - Run backend unit/integration checks on pull requests and pushes, with locked
   dependencies and recorded test artifacts.
@@ -223,6 +251,13 @@ Planned files: `.github/workflows/ci.yml`, then integration/deployment workflows
 and the repository README links to actual CI results.
 
 ## Phase 7 — Containerize the local system
+
+**Implemented:** root `compose.yaml`, backend/frontend/Airflow Dockerfiles,
+isolated optional Spark/MLflow/Airflow profiles and persistent named volumes.
+See [startup, stop/reset and recovery guide](docs/CONTAINERS.md) and
+[measured container acceptance checks](backend/reports/container_verification.md).
+The core acceptance run passed real producer/model/SQL/browser checks, service
+restart, container recreation and replay without logical count inflation.
 
 - Add images for the API/ML worker, frontend and analytics consumer. Keep the
   Airflow environment isolated; put heavy Spark/MLflow/Airflow components behind
@@ -301,8 +336,8 @@ events, their numbers agree, and the environment has a documented cleanup path.
 3. **Repeatable engineering workflow:** Phases 6–7.
 4. **Cloud demonstration:** Phases 8–10.
 
-Phases 1–3 are complete. Start Phase 4 next: expose the PostgreSQL analytics
-through read APIs and connect the live frontend to those endpoints.
+Phases 1–5 and Phase 7 core packaging are complete. Phase 6 workflows and local
+verification are ready; hosted pass/fail evidence still requires commit/push.
 Each phase should end with its checkpoint and a reviewable commit/PR.
 
 ## Official references checked for this plan

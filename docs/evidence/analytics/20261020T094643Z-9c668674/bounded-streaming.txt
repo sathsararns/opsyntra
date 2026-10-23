@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "group_id": "opsyntra-analytics-verify-63d1139f23244389a210bbe781f1916a-stream",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "topics": {
+    "raw": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.raw",
+    "predictions": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions",
+    "deadletter": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.deadletter"
+  },
+  "mode": "streaming",
+  "records": 14,
+  "raw_inserted": 0,
+  "prediction_inserted": 0,
+  "deadletter_inserted": 0,
+  "logical_duplicates": 9,
+  "deliveries_inserted": 0,
+  "rejected": 5,
+  "quarantine_inserted": 0,
+  "quarantine_duplicates": 5,
+  "event_conflicts": 1,
+  "database_batches_committed": 1,
+  "kafka_commits": 1,
+  "database_retries": 0,
+  "elapsed_seconds": 4.228907299984712,
+  "committed_offsets": [
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.deadletter",
+      "partition": 0,
+      "offset": 1
+    },
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions",
+      "partition": 0,
+      "offset": 5
+    },
+    {
+      "topic": "opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.raw",
+      "partition": 0,
+      "offset": 8
+    }
+  ],
+  "snapshot": []
+}
+{"ts":"2026-10-20T09:47:36.505276+00:00","event":"ready","group_id":"opsyntra-analytics-verify-63d1139f23244389a210bbe781f1916a-stream","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"raw":"opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.raw","predictions":"opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.predictions","deadletter":"opsyntra.analytics.verify.63d1139f23244389a210bbe781f1916a.deadletter"},"mode":"streaming"}
+{"ts":"2026-10-20T09:47:37.624494+00:00","event":"batch_committed","group_id":"opsyntra-analytics-verify-63d1139f23244389a210bbe781f1916a-stream","records":14,"raw_inserted":0,"prediction_inserted":0,"deadletter_inserted":0,"logical_duplicates":9,"deliveries_inserted":0,"rejected":5,"quarantine_inserted":0,"quarantine_duplicates":5,"event_conflicts":1}

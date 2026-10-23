@@ -1,0 +1,2 @@
+{"ts":"2026-10-21T06:08:19.605839+00:00","event":"ready","group_id":"opsyntra-analytics-verify-ebc066562f5c4094975467fd8aec20b2","cluster_id":"hkgs1jXwRiiXlKLEMpGBZA","topics":{"raw":"opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.raw","predictions":"opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.predictions","deadletter":"opsyntra.analytics.verify.ebc066562f5c4094975467fd8aec20b2.deadletter"},"mode":"batch"}
+{"event": "test_hard_exit", "stage": "after_db_commit"}

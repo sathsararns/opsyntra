@@ -1,0 +1,278 @@
+name: ${COMPOSE_PROJECT_NAME:-opsyntra}
+
+x-backend: &backend
+  image: ${COMPOSE_PROJECT_NAME:-opsyntra}-backend:local
+  build:
+    context: .
+    dockerfile: containers/backend.Dockerfile
+    target: core
+  init: true
+  environment: &runtime-env
+    OPSYNTRA_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    OPSYNTRA_ANALYTICS_TIMEZONE: ${OPSYNTRA_ANALYTICS_TIMEZONE:-Asia/Colombo}
+    OPSYNTRA_ANALYTICS_GROUP_ID: opsyntra-analytics-v1
+    OPSYNTRA_INFERENCE_GROUP_ID: ${OPSYNTRA_INFERENCE_GROUP_ID:-opsyntra-churn-sklearn}
+  volumes: &state
+    - data:/app/backend/data
+    - artifacts:/app/backend/artifacts
+    - models:/app/backend/artifacts/models
+    - reports:/app/backend/reports
+    - tracking:/app/backend/tracking
+    - mlartifacts:/app/backend/mlartifacts
+
+services:
+  postgres:
+    image: postgres:17.6-bookworm
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Copy .env.example to .env and set distinct passwords}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  kafka:
+    image: apache/kafka:4.3.1
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: INTERNAL://:29092,EXTERNAL://:9092,CONTROLLER://:29093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://127.0.0.1:${KAFKA_PORT:-9092}
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    ports:
+      - "127.0.0.1:${KAFKA_PORT:-9092}:9092"
+    volumes:
+      - kafka:/var/lib/kafka/data
+    healthcheck:
+      test: [CMD, /opt/kafka/bin/kafka-topics.sh, --bootstrap-server, kafka:29092, --list]
+      interval: 10s
+      timeout: 10s
+      start_period: 20s
+      retries: 20
+    restart: unless-stopped
+
+  db-init:
+    <<: *backend
+    command: [db-init]
+    environment:
+      <<: *runtime-env
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      ANALYTICS_OWNER_PASSWORD: ${ANALYTICS_OWNER_PASSWORD:?Set ANALYTICS_OWNER_PASSWORD}
+      ANALYTICS_WRITE_PASSWORD: ${ANALYTICS_WRITE_PASSWORD:?Set ANALYTICS_WRITE_PASSWORD}
+      ANALYTICS_READ_PASSWORD: ${ANALYTICS_READ_PASSWORD:?Set ANALYTICS_READ_PASSWORD}
+    volumes: []
+    depends_on:
+      postgres: {condition: service_healthy}
+
+  topics-init:
+    <<: *backend
+    command: [topics]
+    volumes: []
+    depends_on:
+      kafka: {condition: service_healthy}
+
+  model-init:
+    <<: *backend
+    command: [model-init]
+    volumes:
+      - data:/app/backend/data
+      - artifacts:/app/backend/artifacts
+      - models:/app/backend/artifacts/models
+      - reports:/app/backend/reports
+      - tracking:/app/backend/tracking
+      - mlartifacts:/app/backend/mlartifacts
+      - type: bind
+        source: ${OPSYNTRA_DATASET_PATH:-./backend/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv}
+        target: /input/customers.csv
+        read_only: true
+        bind: {create_host_path: false}
+
+  api:
+    <<: *backend
+    command: [api]
+    environment:
+      <<: *runtime-env
+      ANALYTICS_READ_PASSWORD: ${ANALYTICS_READ_PASSWORD:?Set ANALYTICS_READ_PASSWORD}
+    volumes:
+      - data:/app/backend/data:ro
+      - artifacts:/app/backend/artifacts:ro
+      - models:/app/backend/artifacts/models:ro
+      - reports:/app/backend/reports:ro
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"]
+      interval: 10s
+      timeout: 7s
+      start_period: 20s
+      retries: 20
+    depends_on:
+      db-init: {condition: service_completed_successfully}
+      model-init: {condition: service_completed_successfully}
+      topics-init: {condition: service_completed_successfully}
+    restart: unless-stopped
+
+  inference:
+    <<: *backend
+    # A fixed per-project name rejects --scale inference=2. SQLite/group locks are local.
+    container_name: ${COMPOSE_PROJECT_NAME:-opsyntra}-inference
+    command: [inference]
+    healthcheck:
+      test: [CMD, python, container_runtime.py, health-inference]
+      interval: 20s
+      timeout: 10s
+      start_period: 30s
+      retries: 10
+    depends_on:
+      model-init: {condition: service_completed_successfully}
+      topics-init: {condition: service_completed_successfully}
+    stop_grace_period: 60s
+    restart: unless-stopped
+
+  analytics:
+    <<: *backend
+    command: [analytics]
+    environment:
+      <<: *runtime-env
+      ANALYTICS_WRITE_PASSWORD: ${ANALYTICS_WRITE_PASSWORD:?Set ANALYTICS_WRITE_PASSWORD}
+    volumes: []
+    healthcheck:
+      test: [CMD, python, container_runtime.py, health-analytics]
+      interval: 20s
+      timeout: 15s
+      start_period: 30s
+      retries: 10
+    depends_on:
+      db-init: {condition: service_completed_successfully}
+      topics-init: {condition: service_completed_successfully}
+    stop_grace_period: 60s
+    restart: unless-stopped
+
+  frontend:
+    image: ${COMPOSE_PROJECT_NAME:-opsyntra}-frontend:local
+    build:
+      context: .
+      dockerfile: containers/frontend.Dockerfile
+      args:
+        NEXT_PUBLIC_ANALYTICS_POLL_MS: ${NEXT_PUBLIC_ANALYTICS_POLL_MS:-5000}
+    init: true
+    environment:
+      ML_API_URL: http://api:8000
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 8s
+      start_period: 15s
+      retries: 15
+    restart: unless-stopped
+
+  producer:
+    <<: *backend
+    profiles: [demo]
+    command: [producer, --mode, streaming, --events-per-sec, "5", --exclude-churn]
+    depends_on:
+      inference: {condition: service_healthy}
+      analytics: {condition: service_healthy}
+    stop_grace_period: 60s
+
+  mlflow:
+    <<: *backend
+    profiles: [mlflow]
+    command: [mlflow]
+    ports:
+      - "127.0.0.1:${MLFLOW_PORT:-5000}:5000"
+    depends_on:
+      model-init: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health', timeout=5)"]
+      interval: 15s
+      timeout: 7s
+      start_period: 30s
+      retries: 15
+    restart: unless-stopped
+
+  spark-worker:
+    <<: *backend
+    image: ${COMPOSE_PROJECT_NAME:-opsyntra}-spark:local
+    build:
+      context: .
+      dockerfile: containers/backend.Dockerfile
+      target: spark
+    profiles: [spark]
+    command: [spark-train]
+    depends_on:
+      model-init: {condition: service_completed_successfully}
+
+  airflow:
+    <<: *backend
+    image: ${COMPOSE_PROJECT_NAME:-opsyntra}-airflow:local
+    build:
+      context: .
+      dockerfile: containers/airflow.Dockerfile
+      args:
+        ML_IMAGE: ${COMPOSE_PROJECT_NAME:-opsyntra}-spark:local
+    profiles: [airflow]
+    user: "1000:0"
+    command: [bash, -c, "/opt/opsyntra-ml/bin/python -c 'from container_runtime import prepare_config; prepare_config()' && exec airflow standalone"]
+    environment:
+      <<: *runtime-env
+      OPSYNTRA_ML_PYTHON: /opt/opsyntra-ml/bin/python
+      AIRFLOW_HOME: /opt/airflow
+      AIRFLOW__CORE__DAGS_FOLDER: /app/backend/dags
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__PARALLELISM: "2"
+      AIRFLOW__API__HOST: 0.0.0.0
+      AIRFLOW__API__WORKERS: "1"
+      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: http://127.0.0.1:8080/execution/
+    volumes:
+      - data:/app/backend/data
+      - artifacts:/app/backend/artifacts
+      - models:/app/backend/artifacts/models
+      - reports:/app/backend/reports
+      - tracking:/app/backend/tracking
+      - mlartifacts:/app/backend/mlartifacts
+      - airflow:/opt/airflow
+    ports:
+      - "127.0.0.1:${AIRFLOW_PORT:-8081}:8080"
+    depends_on:
+      model-init: {condition: service_completed_successfully}
+      topics-init: {condition: service_completed_successfully}
+    stop_grace_period: 60s
+    healthcheck:
+      test: [CMD, /opt/opsyntra-ml/bin/python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/v2/monitor/health', timeout=5)"]
+      interval: 20s
+      timeout: 7s
+      start_period: 60s
+      retries: 20
+
+volumes:
+  postgres:
+  kafka:
+  data:
+  artifacts:
+  models:
+  reports:
+  tracking:
+  mlartifacts:
+  airflow:

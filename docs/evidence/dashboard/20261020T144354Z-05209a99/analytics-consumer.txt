@@ -1,0 +1,40 @@
+{"ts":"2026-10-20T14:44:58.250101+00:00","event":"ready","group_id":"opsyntra-dashboard-20261020T144354Z-05209a99-analytics","cluster_id":"zBxppyQ0QqKUJdYFCCY2ig","topics":{"deadletter":"opsyntra.dashboard.20261020T144354Z-05209a99.deadletter","predictions":"opsyntra.dashboard.20261020T144354Z-05209a99.predictions","raw":"opsyntra.dashboard.20261020T144354Z-05209a99.raw"},"mode":"streaming"}
+{"ts":"2026-10-20T14:45:21.418941+00:00","event":"batch_committed","group_id":"opsyntra-dashboard-20261020T144354Z-05209a99-analytics","records":2,"raw_inserted":1,"prediction_inserted":1,"deadletter_inserted":0,"logical_duplicates":0,"deliveries_inserted":2,"rejected":0,"quarantine_inserted":0,"quarantine_duplicates":0,"event_conflicts":0}
+{
+  "status": "stopped",
+  "group_id": "opsyntra-dashboard-20261020T144354Z-05209a99-analytics",
+  "cluster_id": "zBxppyQ0QqKUJdYFCCY2ig",
+  "topics": {
+    "deadletter": "opsyntra.dashboard.20261020T144354Z-05209a99.deadletter",
+    "predictions": "opsyntra.dashboard.20261020T144354Z-05209a99.predictions",
+    "raw": "opsyntra.dashboard.20261020T144354Z-05209a99.raw"
+  },
+  "mode": "streaming",
+  "records": 2,
+  "raw_inserted": 1,
+  "prediction_inserted": 1,
+  "deadletter_inserted": 0,
+  "logical_duplicates": 0,
+  "deliveries_inserted": 2,
+  "rejected": 0,
+  "quarantine_inserted": 0,
+  "quarantine_duplicates": 0,
+  "event_conflicts": 0,
+  "database_batches_committed": 1,
+  "kafka_commits": 1,
+  "database_retries": 0,
+  "elapsed_seconds": 38.361884499987355,
+  "committed_offsets": [
+    {
+      "topic": "opsyntra.dashboard.20261020T144354Z-05209a99.predictions",
+      "partition": 0,
+      "offset": 1
+    },
+    {
+      "topic": "opsyntra.dashboard.20261020T144354Z-05209a99.raw",
+      "partition": 0,
+      "offset": 1
+    }
+  ],
+  "snapshot": []
+}

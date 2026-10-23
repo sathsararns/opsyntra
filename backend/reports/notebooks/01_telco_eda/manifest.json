@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "data/splits/manifest.json": "ba3c6e9388f9700a5a9a75e811fcf2777695daaaaad79397394aac53a622690c",
+    "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+    "data/splits/memberships.csv": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+    "data/splits/train.csv": "586f320e81cf49dcf1e86f187cace80932d0967ad2a03c532b9765088e7a6598"
+  },
+  "outputs": {
+    "overview.csv": "cccfc9515dad9222d6e7a059095f2fa31f9ea61bf4c07e6c0ed732ee55921b0f",
+    "missing_values.csv": "8752ef2de2cc72207a988fc60ba32b8eea8c56e81d14009c21d30e23ac242dbf",
+    "numeric_summary.csv": "fad0abcb3226c72a4b45fe78a3a69c8c4481938569eb20c8b75e988ce58ae594",
+    "numeric_distributions.png": "94eb24a86e6e4b79085f212d0c84a5769b790e8629f7400edf85152f8f74257f",
+    "numeric_distributions.svg": "ec55811ef4a909221ddd14c93db94bd6f9563e708f0f7e969db8abe3301e426a",
+    "class_balance.csv": "46098056b5b924c505961bd256d6a146ada81416e96da97068550fa9551f8bc7",
+    "class_balance.png": "ee43f9d9fe7190114979020f596d0bc596253e08a3e0b122e95d2f569be30f0e",
+    "class_balance.svg": "67d35e3c6b933bebb6134a96ffc46b69d04f4dba7aec2e9c5590e498e5a760f1",
+    "contract_summary.csv": "477b5422c03cb52dedb33d1ac4688c52e1c7a4a568677082988c2b409dca422c",
+    "tenure_summary.csv": "fab10afd443941f16dcbc0b6951cd3b6bed1637eb522a877176432c88867121e",
+    "contract_tenure.png": "3577aeb238f11b6cb07c3ee833a22906e8b6b25d2e8b80711af105a259d440aa",
+    "contract_tenure.svg": "9900dc5e0268ec0cc27e0d4a272214608de4e64f5715ccfe467db960e01d7cf4"
+  },
+  "partition": "train",
+  "rows": 4225,
+  "held_out_feature_rows_read": 0,
+  "fitted_models": 0,
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+  "missing_policy": "Preserve nulls; model pipelines fit training-only median imputation"
+}

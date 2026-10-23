@@ -1,0 +1,584 @@
+{
+  "status": "PASS",
+  "profile": "core",
+  "python": "3.14.6",
+  "checked_at": "2026-10-21T06:38:57.248684+00:00",
+  "tests_run": 95,
+  "passed": 95,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 51.744470299978275,
+  "tests": [
+    {
+      "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_changed_snapshot_and_changed_approved_model_fail",
+      "status": "passed",
+      "seconds": 4.534302099986235,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_complete_sequence_reuses_memberships_and_retry_does_not_duplicate_results",
+      "status": "passed",
+      "seconds": 2.626862200006144,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_failed_gate_blocks_selected_model_and_success_pointer",
+      "status": "passed",
+      "seconds": 2.272648400015896,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_airflow_workflow.AirflowWorkflowTests.test_run_paths_are_distinct_and_snapshot_is_reused",
+      "status": "passed",
+      "seconds": 0.2473046999948565,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_airflow_workflow.NativeArtifactPathTests.test_deep_spark_files_are_included_in_integrity_checks",
+      "status": "passed",
+      "seconds": 0.02107460002298467,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_api.AnalyticsApiValidationTests.test_invalid_filters_fail_before_database_access",
+      "status": "passed",
+      "seconds": 0.03505439998116344,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_analytics_api.AnalyticsApiValidationTests.test_unavailable_database_is_not_reported_as_empty_or_model_failure",
+      "status": "passed",
+      "seconds": 0.03883539998787455,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_archive_import_outputs_and_byte_for_byte_rerun",
+      "status": "passed",
+      "seconds": 0.3052367999916896,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_existing_raw_data_is_never_overwritten_by_a_different_archive",
+      "status": "passed",
+      "seconds": 0.1608231000136584,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_infinity_produces_a_serializable_failure_report",
+      "status": "passed",
+      "seconds": 0.08780280000064522,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_invalid_data_writes_a_failure_report_without_creating_splits",
+      "status": "passed",
+      "seconds": 0.09217889999854378,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_data_pipeline.DataPipelineTests.test_invalid_fractions_and_input_output_collisions_fail",
+      "status": "passed",
+      "seconds": 0.0731861999956891,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_actual_pipeline_loads_once_and_matches_direct_unlabelled_predictions",
+      "status": "passed",
+      "seconds": 0.27841140000964515,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_commit_failure_restarts_without_republishing_acknowledged_outputs",
+      "status": "passed",
+      "seconds": 0.09769870000309311,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_conflicting_event_identity_is_deadlettered",
+      "status": "passed",
+      "seconds": 0.07728920000954531,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_duplicate_events_are_suppressed_within_chunk_and_across_restarts",
+      "status": "passed",
+      "seconds": 0.09675340002286248,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_malformed_records_do_not_block_valid_records",
+      "status": "passed",
+      "seconds": 0.07772239999030717,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_offset_window_uses_saved_commits_and_completes_without_waiting",
+      "status": "passed",
+      "seconds": 0.07339169998886064,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_output_ack_before_ledger_crash_replays_identical_outbox_payload",
+      "status": "passed",
+      "seconds": 0.07939970001461916,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_output_and_deadletter_delivery_failure_never_commit_input",
+      "status": "passed",
+      "seconds": 0.07515089999651536,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_outputs_are_acknowledged_and_ledger_is_durable_before_input_commit",
+      "status": "passed",
+      "seconds": 0.08931280000251718,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_restart_after_ledger_before_input_commit_suppresses_duplicate_output",
+      "status": "passed",
+      "seconds": 0.08963450000737794,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_same_artifact_matches_single_csv_reload_batch_and_streaming_predictions",
+      "status": "passed",
+      "seconds": 5.179457200021716,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_same_group_cannot_silently_switch_models_and_empty_count_is_bounded",
+      "status": "passed",
+      "seconds": 0.12521060000290163,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_consumer.KafkaConsumerTests.test_unseen_category_is_supported_by_model_but_rejected_by_strict_event_contract",
+      "status": "passed",
+      "seconds": 0.20112969999900088,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_active_checkpoint_is_exclusive_and_released_after_exit",
+      "status": "passed",
+      "seconds": 0.019669000001158565,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_chunk_resume_and_completed_rerun_publish_each_row_once",
+      "status": "passed",
+      "seconds": 0.10776569999870844,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_duplicate_ids_and_invalid_rates_fail_before_publishing",
+      "status": "passed",
+      "seconds": 0.059177499992074445,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_invalid_late_csv_row_is_rejected_before_any_publishing",
+      "status": "passed",
+      "seconds": 0.05252690002089366,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_partial_failed_chunk_does_not_advance_cursor_and_replays_stable_events",
+      "status": "passed",
+      "seconds": 0.08863600000040606,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_queue_backpressure_is_serviced_and_all_events_confirmed",
+      "status": "passed",
+      "seconds": 0.07082029999583028,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_resume_rejects_changed_data_cluster_and_label_policy",
+      "status": "passed",
+      "seconds": 0.10832110000774264,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_stop_keeps_resumable_cursor_and_existing_checkpoint_needs_resume",
+      "status": "passed",
+      "seconds": 0.07869930000742897,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_streaming_repeated_customer_has_distinct_events_and_optional_labels",
+      "status": "passed",
+      "seconds": 0.051433400018140674,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_producer.KafkaProducerTests.test_unconfirmed_deliveries_never_advance_checkpoint",
+      "status": "passed",
+      "seconds": 0.054620000009890646,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_batch_predictions_and_summary_are_complete_and_retry_does_not_append",
+      "status": "passed",
+      "seconds": 0.6518182000145316,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_failed_publication_reuses_checkpoint_and_preserves_window_lower_bound",
+      "status": "passed",
+      "seconds": 0.25584330002311617,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_health_retry_reuses_snapshot_and_rejects_tampering",
+      "status": "passed",
+      "seconds": 0.18959049999830313,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_new_streaming_group_initializes_only_missing_partition_offsets",
+      "status": "passed",
+      "seconds": 0.16703020001295954,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_parameters_and_run_paths_cannot_escape_workflow_root",
+      "status": "passed",
+      "seconds": 0.08399909999570809,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_kafka_workflow.KafkaWorkflowTests.test_streaming_stop_marker_stops_owned_consumer_and_restores_handlers",
+      "status": "passed",
+      "seconds": 0.19735649999347515,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_artifact_contains_pipeline_and_selection_did_not_use_test",
+      "status": "passed",
+      "seconds": 0.00020349997794255614,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_changed_membership_is_rejected_before_training",
+      "status": "passed",
+      "seconds": 0.031164799991529435,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_fresh_process_single_and_batch_inference_match_in_memory",
+      "status": "passed",
+      "seconds": 5.795449099998223,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_inference_output_cannot_overwrite_raw_input",
+      "status": "passed",
+      "seconds": 1.974126500019338,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_mlflow_model_reloads_with_the_persisted_threshold",
+      "status": "passed",
+      "seconds": 0.10438159998739138,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_model_workflow.ModelWorkflowTests.test_tracking_has_comparable_runs_artifacts_and_test_only_for_winner",
+      "status": "passed",
+      "seconds": 0.15405040001496673,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_web_api.WebApiTests.test_batch_predictions_and_summary_match_the_saved_pipeline",
+      "status": "passed",
+      "seconds": 0.11243999999715015,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_web_api.WebApiTests.test_empty_and_oversized_batches_are_rejected",
+      "status": "passed",
+      "seconds": 0.012626699986867607,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_web_api.WebApiTests.test_health_reports_readiness_and_unavailable_model",
+      "status": "passed",
+      "seconds": 0.012590900005307049,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_web_api.WebApiTests.test_invalid_customer_input_returns_a_useful_validation_error",
+      "status": "passed",
+      "seconds": 0.012312400009250268,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_web_api.WebApiTests.test_missing_project_reports_return_unavailable_instead_of_fake_data",
+      "status": "passed",
+      "seconds": 0.005822000006446615,
+      "detail": null
+    },
+    {
+      "test": "tests.integration.test_web_api.WebApiTests.test_single_prediction_matches_existing_pipeline_without_churn",
+      "status": "passed",
+      "seconds": 0.10145389998797327,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_commit_is_synchronous_and_checks_partition_errors",
+      "status": "passed",
+      "seconds": 0.00010259999544359744,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_options_reject_unbounded_batch_bad_limits_and_inference_group",
+      "status": "passed",
+      "seconds": 0.0002243999915663153,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_readiness_failure_does_not_create_kafka_client",
+      "status": "passed",
+      "seconds": 6.849999772384763e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retention_loss_is_not_reset_to_earliest",
+      "status": "passed",
+      "seconds": 4.1799998143687844e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_retries_are_bounded_and_stop_interrupts_backoff",
+      "status": "passed",
+      "seconds": 0.028647700004512444,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_consumer.AnalyticsConsumerTests.test_runtime_needs_only_write_credentials",
+      "status": "passed",
+      "seconds": 0.009699799993541092,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_configuration_requires_credentials_and_hides_them",
+      "status": "passed",
+      "seconds": 7.559999357908964e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_corrupt_bytes_and_nonobject_errors_are_rejected",
+      "status": "passed",
+      "seconds": 0.00040109999827109277,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_deadletter_matches_existing_inference_contract",
+      "status": "passed",
+      "seconds": 0.0003730999887920916,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_logical_hash_excludes_retry_processing_time_but_not_probability",
+      "status": "passed",
+      "seconds": 0.004763100005220622,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_missing_total_charges_preserved_and_source_validated",
+      "status": "passed",
+      "seconds": 0.004400899983011186,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_analytics_contracts.AnalyticsContractTests.test_wire_validation_rejects_bad_keys_versions_probabilities_and_times",
+      "status": "passed",
+      "seconds": 0.003988100012065843,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_containers.ContainerRuntimeTests.test_different_source_never_overwrites_persistent_data",
+      "status": "passed",
+      "seconds": 0.03939250000985339,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_containers.ContainerRuntimeTests.test_matching_model_is_reused_but_tampering_is_rejected",
+      "status": "passed",
+      "seconds": 0.0511885000159964,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_containers.ContainerRuntimeTests.test_role_url_escapes_password_and_rejects_placeholders",
+      "status": "passed",
+      "seconds": 0.003111199999693781,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_containers.ContainerRuntimeTests.test_runtime_config_resolves_shared_paths_without_host_venv",
+      "status": "passed",
+      "seconds": 0.035458500002278015,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_blank_charges_become_numeric_missing_without_dropping_rows",
+      "status": "passed",
+      "seconds": 0.020464800007175654,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_corrupt_values_fail_instead_of_becoming_missing",
+      "status": "passed",
+      "seconds": 0.10175689999596216,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_duplicate_ids_missing_required_values_and_schema_errors_fail",
+      "status": "passed",
+      "seconds": 0.05314699999871664,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_identifiers_and_target_are_not_features",
+      "status": "passed",
+      "seconds": 3.029999788850546e-05,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_memberships_are_complete_disjoint_and_stratified",
+      "status": "passed",
+      "seconds": 0.050551599997561425,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_memberships_are_reproducible_even_after_reordering",
+      "status": "passed",
+      "seconds": 0.09430490000522695,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_data_contract.DataContractTests.test_saved_memberships_rejoin_by_id_and_reject_partial_coverage",
+      "status": "passed",
+      "seconds": 0.07389790000161156,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_engine_metrics.EngineMetricsTests.test_comparison_uses_churn_f1_and_non_interpolated_average_precision",
+      "status": "passed",
+      "seconds": 0.012864899996202439,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_bundle.ModelBundleTests.test_altered_payload_is_rejected",
+      "status": "passed",
+      "seconds": 0.017048400011844933,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_bundle.ModelBundleTests.test_restore_is_idempotent_and_refuses_conflicting_models",
+      "status": "passed",
+      "seconds": 0.09181320000789128,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_bundle.ModelBundleTests.test_restore_rejects_dataset_change_before_writing_any_model",
+      "status": "passed",
+      "seconds": 0.05310840002493933,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_bundle.ModelBundleTests.test_traversal_unexpected_files_and_case_collisions_are_rejected",
+      "status": "passed",
+      "seconds": 0.05704280000645667,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_bundle.ModelBundleTests.test_verified_bundle_has_payload_and_archive_checksums",
+      "status": "passed",
+      "seconds": 0.0030875999946147203,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_all_four_estimators_fit_and_predict_raw_records",
+      "status": "passed",
+      "seconds": 0.32288510000216775,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_bad_numeric_values_and_missing_feature_columns_fail",
+      "status": "passed",
+      "seconds": 0.1012242000142578,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_cv_relearns_medians_inside_each_training_fold",
+      "status": "passed",
+      "seconds": 0.3085688999854028,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_imputer_scaler_and_encoder_learn_only_from_fitted_rows",
+      "status": "passed",
+      "seconds": 0.10235120001016185,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_label_identifier_and_column_order_cannot_change_predictions",
+      "status": "passed",
+      "seconds": 0.09701009999844246,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_model_pipeline.ModelPipelineTests.test_missing_values_and_unknown_categories_work_without_label_or_identifier",
+      "status": "passed",
+      "seconds": 0.06773470001644455,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_notebooks.NotebookInputTests.test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials",
+      "status": "passed",
+      "seconds": 0.0004273999948054552,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_notebooks.NotebookInputTests.test_only_requested_partition_is_read_and_tampering_fails",
+      "status": "passed",
+      "seconds": 0.042724200000520796,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_notebooks.NotebookInputTests.test_portable_report_paths_cannot_escape_backend",
+      "status": "passed",
+      "seconds": 0.0013061999925412238,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_spark_archive.SparkArchiveTests.test_archive_cannot_be_written_inside_its_source_model",
+      "status": "passed",
+      "seconds": 0.001414800004567951,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_spark_archive.SparkArchiveTests.test_archive_retains_deep_native_model_files_and_their_digest",
+      "status": "passed",
+      "seconds": 0.031410800002049655,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_threshold_selection.ThresholdSelectionTests.test_f1_ties_prefer_threshold_closest_to_half",
+      "status": "passed",
+      "seconds": 0.0007893999863881618,
+      "detail": null
+    },
+    {
+      "test": "tests.unit.test_threshold_selection.ThresholdSelectionTests.test_threshold_finds_best_f1_with_duplicate_probabilities",
+      "status": "passed",
+      "seconds": 0.0076499999850057065,
+      "detail": null
+    }
+  ]
+}

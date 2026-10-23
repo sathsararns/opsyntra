@@ -1,0 +1,314 @@
+{
+  "status": "PASS",
+  "command": "python -m pipelines.notebook_check",
+  "started_at": "2026-10-20T15:54:49.257483+00:00",
+  "python": "3.14.6",
+  "packages": {
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.3.0",
+    "jupyter-client": "8.10.0",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.2",
+    "scikit-learn": "1.9.1",
+    "psycopg": "3.3.6"
+  },
+  "notebooks": [
+    {
+      "name": "01_telco_eda.ipynb",
+      "status": "PASS",
+      "executed_code_cells": 6,
+      "seconds": 7.5053928999986965,
+      "manifest": "backend/reports/notebooks/01_telco_eda/manifest.json",
+      "export_count": 12
+    },
+    {
+      "name": "02_model_comparison.ipynb",
+      "status": "PASS",
+      "executed_code_cells": 6,
+      "seconds": 15.57089730000007,
+      "manifest": "backend/reports/notebooks/02_model_comparison/manifest.json",
+      "export_count": 15
+    },
+    {
+      "name": "03_streaming_analytics.ipynb",
+      "status": "PASS",
+      "executed_code_cells": 5,
+      "seconds": 13.528114499989897,
+      "manifest": "backend/reports/notebooks/03_streaming_analytics/manifest.json",
+      "export_count": 17,
+      "snapshot": {
+        "engine": "sklearn",
+        "model_version": "d9a13b4cf6839ed4",
+        "start": "2026-10-19T15:00:00+00:00",
+        "end": "2026-10-20T15:00:00+00:00",
+        "snapshot_at": "2026-10-20T15:55:20.879591+00:00",
+        "logical_predictions": 28254
+      }
+    }
+  ],
+  "tests": {
+    "run": 5,
+    "passed": 5,
+    "skipped": 0,
+    "results": [
+      {
+        "test": "tests.unit.test_notebooks.NotebookInputTests.test_analytics_ranges_fail_before_connecting_and_errors_hide_credentials",
+        "status": "passed",
+        "seconds": 0.0006972999835852534,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_notebooks.NotebookInputTests.test_only_requested_partition_is_read_and_tampering_fails",
+        "status": "passed",
+        "seconds": 0.07037589998799376,
+        "detail": null
+      },
+      {
+        "test": "tests.unit.test_notebooks.NotebookInputTests.test_portable_report_paths_cannot_escape_backend",
+        "status": "passed",
+        "seconds": 0.0019471999839879572,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_empty_snapshot_has_real_zero_counts_and_null_risk",
+        "status": "passed",
+        "seconds": 0.17724309998448007,
+        "detail": null
+      },
+      {
+        "test": "tests.integration.test_notebook_analytics.NotebookAnalyticsTests.test_out_of_order_and_duplicate_events_match_dashboard_and_views",
+        "status": "passed",
+        "seconds": 0.21581520000472665,
+        "detail": null
+      }
+    ]
+  },
+  "finished_at": "2026-10-20T15:55:29.783602+00:00",
+  "files": [
+    {
+      "path": "backend/pipelines/notebook_check.py",
+      "sha256": "54dd9420c1dd22e1e3e5f7d4bda54f73080f2f1007e93fa7a65146f86d4816f9"
+    },
+    {
+      "path": "backend/src/opsyntra/notebook_support.py",
+      "sha256": "9da8eea845ddc08a457142ca54731c6729b056952806db8819f78aaf70e8caab"
+    },
+    {
+      "path": "backend/requirements/notebooks.txt",
+      "sha256": "4635f3998e120252402d82f38fb3b763b1fdefc88d0f9dd2809ad85d56315311"
+    },
+    {
+      "path": "backend/tests/unit/test_notebooks.py",
+      "sha256": "5b868fdf2f6468f8b9f8deeef04df50c69eaf5dfd0be319a53fdb7f9aff82830"
+    },
+    {
+      "path": "backend/tests/integration/test_notebook_analytics.py",
+      "sha256": "5c224fff17f84a1bc6d6a7a605b9229da766482ee697c8180fcd51689b74c97f"
+    },
+    {
+      "path": "backend/notebooks/01_telco_eda.ipynb",
+      "sha256": "a29e919234c375b89a02ef71a18578b3e35b365f9a514288ae59a0d1fa2c39c9"
+    },
+    {
+      "path": "backend/notebooks/02_model_comparison.ipynb",
+      "sha256": "0eb6315631516312f932a6dc95b92819883d196cc3f824a64b31f194f26ff853"
+    },
+    {
+      "path": "backend/notebooks/03_streaming_analytics.ipynb",
+      "sha256": "c5c8bc70a62de140e10e8eb3276242883492e94c3aaf05c96d9d3521eeb6cc7d"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/class_balance.csv",
+      "sha256": "46098056b5b924c505961bd256d6a146ada81416e96da97068550fa9551f8bc7"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/class_balance.png",
+      "sha256": "69a82ec4430dcd366c2665688f471eb2fcbbfd5389797433af5051975ebaa36a"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/class_balance.svg",
+      "sha256": "8ef69105f002b6bc2c8c72882878c7f32fd05799b41abd3ba0548396d038dc66"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/contract_summary.csv",
+      "sha256": "477b5422c03cb52dedb33d1ac4688c52e1c7a4a568677082988c2b409dca422c"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/contract_tenure.png",
+      "sha256": "5af82a608b5378c2f0862b14d9f4b92034c4bd3645c5c134370803f86ff66de5"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/contract_tenure.svg",
+      "sha256": "85f2a63499d5673809303c0b9495aadfff746c3eb86ee96b9d912e2a484d0ff5"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/manifest.json",
+      "sha256": "201821f11cb73a98931a5617d2de67671c11de2dd6525c8b86eb057cad52e54c"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/missing_values.csv",
+      "sha256": "8752ef2de2cc72207a988fc60ba32b8eea8c56e81d14009c21d30e23ac242dbf"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/numeric_distributions.png",
+      "sha256": "2aa572396fc0482e52a2d58f60f3413def2e7eb8c1f603e3de1393f8afa09078"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/numeric_distributions.svg",
+      "sha256": "3948d49849315a775feb491507f2c6f13ceaeffff5f55d93a6bfab6e779a9217"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/numeric_summary.csv",
+      "sha256": "fad0abcb3226c72a4b45fe78a3a69c8c4481938569eb20c8b75e988ce58ae594"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/overview.csv",
+      "sha256": "cccfc9515dad9222d6e7a059095f2fa31f9ea61bf4c07e6c0ed732ee55921b0f"
+    },
+    {
+      "path": "backend/reports/notebooks/01_telco_eda/tenure_summary.csv",
+      "sha256": "e9092f4a9cfec7a369e7b346885e0ba478eae148a3b92d901fa59c1767436a0c"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/manifest.json",
+      "sha256": "35b0fec75dac6dd6c39e7537b4aab77933d87e10a139f47fcf22223b191890c2"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_test_assessment.csv",
+      "sha256": "62c544202dacb7d9134e2f2bc353e9bec34964b5fe5245af83b7ed6877542339"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_test_confusion.png",
+      "sha256": "21e72cf8df59bac93e557a1f38182fab72e1c1197b1d21d1fdd84bf7f40fea7c"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_test_confusion.svg",
+      "sha256": "849772d1c54bf1c4297c3178cbfa22167287909b7bc2d368b1762264280b96fb"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_threshold_search.csv",
+      "sha256": "be063ed72b9d7194d13032821363f63a6b36c0f6cd2c95828b2f7ef0a5bef801"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_timing.csv",
+      "sha256": "cc4e7dbe825235b7e6723eb768908998fc0ca89dc9aea4792ba7fa67c538b950"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_timing.png",
+      "sha256": "d73f50c771c4b811c6ad902bc6451a3757f17a50842e5f00b9535e50863966c8"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/recorded_timing.svg",
+      "sha256": "d4ed7ad5088f944609b64e46ca1762e6bf3b6c854036b10a68ae1c397ac70d41"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_comparison.csv",
+      "sha256": "2d25356c9d6ae99a4efa21ac2419fab591874646a2d68bb3704577a69cc40d7f"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_curve_points.csv",
+      "sha256": "17fbaaafeba1a557ba4243956b2899f0222211d396adb9e6441723bbcd31c734"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_curves.png",
+      "sha256": "13b4197eec7e9f5c79587053233cf97c60946dda0cdeb5d20fc6886e31dc987f"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_curves.svg",
+      "sha256": "9468f2af413aed06688129312366d61ee15b0bff11efeafd8b737d0a4be31e67"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_ranking.png",
+      "sha256": "8498ba4aaa7fcc3663798233a71576880b2b4650db1548f7899fc97a30ebb4a2"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_ranking.svg",
+      "sha256": "fbfefe6202db43c377be9e659bd2940d5e97499af451887b7a082d0ac747f565"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_thresholds.png",
+      "sha256": "2b4174dd2ebed22f2b525c709d5800809f485b3a6fdc2ddf6723ad5ca58c7608"
+    },
+    {
+      "path": "backend/reports/notebooks/02_model_comparison/validation_thresholds.svg",
+      "sha256": "3af594bc28787856eb8da6859679dff762e8562aa7643e0a12b61c97873d3754"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/contract_segments.csv",
+      "sha256": "3d70bff6e58a3a1b60cc455741d75e9ff2a38bb976942db2bf063fe5b45d38ad"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/deliveries.csv",
+      "sha256": "3d05cd7bced990973005e41038338ea8d21c64386fb2c0bfbc6fefe4325f6d0c"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/hourly.csv",
+      "sha256": "3f79fa435180a8c42c09abb10d1a1e4fde6842d3b4d24d5f253b02b722973517"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/hourly_activity.png",
+      "sha256": "9737fb36aed614e703708a89b3f7e16a74e5adb3a62ee212b95188da967bc52a"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/hourly_activity.svg",
+      "sha256": "f13d07dd37e9ba12079da1aa1d54e0c2ad4028b2d70047d5c10119ecc3efee10"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/hourly_gap_filled.csv",
+      "sha256": "01fadb4fcfa3e910d1bad4780f67a3b34bacca6e53b7168d092e6a2977f1f4e2"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/late_events.csv",
+      "sha256": "6f2f3c4de83918a12568ed96e914933bfbf21dbaddd361e2c9e13887ded55e8a"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/late_summary.csv",
+      "sha256": "0a12d555cbd585d919518821f383b45b17142f0252b2193f03ebdfc723daa213"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/manifest.json",
+      "sha256": "38fcea11517afbd70e5f29702922d9eb52324dd8949692a78fe8f0efa900e9fc"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/models.csv",
+      "sha256": "6e08e835a35cd42cef75fde878c89183443714d7c27730932b45b19d9db1655f"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/original_event_segments.png",
+      "sha256": "5ba50dd0151b801c00f7958ab00a2d9fc7a30d11cdd8dbbf74c80f5d965ebf42"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/original_event_segments.svg",
+      "sha256": "843825d52f79456062e28a558c69e613a7f44708e309d7d264a4bb1dc7e32a98"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/payment_method_segments.csv",
+      "sha256": "66bb145af6e42121d193aa840deb305ba1855276c7f245e0506b1209d9b56772"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/quarantine.csv",
+      "sha256": "104382cdb9be9c04eb463c044917510698744a46ae5f3cb68165973482bffe2a"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/recent.csv",
+      "sha256": "61faa65daafd78e1d5ea981beda6774ad28ab62a0f5c840acc1f5e6e6d5bf5e9"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/risk_distribution.csv",
+      "sha256": "1c2f0e77df3f87a838af822700864149f89601cf49b57283800fca107719c78e"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/segments.csv",
+      "sha256": "2be2a9689c31555f35bdc6fee4c303163324a5b43759656b3809fa9d39fc9261"
+    },
+    {
+      "path": "backend/reports/notebooks/03_streaming_analytics/summary.csv",
+      "sha256": "b3ed18e019c4f45499f742cd80011c598e954086bf2bdf5a1da4e1da8905aaf2"
+    },
+    {
+      "path": "docs/evidence/notebooks/20261020T155449Z-dd306966/tests.txt",
+      "sha256": "f30f593b8d4741fdcc50888fe1eb7a2ec4efe508737e7fe2a14d8f60eabdd12f"
+    }
+  ]
+}

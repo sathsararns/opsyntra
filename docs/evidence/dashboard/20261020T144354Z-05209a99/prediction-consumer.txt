@@ -1,0 +1,2 @@
+2026-10-20 20:14:59,859 INFO Loaded sklearn model once: version=d9a13b4cf6839ed4 group=opsyntra-dashboard-20261020T144354Z-05209a99-inference
+2026-10-20 20:15:21,385 INFO COMMITTED input=1 predictions=1 deadletters=0 duplicates=0 offsets={'0': 1}

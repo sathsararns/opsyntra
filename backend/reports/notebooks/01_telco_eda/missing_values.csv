@@ -1,0 +1,5 @@
+feature,missing_train,descriptive_train_median
+SeniorCitizen,0,0.0
+tenure,0,29.0
+MonthlyCharges,0,70.55
+TotalCharges,8,1422.1

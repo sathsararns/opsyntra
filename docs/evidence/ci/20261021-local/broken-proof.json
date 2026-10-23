@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "expected_ci_exit": 1,
+  "actual_exit": 1,
+  "change": "Included Churn among predictors in the disposable checkout only",
+  "real_test_failed": "test_identifiers_and_target_are_not_features",
+  "restored_source_sha256": "a50224535cc66cd83296a2200235b99a98ed387bbb853bd01734f92f7b80e8cc",
+  "failures": 2,
+  "errors": 15
+}

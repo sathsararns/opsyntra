@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "project": "opsyntra-verify-20261021064107",
+  "started_at": "2026-10-21T06:41:07.241977+00:00",
+  "ports": {
+    "FRONTEND_PORT": 12506,
+    "API_PORT": 12507,
+    "KAFKA_PORT": 12508,
+    "POSTGRES_PORT": 12509,
+    "MLFLOW_PORT": 12510,
+    "AIRFLOW_PORT": 12511
+  },
+  "checks": [
+    "documented core up --build and healthy empty dashboard"
+  ],
+  "producer_to_proxy_seconds": 5.64783410000382,
+  "finished_at": "2026-10-21T06:42:09.825227+00:00",
+  "volumes_preserved": true,
+  "source_sha256": {
+    "compose.yaml": "45e42bd0ed1591ca268a12d7f7e3bd02ff8419beea407fac7ac0503541d09c02",
+    ".dockerignore": "2fcfe8b1db2c603ff640613ce873e9755b9950ee52eeae8bb38f82c7e6ac9702",
+    "containers/airflow.Dockerfile": "acb05af64805c5cbeb93f7e8f4a5fe5ba2a2a572ec3c5640713b8795595b5b02",
+    "containers/backend.Dockerfile": "ad5a2d58d45c67b323aee06e444c1d3293e389a016b83925c0e9e88df1672a9d",
+    "containers/browser-check.mjs": "fc6516191d1c87d8cd4ab289094cdf2b03e70d07aab5a3a2ea04676c1e324fcd",
+    "containers/checks.py": "9516dc3e552db6b5bb427a509e89de1a38f062298e94e707db52a89f551ba51e",
+    "containers/configure.py": "7eaff6c8d12d3fc0400154272b320c71d56fdb0b49ff266f466d80c17a706de7",
+    "containers/frontend.Dockerfile": "502a75528d613b317e8448d225a7a4dc48d3cca391e48903e48f1a92270a2a5c",
+    "containers/runtime.py": "828aebd3484dc92a6d9cd2feeb2be33ec3c1151b601a26375afce0f36b3f966d",
+    "containers/verify.py": "597bfb5f43845fc51c19024ab3dcdc35757ae2f38947a9f136b56434f1e65a95"
+  }
+}
