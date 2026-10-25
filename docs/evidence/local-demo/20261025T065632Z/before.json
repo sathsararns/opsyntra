@@ -1,0 +1,321 @@
+{
+  "counts": {
+    "raw_customer_events": 43,
+    "prediction_events": 43,
+    "kafka_deliveries": 86,
+    "ingestion_errors": 0
+  },
+  "predictions": [
+    {
+      "prediction_id": "086ab416f8426d9fd76e3c0ca5540eeb1f63ab00a89899a704082b669cd0af92",
+      "event_id": "b0e10231-3cd9-59db-91d7-bcd7e3b14dd8",
+      "customer_id": "0436-TWFFZ",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "0c86568cd3a4c89b743b769ab3fb3106668c81d68de363dc1fd2c73bdc812228",
+      "event_id": "3d2d58bd-7b43-5f4b-b16f-5a56acdf8c0a",
+      "customer_id": "1839-UMACK",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "1214647303866729698a1c25bfa23cccdd87e269d0615187e25e6cc6d09c8438",
+      "event_id": "a16560ab-0797-56c8-9c8a-11a5ad0195ff",
+      "customer_id": "9560-ARGQJ",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "15fd2718298db0d000da48dafdfe1ffc2ed4d23009de43c901476c693453c4d7",
+      "event_id": "20d3448a-10e5-5d18-a335-eb351d7dbfb9",
+      "customer_id": "3454-JFUBC",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "164ec2f5a4dab324a11503a3824e6a053b05c1abc72139d1a795f8cf7edc351a",
+      "event_id": "6ee8adc1-428e-56a3-aea6-18ac18145cde",
+      "customer_id": "7841-FCRQD",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "1bd1908037471864285f5cc32583ab9259d103b0955a9cd424017b388831a6f9",
+      "event_id": "a9d98734-ea9c-5c22-b56f-12120f3f02f8",
+      "customer_id": "1839-UMACK",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "21198eafdbc58df7d7b33c07d27214dbcaaf2e68093034ed2d44e86b9f9b21c0",
+      "event_id": "f6d29bdd-5092-57b0-b470-f5f8d480a020",
+      "customer_id": "9560-ARGQJ",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "2e220b213f8994ba40ac07d8b83e1eecac50e8e10fc37b0fd23177231333afc7",
+      "event_id": "30646559-1ab2-50d9-a1a5-91d3dab87bda",
+      "customer_id": "3440-JPSCL",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "308b88a877379db7eb611562cd0c595a2fc42a65c90f7b16a8fc2fcf2edf42e5",
+      "event_id": "c85efd58-ed63-5dee-a8b5-7dc189aec12a",
+      "customer_id": "3440-JPSCL",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "331f59c7804a36bc860b76162c3d2970565d2bfa4700051b1ea9ff0145d88c79",
+      "event_id": "8e7283b6-fc3e-542e-83c4-5f808a59b25e",
+      "customer_id": "3454-JFUBC",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "334bc99c713cfb6b31b01c427f168dda40d2e790fc1926f2c2e004a93c25191a",
+      "event_id": "9ae33518-96bf-57cb-98f7-98392e0a93bd",
+      "customer_id": "0428-AXXLJ",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "35671c2b3ffdd4a6050ffeca95c77cb5c4dfd884396d038b4f39f45ca8636371",
+      "event_id": "e7ba1206-3f88-5b7b-96f8-5eb31406e8af",
+      "customer_id": "0667-NSRGI",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "36d37a879af72473bafc80a2fb0e2b4a9d8a4e30efbbcc633d03dd052b5b2ed1",
+      "event_id": "9a5dc695-e80f-5407-9ae3-4226fe683bf5",
+      "customer_id": "7817-OMJNA",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "3dc4e3522516ad2fadb155b95e5c51ea3044ecee9a391f8542106a38472b88a2",
+      "event_id": "0216e07d-8fdf-5f78-967e-36ec2478c100",
+      "customer_id": "9838-BFCQT",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "4b1a098ecc92d633c1b6380db06f13eebaa394c4b12ff32b69fbe14acfc90c4c",
+      "event_id": "1a6a43e2-072d-5170-96e0-dbcab0d1738a",
+      "customer_id": "0428-AXXLJ",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "4b5d7f3b7b9939edf9b63272c853a7bff560f8dca2560fd3ae46917cf37a5511",
+      "event_id": "92d2202a-6ca8-5ee2-8a4a-ddc321598d59",
+      "customer_id": "6519-CFDBX",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "4f97e239f8d5ce5d531df07f95b6b169b28f326f75dd9fab710b6da690439bcf",
+      "event_id": "4207fc7a-e662-5a0a-a614-59c4b4658f3b",
+      "customer_id": "0436-TWFFZ",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "5078bbc698ef695ff3d8bef4ad9822e9edb401b245f9eeb3b45cfd931113f235",
+      "event_id": "e2341de4-7d76-5f3c-a47a-8eb48d38bd91",
+      "customer_id": "7841-FCRQD",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "55080a44c4b9dd479612bfd4f888e3118404102a375ef817494f091546b43479",
+      "event_id": "3d2839dc-de61-5b28-97ba-c3fdadd206d5",
+      "customer_id": "0197-PNKNK",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "60018f4e64f19831bb9fc21e9815175f9c65034ccaf1d084a31cffa8f96a0e6c",
+      "event_id": "8c27d085-ede4-5419-9aed-d879770de877",
+      "customer_id": "1448-CYWKC",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "66831fd0cea67ba3432de94a9da22729511d246f85c0ec644470e0422362c59b",
+      "event_id": "8ea6a762-b1c9-5d21-b48b-c364232b6e4f",
+      "customer_id": "7841-FCRQD",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "780c69792b4474fc9fb8fccac83e7d8d552cbb912592cdbfe07059f01d077f96",
+      "event_id": "2d3ecc3f-84d6-5efe-a4f7-62a1d3c7cf7b",
+      "customer_id": "3797-VTIDR",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "7f8f4f15c677d508801bbb52f38ad0e80ed82e9e78a944c1eee1485d70a17432",
+      "event_id": "10218d9c-9f3a-5fc3-a6c9-a1b583c13753",
+      "customer_id": "0667-NSRGI",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "804195be8e84ee0c44a70a9e22ce23155e03b39abae6556100612f80d1a5414e",
+      "event_id": "014e9a37-0f41-550f-92eb-521dd3e99ade",
+      "customer_id": "1866-NXPSP",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "8264a0eadfa258c55d8aa11599d29c0758b958028b8ed834010318e9affe42d1",
+      "event_id": "bf9ce133-4073-52d5-a414-414df97e86e8",
+      "customer_id": "9838-BFCQT",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "8ca7a2b4396b0bdaf413654a30b9d92274ae6018f530a0daca9430bbf3497586",
+      "event_id": "eeeb1a69-8be6-5859-97c6-38b6a1abcaad",
+      "customer_id": "6519-CFDBX",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "914aebc212127ff9cdf2189c7ba4784ea16acc4eaf18eec8a1fac503d5b7e06f",
+      "event_id": "1c6e98b7-cf24-52c9-9ec3-b524412028e8",
+      "customer_id": "7495-OOKFY",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "91b6c57a70d45e3a07c402f2c11c49f77fc8209fbaf5fc16681b094c0d9cb43d",
+      "event_id": "60b00fb0-d81a-5151-bb40-e831e69cbaaf",
+      "customer_id": "0197-PNKNK",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "a1b89b38aa4ea8348c0bb35159779b5fde6c4753627eb8a8b0484dbd55f3f187",
+      "event_id": "1d6c9386-abcd-5578-b456-efebfb40b088",
+      "customer_id": "1839-UMACK",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "a2752392ba5764f491d9f22ab8bcc8145ae2f859529623b21c764946c5400de9",
+      "event_id": "66b3b237-7b46-5497-b37f-7494ea173a50",
+      "customer_id": "2931-VUVJN",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "a83ae9b38a278ced80d8b0b1188731943a7cc8588d3f4d9bde5ce242322c79b8",
+      "event_id": "a1d3a8f3-9f0d-5d4a-9630-0b9801598fbd",
+      "customer_id": "3797-VTIDR",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "b5722e2f00422c250ec7582ed69ab41bed55079e051efbdaac1e2b5900375edf",
+      "event_id": "4df1f975-14b2-5923-9341-50c3a21a8fb7",
+      "customer_id": "7817-OMJNA",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "b775c1d0f4191b3c311964272ec1a030716a5cefa5b5cab77dfe11c14fbfab58",
+      "event_id": "5e3edd84-368d-5c5f-9b83-580268753c9b",
+      "customer_id": "7278-CKDNC",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "cc2c2b56cb24bbff84ff70830c3f1756ddc262b3756682bea340d2f8c8c9eb3b",
+      "event_id": "438357cc-a5e4-5ad9-8224-dc2227551a2d",
+      "customer_id": "7495-OOKFY",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "cd68f820edeba19bb6ba0ee0b770ec300d7c7601608bcce0019a8db7b9efa7d4",
+      "event_id": "7d6905b6-fbaa-5d58-9acf-5c1c7ef03125",
+      "customer_id": "1448-CYWKC",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "cee753fb326abb3d94c1d8869a9a411c92b74c24a047f10a268bf52037438c28",
+      "event_id": "1dd59f0a-907c-59af-bc60-2fcc77046c3f",
+      "customer_id": "8809-XKHMD",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "d71ad667e2b0964cc458d41e026209459c073a7a8fec7d022fca43e8165a83e9",
+      "event_id": "d0e987ec-ad9c-51bc-84f7-f34112b899fa",
+      "customer_id": "4625-LAMOB",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "d8d6b36903578665de61aa4d47b2ac7bfae32130de124ed9d4233b3fd7706e0e",
+      "event_id": "71a3396c-456a-5a0a-93d4-e9406a6660e4",
+      "customer_id": "3797-VTIDR",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "d93c30871013f9fd6de54fc5d408911f46211c40f103e338f9a2d4534782cf74",
+      "event_id": "4fe57624-e835-5b6a-aa9d-189f7df9e016",
+      "customer_id": "2931-VUVJN",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "e1f221949622b0e7e2ce85d1d841bfcc89966bb3d70cbe262c0c812bc785af4d",
+      "event_id": "8cd7bcf9-ed8f-5d1e-a36c-4d1ed5fd27c4",
+      "customer_id": "1866-NXPSP",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "e6a1157147daab7508c1a684d729258c50260b9f1dbee84cb52b4743c3cf53a2",
+      "event_id": "ee1a8e00-6dc8-5227-bf71-9834860a172f",
+      "customer_id": "8809-XKHMD",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "f7691b1b40876ea6e105c85a0bbd3a554befad8a6ccdd6ed9d4595f73d26dde8",
+      "event_id": "d2b89578-8d3a-5fc1-9522-047df77f4a3f",
+      "customer_id": "4625-LAMOB",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    },
+    {
+      "prediction_id": "ffe42b4de1bd5ba9cc85a029c36986a3b0edc4048ad28e8da9a6adaf536b29c8",
+      "event_id": "b8a29e3d-105c-538b-a5fa-2d8ad69bba1f",
+      "customer_id": "7278-CKDNC",
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06"
+    }
+  ],
+  "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+  "reader": {
+    "role": "opsyntra_read",
+    "can_insert": false
+  },
+  "input_offsets": {
+    "0": 17,
+    "1": 12,
+    "2": 14
+  }
+}

@@ -1,6 +1,6 @@
 # Opsyntra project roadmap
 
-Consolidated: 2026-10-23 (Asia/Colombo).
+Consolidated: 2026-10-23 (Asia/Colombo). Demo scope confirmed: 2026-10-25.
 
 This is the single roadmap for the assignment foundation, submission checks,
 live analytics, engineering workflow and optional cloud deployment. The statuses
@@ -13,12 +13,20 @@ has not rerun those checks.
 | Platform Phases 1-5: submission and local live analytics | Complete |
 | Platform Phase 6: GitHub Actions CI | Implemented and locally verified; hosted verification pending |
 | Platform Phase 7: Docker/Compose | Core packaging and acceptance checks complete |
-| Platform Phases 8-10: AWS and QuickSight | Planned; no cloud resources provisioned by this roadmap |
+| Platform Phases 8-10: AWS and QuickSight | Deferred future work; outside the final local demo |
 
-**Budget constraint:** no budget is available for paid deployment. Keep the
-working local setup as the current demo path. The AWS phases below remain
-optional future work, subject to an explicit budget/credits decision before
-provisioning; they do not promise permanent free hosting.
+**Final delivery scope:** present the working application with local Docker
+Compose. Follow the [demo guide](docs/DEMO_GUIDE.md) for startup, direct/CSV
+predictions, Kafka live monitoring, evidence and data-preserving shutdown.
+Keep the existing ML/Spark/Airflow evidence for the assessed workflows.
+See [the final local demo verification](backend/reports/local_demo_verification.md)
+for fresh browser, Kafka/SQL and stop/start results recorded on 2026-10-25.
+
+**Budget constraint:** no budget is available for paid deployment. AWS Phases
+8-10 are deferred future work, subject to a separate budget/credits decision
+before provisioning. They are not required to close this local demo. Hosted
+GitHub Actions verification remains pending separately; no hosted pass or cloud
+deployment is claimed. TensorFlow/Terraform additions are outside this scope.
 
 Foundation work uses **Step 1-9** below. Platform work keeps the existing
 **Phase 1-10** numbering used in the guides and evidence reports.
@@ -367,9 +375,9 @@ The browser reads FastAPI; Kafka and database credentials stay on the server.
 | 5 (complete) | EDA and analytics notebooks | 2–4 | [Executed notebooks, exported figures and SQL/API checks](backend/reports/notebook_verification.md) |
 | 6 (hosted verification pending) | GitHub Actions CI | 1; expand after 3–5 | [Local checks pass; first hosted runs require commit/push](backend/reports/ci_verification.md) |
 | 7 (core complete) | Docker/Compose | 3, 4; CI integration from 6 | [Real container startup, restart/recreate and replay checks](backend/reports/container_verification.md) |
-| 8 | S3 and RDS migration | 7 | Cloud data/model loading and analytics persistence work |
-| 9 | ECR/ECS deployment | 6–8 | Public application, private dependencies and tested rollback |
-| 10 | QuickSight and final cloud evidence | 8, 9 | BI dashboards agree with database queries and have refresh evidence |
+| 8 (deferred) | S3 and RDS migration | 7; approved cloud budget | Future cloud data/model loading and analytics persistence |
+| 9 (deferred) | ECR/ECS deployment | 6–8; approved cloud budget | Future public application, private dependencies and tested rollback |
+| 10 (deferred) | QuickSight and final cloud evidence | 8, 9; approved cloud budget | Future BI/SQL agreement and refresh evidence |
 
 Phase 6 can begin immediately after Phase 1 with the current checks. Expand its
 integration jobs as later phases land. Complete each local checkpoint before
@@ -600,6 +608,8 @@ application, events reach the dashboard, and service restarts preserve results.
 
 ### Phase 8 — Introduce S3 and RDS
 
+**Deferred:** retained as future design work, outside the final local demo.
+
 - Choose AWS region, deployment lifetime and budget before provisioning. Record
   a current service estimate; do not assume every service is free-tier eligible.
 - Store versioned model bundles, manifests and reports in private S3 locations.
@@ -614,6 +624,8 @@ application, events reach the dashboard, and service restarts preserve results.
 deduplicated analytics to RDS, with matching local/cloud query results.
 
 ### Phase 9 — Deploy application services to ECR/ECS
+
+**Deferred:** retained as future design work, outside the final local demo.
 
 - Build tagged images and push them to ECR. Deploy frontend, API and analytics
   worker on ECS with health checks, logs, HTTPS and a tested rollback path.
@@ -638,6 +650,8 @@ private, secrets are externalized, and restart/rollback evidence is saved.
 
 ### Phase 10 — Build QuickSight dashboards and close the cloud demo
 
+**Deferred:** retained as future design work, outside the final local demo.
+
 - Connect QuickSight to approved RDS SQL views through the appropriate network
   connection and a read-only database identity.
 - Create prediction-volume, predicted-risk, contract/payment segment, hourly
@@ -656,7 +670,8 @@ events, their numbers agree, and the environment has a documented cleanup path.
 1. **Submission ready:** Phase 1.
 2. **Local live analytics platform:** Phases 2–5.
 3. **Repeatable engineering workflow:** Phases 6–7.
-4. **Cloud demonstration:** Phases 8–10.
+4. **Final presentation:** local Docker demo using the completed core and retained ML/Spark/Airflow evidence.
+5. **Future cloud demonstration (deferred):** Phases 8–10, after a separate budget decision.
 
 Phases 1–5 and Phase 7 core packaging are complete. Phase 6 workflows and local
 verification are ready; hosted pass/fail evidence still requires commit/push.

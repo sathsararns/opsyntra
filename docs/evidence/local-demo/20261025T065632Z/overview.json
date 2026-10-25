@@ -1,0 +1,423 @@
+{
+  "dataset": {
+    "customers": 7043,
+    "features": 19,
+    "churned": 1869,
+    "churn_rate": 26.54,
+    "monthly_charges": 64.76
+  },
+  "quality": {
+    "checks": {
+      "identifier_and_target_excluded_from_features": true,
+      "no_rows_dropped": true,
+      "required_values": true,
+      "schema": true,
+      "unique_customer_ids": true
+    },
+    "columns": 21,
+    "duplicate_customer_ids": 0,
+    "errors": [],
+    "feature_contract": {
+      "categorical_features": [
+        "gender",
+        "Partner",
+        "Dependents",
+        "PhoneService",
+        "MultipleLines",
+        "InternetService",
+        "OnlineSecurity",
+        "OnlineBackup",
+        "DeviceProtection",
+        "TechSupport",
+        "StreamingTV",
+        "StreamingMovies",
+        "Contract",
+        "PaperlessBilling",
+        "PaymentMethod"
+      ],
+      "excluded_from_features": [
+        "customerID",
+        "Churn",
+        "event_ts",
+        "processed_ts",
+        "event_id"
+      ],
+      "features": [
+        "gender",
+        "SeniorCitizen",
+        "Partner",
+        "Dependents",
+        "tenure",
+        "PhoneService",
+        "MultipleLines",
+        "InternetService",
+        "OnlineSecurity",
+        "OnlineBackup",
+        "DeviceProtection",
+        "TechSupport",
+        "StreamingTV",
+        "StreamingMovies",
+        "Contract",
+        "PaperlessBilling",
+        "PaymentMethod",
+        "MonthlyCharges",
+        "TotalCharges"
+      ],
+      "identifier": "customerID",
+      "numeric_features": [
+        "SeniorCitizen",
+        "tenure",
+        "MonthlyCharges",
+        "TotalCharges"
+      ],
+      "target": "Churn",
+      "target_mapping_for_training": {
+        "No": 0,
+        "Yes": 1
+      }
+    },
+    "membership_sha256": "b51f7b090312e8c727b11753dd740acdadad3e47d01c2261fe76fb5421b4e82c",
+    "missing_value_policy": {
+      "TotalCharges": "Convert blanks to numeric missing values; retain rows. Fit median imputation inside the later training/CV pipeline, using training data only.",
+      "all_other_columns": "Reject missing values.",
+      "blank_total_charges_count": 11,
+      "blank_total_charges_with_zero_tenure": 11,
+      "imputation_performed": false
+    },
+    "missing_values": {
+      "Churn": 0,
+      "Contract": 0,
+      "Dependents": 0,
+      "DeviceProtection": 0,
+      "InternetService": 0,
+      "MonthlyCharges": 0,
+      "MultipleLines": 0,
+      "OnlineBackup": 0,
+      "OnlineSecurity": 0,
+      "PaperlessBilling": 0,
+      "Partner": 0,
+      "PaymentMethod": 0,
+      "PhoneService": 0,
+      "SeniorCitizen": 0,
+      "StreamingMovies": 0,
+      "StreamingTV": 0,
+      "TechSupport": 0,
+      "TotalCharges": 11,
+      "customerID": 0,
+      "gender": 0,
+      "tenure": 0
+    },
+    "numeric_summary": {
+      "MonthlyCharges": {
+        "dtype": "Float64",
+        "max": 118.75,
+        "min": 18.25,
+        "missing": 0
+      },
+      "SeniorCitizen": {
+        "dtype": "Int64",
+        "max": 1.0,
+        "min": 0.0,
+        "missing": 0
+      },
+      "TotalCharges": {
+        "dtype": "Float64",
+        "max": 8684.8,
+        "min": 18.8,
+        "missing": 11
+      },
+      "tenure": {
+        "dtype": "Int64",
+        "max": 72.0,
+        "min": 0.0,
+        "missing": 0
+      }
+    },
+    "rows": 7043,
+    "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+    "split_checks": {
+      "all_customers_assigned_once": true,
+      "no_learned_preprocessing_fitted": true,
+      "no_partition_overlap": true
+    },
+    "splits": {
+      "test": {
+        "churn_percentage": 26.5436,
+        "missing_total_charges": 2,
+        "rows": 1409,
+        "sha256": "9a01843775a92ae0dc4f655ca85ed4c2d81dc1ab11bc2c248d9d84bee15a2fff",
+        "target_counts": {
+          "No": 1035,
+          "Yes": 374
+        }
+      },
+      "train": {
+        "churn_percentage": 26.5325,
+        "missing_total_charges": 8,
+        "rows": 4225,
+        "sha256": "586f320e81cf49dcf1e86f187cace80932d0967ad2a03c532b9765088e7a6598",
+        "target_counts": {
+          "No": 3104,
+          "Yes": 1121
+        }
+      },
+      "validation": {
+        "churn_percentage": 26.5436,
+        "missing_total_charges": 1,
+        "rows": 1409,
+        "sha256": "437aa573f932c285a1408c146ee81adb1407d73b1e340dec063ebd8b96ac80bf",
+        "target_counts": {
+          "No": 1035,
+          "Yes": 374
+        }
+      }
+    },
+    "status": "PASS_WITH_WARNINGS",
+    "target_distribution": {
+      "No": {
+        "count": 5174,
+        "percentage": 73.463
+      },
+      "Yes": {
+        "count": 1869,
+        "percentage": 26.537
+      }
+    },
+    "warnings": [
+      "Retained 11 missing TotalCharges values for training-only imputation."
+    ]
+  },
+  "model": {
+    "name": "random_forest",
+    "version": "34e84e9fa5d1de06",
+    "metrics": {
+      "accuracy": 0.7416607523066004,
+      "average_precision": 0.6580232253452741,
+      "confusion_matrix": [
+        [
+          747,
+          288
+        ],
+        [
+          76,
+          298
+        ]
+      ],
+      "f1": 0.6208333333333333,
+      "precision": 0.5085324232081911,
+      "recall": 0.7967914438502673,
+      "roc_auc": 0.8438567258260353
+    },
+    "partition_rows": {
+      "test": 1409,
+      "train": 4225,
+      "validation": 1409
+    },
+    "selection_metric": "average_precision",
+    "decision_threshold": 0.27634161843869615,
+    "tracking": {
+      "batch_id": "87b8c7e9f2f9410aabfbc875a30da82a",
+      "experiment_id": "1",
+      "experiment_name": "Opsyntra-Telco-sklearn",
+      "runs": {
+        "dummy": "6b22f3a482eb40dc91dcdc7776503cf4",
+        "logistic_regression": "d353be6b8c514a4ebcbb523245efec29",
+        "random_forest": "1383141b04e2466db3901d88849e8b73",
+        "xgboost": "38456dc0da5c43258c60e15d1b350243"
+      },
+      "uri": "sqlite:////app/backend/tracking/mlflow.db"
+    },
+    "candidates": [
+      {
+        "name": "dummy",
+        "selected": false,
+        "best_parameters": {},
+        "cv_mean_score": 0.26532541750005373,
+        "training_seconds": 0.4553,
+        "validation": {
+          "accuracy": 0.7345635202271115,
+          "average_precision": 0.2654364797728886,
+          "confusion_matrix": [
+            [
+              1035,
+              0
+            ],
+            [
+              374,
+              0
+            ]
+          ],
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": 0.5
+        },
+        "model_version": "0e25aad7a57c9617",
+        "decision_threshold": 0.5,
+        "mlflow_run_id": "6b22f3a482eb40dc91dcdc7776503cf4"
+      },
+      {
+        "name": "logistic_regression",
+        "selected": false,
+        "best_parameters": {
+          "classifier__C": 1.0
+        },
+        "cv_mean_score": 0.6533964076910079,
+        "training_seconds": 1.2426,
+        "validation": {
+          "accuracy": 0.765791341376863,
+          "average_precision": 0.6504785475097874,
+          "confusion_matrix": [
+            [
+              798,
+              237
+            ],
+            [
+              93,
+              281
+            ]
+          ],
+          "f1": 0.6300448430493274,
+          "precision": 0.5424710424710425,
+          "recall": 0.7513368983957219,
+          "roc_auc": 0.837411196362603
+        },
+        "model_version": "d9e8125cd0d12a15",
+        "decision_threshold": 0.33005806204858,
+        "mlflow_run_id": "d353be6b8c514a4ebcbb523245efec29"
+      },
+      {
+        "name": "random_forest",
+        "selected": true,
+        "best_parameters": {
+          "classifier__max_depth": 8,
+          "classifier__min_samples_leaf": 5
+        },
+        "cv_mean_score": 0.6607159562809284,
+        "training_seconds": 7.1355,
+        "validation": {
+          "accuracy": 0.7466288147622427,
+          "average_precision": 0.662602792960054,
+          "confusion_matrix": [
+            [
+              741,
+              294
+            ],
+            [
+              63,
+              311
+            ]
+          ],
+          "f1": 0.6353421859039836,
+          "precision": 0.5140495867768595,
+          "recall": 0.8315508021390374,
+          "roc_auc": 0.8433684672815107
+        },
+        "model_version": "34e84e9fa5d1de06",
+        "decision_threshold": 0.27634161843869615,
+        "mlflow_run_id": "1383141b04e2466db3901d88849e8b73"
+      },
+      {
+        "name": "xgboost",
+        "selected": false,
+        "best_parameters": {
+          "classifier__learning_rate": 0.05,
+          "classifier__max_depth": 3
+        },
+        "cv_mean_score": 0.663176713604046,
+        "training_seconds": 2.4892,
+        "validation": {
+          "accuracy": 0.7828246983676366,
+          "average_precision": 0.652192023762028,
+          "confusion_matrix": [
+            [
+              841,
+              194
+            ],
+            [
+              112,
+              262
+            ]
+          ],
+          "f1": 0.6313253012048192,
+          "precision": 0.5745614035087719,
+          "recall": 0.7005347593582888,
+          "roc_auc": 0.8397194450902891
+        },
+        "model_version": "71429e574554cb06",
+        "decision_threshold": 0.3751855492591858,
+        "mlflow_run_id": "38456dc0da5c43258c60e15d1b350243"
+      }
+    ]
+  },
+  "tenure_segments": [
+    {
+      "label": "0\u201312",
+      "customers": 2186,
+      "churn_rate": 47.44,
+      "retention_rate": 52.56,
+      "monthly_charges": 56.1
+    },
+    {
+      "label": "13\u201324",
+      "customers": 1024,
+      "churn_rate": 28.71,
+      "retention_rate": 71.29,
+      "monthly_charges": 61.36
+    },
+    {
+      "label": "25\u201336",
+      "customers": 832,
+      "churn_rate": 21.63,
+      "retention_rate": 78.37,
+      "monthly_charges": 65.58
+    },
+    {
+      "label": "37\u201348",
+      "customers": 762,
+      "churn_rate": 19.03,
+      "retention_rate": 80.97,
+      "monthly_charges": 66.32
+    },
+    {
+      "label": "49\u201360",
+      "customers": 832,
+      "churn_rate": 14.42,
+      "retention_rate": 85.58,
+      "monthly_charges": 70.55
+    },
+    {
+      "label": "61\u201372",
+      "customers": 1407,
+      "churn_rate": 6.61,
+      "retention_rate": 93.39,
+      "monthly_charges": 75.95
+    }
+  ],
+  "contract_segments": [
+    {
+      "label": "Month-to-month",
+      "customers": 3875,
+      "churn_rate": 42.71,
+      "retention_rate": 57.29,
+      "monthly_charges": 66.4
+    },
+    {
+      "label": "One year",
+      "customers": 1473,
+      "churn_rate": 11.27,
+      "retention_rate": 88.73,
+      "monthly_charges": 65.05
+    },
+    {
+      "label": "Two year",
+      "customers": 1695,
+      "churn_rate": 2.83,
+      "retention_rate": 97.17,
+      "monthly_charges": 60.77
+    }
+  ],
+  "source": "Local Telco Customer Churn dataset and saved evaluation reports",
+  "prediction_ready": true,
+  "loaded_model_version": "34e84e9fa5d1de06"
+}

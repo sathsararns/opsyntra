@@ -1,0 +1,33 @@
+{
+  "scope": {
+    "start": "2026-10-24T06:56:34.102147+00:00",
+    "end": "2026-10-25T06:56:34.102147+00:00",
+    "engine": "sklearn",
+    "model_version": "34e84e9fa5d1de06"
+  },
+  "timezone": "Asia/Colombo",
+  "generated_at": "2026-10-25T06:56:34.115299+00:00",
+  "metrics": {
+    "prediction_volume": 0,
+    "unique_events": 0,
+    "unique_customers": 0,
+    "predicted_churn_share": null,
+    "mean_risk": null,
+    "matched_raw_predictions": 0,
+    "mean_processing_latency_seconds": null,
+    "last_ingested_at": null
+  },
+  "segments": {
+    "contract": [],
+    "payment_method": []
+  },
+  "available_models": [
+    {
+      "engine": "sklearn",
+      "model_version": "34e84e9fa5d1de06",
+      "last_ingested_at": "2026-10-23T14:53:29.930386+00:00"
+    }
+  ],
+  "raw_event_volume": 0,
+  "raw_event_scope": "all engines/models in the event-time window"
+}

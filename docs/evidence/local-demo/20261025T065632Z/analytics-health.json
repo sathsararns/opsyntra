@@ -1,0 +1,18 @@
+{
+  "database": "ready",
+  "timezone": "Asia/Colombo",
+  "total_predictions": 63,
+  "last_prediction_ingested_at": "2026-10-25T06:56:40.365682+00:00",
+  "last_ingested_at": "2026-10-25T06:56:40.366069+00:00",
+  "recent_deliveries": 40,
+  "broker": "ready",
+  "consumer_state": "active",
+  "group_id": "opsyntra-analytics-v1",
+  "members": 1,
+  "lag": 0,
+  "uninitialized_partitions": 3,
+  "observed_at": "2026-10-25T06:56:41.624115+00:00",
+  "status": "ready",
+  "stale_after_seconds": 60,
+  "checked_at": "2026-10-25T06:56:41.624559+00:00"
+}

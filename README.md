@@ -5,6 +5,30 @@ Project plan: [ML, Kafka, submission, live analytics, CI/Docker and optional AWS
 A local Telco customer churn workspace with a Next.js + Tailwind frontend and a
 Python API backed by reproducible ML pipelines.
 
+The final presentation target is the **local Docker demo**. AWS/QuickSight
+deployment is deferred future work because there is no cloud budget. The
+[demo guide](docs/DEMO_GUIDE.md) covers single-customer and CSV inference, live
+Kafka monitoring, evidence and shutdown.
+The [final local verification](backend/reports/local_demo_verification.md)
+records six passing browser flows, 20 real Kafka predictions, SQL agreement,
+screenshots and successful data-preserving stop/start.
+
+From the repository root on Windows:
+
+```powershell
+.\scripts\windows\start-containers.ps1 -Task start
+# Open http://127.0.0.1:3000, then select Live monitoring.
+.\scripts\windows\start-containers.ps1 -Task demo -DemoEvents 20
+# After presenting; named volumes retain data, models and recovery state.
+.\scripts\windows\start-containers.ps1 -Task stop
+```
+
+Prerequisites: Docker Desktop with Linux containers, Python 3 for the launcher
+setup helper, and the original CSV at
+`backend/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv`. The launcher starts the
+local Desktop engine when needed and preserves an existing root `.env`.
+See [container setup](docs/CONTAINERS.md) for ports and first-build requirements.
+
 Steps 1–8 and the Kafka Airflow bonus workflows are implemented. See the
 [verification guide](docs/VERIFICATION.md) and
 [submission evidence matrix](backend/reports/submission_evidence.md) for actual
@@ -91,7 +115,7 @@ PDF-reading utility; it is separate from the application.
 All Windows/WSL launchers are grouped under `scripts/windows/`; see the
 [launcher guide](scripts/README.md). Commands below use their new locations.
 
-## Start the application
+## Native Windows/WSL alternative
 
 Install dependencies from the repository root:
 

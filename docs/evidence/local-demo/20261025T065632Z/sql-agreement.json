@@ -1,0 +1,7 @@
+{
+  "prediction_volume": 20,
+  "unique_events": 20,
+  "unique_customers": 20,
+  "predicted_churn_share": 0.3,
+  "mean_risk": 0.23892350608996815
+}

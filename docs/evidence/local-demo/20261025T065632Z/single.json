@@ -1,0 +1,16 @@
+{
+  "predictions": [
+    {
+      "customerID": "DEMO-NEW-001",
+      "churn_probability": 0.460548507757735,
+      "prediction": "Yes",
+      "model_version": "34e84e9fa5d1de06"
+    }
+  ],
+  "model_version": "34e84e9fa5d1de06",
+  "summary": {
+    "total": 1,
+    "predicted_churn": 1,
+    "average_probability": 0.46054850775773537
+  }
+}

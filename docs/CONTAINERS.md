@@ -5,11 +5,15 @@ Python 3 is needed only for the optional setup/verification helpers. The Docker
 images install their own pinned Python 3.12 dependencies and Node 22 dependencies.
 The normal core does not start Spark, MLflow or Airflow.
 
-If startup reports a missing `dockerDesktopLinuxEngine` pipe, open Docker
-Desktop and wait for its Linux engine to finish starting. Confirm that
-`docker info --format '{{.OSType}}'` prints `linux`, then retry the launcher.
-The launcher checks engine availability before preparing `.env` or starting
-services. An existing `.env` being preserved is normal.
+For the local `desktop-linux` context, `-Task start` automatically opens Docker
+Desktop when needed and waits up to 180 seconds for its Linux engine. It leaves
+explicit `DOCKER_HOST`/`DOCKER_CONTEXT` overrides and other contexts unchanged.
+Use `-DockerStartupTimeoutSeconds 300` for a slower startup. If Desktop still
+cannot start, inspect its startup error; do not reset project volumes to repair
+a missing `dockerDesktopLinuxEngine` pipe. Confirm that
+`docker info --format '{{.OSType}}'` prints `linux` before retrying.
+Other tasks check engine availability without starting Desktop. An existing
+`.env` being preserved is normal.
 
 ```mermaid
 flowchart LR

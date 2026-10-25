@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "started_at": "2026-10-25T06:56:32.480000+00:00",
+  "url": "http://127.0.0.1:3000",
+  "scope": "Existing local Docker core; 20 bounded synthetic events; no cloud deployment or hosted CI claim",
+  "checks": [
+    "frontend proxy loads the selected model and 7043-customer overview",
+    "single and CSV predictions match, without Churn and with blank TotalCharges",
+    "20 acknowledged events produced exactly 20 new raw rows and 20 new logical predictions",
+    "independent SQL agrees with API volume, unique events/customers, mean risk and predicted churn share",
+    "analytics broker ready with zero reported group lag",
+    "six existing browser flows passed with zero skipped",
+    "real desktop/mobile live screen agrees with SQL/API and shows event, prediction and model IDs",
+    "normal stop/start preserves SQL rows, Kafka input offsets, selected-model hash and SQLite outbox; API returns ready afterward"
+  ],
+  "producer_to_proxy_seconds": 6.740922499913722,
+  "model_version": "34e84e9fa5d1de06",
+  "published_events": 20,
+  "prediction_delta": 20,
+  "raw_delta": 20,
+  "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+  "sql_agreement": {
+    "prediction_volume": 20,
+    "unique_events": 20,
+    "unique_customers": 20,
+    "predicted_churn_share": 0.3,
+    "mean_risk": 0.23892350608996815
+  },
+  "producer_run_id": "1e7c7920-6c60-428a-bd1e-6feebf17ccf9",
+  "browser_tests": {
+    "expected": 6,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "persistence": {
+    "sql_counts": {
+      "raw_customer_events": 63,
+      "prediction_events": 63,
+      "kafka_deliveries": 126,
+      "ingestion_errors": 0
+    },
+    "model_sha256": "cb4140879f32e3a606f611b56be5d8c5f613c44dcdea483a3a62023ac3a699c2",
+    "input_offsets": {
+      "0": 25,
+      "1": 17,
+      "2": 21
+    },
+    "outbox": [
+      {
+        "file": "artifacts/kafka/consumer_state/70eff39c54836ca42e278107.sqlite3",
+        "outbox_rows": 63
+      }
+    ],
+    "unchanged": true
+  },
+  "services_stopped": true,
+  "volumes_preserved": true,
+  "finished_at": "2026-10-25T06:59:26.748328+00:00",
+  "credential_scan": "PASS: no configured database password values in saved evidence",
+  "source_commit": "dcaef800fa109d2dee960ab20cd79495349e7f4a",
+  "source_tree_scope": "Existing workspace with uncommitted final documentation/launcher changes; not a new clean-clone verification",
+  "evidence_directory": "docs/evidence/local-demo/20261025T065632Z",
+  "evidence_sha256": {
+    "docs/evidence/local-demo/20261025T065632Z/after-recreate-ledger.txt": "51372b432f4ec286f85920efff261190f4163ebd32d689818e7062bee3c1620f",
+    "docs/evidence/local-demo/20261025T065632Z/after-recreate.txt": "2436adee3090c046b69f137fb2a2fc2c92164a62919a790af2b5dee981dbd5aa",
+    "docs/evidence/local-demo/20261025T065632Z/after.json": "6351e3e419e15f211b09b6f617514015b88e33aa3b30733e4d27dd631750b93b",
+    "docs/evidence/local-demo/20261025T065632Z/analytics-health.json": "1ba65147c1c6e480159d13a77bfc04c40c8d8e39b0a816c25e446c36c001a2bb",
+    "docs/evidence/local-demo/20261025T065632Z/baseline-summary.json": "c2b70b95c0e3e758de21a17b2d4f323a48f8ea3311dc0419b5a8f28a3f147401",
+    "docs/evidence/local-demo/20261025T065632Z/batch.json": "6d09dd4dd36e2bfe8516c69c6d68c91e95045b0fbc28390652445e0ce6241112",
+    "docs/evidence/local-demo/20261025T065632Z/before-recreate-ledger.txt": "51372b432f4ec286f85920efff261190f4163ebd32d689818e7062bee3c1620f",
+    "docs/evidence/local-demo/20261025T065632Z/before-recreate.txt": "2436adee3090c046b69f137fb2a2fc2c92164a62919a790af2b5dee981dbd5aa",
+    "docs/evidence/local-demo/20261025T065632Z/before.json": "1c6007d21e3779e72894b3a8b27d2ab7b17ce21d66b1c3ecfec2a4aabdd9c1dd",
+    "docs/evidence/local-demo/20261025T065632Z/browser-tests.json": "52e7e4bda2a3e53ebdcd640edcbe1492cf61d76268a4480f1b7d830696a6826a",
+    "docs/evidence/local-demo/20261025T065632Z/browser-tests.txt": "088dc1e4870ed996e762fca32d7aff9cb5c9d38c99e179efc0285e01e5ce4887",
+    "docs/evidence/local-demo/20261025T065632Z/final-services.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/evidence/local-demo/20261025T065632Z/final-stop.txt": "6683b7d94a2fb7b4760a227d9f54678f71e4f8b1ca3a16c3cf6de0f6c8ef0820",
+    "docs/evidence/local-demo/20261025T065632Z/frontend-desktop.png": "cf698c8d0bb055639130b5cc432181207b89ef3dc3166223aa1c5d435f5a0d28",
+    "docs/evidence/local-demo/20261025T065632Z/frontend-mobile.png": "ed0ed83a61b7da81c237f52684b533d07f86f1095c937c0cf0e518e851158130",
+    "docs/evidence/local-demo/20261025T065632Z/frontend-prediction.png": "17ee432f5baee310d1fbcc593677e9614397b50747578ca7bb3b444a95b4f168",
+    "docs/evidence/local-demo/20261025T065632Z/health.json": "d901aa7d808b5792d13b58d5ac5485f3c41c7dd9779b3e680557ad34421303e1",
+    "docs/evidence/local-demo/20261025T065632Z/ledger-before-recreate.json": "3c5d7103b9f84fdd4a665c22ff393d9b669171a783e6c79353bdf349943ada52",
+    "docs/evidence/local-demo/20261025T065632Z/live-browser.json": "98766532ead07175198bb36a19c41831981b33c2079fd54f4911919f166cb020",
+    "docs/evidence/local-demo/20261025T065632Z/live-monitoring-mobile.png": "fec98ff1d6d36ecac1dbd24b9db60dc5530c47190ddbef3084a88d1f8640c7a3",
+    "docs/evidence/local-demo/20261025T065632Z/live-monitoring.png": "fbd77dfee4ffc1692a14238f5b955e43ef9b359a8c5c14c0847d543836b9150d",
+    "docs/evidence/local-demo/20261025T065632Z/overview.json": "e136794d6a431bf04d8eacb91e708ab26af7e1112fa86fbb5b051d77f62c5e56",
+    "docs/evidence/local-demo/20261025T065632Z/producer.json": "a365af062a5c0960ed4a95e9fec7d92788098570b20d7b8ef11fa2817d83c6b6",
+    "docs/evidence/local-demo/20261025T065632Z/producer.txt": "9175f5e1b3de63f59c244f72eeb90f5498f99a26b0bcde9156fcd7f473ba6c4b",
+    "docs/evidence/local-demo/20261025T065632Z/recreate-start.txt": "8c0153bfc78ccf7c4313baf598c4d87d483d9dd8c25682f07eb205c6eefd191e",
+    "docs/evidence/local-demo/20261025T065632Z/services.jsonl": "21ddafda85f27cc75701f531e9eb43755ae0521d7be1a672637083bc1df1d481",
+    "docs/evidence/local-demo/20261025T065632Z/single.json": "6d09dd4dd36e2bfe8516c69c6d68c91e95045b0fbc28390652445e0ce6241112",
+    "docs/evidence/local-demo/20261025T065632Z/sql-agreement.json": "917aca678d7d30b2748e9805121cb4e09e2b0e287ccf82c65c1f392fcce72ae3",
+    "docs/evidence/local-demo/20261025T065632Z/stop-before-recreate.txt": "a88c6f2c4df5dc9d60b0d317f3a180e6fecd6eb331926419e521beaa0cf3d977",
+    "docs/evidence/local-demo/20261025T065632Z/summary.json": "aa8cb9338c958308ae486fab888c0081e9855588bcd5196888282168a41689e0"
+  },
+  "source_sha256": {
+    "README.md": "b540117fe3b4633d40920cb5a0adc7a5739f432036a6380f45b297adccdfc5f5",
+    "OPSYNTRA_ROADMAP.md": "7432ad13be7cdceb92c8260fe996d5a6dab0d3a9cf3e2345bc44f69f4376fe36",
+    "docs/DEMO_GUIDE.md": "0a58ee7b575e2929fa6f421d66acaecc6300e15acce006703ffdf3d522ba9493",
+    "scripts/windows/start-containers.ps1": "8b006587ad61b605b3b43e74988575f93029cc40a5518c382f9935e9c8f0f8f7",
+    "compose.yaml": "8722e1c5c2197e04a35dd26d0e1ab4186809d7fd58a959bd60758eabb9303b9b",
+    "containers/backend.Dockerfile": "ad5a2d58d45c67b323aee06e444c1d3293e389a016b83925c0e9e88df1672a9d",
+    "containers/frontend.Dockerfile": "502a75528d613b317e8448d225a7a4dc48d3cca391e48903e48f1a92270a2a5c",
+    "frontend/tests/workspace.spec.ts": "d0c38e6ca0c13b1d9569b880a1506ff714f664108520c99b0e5564d3411fbf0e"
+  }
+}

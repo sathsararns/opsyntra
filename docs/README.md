@@ -4,6 +4,7 @@
 - [Phase 1 clean-clone verification](../backend/reports/clean_clone_verification.md)
 - [Frontend typecheck/build/browser evidence](../backend/reports/frontend_verification.json)
 - [Submission demo guide](DEMO_GUIDE.md)
+- [Final local Docker demo checks and fresh screenshots](../backend/reports/local_demo_verification.md)
 - [Phase 2 analytics storage, setup and metric definitions](ANALYTICS_STORAGE.md)
 - [Real PostgreSQL verification](../backend/reports/analytics_verification.md)
 - [Phase 3 Kafka analytics consumer and recovery](ANALYTICS_CONSUMER.md)

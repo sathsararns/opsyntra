@@ -1,129 +1,145 @@
-# Opsyntra submission demo
+# Opsyntra local Docker demo
 
-Run commands from the repository root, `Opsyntra/`. Use `..\start-*.ps1` if
-your terminal is already inside `backend/`. This demonstration uses the local
-application and the supplied Telco dataset, rather than a hosted deployment.
+Final presentation scope confirmed on 2026-10-25 (Asia/Colombo): run Opsyntra
+locally with Docker Compose. AWS S3/RDS/ECS and QuickSight remain deferred future
+work. No extra TensorFlow/Terraform integration is needed for this delivery.
 
 ## Before the presentation
 
-1. Follow [verification/setup](VERIFICATION.md) to provide the CSV, build saved
-   sklearn/Spark models and install the separate Airflow/ML worker environments.
-2. Run these in separate terminals as appropriate:
+Run commands from the repository root, `Opsyntra/`. From `backend/`, prefix
+launcher paths with `..\scripts\windows\` instead of `.\scripts\windows\`.
+
+1. Install Docker Desktop and provide the original CSV at
+   `backend/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv`. Python 3 is required
+   for the launcher setup helper. Initial image downloads need internet access.
+2. Start the core application:
 
    ```powershell
-   .\scripts\windows\start-kafka.ps1 -Task start
-   .\scripts\windows\start-airflow.ps1 -Task start
-   .\scripts\windows\start-mlflow.ps1
-   .\scripts\windows\start-frontend.ps1
+   .\scripts\windows\start-containers.ps1 -Task start
+   .\scripts\windows\start-containers.ps1 -Task status
    ```
 
-3. Open the application at http://127.0.0.1:3000, MLflow at
-   http://127.0.0.1:5000, and Airflow at http://localhost:8080.
-4. Check the model version in the UI/health response and the saved model report.
-   Keep the [evidence matrix](../backend/reports/submission_evidence.md) ready as
-   dated fallback evidence if a local service is unavailable during the demo.
+   The launcher starts the local Docker Desktop Linux engine when needed, waits
+   for readiness, prepares or preserves root `.env`, and starts the core stack.
+   Six running services should be healthy: frontend, API, Kafka, PostgreSQL,
+   inference and analytics. The three setup jobs (`model-init`, `db-init`,
+   `topics-init`) should finish with exit code 0. Their `Exited` state is expected.
+3. Open <http://127.0.0.1:3000>. These are the default ports; use the configured
+   frontend port if root `.env` overrides it. See [container setup](CONTAINERS.md).
+4. Keep the [submission evidence matrix](../backend/reports/submission_evidence.md),
+   [model comparison](../backend/reports/engine_comparison.md) and
+   [container acceptance evidence](../backend/reports/container_verification.md)
+   ready. Recorded evidence has its own date/model/run identity.
 
-## Suggested presentation sequence
+The core includes its own Kafka and PostgreSQL, Python API, both consumers and
+Next.js frontend. Use the Docker commands for this session. The separate native
+Windows/WSL launchers remain an alternative described in [verification](VERIFICATION.md).
+
+## Presentation sequence
 
 | Part | Show | Explain |
 |---|---|---|
-| Data | Overview and Data quality screens | 7,043 customers, 11 blank TotalCharges, fixed 60/20/20 customer memberships |
-| Model | Model performance and MLflow comparison | Validation AP chooses the model; validation F1 chooses the threshold; test does not select either |
-| Single prediction | Customer prediction → Load example → Predict churn risk | A complete saved Python pipeline transforms raw features; Churn is not required |
-| Batch prediction | Upload sample CSV, search/filter rows, download results | The same persisted artifact handles CSV inference |
-| Spark | Engine comparison report and CLI prediction | Both engines use the same held-out customers; local Spark startup costs are reported |
-| ML orchestration | Successful `opsyntra_ml_workflow` Grid/Graph | Eight tasks, training-only preprocessing, retries, candidate validation and saved results |
-| Kafka | Raw/prediction messages and producer/consumer logs | customerID key, stable event ID, timestamps and model version |
-| Bonus | Kafka batch/streaming DAGs | Bounded batch completion, monitored streaming session and graceful stop |
-| Reliability | Recovery screenshots and logs | Confirm output before input commit; durable deduplication; remaining at-least-once replay window |
+| Overview | Customer count, data quality and model status | 7,043 source customers, 11 blank TotalCharges values and fixed 60/20/20 memberships |
+| Model selection | Model performance and recorded MLflow comparison | Validation AP selects the model; validation F1 selects its threshold; held-out test metrics are the assessment |
+| Single prediction | Customer prediction -> Load example -> Predict churn risk | The saved complete Python pipeline handles raw features without Churn |
+| CSV prediction | Batch predictions -> upload sample -> Run batch prediction -> Download results | The same pipeline handles the sample CSV and supports blank TotalCharges |
+| Live monitoring | Publish 20 bounded events and watch recent stream predictions | Producer -> Kafka -> saved-model consumer -> prediction topic -> analytics consumer -> PostgreSQL -> API -> browser |
+| Traceability | Expand a recent prediction | Customer ID, event ID, prediction ID, engine and model version identify its source |
+| Reliability | Stop/start persistence and retained recovery evidence | Named volumes preserve data/models; stable logical IDs support deduplication under documented at-least-once replay |
+| Assessed workflows | Spark comparison and successful Airflow Grid/Graph evidence | Both engines share held-out customers; eight-task ML DAGs and bonus Kafka DAGs have recorded successful runs |
 
-The existing frontend's prediction forms call the Python API directly. Its
-overview uses dataset/model reports. A live Kafka analytics dashboard is a future
-extension; do not describe the current frontend as a Kafka monitoring interface.
+Direct customer and CSV predictions call the Python API. **Live monitoring**
+reads Kafka-derived predictions stored in PostgreSQL. The overview also shows
+saved dataset/model reports; it is not the live event count.
 
-## CLI demonstrations
+## Publish the live demo
 
-```powershell
-# Raw unlabelled input, then file batch output
-Push-Location backend
-python -m pipelines.inference_pipeline --record examples/customer.json
-python -m pipelines.inference_pipeline --input examples/customers.csv --output artifacts/predictions/demo_batch.csv
-Pop-Location
-
-# Native Spark saved pipeline
-.\scripts\windows\start-spark.ps1 -Task predict -Record examples/customer.json
-
-# Read-only historical samples; does not change application offsets
-python backend/pipelines/kafka_messages.py --topic raw --max-messages 2
-python backend/pipelines/kafka_messages.py --topic predictions --max-messages 3
-python backend/pipelines/kafka_messages.py --topic deadletter --max-messages 3
-```
-
-Use the following only when demonstrating fresh runs, allowing time for training:
+Keep the browser on **Live monitoring**, then run:
 
 ```powershell
-.\scripts\windows\start-airflow.ps1 -Task run -Engine sklearn
-.\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
-.\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
+.\scripts\windows\start-containers.ps1 -Task demo -DemoEvents 20
 ```
 
-Each command waits for an actual successful DagRun. The streaming command ends
-normally after its configured session, and `stopped` is the expected consumer
-status. The batch summary contains Yes and No predictions for every source row;
-its prediction count is not the count of churners.
+The bounded producer acknowledges 20 new events and exits. The inference and
+analytics consumers keep running. A producer acknowledgement proves Kafka
+received the input; verify that recent predictions then appear in the dashboard.
+The browser polls every five seconds by default. Old runs, time filters, late
+arrivals and other active producers affect the total; a reused database need not
+show exactly 20 overall. Keep engine/model/time filters consistent when comparing.
 
-For a continuous feed, use two terminals:
+The source CSV is replayed synthetically. Prediction volume, mean risk and
+predicted churn share are model outputs, not measured company churn outcomes.
+A churn prediction can be Yes below 50% because it uses the saved validation
+threshold. Customer values such as `2931-VUVJN` are dataset IDs, not names.
+
+For a longer feed, run this in a separate terminal and press Ctrl+C when done:
 
 ```powershell
-# Terminal A
-python backend/producer.py --mode streaming --events-per-sec 5
-# Terminal B
-python backend/consumer.py --mode streaming
+docker compose run --rm --no-deps producer producer --mode streaming --events-per-sec 5 --exclude-churn
 ```
 
-Stop each with Ctrl+C, allowing delivery/commit confirmation. Reuse the
-same consumer group and state directory to demonstrate restart.
-
-## Recovery explanation
-
-- The consumer loads the selected model once and validates every record.
-- Prediction/dead-letter delivery is acknowledged, then written to the durable
-  local ledger, before covered input offsets are committed.
-- A restart after ledger persistence suppresses repeated output.
-- A hard exit after output acknowledgement but before ledger persistence can
-  repeat the identical prepared output. Its stable `prediction_id` supports
-  downstream deduplication. This is not an exactly-once guarantee.
-- Intentional crash-check exit code 86 and malformed-record logs are diagnostic
-  evidence, not failures of an otherwise successful demonstration.
-
-To repeat those controlled live checks, run
-`.\scripts\windows\start-kafka.ps1 -Task verify-consumer`. They publish diagnostic invalid events
-under isolated groups/windows; normal consumers can also see those source events.
-
-## Evidence refresh after new runs
+For a batch/checkpoint demonstration:
 
 ```powershell
-node frontend/scripts/capture-mlflow.mjs
-node docs/scripts/capture-airflow.mjs
-node docs/scripts/capture-kafka.mjs
-Push-Location backend
-python -m pipelines.submission_evidence
-Pop-Location
+docker compose run --rm --no-deps producer producer --mode batch --batch-size 500 --exclude-churn
+# Repeat the same command to resume the saved checkpoint.
 ```
 
-Capture scripts use installed Microsoft Edge. Kafka message/recovery screenshots
-are labelled recorded CLI output; Airflow/MLflow screenshots show their real UIs.
-Prior Kafka-run evidence is retained under `docs/evidence/history/`.
+## Stop and resume
 
-## Submission checklist
+```powershell
+.\scripts\windows\start-containers.ps1 -Task stop
+# Later: recreate containers using the retained volumes.
+.\scripts\windows\start-containers.ps1 -Task start
+```
 
-- [ ] Repository URL and the tested commit/version are recorded.
-- [ ] Dataset acquisition/checksum and fresh environment instructions are included.
-- [ ] Clean-clone and frontend verification reports show PASS and state reused prerequisites.
-- [ ] Current evidence index, screenshots, metrics and model/run IDs agree.
-- [ ] Saved models are reproducible from scripts; any optional supplied bundle has checksums.
-- [ ] Model/threshold justification, Spark timing limits and Kafka replay behavior can be explained.
-- [ ] Demo files contain no required Churn input; no credential/environment files are committed.
+Normal stop removes containers/network while retaining the named volumes for
+Kafka, PostgreSQL, models, reports, MLflow and the SQLite inference outbox. Do not
+use the reset command or `down --volumes` for an ordinary demo shutdown.
 
-The checkboxes are the presenter's final handoff checklist; they do not substitute
-for the machine-readable verification reports.
+On a later day the default last-24-hours dashboard can be empty even when older
+rows remain stored. Publish a new bounded set or choose the appropriate time
+window. After inspecting the resumed app, stop it again when finished.
+
+## Evidence and assessed workflows
+
+Capture overview/model, single prediction, CSV results and live monitoring
+screenshots. Record the time, model version, filter window and producer run ID
+with the live evidence. Keep the SQL/API agreement and prior crash/replay logs.
+The [container acceptance report](../backend/reports/container_verification.md)
+covers real browser/SQL checks, service restart, container recreation and replay.
+To repeat the full isolated acceptance check:
+
+```powershell
+.\scripts\windows\start-containers.ps1 -Task test
+```
+
+That check needs frontend Playwright/Edge prerequisites and creates its own
+Compose project; see [acceptance setup](CONTAINERS.md#reproduce-acceptance-checks).
+It is a verification step, not a command needed before each presentation.
+
+MLflow, Spark and Airflow are optional Docker profiles, with startup commands
+in [the container guide](CONTAINERS.md#optional-heavy-services). Existing complete
+Spark/Airflow scheduler evidence came from the documented WSL runtime. The
+Docker Airflow report covers profile health/imports and two task probes; it does
+not claim a new complete eight-task scheduler run inside Docker.
+
+For an optional live WSL orchestration demonstration, stop the Docker core
+first and follow [native verification](VERIFICATION.md) and
+[Airflow operations](../backend/dags/README.md). Kafka brokers and model stores
+in the two setups are separate. Do not mix their counts or model versions.
+
+## Submission handoff
+
+- [ ] Record the repository URL and the tested commit/version.
+- [ ] Keep dataset acquisition/checksum and fresh setup instructions available.
+- [ ] Review the dated clean-clone, frontend, MLflow, Airflow and recovery reports.
+- [ ] Capture the final local UI screens with event/model traceability.
+- [ ] Explain validation selection, Spark timing, synthetic replay and recovery limits.
+- [ ] Commit reviewed source/docs; keep `.env`, raw data and generated models excluded.
+- [ ] After a separately requested push, check actual GitHub Actions results.
+
+Hosted CI is still pending in the recorded report; a local demo pass does not
+claim a hosted CI pass. Cloud deployment is deferred, not a remaining local
+presentation requirement. The [single roadmap](../OPSYNTRA_ROADMAP.md) records
+these scopes separately.

@@ -14,7 +14,7 @@ For the native setup, install the prerequisites described in the linked guides:
 
 | Launcher | Purpose | Guide |
 |---|---|---|
-| `start-frontend.ps1` | Next.js frontend and Python API | [Application setup](../README.md#start-the-application) |
+| `start-frontend.ps1` | Next.js frontend and Python API | [Application setup](../README.md#native-windowswsl-alternative) |
 | `start-mlflow.ps1` | Experiment tracking UI | [Backend instructions](../backend/README.md) |
 | `start-spark.ps1` | Spark setup, training, inference and tests | [Backend instructions](../backend/README.md) |
 | `start-airflow.ps1` | Airflow service and ML/Kafka DAG runs | [Airflow workflow](../backend/dags/README.md) |
