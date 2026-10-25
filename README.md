@@ -109,8 +109,10 @@ Opsyntra/
     start-*.ps1            Airflow, Kafka, analytics, MLflow and Spark helpers
 ```
 
-The Git repository remains at this root. `.review-tools/` is an ignored local
-PDF-reading utility; it is separate from the application.
+The Git repository remains at this root. Temporary planning tools and old
+verification environments have been removed. Verification helpers recreate
+their ignored working directories when needed; retained evidence is under
+`backend/reports/` and `docs/evidence/`.
 
 All Windows/WSL launchers are grouped under `scripts/windows/`; see the
 [launcher guide](scripts/README.md). Commands below use their new locations.
