@@ -1,0 +1,26 @@
+{
+  "invocation_id": "f801dbbb-c713-4584-8011-fca17cf4f0e3",
+  "mode": "streaming",
+  "source_sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+  "source_rows": 7043,
+  "bootstrap_servers": "kafka:29092",
+  "topic": "telco.raw.customers",
+  "started_at": "2026-10-26T08:23:00.904140Z",
+  "delivery_semantics": "at-least-once across process crashes; stable event_id permits deduplication",
+  "include_churn": false,
+  "report_directory": "/app/backend/artifacts/kafka/runs/f801dbbb-c713-4584-8011-fca17cf4f0e3",
+  "cluster_id": "MkU3OEVBNTcwNTJENDM2Qk",
+  "run_id": "e12e5c08-3df5-4347-ab70-e1ba6f2f2407",
+  "requested_events_per_sec": 5.0,
+  "seed": 42,
+  "jitter_seconds": 60,
+  "status": "completed",
+  "enqueued": 3,
+  "acknowledged": 3,
+  "acknowledged_offsets": {
+    "1": 18,
+    "0": 25
+  },
+  "finished_at": "2026-10-26T08:23:01.621501Z",
+  "elapsed_seconds": 0.7174270699999852
+}

@@ -65,8 +65,8 @@ directly with that Linux environment's Python if those packages are missing.
 
 ```powershell
 Push-Location backend
-python -m pipelines.clean_clone_check --archive "C:\Users\SATHSARA\Downloads\archive.zip" --include-airflow
-python -m pipelines.phase1_evidence
+python -m tools.verification.clean_clone_check --archive "C:\Users\SATHSARA\Downloads\archive.zip" --include-airflow
+python -m tools.evidence.phase1_evidence
 Pop-Location
 ```
 
@@ -103,8 +103,8 @@ after training both engines, choosing a new output name:
 
 ```powershell
 Push-Location backend
-python -m pipelines.model_bundle --export artifacts/releases/opsyntra-models.zip
-python -m pipelines.model_bundle --verify artifacts/releases/opsyntra-models.zip
+python -m tools.evidence.model_bundle --export artifacts/releases/opsyntra-models.zip
+python -m tools.evidence.model_bundle --verify artifacts/releases/opsyntra-models.zip
 Pop-Location
 ```
 
@@ -122,7 +122,7 @@ from the checkout that contains the bundle tool:
 
 ```powershell
 Push-Location backend
-python -m pipelines.model_bundle --restore artifacts/releases/opsyntra-models.zip --backend "C:\path\separate-checkout\backend"
+python -m tools.evidence.model_bundle --restore artifacts/releases/opsyntra-models.zip --backend "C:\path\separate-checkout\backend"
 Pop-Location
 ```
 
@@ -140,9 +140,9 @@ model selection, experiment artifacts and the tracking UI.
 
 ```powershell
 Push-Location backend
-python -m pipelines.verification
+python -m tools.verification.runner
 Pop-Location
-wsl -d Ubuntu --cd /mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend --exec .venv-spark/bin/python -m pipelines.verification --spark-only
+wsl -d Ubuntu --cd /mnt/c/Users/SATHSARA/Desktop/Opsyntra/backend --exec .venv-spark/bin/python -m tools.verification.runner --spark-only
 ```
 
 Change the WSL path to your checkout on another computer. Results/logs are
@@ -159,7 +159,7 @@ rejects categories outside its documented vocabulary; these are separate policie
 ```powershell
 .\scripts\windows\start-kafka.ps1 -Task verify
 Push-Location backend
-python -m pipelines.kafka_consumption_check --include-spark
+python -m tools.verification.kafka_consumption_check --include-spark
 Pop-Location
 ```
 
@@ -235,11 +235,11 @@ Run `.\scripts\windows\start-mlflow.ps1` in a separate terminal and keep Airflow
 node frontend/scripts/capture-mlflow.mjs
 node docs/scripts/capture-airflow.mjs
 Push-Location backend
-python -m pipelines.capture_kafka_evidence
+python -m tools.evidence.capture_kafka_evidence
 Pop-Location
 node docs/scripts/capture-kafka.mjs
 Push-Location backend
-python -m pipelines.submission_evidence
+python -m tools.evidence.submission_evidence
 Pop-Location
 ```
 

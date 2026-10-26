@@ -12,7 +12,7 @@ Three executed notebooks are available:
    delivery analysis. Synthetic replay is a simulation of stream processing.
 
 From `backend/`, install `requirements/notebooks.txt`, then run
-`python -m pipelines.notebook_check`. This executes all cells in fresh kernels,
+`python -m tools.verification.notebook_check`. This executes all cells in fresh kernels,
 verifies inputs/exports, checks SQL against dashboard metrics and saves outputs.
 
 Figures/tables/manifests go to `reports/notebooks/<notebook-name>/`.

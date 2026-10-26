@@ -1,0 +1,8 @@
+{
+  "synthetic": true,
+  "customers": 120,
+  "source_sha256": "8e2bd187e21a9ea374b7d90a0ee19b20f01a9127cdaacee345942f8997f24672",
+  "model_version": "95ea396904a7f39a",
+  "model": "logistic_regression",
+  "status": "PASS"
+}

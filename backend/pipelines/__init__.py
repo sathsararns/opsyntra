@@ -1,1 +1,1 @@
-"""Runnable Opsyntra workflows."""
+"""Core data, training, inference and orchestration workflow entrypoints."""

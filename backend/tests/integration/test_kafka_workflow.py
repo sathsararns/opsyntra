@@ -40,8 +40,8 @@ class KafkaWorkflowTests(unittest.TestCase):
         (self.root / "config.yaml").write_text(yaml.safe_dump(full), encoding="utf-8")
         self.workflow = KafkaWorkflow(self.root, "batch", "manual:with/unsafe/path", duration=5)
         self.window = {"cluster_id": "fixture", "topic": "telco.raw.customers", "partitions": {"0": {"start": 0, "end": 0}}}
-        self.health = patch("pipelines.kafka_topics.ensure_topics", return_value={"cluster_id": "fixture", "bootstrap_servers": "127.0.0.1:9092"})
-        self.capture = patch("pipelines.kafka_window.capture_window", return_value=self.window)
+        self.health = patch("tools.services.kafka_topics.ensure_topics", return_value={"cluster_id": "fixture", "bootstrap_servers": "127.0.0.1:9092"})
+        self.capture = patch("tools.services.kafka_window.capture_window", return_value=self.window)
         self.health.start()
         self.capture.start()
         self.addCleanup(self.health.stop)

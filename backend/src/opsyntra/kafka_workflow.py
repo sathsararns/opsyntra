@@ -77,8 +77,8 @@ class KafkaWorkflow:
         return f"opsyntra-airflow-{self.kind}-{self.engine}-" + self.run.name
 
     def health_checks(self):
-        from pipelines.kafka_topics import ensure_topics
-        from pipelines.kafka_window import capture_window
+        from tools.services.kafka_topics import ensure_topics
+        from tools.services.kafka_window import capture_window
         # Airflow retries reuse the original source, model and lower offsets.
         with checkpoint_lock(self.manifest):
             if self.manifest.exists():
@@ -137,7 +137,7 @@ class KafkaWorkflow:
         return settings, manifest
 
     def publish_batch(self):
-        from pipelines.kafka_window import capture_window
+        from tools.services.kafka_window import capture_window
         settings, manifest = self.settings()
         result_path = self.run / "producer_result.json"
         if result_path.exists():

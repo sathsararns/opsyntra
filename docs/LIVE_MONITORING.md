@@ -159,7 +159,7 @@ From the repository root, with PostgreSQL and Kafka started:
 
 ```powershell
 cd backend
-python -m pipelines.analytics_dashboard_check --regression
+python -m tools.verification.analytics_dashboard_check --regression
 ```
 
 This runs backend checks, TypeScript checks, a production build and browser

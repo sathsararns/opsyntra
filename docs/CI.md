@@ -62,7 +62,7 @@ Core checks use synthetic inputs and temporary trained models. From `backend/`
 in an environment with the normal web, Kafka and analytics dependencies:
 
 ```powershell
-python -m pipelines.ci_checks --profile core
+python -m tools.ci.ci_checks --profile core
 ```
 
 Database checks need the separately provisioned test database from Phase 2.
@@ -73,15 +73,15 @@ Kafka checks use that test database and isolated diagnostic topics/groups:
 .\scripts\windows\start-analytics.ps1 -Task start
 .\scripts\windows\start-kafka.ps1 -Task start
 cd backend
-python -m pipelines.ci_checks --profile postgres
-python -m pipelines.ci_kafka
+python -m tools.ci.ci_checks --profile postgres
+python -m tools.ci.ci_kafka
 ```
 
 Native Spark runs on Linux with the locked Spark dependencies and Java 21:
 
 ```bash
 # Working directory: backend/
-python -m pipelines.ci_checks --profile spark
+python -m tools.ci.ci_checks --profile spark
 ```
 
 The fresh-process Spark inference test now fits and saves its own small model;
@@ -94,7 +94,7 @@ For browser checks, start with a new fixture directory:
 
 ```powershell
 # Working directory: backend/
-python -m pipelines.ci_prepare --directory artifacts/ci/fixture
+python -m tools.ci.ci_prepare --directory artifacts/ci/fixture
 cd ../frontend
 npm ci
 npx next typegen

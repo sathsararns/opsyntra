@@ -1,6 +1,9 @@
 # Shared project documentation
 
 - [Complete project roadmap: ML, Kafka, analytics, CI/Docker and optional cloud](../OPSYNTRA_ROADMAP.md)
+- [Core workflow commands](../backend/pipelines/README.md)
+- [Developer tools and command migration](../backend/tools/README.md)
+- [Workflow/tools refactor verification](../backend/reports/structure_refactor_verification.md)
 - [Phase 1 clean-clone verification](../backend/reports/clean_clone_verification.md)
 - [Frontend typecheck/build/browser evidence](../backend/reports/frontend_verification.json)
 - [Submission demo guide](DEMO_GUIDE.md)
@@ -88,7 +91,7 @@ node docs/scripts/capture-airflow.mjs
 ```
 
 From `backend/`, rebuild the hash-verified report with
-`python -m pipelines.airflow_evidence`. The PowerShell launcher records successful
+`python -m tools.evidence.airflow_evidence`. The PowerShell launcher records successful
 workflow/candidate runs in the **Opsyntra-Airflow** MLflow experiment.
 
 Verification performed for this checkpoint: the complete host suite ran 41 tests
@@ -121,7 +124,7 @@ ID conflicts, duplicate suppression and hard process exits at both delivery/ledg
 boundaries. Sklearn output matched direct saved-model inference. Native Spark
 batch and bounded streaming also published real predictions. The message viewer
 lets you inspect output JSON for terminal screenshots without changing application
-offsets: `python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5`
+offsets: `python backend/tools/services/kafka_messages.py --topic predictions --max-messages 5`
 from the repository root.
 
 ## Final tests and bonus Kafka DAG evidence

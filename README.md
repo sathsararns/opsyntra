@@ -85,7 +85,12 @@ Opsyntra/
   frontend/                Next.js, Tailwind, browser tests and public assets
   backend/
     src/opsyntra/          Reusable Python code, model inference and FastAPI
-    pipelines/             Data preparation, training, inference and UI snapshot
+    pipelines/             Eight core data/ML/orchestration workflow entrypoints
+    tools/                 Supporting commands grouped by purpose
+      ci/                  CI fixtures and test jobs
+      verification/        Runtime, recovery, notebook and clean-clone checks
+      evidence/            Tracking, reports, screenshots and model bundles
+      services/            Native services, setup and inspection helpers
     dags/                  Airflow workflows
     notebooks/             Exploration and engine comparisons
     tests/                 Python unit and integration tests
@@ -116,6 +121,12 @@ their ignored working directories when needed; retained evidence is under
 
 All Windows/WSL launchers are grouped under `scripts/windows/`; see the
 [launcher guide](scripts/README.md). Commands below use their new locations.
+Backend service/verification/CI utilities are grouped under
+[tools/](backend/tools/README.md); [pipelines/](backend/pipelines/README.md)
+contains the eight core workflow entrypoints. Historical evidence retains the
+module paths used when its checks ran.
+See [refactor verification](backend/reports/structure_refactor_verification.md)
+for the backend/browser and real container regression results.
 
 ## Native Windows/WSL alternative
 
@@ -174,7 +185,7 @@ python -m pipelines.inference_pipeline --record examples/customer.json
 python -m pipelines.inference_pipeline --input examples/customers.csv --output artifacts/predictions/example_batch.csv
 
 # Refresh the dashboard's labelled offline snapshot.
-python -m pipelines.frontend_snapshot
+python -m tools.services.frontend_snapshot
 ```
 
 The API and CLI use `backend/artifacts/models/best_pipeline.joblib`. This is one
@@ -184,7 +195,7 @@ the chosen model is assessed on held-out test data.
 Each training invocation records four comparable MLflow runs, tunes the
 decision threshold on validation F1, and logs complete models and evaluation
 plots. Start the tracking UI from this root with `.\scripts\windows\start-mlflow.ps1` and visit
-http://127.0.0.1:5000. From `backend/`, use `python -m pipelines.mlflow_server`.
+http://127.0.0.1:5000. From `backend/`, use `python -m tools.services.mlflow_server`.
 See [model selection evidence](backend/reports/model_selection.md) and
 [MLflow screenshots](docs/README.md). Restart the API after retraining.
 
@@ -313,7 +324,7 @@ crash window can still produce identical duplicate prediction IDs.
 View actual output messages:
 
 ```powershell
-python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5
+python backend/tools/services/kafka_messages.py --topic predictions --max-messages 5
 ```
 
 Native Spark is supported through

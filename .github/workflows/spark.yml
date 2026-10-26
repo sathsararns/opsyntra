@@ -41,7 +41,7 @@ jobs:
     - name: Install locked CPU Spark environment
       run: python -m pip install --require-hashes -r backend/requirements/ci-spark-py312-linux.lock
     - name: Run all native tests without production artifacts or skips
-      run: python -m pipelines.ci_checks --profile spark
+      run: python -m tools.ci.ci_checks --profile spark
       working-directory: backend
     - name: Upload reports even on failure
       if: always()

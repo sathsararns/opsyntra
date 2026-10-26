@@ -103,6 +103,7 @@ Opsyntra/
   backend/                    # Python API and ML workflows
     src/opsyntra/
     pipelines/
+    tools/                    # ci/, verification/, evidence/, services/
     dags/
     notebooks/
     tests/

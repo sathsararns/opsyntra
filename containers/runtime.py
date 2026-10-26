@@ -130,7 +130,7 @@ def main():
         model_init(path, config, force=command == "train")
         return
     if command == "topics":
-        from pipelines.kafka_topics import ensure_topics
+        from tools.services.kafka_topics import ensure_topics
         from opsyntra.kafka_config import load_kafka_config
         print(json.dumps(ensure_topics(load_kafka_config(path))))
         return

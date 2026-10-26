@@ -26,15 +26,15 @@ if ($Task -in @('setup', 'start', 'stop', 'status')) {
     Assert-Success 'WSL path conversion'
     if (-not $NativeBackendResult) { throw 'WSL returned no backend path' }
     $NativeBackend = $NativeBackendResult.Trim()
-    & wsl -d Ubuntu -u root --cd $NativeBackend --exec python3 -m pipelines.analytics_local $Task --port $Port
+    & wsl -d Ubuntu -u root --cd $NativeBackend --exec python3 -m tools.services.analytics_local $Task --port $Port
     Assert-Success 'Local analytics database'
 }
 if ($Task -in @('setup', 'migrate', 'test', 'test-consumer')) {
     Push-Location $Backend
     try {
-        if ($Task -eq 'test-consumer') { & $Python -m pipelines.analytics_consumer_check --live }
-        elseif ($Task -eq 'test') { & $Python -m pipelines.analytics_check }
-        else { & $Python -m pipelines.analytics_db migrate }
+        if ($Task -eq 'test-consumer') { & $Python -m tools.verification.analytics_consumer_check --live }
+        elseif ($Task -eq 'test') { & $Python -m tools.verification.analytics_check }
+        else { & $Python -m tools.services.analytics_db migrate }
         Assert-Success 'Analytics schema verification'
     } finally { Pop-Location }
 }

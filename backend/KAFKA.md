@@ -257,7 +257,7 @@ Capture current per-partition start/end offsets without consuming or committing:
 
 ```powershell
 # From Opsyntra/; choose a new output filename for each desired cutoff.
-python backend/pipelines/kafka_window.py --output backend/artifacts/kafka/windows/my_batch.json
+python backend/tools/services/kafka_window.py --output backend/artifacts/kafka/windows/my_batch.json
 python backend/consumer.py --mode batch --offset-window backend/artifacts/kafka/windows/my_batch.json
 ```
 
@@ -323,8 +323,8 @@ many legitimate events; deduplication uses event identity, not customer identity
 Inspect existing predictions or deadletters without changing application offsets:
 
 ```powershell
-python backend/pipelines/kafka_messages.py --topic predictions --max-messages 5
-python backend/pipelines/kafka_messages.py --topic deadletter --max-messages 5
+python backend/tools/services/kafka_messages.py --topic predictions --max-messages 5
+python backend/tools/services/kafka_messages.py --topic deadletter --max-messages 5
 ```
 
 The viewer uses a fresh inspection group, starts at available history and exits
@@ -400,7 +400,7 @@ source messages long enough for the chosen replay policy.
 .\scripts\windows\start-kafka.ps1 -Task verify-consumer
 
 # From backend/: additionally exercise the saved Spark model.
-python -m pipelines.kafka_consumption_check --include-spark
+python -m tools.verification.kafka_consumption_check --include-spark
 
 # Local failure-path tests, using real SQLite and simulated Kafka callbacks.
 python -m unittest tests.integration.test_kafka_consumer -v

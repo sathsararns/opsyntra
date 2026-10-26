@@ -34,7 +34,7 @@ jobs:
     - name: Install hash-locked CPU dependencies
       run: python -m pip install --require-hashes -r backend/requirements/ci-py312-linux.lock
     - name: Run strict self-contained profile
-      run: python -m pipelines.ci_checks --profile core
+      run: python -m tools.ci.ci_checks --profile core
       working-directory: backend
     - name: Upload results even on failure
       if: always()
@@ -65,7 +65,7 @@ jobs:
     - name: Install hash-locked CPU dependencies
       run: python -m pip install --require-hashes -r backend/requirements/ci-py312-linux.lock
     - name: Build isolated synthetic fixture
-      run: python -m pipelines.ci_prepare --directory artifacts/ci/fixture
+      run: python -m tools.ci.ci_prepare --directory artifacts/ci/fixture
       working-directory: backend
     - name: Install locked frontend dependencies
       run: npm ci
@@ -131,13 +131,13 @@ jobs:
     - name: Install hash-locked CPU dependencies
       run: python -m pip install --require-hashes -r backend/requirements/ci-py312-linux.lock
     - name: Provision isolated databases and least-privilege roles
-      run: python -m pipelines.ci_database
+      run: python -m tools.ci.ci_database
       working-directory: backend
     - name: Run real database/API tests; no skips
-      run: python -m pipelines.ci_checks --profile postgres
+      run: python -m tools.ci.ci_checks --profile postgres
       working-directory: backend
     - name: Real Kafka commit/crash/replay checks
-      run: python -m pipelines.ci_kafka
+      run: python -m tools.ci.ci_kafka
       working-directory: backend
     - name: Upload results even on failure
       if: always()

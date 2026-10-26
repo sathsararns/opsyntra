@@ -24,11 +24,11 @@ the original inference API. See [real browser/SQL verification](reports/live_das
 Phase 5 [executed notebooks](notebooks/README.md) cover training-only EDA,
 saved sklearn/Spark validation and timing comparisons, and SQL streaming
 analytics. Install `requirements/notebooks.txt` and run
-`python -m pipelines.notebook_check` from this backend directory. See
+`python -m tools.verification.notebook_check` from this backend directory. See
 [setup/snapshot definitions](../docs/NOTEBOOKS.md) and
 [actual notebook verification](reports/notebook_verification.md).
 
-Phase 6 adds strict CI profiles (`python -m pipelines.ci_checks --profile core`,
+Phase 6 adds strict CI profiles (`python -m tools.ci.ci_checks --profile core`,
 `postgres`, or Linux `spark`), synthetic browser fixtures and GitHub workflows.
 See [CI reproduction and job scopes](../docs/CI.md) and
 [local verification/hosted status](reports/ci_verification.md).
@@ -219,9 +219,11 @@ After installing `requirements/web.txt` and running `npm ci` inside the sibling
 Open http://127.0.0.1:3000. The frontend connects to the saved Python pipeline
 through a local FastAPI service; prediction responses are produced by the actual
 model. Refresh the labelled offline snapshot after retraining with
-`python -m pipelines.frontend_snapshot`.
+`python -m tools.services.frontend_snapshot`.
 
 Reusable code is in `src/opsyntra/`; `pipelines/` contains runnable workflows.
+Developer commands are grouped under `tools/ci/`, `tools/verification/`,
+`tools/evidence/` and `tools/services/`; see the [command migration table](tools/README.md).
 `notebooks/` is reserved for exploration; `dags/` contains the working eight-task ML DAG.
 `tests/` verifies the implemented data workflow and `reports/` stores evidence.
 
@@ -241,7 +243,7 @@ Training does not require the MLflow server to be running.
 From `backend/`, open the UI with:
 
 ```powershell
-python -m pipelines.mlflow_server
+python -m tools.services.mlflow_server
 ```
 
 From the repository root, use `.\scripts\windows\start-mlflow.ps1` instead. Visit
@@ -270,7 +272,7 @@ choose a different policy when those costs are available. Validation metrics
 can be optimistic after selection, so report held-out test performance.
 
 After retraining, restart the API to load the new artifact and run
-`python -m pipelines.frontend_snapshot` to refresh the offline dashboard evidence.
+`python -m tools.services.frontend_snapshot` to refresh the offline dashboard evidence.
 
 References: [MLflow local database tracking](https://www.mlflow.org/docs/latest/ml/tracking/tutorials/local-database/),
 [MLflow sklearn model logging](https://mlflow.org/docs/latest/api_reference/python_api/mlflow.sklearn.html),
@@ -352,7 +354,7 @@ pipeline ZIP archives into `Opsyntra-Telco-Spark` using the Windows MLflow store
 Each archive has a manifest with the original model-tree digest and ZIP checksum;
 this avoids Windows directory-copy failures for deeply nested Spark files.
 This keeps artifact paths accessible through http://127.0.0.1:5000. If training
-finished but logging was interrupted, run `python -m pipelines.spark_tracking`
+finished but logging was interrupted, run `python -m tools.evidence.spark_tracking`
 from `backend/`; an already-recorded batch is not duplicated.
 Each run also contains the custom stage modules under `code/opsyntra` and pinned
 requirements under `environment/`. A downloaded native pipeline needs that code
@@ -422,7 +424,7 @@ backend directory:
 ..\scripts\windows\start-kafka.ps1 -Task start
 python consumer.py --mode batch --max-messages 1000
 python consumer.py --mode streaming
-python -m pipelines.kafka_messages --topic predictions --max-messages 5
+python -m tools.services.kafka_messages --topic predictions --max-messages 5
 ```
 
 Restart with the same group ID and state directory to resume. Predictions and
@@ -441,7 +443,7 @@ and [the completed live-broker checkpoint](reports/kafka_consumption_report.md).
 From this backend directory:
 
 ```powershell
-python -m pipelines.verification
+python -m tools.verification.runner
 ..\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind batch -Engine sklearn
 ..\scripts\windows\start-airflow.ps1 -Task run-kafka -KafkaKind streaming -Engine sklearn -DurationSeconds 30 -DemoEvents 20
 ```

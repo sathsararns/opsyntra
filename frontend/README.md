@@ -72,7 +72,7 @@ offline snapshot from the backend directory:
 
 ```powershell
 cd backend
-python -m pipelines.frontend_snapshot
+python -m tools.services.frontend_snapshot
 ```
 
 ## Connection and architecture

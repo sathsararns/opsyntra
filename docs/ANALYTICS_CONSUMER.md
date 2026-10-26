@@ -175,7 +175,7 @@ With Kafka and PostgreSQL running, from root:
 Or from `backend/`:
 
 ```powershell
-python -m pipelines.analytics_consumer_check --live --regression
+python -m tools.verification.analytics_consumer_check --live --regression
 ```
 
 The verifier uses the separate test database and uniquely named diagnostic

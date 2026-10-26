@@ -1,5 +1,7 @@
 # Opsyntra verification and evidence
 
+Source links follow the current tools layout; recorded manifests and hashes describe the original verified runs.
+
 Generated: 2026-10-20T08:32:42.690095+00:00
 
 Host: 74 passed, 4 Spark checks skipped. Native WSL Spark: 4 passed, no skips. All 78 unique tests passed across the two runtimes.
@@ -23,8 +25,8 @@ Model: `d9a13b4cf6839ed4`. Dataset: `88be4b93fbe0cc83421af1c503794c97c342eca914c
 | Independent clean clone, fresh model training and scheduler runs | [clean_clone_verification.md](../../backend/reports/clean_clone_verification.md) | [clean_clone_verification.json](../../backend/reports/clean_clone_verification.json) |
 | Frontend typecheck/build and six real browser flows | [frontend_verification.json](../../backend/reports/frontend_verification.json) | [frontend-prediction.png](../../docs/screenshots/frontend-prediction.png) |
 | Submission demonstration and optional saved-model setup | [DEMO_GUIDE.md](../../docs/DEMO_GUIDE.md) | [VERIFICATION.md](../../docs/VERIFICATION.md) |
-| Checksum-verified saved-model restore and both engines' inference | [model_bundle_verification.json](../../backend/reports/model_bundle_verification.json) | [model_bundle.py](../../backend/pipelines/model_bundle.py) |
-| Isolated native-Linux environment setup and repeat setup | [spark_environment_verification.json](../../backend/reports/spark_environment_verification.json) | [spark_environment.py](../../backend/pipelines/spark_environment.py) |
+| Checksum-verified saved-model restore and both engines' inference | [model_bundle_verification.json](../../backend/reports/model_bundle_verification.json) | [model_bundle.py](../../backend/tools/evidence/model_bundle.py) |
+| Isolated native-Linux environment setup and repeat setup | [spark_environment_verification.json](../../backend/reports/spark_environment_verification.json) | [spark_environment.py](../../backend/tools/services/spark_environment.py) |
 
 ## Real bonus scheduler runs
 

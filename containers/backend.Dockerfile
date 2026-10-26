@@ -13,6 +13,7 @@ RUN --mount=type=cache,target=/root/.cache/pip pip install --require-hashes -r /
 RUN groupadd -g 1000 opsyntra && useradd -u 1000 -g 1000 -m opsyntra
 COPY backend/src ./src
 COPY backend/pipelines ./pipelines
+COPY backend/tools ./tools
 COPY backend/migrations ./migrations
 COPY backend/examples ./examples
 COPY backend/dags ./dags

@@ -93,7 +93,7 @@ test("live monitoring fits a mobile screen and preserves the supplied logo",asyn
 });
 
 test("a real producer event appears automatically and dashboard counts match SQL",async({page})=>{
-  test.skip(!process.env.OPSYNTRA_DASHBOARD_MANIFEST,"Run pipelines.analytics_dashboard_check for isolated real Kafka/model/database verification");
+  test.skip(!process.env.OPSYNTRA_DASHBOARD_MANIFEST,"Run tools.verification.analytics_dashboard_check for isolated real Kafka/model/database verification");
   const manifestPath=process.env.OPSYNTRA_DASHBOARD_MANIFEST!;
   const manifest=JSON.parse(await readFile(manifestPath,"utf8"));
   await openLive(page);
@@ -101,7 +101,7 @@ test("a real producer event appears automatically and dashboard counts match SQL
   await page.getByRole("button",{name:"Apply filters"}).click();
   await expect(page.getByTestId("live-volume")).toHaveText("0");
   const python=process.env.OPSYNTRA_TEST_PYTHON || "python";
-  const helper=path.resolve("../backend/pipelines/dashboard_event.py");
+  const helper=path.resolve("../backend/tools/verification/dashboard_event.py");
   const published=JSON.parse((await execute(python,[helper,"publish","--manifest",manifestPath],{maxBuffer:2000000})).stdout);
   const row=page.getByRole("row").filter({has:page.getByRole("cell",{name:manifest.customer_id,exact:true})}).first();
   await expect(row).toBeVisible({timeout:20000});

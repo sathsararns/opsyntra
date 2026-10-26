@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 from zipfile import ZipFile
 
-from pipelines.model_bundle import verify, restore
+from tools.evidence.model_bundle import verify, restore
 
 
 class ModelBundleTests(unittest.TestCase):

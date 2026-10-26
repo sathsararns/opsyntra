@@ -49,9 +49,9 @@ library and migrations work with PostgreSQL from either Windows or Linux.
 
 ```powershell
 cd backend
-python -m pipelines.analytics_db migrate
-python -m pipelines.analytics_db status
-python -m pipelines.analytics_check
+python -m tools.services.analytics_db migrate
+python -m tools.services.analytics_db status
+python -m tools.verification.analytics_check
 ```
 
 `status` uses the reader login. An empty `metrics` array is expected before
@@ -232,7 +232,7 @@ inside `opsyntra_analytics_test`; no truncation or existing Kafka offsets are us
 The [backend regression report](../backend/reports/analytics_regression.json)
 records 96 passing tests out of 100, with four native Spark checks skipped on
 Windows. It includes the 22 passing Phase 2 contract/PostgreSQL tests. Run
-`python -m pipelines.analytics_check --regression` from `backend/` to repeat
+`python -m tools.verification.analytics_check --regression` from `backend/` to repeat
 both the dedicated checks and the wider suite. Phase 1's verification reports
 remain preserved as their own earlier checkpoint.
 

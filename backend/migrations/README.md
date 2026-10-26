@@ -40,8 +40,8 @@ Never put passwords in committed SQL files or terminal command arguments.
 From `backend/`, install `requirements/analytics.txt` then run:
 
 ```text
-python -m pipelines.analytics_db migrate
-python -m pipelines.analytics_check
+python -m tools.services.analytics_db migrate
+python -m tools.verification.analytics_check
 ```
 
 Only the owner connection applies migrations. Reader/writer groups receive

@@ -25,7 +25,7 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: `python -m pipelines.ci_api --fixture artifacts/ci/fixture --port ${apiPort}`,
+      command: `python -m tools.ci.ci_api --fixture artifacts/ci/fixture --port ${apiPort}`,
       cwd: path.resolve(process.cwd(), "../backend"),
       url: `http://127.0.0.1:${apiPort}/api/health`,
       reuseExistingServer: false,

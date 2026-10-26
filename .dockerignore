@@ -11,6 +11,8 @@ backend/**
 !backend/src/**
 !backend/pipelines/
 !backend/pipelines/**
+!backend/tools/
+!backend/tools/**
 !backend/migrations/
 !backend/migrations/**
 !backend/requirements/

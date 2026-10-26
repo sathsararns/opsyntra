@@ -25,7 +25,7 @@ $venvPython = "$linuxHome/.local/share/opsyntra/airflow-venv/bin/python"
 if ($Task -eq "track") {
     Push-Location $backendDirectory
     try {
-        python -m pipelines.airflow_tracking --engine $Engine
+        python -m tools.evidence.airflow_tracking --engine $Engine
         if ($LASTEXITCODE -ne 0) { throw "Airflow completed but MLflow logging failed." }
     } finally { Pop-Location }
     return
@@ -39,12 +39,12 @@ if ($Task -eq "setup") {
     if ($LASTEXITCODE -ne 0) { throw "ML worker setup failed. Run scripts/windows/start-spark.ps1 -Task setup first, then retry Airflow setup." }
     return
 }
-& wsl -d Ubuntu --cd $linuxBackend --exec $venvPython -m pipelines.airflow_service $Task --engine $Engine --prediction-input $PredictionInput --kafka-kind $KafkaKind --duration-seconds $DurationSeconds --demo-events $DemoEvents --events-per-sec $EventsPerSec
+& wsl -d Ubuntu --cd $linuxBackend --exec $venvPython -m tools.services.airflow_service $Task --engine $Engine --prediction-input $PredictionInput --kafka-kind $KafkaKind --duration-seconds $DurationSeconds --demo-events $DemoEvents --events-per-sec $EventsPerSec
 if ($LASTEXITCODE -ne 0) { throw "Airflow $Task failed. Inspect the log output above." }
 if ($Task -eq "run") {
     Push-Location $backendDirectory
     try {
-        python -m pipelines.airflow_tracking --engine $Engine
+        python -m tools.evidence.airflow_tracking --engine $Engine
         if ($LASTEXITCODE -ne 0) { throw "Airflow completed but MLflow logging failed. Retry with -Task track." }
     } finally { Pop-Location }
 }

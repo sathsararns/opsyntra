@@ -10,7 +10,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $opsyntraRoot 'frontend/node_modules
 
 Push-Location $opsyntraBackend
 try {
-    & $pythonExecutable -m pipelines.frontend_snapshot
+    & $pythonExecutable -m tools.services.frontend_snapshot
     if ($LASTEXITCODE -ne 0) { throw 'Prepare the backend data/model artifacts and install backend/requirements/web.txt first.' }
 
     $apiReady = $false

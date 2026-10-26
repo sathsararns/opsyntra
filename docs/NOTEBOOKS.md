@@ -14,7 +14,7 @@ sklearn models and API dependencies:
 python -m pip install -r backend/requirements/notebooks.txt
 .\scripts\windows\start-analytics.ps1 -Task start
 cd backend
-python -m pipelines.notebook_check
+python -m tools.verification.notebook_check
 ```
 
 The verifier executes every code cell in a fresh kernel using the **same Python
@@ -102,7 +102,7 @@ $env:OPSYNTRA_NOTEBOOK_ENGINE = 'sklearn'
 $env:OPSYNTRA_NOTEBOOK_MODEL_VERSION = 'd9a13b4cf6839ed4' # choose an available version
 $env:OPSYNTRA_NOTEBOOK_AS_OF = '2026-10-20T15:00:00Z'
 $env:OPSYNTRA_NOTEBOOK_HOURS = '24'
-python -m pipelines.notebook_check
+python -m tools.verification.notebook_check
 ```
 
 Without overrides, it selects the latest ingested model for sklearn and the last
