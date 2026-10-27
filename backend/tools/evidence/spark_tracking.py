@@ -10,5 +10,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config.yaml")
     args = parser.parse_args()
-    from opsyntra.spark_tracking import log_spark_runs
+    from opsyntra.spark.tracking import log_spark_runs
     print(log_spark_runs(args.config))

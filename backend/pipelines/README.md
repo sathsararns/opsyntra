@@ -13,5 +13,7 @@ Run these entrypoints from `backend/`:
 | `pipelines.airflow_task` | Execute one task of the required eight-task ML DAG |
 | `pipelines.kafka_airflow_task` | Execute one task of the bonus batch/streaming Kafka DAGs |
 
-Business logic lives under `src/opsyntra/`. Service management, checks, CI
+Business logic lives under the grouped `src/opsyntra/data`, `ml`, `spark`,
+`kafka`, `orchestration`, `analytics` and `api` packages. See the
+[source guide](../src/opsyntra/README.md) for the reading order. Service management, checks, CI
 fixtures and evidence utilities live under [tools/](../tools/README.md).

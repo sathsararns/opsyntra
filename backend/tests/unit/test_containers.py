@@ -51,7 +51,7 @@ class ContainerRuntimeTests(unittest.TestCase):
         model.write_bytes(b"trusted model")
         receipt = {"source_sha256": runtime.digest(source), "config_sha256": runtime.digest(path), "model_sha256": runtime.digest(model)}
         (model.parent / "container-training.json").write_text(json.dumps(receipt))
-        with patch("opsyntra.data_pipeline.run_pipeline") as validate, patch("opsyntra.model_training.run_training") as train:
+        with patch("opsyntra.data.pipeline.run_pipeline") as validate, patch("opsyntra.ml.training.run_training") as train:
             runtime.model_init(path, config, source=source)
             validate.assert_not_called()
             train.assert_not_called()

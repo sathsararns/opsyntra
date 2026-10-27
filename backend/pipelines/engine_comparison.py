@@ -12,9 +12,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config.yaml")
     args = parser.parse_args()
-    from opsyntra.spark_training import load_spark_settings
-    from opsyntra.training_data import load_training_partitions
-    from opsyntra.engine_comparison import compare_engines
+    from opsyntra.spark.training import load_spark_settings
+    from opsyntra.data.training import load_training_partitions
+    from opsyntra.ml.comparison import compare_engines
     settings = load_spark_settings(args.config)
     report = json.loads((args.config.resolve().parent / settings["report_path"]).read_text(encoding="utf-8"))
     partitions, _ = load_training_partitions(args.config)

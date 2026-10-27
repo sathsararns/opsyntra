@@ -34,7 +34,7 @@ Alternatively, run two terminals:
 
 ```powershell
 # Terminal 1, repository root
-python -m uvicorn opsyntra.web_api:app --app-dir backend/src --host 127.0.0.1 --port 8000
+python -m uvicorn opsyntra.api.app:app --app-dir backend/src --host 127.0.0.1 --port 8000
 
 # Terminal 2
 cd frontend

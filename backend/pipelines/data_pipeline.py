@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from opsyntra.data_pipeline import run_pipeline
+from opsyntra.data.pipeline import run_pipeline
 
 
 def main() -> int:

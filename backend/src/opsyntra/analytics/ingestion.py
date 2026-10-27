@@ -4,7 +4,7 @@ import hashlib
 
 from psycopg import DataError
 
-from ..kafka_consumption import strict_json
+from opsyntra.kafka.consumption import strict_json
 from .contracts import EventConflict, ProvenanceConflict, Source, canonical_hash
 from .storage import AnalyticsStore
 

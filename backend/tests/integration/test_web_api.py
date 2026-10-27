@@ -4,9 +4,9 @@ from unittest.mock import patch
 import numpy as np
 import httpx
 
-from opsyntra.model_building import build_model_pipeline
-from opsyntra.model_inference import predict_records
-from opsyntra.web_api import app
+from opsyntra.ml.building import build_model_pipeline
+from opsyntra.ml.inference import predict_records
+from opsyntra.api.app import app
 from tests.helpers import sample_data
 
 
@@ -20,7 +20,7 @@ class WebApiTests(unittest.IsolatedAsyncioTestCase):
         cls.model.opsyntra_metadata_ = {"model_version": "api-test-model"}
 
     async def asyncSetUp(self):
-        self.enterContext(patch("opsyntra.web_api.get_model", return_value=self.model))
+        self.enterContext(patch("opsyntra.api.app.get_model", return_value=self.model))
         self.client = await self.enterAsyncContext(httpx.AsyncClient(
             transport=httpx.ASGITransport(app=app), base_url="http://testserver",
         ))
@@ -58,14 +58,14 @@ class WebApiTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_health_reports_readiness_and_unavailable_model(self):
         self.assertEqual((await self.client.get("/api/health")).json()["status"], "ready")
-        with patch("opsyntra.web_api.get_model", side_effect=FileNotFoundError):
-            with self.assertLogs("opsyntra.web_api", level="WARNING"):
+        with patch("opsyntra.api.app.get_model", side_effect=FileNotFoundError):
+            with self.assertLogs("opsyntra.api.app", level="WARNING"):
                 self.assertEqual((await self.client.get("/api/health")).status_code, 503)
             response = await self.client.post("/api/predict", json={"record": self.rows.iloc[0].to_dict()})
             self.assertEqual(response.status_code, 503)
 
     async def test_missing_project_reports_return_unavailable_instead_of_fake_data(self):
-        with patch("opsyntra.web_api.read_overview", side_effect=FileNotFoundError):
-            with self.assertLogs("opsyntra.web_api", level="WARNING"):
+        with patch("opsyntra.api.app.read_overview", side_effect=FileNotFoundError):
+            with self.assertLogs("opsyntra.api.app", level="WARNING"):
                 response = await self.client.get("/api/overview")
             self.assertEqual(response.status_code, 503)

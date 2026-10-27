@@ -31,7 +31,7 @@ def test_config():
 def live_check(config, directory):
     from confluent_kafka import Consumer, Producer, TopicPartition
     from confluent_kafka.admin import AdminClient, NewTopic
-    from opsyntra.kafka_config import load_kafka_config
+    from opsyntra.kafka.config import load_kafka_config
     from tests.analytics_helpers import deadletter_event, prediction_event, raw_event
     settings = load_kafka_config(ROOT / "config.yaml")
     identity = uuid4().hex

@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 from sklearn.metrics import f1_score
 
-from opsyntra.model_evaluation import select_threshold
+from opsyntra.ml.evaluation import select_threshold
 
 
 class ThresholdSelectionTests(unittest.TestCase):

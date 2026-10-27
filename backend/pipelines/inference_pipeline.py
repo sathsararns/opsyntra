@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from opsyntra.config import load_config, load_training_config
-from opsyntra.model_inference import load_pipeline, predict_records
+from opsyntra.ml.inference import load_pipeline, predict_records
 
 
 def main() -> int:

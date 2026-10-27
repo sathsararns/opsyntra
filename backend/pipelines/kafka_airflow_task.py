@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 
 def main():
-    from opsyntra.kafka_workflow import KafkaWorkflow
+    from opsyntra.orchestration.kafka import KafkaWorkflow
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--task", required=True, choices=["health_checks", "publish_batch", "predict_batch", "publish_samples", "start_and_monitor_consumer", "summarize"])
     args = parser.parse_args()

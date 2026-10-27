@@ -1,0 +1,24 @@
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="49.888646">
+<testsuite name="analytics.spec.ts" timestamp="2026-10-26T09:39:29.338Z" hostname="" tests="4" failures="0" skipped="0" time="17.365" errors="0">
+<testcase name="polling updates successful zero activity without a reload" classname="analytics.spec.ts" time="7.606">
+</testcase>
+<testcase name="outages retain labelled old data and recover automatically" classname="analytics.spec.ts" time="3.515">
+</testcase>
+<testcase name="stale consumer, broker outage and database outage are distinct" classname="analytics.spec.ts" time="4.081">
+</testcase>
+<testcase name="live monitoring fits a mobile screen and preserves the supplied logo" classname="analytics.spec.ts" time="2.163">
+</testcase>
+</testsuite>
+<testsuite name="ci\workspace.ci.ts" timestamp="2026-10-26T09:39:29.338Z" hostname="" tests="5" failures="0" skipped="0" time="19.2" errors="0">
+<testcase name="synthetic fixture overview loads genuine reports and exports them" classname="ci\workspace.ci.ts" time="4.962">
+</testcase>
+<testcase name="single prediction agrees with API and history can be cleared" classname="ci\workspace.ci.ts" time="3.883">
+</testcase>
+<testcase name="CSV inference matches direct API probabilities and downloads both IDs" classname="ci\workspace.ci.ts" time="5.102">
+</testcase>
+<testcase name="model and data-quality screens reflect synthetic saved reports" classname="ci\workspace.ci.ts" time="2.721">
+</testcase>
+<testcase name="mobile navigation, supplied logo and offline prediction state work" classname="ci\workspace.ci.ts" time="2.532">
+</testcase>
+</testsuite>
+</testsuites>

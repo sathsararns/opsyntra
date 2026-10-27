@@ -7,7 +7,7 @@ from unittest.mock import patch
 from uuid import uuid4
 
 import httpx
-from opsyntra.web_api import app
+from opsyntra.api.app import app
 from tests.analytics_helpers import raw_event,prediction_event
 from tests.integration import test_analytics_storage as storage_tests
 
@@ -25,7 +25,7 @@ class AnalyticsApiValidationTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_unavailable_database_is_not_reported_as_empty_or_model_failure(self):
         async with httpx.AsyncClient(transport=httpx.ASGITransport(app),base_url="http://test") as client:
-            with patch("opsyntra.analytics.read_api.reader_config",side_effect=ValueError("private-credential")),patch("opsyntra.web_api.get_model",side_effect=AssertionError("analytics must not load ML")):
+            with patch("opsyntra.analytics.read_api.reader_config",side_effect=ValueError("private-credential")),patch("opsyntra.api.app.get_model",side_effect=AssertionError("analytics must not load ML")):
                 for endpoint in ("health","summary","predictions","timeseries","high-risk"):
                     response=await client.get("/api/analytics/"+endpoint)
                     self.assertEqual(response.status_code,503)

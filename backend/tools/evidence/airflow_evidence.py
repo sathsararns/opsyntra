@@ -9,9 +9,9 @@ sys.path.insert(0, str(ROOT / "src"))
 
 
 def main():
-    from opsyntra.airflow_workflow import WorkflowContext, TASKS
-    from opsyntra.data_pipeline import sha256_file, write_json
-    from opsyntra.orchestration_models import model_digest
+    from opsyntra.orchestration.workflow import WorkflowContext, TASKS
+    from opsyntra.data.pipeline import sha256_file, write_json
+    from opsyntra.orchestration.models import model_digest
     import pandas as pd
     import yaml
 

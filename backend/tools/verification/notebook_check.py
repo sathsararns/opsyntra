@@ -100,7 +100,7 @@ def main():
         if previous_jupyter_path is None: os.environ.pop("JUPYTER_PATH", None)
         else: os.environ["JUPYTER_PATH"] = previous_jupyter_path
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
-    paths = [Path(__file__), ROOT / "src/opsyntra/notebook_support.py", ROOT / "requirements/notebooks.txt",
+    paths = [Path(__file__), ROOT / "src/opsyntra/ml/notebooks.py", ROOT / "requirements/notebooks.txt",
              ROOT / "tests/unit/test_notebooks.py", ROOT / "tests/integration/test_notebook_analytics.py",
              *sorted((ROOT / "notebooks").glob("*.ipynb")), *sorted((ROOT / "reports/notebooks").rglob("*")), *sorted(evidence.glob("*"))]
     report["files"] = [{"path": str(p.relative_to(ROOT.parent)).replace("\\", "/"), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths if p.is_file()]

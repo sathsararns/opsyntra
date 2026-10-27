@@ -1,7 +1,7 @@
 import hashlib
 from uuid import uuid4
 
-from opsyntra.kafka_events import normalize_customer
+from opsyntra.kafka.events import normalize_customer
 from tests.helpers import sample_data
 
 
@@ -22,7 +22,7 @@ def prediction_event(raw, model="test-model", engine="sklearn"):
 
 def deadletter_event():
     from types import SimpleNamespace
-    from opsyntra.kafka_consumption import deadletter_job
+    from opsyntra.kafka.consumption import deadletter_job
     message = SimpleNamespace(topic=lambda: "telco.raw.customers", partition=lambda: 0,
                               offset=lambda: int(uuid4().hex[:12], 16), value=lambda: b"not-json", key=lambda: b"bad-json")
     return deadletter_job(message, "Malformed JSON", {"topics": {"deadletter": "telco.deadletter"}}, "test-cluster")["payload"]

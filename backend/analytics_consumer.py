@@ -16,7 +16,7 @@ def main():
     from dotenv import load_dotenv
     from opsyntra.analytics.config import AnalyticsConfig
     from opsyntra.analytics.consumer import Options, run
-    from opsyntra.kafka_config import atomic_json, load_kafka_config
+    from opsyntra.kafka.config import atomic_json, load_kafka_config
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=("streaming", "batch"), default="streaming")
     parser.add_argument("--config", type=Path, default=ROOT / "config.yaml")

@@ -12,10 +12,10 @@ sys.path.insert(0, str(ROOT / "src"))
 
 def track(engine):
     import mlflow
-    from opsyntra.airflow_workflow import WorkflowContext
+    from opsyntra.orchestration.workflow import WorkflowContext
     from opsyntra.config import load_training_config
-    from opsyntra.experiment_tracking import tracking_uri
-    from opsyntra.orchestration_models import filesystem_path, model_digest
+    from opsyntra.ml.tracking import tracking_uri
+    from opsyntra.orchestration.models import filesystem_path, model_digest
 
     evidence = json.loads((ROOT / ".airflow-runtime" / f"last_success_{engine}.json").read_text())
     if evidence["state"] != "success" or any(t["state"] != "success" for t in evidence["tasks"]):
@@ -81,7 +81,7 @@ def track(engine):
                             if digest.hexdigest() != candidate["sha256"]:
                                 raise ValueError("Native Spark pipeline archive is incomplete")
                         mlflow.log_artifact(str(archive), "pipeline")
-                        from opsyntra.spark_tracking import log_source_files
+                        from opsyntra.spark.tracking import log_source_files
                         log_source_files(mlflow.MlflowClient(), child.info.run_id, ROOT)
                     else:
                         mlflow.log_artifact(str(path), "pipeline")

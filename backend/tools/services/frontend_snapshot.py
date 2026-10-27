@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 WORKSPACE_ROOT = ROOT.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from opsyntra.web_api import read_overview
+from opsyntra.api.app import read_overview
 
 
 def main():

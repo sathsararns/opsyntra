@@ -4,9 +4,9 @@ import numpy as np
 from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.preprocessing import StandardScaler
 
-from opsyntra.data_validation import FEATURE_COLUMNS, NUMERIC_COLUMNS
-from opsyntra.model_building import build_model_pipeline
-from opsyntra.preprocessing_sklearn import NormalizeTelcoInputs
+from opsyntra.data.validation import FEATURE_COLUMNS, NUMERIC_COLUMNS
+from opsyntra.ml.building import build_model_pipeline
+from opsyntra.ml.preprocessing import NormalizeTelcoInputs
 from tests.helpers import sample_data
 
 

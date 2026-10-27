@@ -26,9 +26,9 @@ def main():
         parser.error("Use ..\\scripts\\windows\\start-spark.ps1 -Task predict -Record examples/customer.json from backend. Spark runs in Ubuntu WSL.")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     from opsyntra.config import load_config, load_training_config
-    from opsyntra.spark_training import load_spark_settings
-    from opsyntra.spark_runtime import create_spark
-    from opsyntra.spark_inference import load_spark_pipeline, predict_spark_frame
+    from opsyntra.spark.training import load_spark_settings
+    from opsyntra.spark.runtime import create_spark
+    from opsyntra.spark.inference import load_spark_pipeline, predict_spark_frame
     config_path = args.config.resolve()
     root = config_path.parent
     settings = load_spark_settings(config_path)

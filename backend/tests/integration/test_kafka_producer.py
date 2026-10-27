@@ -5,9 +5,9 @@ import threading
 import unittest
 from pathlib import Path
 
-from opsyntra.kafka_config import load_kafka_config
-from opsyntra.kafka_events import CustomerSource, validate_event
-from opsyntra.kafka_publishing import DeliveryError, checkpoint_lock, run_producer
+from opsyntra.kafka.config import load_kafka_config
+from opsyntra.kafka.events import CustomerSource, validate_event
+from opsyntra.kafka.publishing import DeliveryError, checkpoint_lock, run_producer
 from tests.helpers import sample_data
 
 ROOT = Path(__file__).resolve().parents[2]

@@ -4,8 +4,8 @@ import unittest
 from pathlib import Path
 from zipfile import ZipFile
 
-from opsyntra.orchestration_models import filesystem_path, model_digest
-from opsyntra.spark_tracking import archive_pipeline
+from opsyntra.orchestration.models import filesystem_path, model_digest
+from opsyntra.spark.tracking import archive_pipeline
 
 
 class SparkArchiveTests(unittest.TestCase):

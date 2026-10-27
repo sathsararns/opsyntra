@@ -9,8 +9,8 @@ from pathlib import Path
 import pandas as pd
 import yaml
 
-from opsyntra.airflow_workflow import WorkflowContext, TASKS, execute_task
-from opsyntra.data_pipeline import run_pipeline
+from opsyntra.orchestration.workflow import WorkflowContext, TASKS, execute_task
+from opsyntra.data.pipeline import run_pipeline
 from tests.helpers import sample_data
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -103,7 +103,7 @@ class NativeArtifactPathTests(unittest.TestCase):
     def test_deep_spark_files_are_included_in_integrity_checks(self):
         # Regression: Windows Path.is_file silently omitted files beyond 260
         # characters, producing an apparently valid but incomplete model archive.
-        from opsyntra.orchestration_models import filesystem_path, model_digest
+        from opsyntra.orchestration.models import filesystem_path, model_digest
         root = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, filesystem_path(root))
         relative = Path("stages") / ("SparkStage_" + "x" * 100) / "data" / ("part-" + "y" * 100 + ".parquet")

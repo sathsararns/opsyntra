@@ -84,7 +84,15 @@ Normal `docker compose down` preserves data; see the guide for explicit reset an
 Opsyntra/
   frontend/                Next.js, Tailwind, browser tests and public assets
   backend/
-    src/opsyntra/          Reusable Python code, model inference and FastAPI
+    src/opsyntra/          Application code grouped by responsibility
+      data/                Validation, deterministic splits and training inputs
+      ml/                  sklearn preprocessing, training, metrics and inference
+      spark/               PySpark pipelines, runtime and tracking
+      kafka/               Event contracts, publishing, consumption and recovery
+      orchestration/       Airflow ML/Kafka task implementations
+      analytics/           PostgreSQL event storage and read queries
+      api/                 FastAPI application
+      config.py            Shared YAML configuration
     pipelines/             Eight core data/ML/orchestration workflow entrypoints
     tools/                 Supporting commands grouped by purpose
       ci/                  CI fixtures and test jobs
@@ -125,6 +133,12 @@ Backend service/verification/CI utilities are grouped under
 [tools/](backend/tools/README.md); [pipelines/](backend/pipelines/README.md)
 contains the eight core workflow entrypoints. Historical evidence retains the
 module paths used when its checks ran.
+The [source guide](backend/src/opsyntra/README.md) gives the new reading order,
+module locations and saved-model compatibility policy. Workflow commands and
+data/model locations are unchanged; restart running Python services after a
+source update to load the reorganized package.
+See [package reorganization verification](backend/reports/package_refactor_verification.md)
+for the backend, Spark, browser, saved-model and real Kafka regression results.
 See [refactor verification](backend/reports/structure_refactor_verification.md)
 for the backend/browser and real container regression results.
 
@@ -153,7 +167,7 @@ and stops an API it created when the frontend exits. Its logs live in
 For separate terminals, run the API from the repository root:
 
 ```powershell
-python -m uvicorn opsyntra.web_api:app --app-dir backend/src --host 127.0.0.1 --port 8000
+python -m uvicorn opsyntra.api.app:app --app-dir backend/src --host 127.0.0.1 --port 8000
 ```
 
 Run the frontend in the second terminal:

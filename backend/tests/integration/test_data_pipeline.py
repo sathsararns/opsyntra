@@ -7,8 +7,8 @@ from zipfile import ZipFile
 import yaml
 
 from opsyntra.config import load_config
-from opsyntra.data_pipeline import run_pipeline
-from opsyntra.data_validation import DataValidationError
+from opsyntra.data.pipeline import run_pipeline
+from opsyntra.data.validation import DataValidationError
 from tests.helpers import sample_data
 
 

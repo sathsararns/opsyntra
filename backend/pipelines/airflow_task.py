@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 if __name__ == "__main__":
-    from opsyntra.airflow_workflow import WorkflowContext, execute_task, TASKS
+    from opsyntra.orchestration.workflow import WorkflowContext, execute_task, TASKS
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--task", choices=TASKS, required=True)
     args = parser.parse_args()

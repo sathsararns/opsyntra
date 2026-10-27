@@ -18,7 +18,7 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: `python -m uvicorn opsyntra.web_api:app --app-dir src --host 127.0.0.1 --port ${apiPort}`,
+      command: `python -m uvicorn opsyntra.api.app:app --app-dir src --host 127.0.0.1 --port ${apiPort}`,
       cwd: path.resolve(process.cwd(), "../backend"),
       url: `http://127.0.0.1:${apiPort}/api/health`,
       reuseExistingServer: !process.env.CI,

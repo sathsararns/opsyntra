@@ -111,11 +111,11 @@ def main():
                 raise ValueError("Archived evidence was changed: " + member["path"])
             paths.add(archived.relative_to(PROJECT).as_posix())
     paths.update({"backend/reports/test_results.log", "backend/reports/test_results_spark.log", "docs/screenshots/mlflow-evidence.json", "docs/screenshots/kafka-evidence.json"})
-    paths.update({"backend/src/opsyntra/kafka_workflow.py", "backend/src/opsyntra/kafka_consumption.py", "backend/config.yaml",
+    paths.update({"backend/src/opsyntra/orchestration/kafka.py", "backend/src/opsyntra/kafka/consumption.py", "backend/config.yaml",
                   "backend/producer.py", "backend/consumer.py", "scripts/windows/start-airflow.ps1", "backend/tools/verification/runner.py"})
     if phase1:
         paths.update({"backend/tools/verification/clean_clone_check.py", "backend/tools/evidence/phase1_evidence.py", "backend/tools/evidence/model_bundle.py",
-                      "backend/requirements/worker.txt", "scripts/windows/start-spark.ps1", "backend/src/opsyntra/spark_tracking.py",
+                      "backend/requirements/worker.txt", "scripts/windows/start-spark.ps1", "backend/src/opsyntra/spark/tracking.py",
                       "backend/tests/unit/test_spark_archive.py", "backend/tests/unit/test_model_bundle.py",
                       "docs/DEMO_GUIDE.md", "docs/screenshots/frontend-desktop.png", "docs/screenshots/frontend-mobile.png"})
     artifacts = []

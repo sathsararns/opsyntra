@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from opsyntra.config import load_training_config
-from opsyntra.experiment_tracking import tracking_uri
+from opsyntra.ml.tracking import tracking_uri
 
 
 def main():

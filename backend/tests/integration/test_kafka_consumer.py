@@ -16,10 +16,10 @@ import numpy as np
 import pandas as pd
 from confluent_kafka import TopicPartition
 
-from opsyntra.kafka_config import load_kafka_config
-from opsyntra.kafka_consumption import run_consumer
-from opsyntra.kafka_events import CustomerSource, customer_rows, make_event, utc_now
-from opsyntra.kafka_publishing import DeliveryError
+from opsyntra.kafka.config import load_kafka_config
+from opsyntra.kafka.consumption import run_consumer
+from opsyntra.kafka.events import CustomerSource, customer_rows, make_event, utc_now
+from opsyntra.kafka.publishing import DeliveryError
 from tests.helpers import sample_data
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -232,9 +232,9 @@ class KafkaConsumerTests(unittest.TestCase):
 
     def test_actual_pipeline_loads_once_and_matches_direct_unlabelled_predictions(self):
         from unittest.mock import patch
-        from opsyntra.data_validation import FEATURE_COLUMNS
-        from opsyntra.model_building import build_model_pipeline
-        from opsyntra.model_inference import load_pipeline, predict_records
+        from opsyntra.data.validation import FEATURE_COLUMNS
+        from opsyntra.ml.building import build_model_pipeline
+        from opsyntra.ml.inference import load_pipeline, predict_records
         raw = sample_data(100)
         pipeline = build_model_pipeline("logistic_regression", seed=42, jobs=1)
         pipeline.fit(raw[list(FEATURE_COLUMNS)], raw.Churn.map({"No": 0, "Yes": 1}))
@@ -245,7 +245,7 @@ class KafkaConsumerTests(unittest.TestCase):
         event = {k: v for k, v in self.events[0].items() if k != "Churn"}
         broker = Broker([self.record(event, i) for i in range(2)], self.settings)
         expected = predict_records(pipeline, [{name: event[name] for name in FEATURE_COLUMNS}]).iloc[0]
-        with patch("opsyntra.model_inference.load_pipeline", wraps=load_pipeline) as loader:
+        with patch("opsyntra.ml.inference.load_pipeline", wraps=load_pipeline) as loader:
             run_consumer(self.settings, mode="batch", max_messages=2, batch_size=1, consumer=Input(broker), producer=Output(broker))
             self.assertEqual(loader.call_count, 1)
         output = broker.outputs[0][2]
@@ -254,9 +254,9 @@ class KafkaConsumerTests(unittest.TestCase):
 
     def test_same_artifact_matches_single_csv_reload_batch_and_streaming_predictions(self):
         from unittest.mock import patch
-        from opsyntra.data_validation import FEATURE_COLUMNS
-        from opsyntra.model_building import build_model_pipeline
-        from opsyntra.model_inference import load_pipeline, predict_records
+        from opsyntra.data.validation import FEATURE_COLUMNS
+        from opsyntra.ml.building import build_model_pipeline
+        from opsyntra.ml.inference import load_pipeline, predict_records
         raw = sample_data(100)
         pipeline = build_model_pipeline("logistic_regression", jobs=1).fit(
             raw[list(FEATURE_COLUMNS)], raw.Churn.map({"No": 0, "Yes": 1}))
@@ -284,7 +284,7 @@ class KafkaConsumerTests(unittest.TestCase):
             with self.subTest(mode=mode):
                 self.settings["consumer"]["state_dir"] = self.root / (mode + "-state")
                 broker = Broker([self.record(event, i) for i, event in enumerate(events)], self.settings)
-                with patch("opsyntra.model_inference.load_pipeline", wraps=load_pipeline) as loader:
+                with patch("opsyntra.ml.inference.load_pipeline", wraps=load_pipeline) as loader:
                     summary = run_consumer(self.settings, mode=mode, max_messages=4, batch_size=1 if mode == "streaming" else 4,
                                            consumer=Input(broker), producer=Output(broker))
                     self.assertEqual(loader.call_count, 1)
@@ -295,9 +295,9 @@ class KafkaConsumerTests(unittest.TestCase):
                     self.assertEqual(by_id[event["event_id"]]["prediction"], expected.iloc[i].prediction)
 
     def test_unseen_category_is_supported_by_model_but_rejected_by_strict_event_contract(self):
-        from opsyntra.kafka_consumption import decode_record, InvalidRecord
-        from opsyntra.model_building import build_model_pipeline
-        from opsyntra.model_inference import predict_records
+        from opsyntra.kafka.consumption import decode_record, InvalidRecord
+        from opsyntra.ml.building import build_model_pipeline
+        from opsyntra.ml.inference import predict_records
         raw = sample_data(100)
         pipeline = build_model_pipeline("logistic_regression", jobs=1).fit(raw, raw.Churn.map({"No": 0, "Yes": 1}))
         pipeline.opsyntra_metadata_ = {"model_version": "unseen-fixture"}

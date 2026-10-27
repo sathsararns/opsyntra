@@ -13,8 +13,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 
 def main():
-    from opsyntra.kafka_config import load_kafka_config
-    from opsyntra.kafka_consumption import run_consumer
+    from opsyntra.kafka.config import load_kafka_config
+    from opsyntra.kafka.consumption import run_consumer
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["streaming", "batch"], required=True)
     parser.add_argument("--engine", choices=["sklearn", "spark"], default="sklearn")

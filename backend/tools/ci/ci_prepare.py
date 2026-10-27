@@ -17,8 +17,8 @@ DATASET_SHA256 = "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d6135
 
 def prepare(directory, *, full_data=False):
     import yaml
-    from opsyntra.data_pipeline import run_pipeline
-    from opsyntra.model_training import run_training
+    from opsyntra.data.pipeline import run_pipeline
+    from opsyntra.ml.training import run_training
     from tests.helpers import sample_data
     directory = Path(directory).resolve()
     if directory == ROOT and not (full_data and os.environ.get("GITHUB_ACTIONS") == "true"):
@@ -50,7 +50,7 @@ def prepare(directory, *, full_data=False):
         shutil.copytree(ROOT / "examples", directory / "examples")
     run_pipeline(directory / "config.yaml")
     report = run_training(directory / "config.yaml")
-    from opsyntra.web_api import read_overview
+    from opsyntra.api.app import read_overview
     overview = read_overview(directory / "config.yaml")
     manifest = {"synthetic":not full_data,"customers":overview["dataset"]["customers"],
                 "source_sha256":hashlib.sha256(raw.read_bytes()).hexdigest(),"model_version":report["selected_model_version"],

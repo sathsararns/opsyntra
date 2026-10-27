@@ -36,7 +36,7 @@ class ModelBundleTests(unittest.TestCase):
             verify(self.path)
 
     def test_traversal_unexpected_files_and_case_collisions_are_rejected(self):
-        for name in ("../consumer.py", "/absolute/model", "artifacts/models/../../consumer.py", "src/opsyntra/web_api.py"):
+        for name in ("../consumer.py", "/absolute/model", "artifacts/models/../../consumer.py", "src/opsyntra/api/app.py"):
             with self.subTest(name=name):
                 self.bundle(name)
                 with self.assertRaisesRegex(ValueError, "unsafe"):

@@ -2,8 +2,8 @@ import unittest
 
 import pandas as pd
 
-from opsyntra.data_splitting import apply_memberships, create_memberships
-from opsyntra.data_validation import DataValidationError, FEATURE_COLUMNS, validate_and_normalize
+from opsyntra.data.splitting import apply_memberships, create_memberships
+from opsyntra.data.validation import DataValidationError, FEATURE_COLUMNS, validate_and_normalize
 from tests.helpers import sample_data
 
 

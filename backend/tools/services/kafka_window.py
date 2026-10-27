@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 def capture_window(settings):
     from confluent_kafka import Consumer, TopicPartition
-    from opsyntra.kafka_events import utc_now
+    from opsyntra.kafka.events import utc_now
     consumer = Consumer({"bootstrap.servers": settings["bootstrap_servers"], "group.id": "opsyntra-window-" + uuid4().hex,
                          "enable.auto.commit": False, "allow.auto.create.topics": False})
     try:
@@ -29,7 +29,7 @@ def capture_window(settings):
 
 
 if __name__ == "__main__":
-    from opsyntra.kafka_config import atomic_json, load_kafka_config
+    from opsyntra.kafka.config import atomic_json, load_kafka_config
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config.yaml")
     parser.add_argument("--output", type=Path, required=True)

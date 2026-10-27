@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from opsyntra.model_training import run_training
+from opsyntra.ml.training import run_training
 
 
 def main() -> int:

@@ -30,7 +30,7 @@ try {
         $logDirectory = Join-Path $opsyntraBackend 'logs'
         New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
         $apiProcess = Start-Process -FilePath $pythonExecutable -ArgumentList @(
-            '-m', 'uvicorn', 'opsyntra.web_api:app', '--app-dir', 'src',
+            '-m', 'uvicorn', 'opsyntra.api.app:app', '--app-dir', 'src',
             '--host', '127.0.0.1', '--port', '8000'
         ) -WorkingDirectory $opsyntraBackend -WindowStyle Hidden -PassThru `
             -RedirectStandardOutput (Join-Path $logDirectory 'api.stdout.log') `

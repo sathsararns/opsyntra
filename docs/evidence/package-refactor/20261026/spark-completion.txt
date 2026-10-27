@@ -1,0 +1,259 @@
+Completion output captured while polling the WSL Spark regression run.
+The initial Spark startup output is in the tool transcript.
+
+[Stage 26:>                                                         (0 + 1) / 1]                                                                                [Stage 27:>                                                         (0 + 1) / 1]                                                                                [Stage 31:>                                                         (0 + 1) / 1]                                                                                [Stage 39:>                                                         (0 + 1) / 1]                                                                                [Stage 40:>                                                         (0 + 1) / 1]                                                                                [Stage 41:>                                                         (0 + 1) / 1]                                                                                [Stage 42:>                                                         (0 + 1) / 1]                                                                                [Stage 43:>                                                         (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 50656), raddr=('127.0.0.1', 33937)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 54650), raddr=('127.0.0.1', 35913)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 38364), raddr=('127.0.0.1', 45283)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 49366), raddr=('127.0.0.1', 44517)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[Stage 47:>                                                         (0 + 1) / 1]                                                                                [Stage 48:>                                                         (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 53146), raddr=('127.0.0.1', 42479)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[Stage 52:>                                                         (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 34620), raddr=('127.0.0.1', 44503)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39926), raddr=('127.0.0.1', 39559)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 34788), raddr=('127.0.0.1', 33485)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 52596), raddr=('127.0.0.1', 45585)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 53460), raddr=('127.0.0.1', 36835)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 50520), raddr=('127.0.0.1', 42355)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 46732), raddr=('127.0.0.1', 32809)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[Stage 72:>                                                         (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 58072), raddr=('127.0.0.1', 35829)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[Stage 94:>                                                         (0 + 1) / 1]                                                                                [Stage 112:>                                                        (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 43784), raddr=('127.0.0.1', 34295)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 55664), raddr=('127.0.0.1', 37249)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 52726), raddr=('127.0.0.1', 45955)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 35816), raddr=('127.0.0.1', 44557)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 57782), raddr=('127.0.0.1', 44119)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 45770), raddr=('127.0.0.1', 39483)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 37112), raddr=('127.0.0.1', 35859)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 54244), raddr=('127.0.0.1', 46185)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 46536), raddr=('127.0.0.1', 43399)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 35800), raddr=('127.0.0.1', 35001)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 36100), raddr=('127.0.0.1', 36059)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 42888), raddr=('127.0.0.1', 46259)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+2026-10-26 15:10:46,621 INFO XGBoost-PySpark: _fit Running xgboost-3.4.1 on 1 workers with
+	booster params: {'objective': 'binary:logistic', 'device': 'cpu', 'max_depth': 2, 'random_state': 42, 'nthread': 1}
+	train_call_kwargs_params: {'verbose_eval': True, 'num_boost_round': 5}
+	dmatrix_kwargs: {'nthread': 1, 'missing': nan}
+[Stage 160:>                                                        (0 + 1) / 1]2026-10-26 15:10:59,796 INFO XGBoost-PySpark: _train_booster Training on CPUs
+[15:11:00] Task 0 got rank 0
+[15:11:00] [0]	training-logloss:0.59099
+[15:11:00] [1]	training-logloss:0.57210
+[15:11:00] [2]	training-logloss:0.53505
+[15:11:00] [3]	training-logloss:0.52369
+[15:11:00] [4]	training-logloss:0.50491
+                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 49520), raddr=('127.0.0.1', 46559)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+2026-10-26 15:11:02,090 INFO XGBoost-PySpark: _fit Finished xgboost training!
+[Stage 162:>                                                        (0 + 1) / 1]                                                                                [Stage 172:>                                                        (0 + 1) / 1]                                                                                [Stage 173:============================>                            (1 + 1) / 2]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39164), raddr=('127.0.0.1', 33775)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 55388), raddr=('127.0.0.1', 34299)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 54632), raddr=('127.0.0.1', 42313)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39654), raddr=('127.0.0.1', 41567)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 40792), raddr=('127.0.0.1', 37457)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 54046), raddr=('127.0.0.1', 38947)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 52864), raddr=('127.0.0.1', 44467)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 54266), raddr=('127.0.0.1', 43757)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 43826), raddr=('127.0.0.1', 42181)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 59418), raddr=('127.0.0.1', 34225)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 59182), raddr=('127.0.0.1', 34927)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 37908), raddr=('127.0.0.1', 38067)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+2026-10-26 15:11:19,402 INFO XGBoost-PySpark: predict_udf Do the inference on the CPUs
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 34464), raddr=('127.0.0.1', 39005)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_bad_numeric_and_missing_feature_columns_fail (tests.integration.test_spark_workflow.SparkWorkflowTests.test_bad_numeric_and_missing_feature_columns_fail) ... 26/10/26 15:11:20 ERROR Executor: Exception in task 0.0 in stage 200.0 (TID 193)
+org.apache.spark.SparkRuntimeException: [USER_RAISED_EXCEPTION] TotalCharges: invalid numeric value SQLSTATE: P0001
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.raiseError(QueryExecutionErrors.scala:2782)
+	at org.apache.spark.sql.errors.QueryExecutionErrors.raiseError(QueryExecutionErrors.scala)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.project_doConsume_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+26/10/26 15:11:20 ERROR TaskSetManager: Task 0 in stage 200.0 failed 1 times; aborting job
+ok
+test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes (tests.integration.test_spark_workflow.SparkWorkflowTests.test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes) ... [Stage 227:>                                                        (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 40788), raddr=('127.0.0.1', 37109)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 35728), raddr=('127.0.0.1', 37273)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 42738), raddr=('127.0.0.1', 34579)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 41978), raddr=('127.0.0.1', 35723)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 36186), raddr=('127.0.0.1', 41681)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 47552), raddr=('127.0.0.1', 45701)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 32994), raddr=('127.0.0.1', 33155)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 49918), raddr=('127.0.0.1', 36205)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 58574), raddr=('127.0.0.1', 35189)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 55170), raddr=('127.0.0.1', 39993)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 53116), raddr=('127.0.0.1', 37329)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 52062), raddr=('127.0.0.1', 44747)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 42886), raddr=('127.0.0.1', 45397)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_training_statistics_unknown_categories_and_complete_model_reload (tests.integration.test_spark_workflow.SparkWorkflowTests.test_training_statistics_unknown_categories_and_complete_model_reload) ... /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 40998), raddr=('127.0.0.1', 46635)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 41810), raddr=('127.0.0.1', 44901)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 58620), raddr=('127.0.0.1', 44653)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+[Stage 304:>                                                        (0 + 1) / 1]                                                                                [Stage 305:>                                                        (0 + 1) / 1]                                                                                [Stage 306:>                                                        (0 + 1) / 1]                                                                                [Stage 311:>                                                        (0 + 0) / 1][Stage 311:>                                                        (0 + 1) / 1]                                                                                [Stage 320:>                                                        (0 + 1) / 1]                                                                                /usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 52268), raddr=('127.0.0.1', 35945)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 49218), raddr=('127.0.0.1', 39349)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 56528), raddr=('127.0.0.1', 34821)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 42030), raddr=('127.0.0.1', 41243)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 32792), raddr=('127.0.0.1', 42807)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 54952), raddr=('127.0.0.1', 44519)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 53664), raddr=('127.0.0.1', 39057)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 40356), raddr=('127.0.0.1', 42811)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 33312), raddr=('127.0.0.1', 44125)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39298), raddr=('127.0.0.1', 36811)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 33660), raddr=('127.0.0.1', 33305)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 53700), raddr=('127.0.0.1', 41319)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 55156), raddr=('127.0.0.1', 33173)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:778: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39534), raddr=('127.0.0.1', 36659)>
+  self._sock = None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 318.062s
+
+OK
+

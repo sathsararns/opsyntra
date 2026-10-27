@@ -17,8 +17,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 def main():
     from confluent_kafka import Consumer, TopicPartition, __version__
-    from opsyntra.kafka_config import atomic_json, load_kafka_config
-    from opsyntra.kafka_events import CustomerSource, customer_rows, utc_now, validate_event
+    from opsyntra.kafka.config import atomic_json, load_kafka_config
+    from opsyntra.kafka.events import CustomerSource, customer_rows, utc_now, validate_event
     from tools.services.kafka_topics import ensure_topics
     settings = load_kafka_config(ROOT / "config.yaml")
     topics = ensure_topics(settings)

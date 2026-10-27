@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 from sklearn.metrics import average_precision_score, f1_score
 
-from opsyntra.model_evaluation import evaluate_probabilities
+from opsyntra.ml.evaluation import evaluate_probabilities
 
 
 class EngineMetricsTests(unittest.TestCase):

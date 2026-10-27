@@ -34,7 +34,7 @@ def ensure_topics(settings):
 
 
 if __name__ == "__main__":
-    from opsyntra.kafka_config import load_kafka_config
+    from opsyntra.kafka.config import load_kafka_config
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config.yaml")
     args = parser.parse_args()

@@ -38,7 +38,7 @@ def main():
     from tools.verification.analytics_consumer_check import test_config
     from tools.verification.runner import EvidenceResult
     from opsyntra.analytics.migrations import migrate
-    from opsyntra.kafka_config import load_kafka_config
+    from opsyntra.kafka.config import load_kafka_config
     load_dotenv(ROOT/".env",override=False)
     os.environ["OPSYNTRA_RUN_ANALYTICS_TESTS"]="1"
     identity=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")+"-"+uuid4().hex[:8]
@@ -138,7 +138,7 @@ def main():
                     actor.terminate();actor.wait(timeout=10)
         for stream in streams:stream.close()
     report["finished_at"]=datetime.now(timezone.utc).isoformat()
-    files=[ROOT/"src/opsyntra/analytics/read_api.py",ROOT/"src/opsyntra/web_api.py",ROOT/"tools/verification/dashboard_event.py",Path(__file__),ROOT/"tests/integration/test_analytics_api.py",FRONTEND/"src/components/live-monitoring.tsx",FRONTEND/"src/lib/analytics-types.ts",FRONTEND/"src/app/api/[...path]/route.ts",FRONTEND/"src/components/workspace.tsx",FRONTEND/"src/app/globals.css",FRONTEND/"playwright.config.ts",FRONTEND/"tests/analytics.spec.ts",FRONTEND/"tests/workspace.spec.ts",*sorted(evidence.glob("*")),*sorted(screenshots.glob("*.png"))]
+    files=[ROOT/"src/opsyntra/analytics/read_api.py",ROOT/"src/opsyntra/api/app.py",ROOT/"tools/verification/dashboard_event.py",Path(__file__),ROOT/"tests/integration/test_analytics_api.py",FRONTEND/"src/components/live-monitoring.tsx",FRONTEND/"src/lib/analytics-types.ts",FRONTEND/"src/app/api/[...path]/route.ts",FRONTEND/"src/components/workspace.tsx",FRONTEND/"src/app/globals.css",FRONTEND/"playwright.config.ts",FRONTEND/"tests/analytics.spec.ts",FRONTEND/"tests/workspace.spec.ts",*sorted(evidence.glob("*")),*sorted(screenshots.glob("*.png"))]
     report["files"]=[{"path":str(p.relative_to(ROOT.parent)).replace('\\','/'),"sha256":hashlib.sha256(p.read_bytes()).hexdigest()} for p in files if p.is_file()]
     target.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     text=["# Phase 4: live dashboard verification","",f"Status: **{report['status']}**.","", "Read endpoints, proxy query forwarding, model/time filters, SQL agreement, direct inference and polling/outage browser behavior were tested.",""]

@@ -11,8 +11,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 def main():
     import uvicorn
-    import opsyntra.web_api as api
-    from opsyntra.model_inference import load_pipeline
+    import opsyntra.api.app as api
+    from opsyntra.ml.inference import load_pipeline
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fixture", type=Path, required=True)
     parser.add_argument("--port", type=int, required=True)

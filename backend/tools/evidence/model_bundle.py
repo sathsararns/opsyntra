@@ -42,7 +42,7 @@ def verify(path):
 
 
 def export(backend, output):
-    from opsyntra.orchestration_models import filesystem_path
+    from opsyntra.orchestration.models import filesystem_path
     backend, output = Path(backend).resolve(), Path(output).resolve()
     if output.suffix != ".zip" or output.exists():
         raise ValueError("Choose a new .zip output; existing bundles are preserved")
@@ -82,7 +82,7 @@ def export(backend, output):
 def restore(backend, bundle):
     """Validate inputs before writing; extended paths support native Spark files."""
     from opsyntra.config import load_config
-    from opsyntra.orchestration_models import filesystem_path
+    from opsyntra.orchestration.models import filesystem_path
     backend = Path(backend).resolve()
     verified = verify(bundle)
     config = load_config(backend / "config.yaml")

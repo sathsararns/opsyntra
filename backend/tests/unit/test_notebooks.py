@@ -6,7 +6,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from opsyntra.notebook_support import Exports, analytics_snapshot, digest, portable_path, verified_partition
+from opsyntra.ml.notebooks import Exports, analytics_snapshot, digest, portable_path, verified_partition
 
 
 class NotebookInputTests(unittest.TestCase):
@@ -22,7 +22,7 @@ class NotebookInputTests(unittest.TestCase):
             (root / "manifest.json").write_text(json.dumps(manifest))
             config = SimpleNamespace(raw_path=root / "raw.csv", output_dir=root)
             exports = Exports(root, "test")
-            with patch("opsyntra.notebook_support.load_config", return_value=config):
+            with patch("opsyntra.ml.notebooks.load_config", return_value=config):
                 frame, _ = verified_partition(root, "train", exports)
                 self.assertTrue(frame.TotalCharges.isna().all())
                 self.assertEqual(frame.customerID.tolist(), ["A"])

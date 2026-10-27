@@ -91,9 +91,9 @@ def database_init():
 
 
 def model_init(path, config, force=False, source=Path("/input/customers.csv")):
-    from opsyntra.data_pipeline import run_pipeline
-    from opsyntra.model_training import run_training
-    from opsyntra.kafka_config import atomic_json
+    from opsyntra.data.pipeline import run_pipeline
+    from opsyntra.ml.training import run_training
+    from opsyntra.kafka.config import atomic_json
     destination = Path(config["data"]["raw_path"])
     source = Path(source)
     if not source.is_file():
@@ -131,7 +131,7 @@ def main():
         return
     if command == "topics":
         from tools.services.kafka_topics import ensure_topics
-        from opsyntra.kafka_config import load_kafka_config
+        from opsyntra.kafka.config import load_kafka_config
         print(json.dumps(ensure_topics(load_kafka_config(path))))
         return
     if command in ("analytics", "api", "health-analytics"):
@@ -153,7 +153,7 @@ def main():
     if command == "airflow":
         os.execv("/home/airflow/.local/bin/airflow", ["airflow", "standalone", *args])
     commands = {
-        "api": ["-m", "uvicorn", "opsyntra.web_api:app", "--host", "0.0.0.0", "--port", "8000"],
+        "api": ["-m", "uvicorn", "opsyntra.api.app:app", "--host", "0.0.0.0", "--port", "8000"],
         "inference": ["consumer.py", "--mode", "streaming", "--config", str(path)],
         "analytics": ["analytics_consumer.py", "--mode", "streaming", "--config", str(path)],
         "producer": ["producer.py", "--config", str(path)],

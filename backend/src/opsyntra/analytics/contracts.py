@@ -7,8 +7,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from uuid import UUID
 
-from ..data_validation import FEATURE_COLUMNS
-from ..kafka_events import normalize_customer, validate_event
+from opsyntra.data.validation import FEATURE_COLUMNS
+from opsyntra.kafka.events import normalize_customer, validate_event
 
 
 class EventConflict(ValueError):

@@ -14,10 +14,10 @@ sys.path.insert(0, str(ROOT / "src"))
 
 def main(include_spark=False):
     from confluent_kafka import Consumer, TopicPartition
-    from opsyntra.kafka_config import atomic_json, load_kafka_config
-    from opsyntra.kafka_events import CustomerSource, customer_rows, make_event, utc_now
-    from opsyntra.kafka_publishing import kafka_producer
-    from opsyntra.kafka_models import PredictionModel
+    from opsyntra.kafka.config import atomic_json, load_kafka_config
+    from opsyntra.kafka.events import CustomerSource, customer_rows, make_event, utc_now
+    from opsyntra.kafka.publishing import kafka_producer
+    from opsyntra.kafka.models import PredictionModel
     from tools.services.kafka_topics import ensure_topics
     settings = load_kafka_config(ROOT / "config.yaml")
     metadata = ensure_topics(settings)

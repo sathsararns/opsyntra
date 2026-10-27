@@ -17,7 +17,7 @@ def main():
     if sys.platform == "win32":
         parser.error("Use ..\\scripts\\windows\\start-spark.ps1 -Task train from backend, or .\\scripts\\windows\\start-spark.ps1 -Task train from the repository root.")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    from opsyntra.spark_training import run_spark_training
+    from opsyntra.spark.training import run_spark_training
     run_spark_training(args.config, track=not args.skip_tracking)
     return 0
 

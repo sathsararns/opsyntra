@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
@@ -18,8 +19,8 @@ ROOT = Path(__file__).resolve().parents[2]
 class SparkWorkflowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        from opsyntra.spark_runtime import create_spark
-        from opsyntra.spark_training import load_spark_settings
+        from opsyntra.spark.runtime import create_spark
+        from opsyntra.spark.training import load_spark_settings
         cls.spark = create_spark(load_spark_settings(ROOT / "config.yaml"), ROOT)
         cls.addClassCleanup(cls.spark.stop)
         cls.temporary = tempfile.TemporaryDirectory(dir=ROOT / ".spark-runtime")
@@ -36,10 +37,10 @@ class SparkWorkflowTests(unittest.TestCase):
     def test_training_statistics_unknown_categories_and_complete_model_reload(self):
         from pyspark.ml import PipelineModel
         from pyspark.ml.functions import vector_to_array
-        from opsyntra.spark_pipeline import SparkChurnDecision, CATEGORICAL_COLUMNS
-        from opsyntra.spark_training import fit_candidate
-        from opsyntra.spark_inference import load_spark_pipeline, predict_spark_frame
-        from opsyntra.data_validation import NUMERIC_COLUMNS
+        from opsyntra.spark.pipeline import SparkChurnDecision, CATEGORICAL_COLUMNS
+        from opsyntra.spark.training import fit_candidate
+        from opsyntra.spark.inference import load_spark_pipeline, predict_spark_frame
+        from opsyntra.data.validation import NUMERIC_COLUMNS
         model, _ = fit_candidate("logistic_regression", {"maxIter": 20, "regParam": .01}, self.train, 42)
         medians = model.stages[1].surrogateDF.first().asDict()
         clean = self.data.iloc[:60].copy()
@@ -72,9 +73,9 @@ class SparkWorkflowTests(unittest.TestCase):
         self.assertEqual(model.stages[1].surrogateDF.first().asDict(), medians)
 
     def test_all_three_real_estimators_can_fit_and_persist(self):
-        from opsyntra.spark_pipeline import SparkChurnDecision
-        from opsyntra.spark_training import fit_candidate
-        from opsyntra.spark_inference import load_spark_pipeline, predict_spark_frame
+        from opsyntra.spark.pipeline import SparkChurnDecision
+        from opsyntra.spark.training import fit_candidate
+        from opsyntra.spark.inference import load_spark_pipeline, predict_spark_frame
         for name, parameters in (
             ("logistic_regression", {"maxIter": 10, "regParam": .01}),
             ("random_forest", {"numTrees": 5, "maxDepth": 3}),
@@ -90,14 +91,20 @@ class SparkWorkflowTests(unittest.TestCase):
                 self.assertTrue(result.churn_probability.between(0, 1).all())
 
     def test_selected_real_pipeline_predicts_in_fresh_single_and_batch_processes(self):
-        from opsyntra.spark_training import fit_candidate
-        from opsyntra.spark_pipeline import SparkChurnDecision
+        from opsyntra.spark.training import fit_candidate
+        from opsyntra.spark.pipeline import NormalizeSparkTelco, SparkChurnDecision
         # Fit a tiny training-only fixture; clean checkouts have no production model.
         fitted, _ = fit_candidate("logistic_regression", {"maxIter": 10, "regParam": .01}, self.train, 42)
         fitted.stages.append(SparkChurnDecision(.4, "fresh-process-fixture"))
         model_path = self.directory / "selected-fixture"
-        fitted.save(model_path.as_uri())
-        from opsyntra.spark_inference import load_spark_pipeline, predict_spark_frame
+        # Reproduce pre-refactor persisted stage names. Fresh CLI processes must
+        # resolve these historical imports as well as new grouped class paths.
+        import importlib
+        importlib.import_module("opsyntra.spark_pipeline")
+        with patch.object(NormalizeSparkTelco, "__module__", "opsyntra.spark_pipeline"), \
+                patch.object(SparkChurnDecision, "__module__", "opsyntra.spark_pipeline"):
+            fitted.save(model_path.as_uri())
+        from opsyntra.spark.inference import load_spark_pipeline, predict_spark_frame
         model = load_spark_pipeline(model_path)
         sample = pd.read_csv(ROOT / "examples/customers.csv", dtype="string", keep_default_na=False)
         frame = self.spark.read.option("header", True).csv((ROOT / "examples/customers.csv").as_uri())
@@ -119,7 +126,7 @@ class SparkWorkflowTests(unittest.TestCase):
                 self.assertAlmostEqual(result["churn_probability"], reference.churn_probability, places=10)
 
     def test_bad_numeric_and_missing_feature_columns_fail(self):
-        from opsyntra.spark_pipeline import NormalizeSparkTelco
+        from opsyntra.spark.pipeline import NormalizeSparkTelco
         with self.assertRaisesRegex(ValueError, "Missing required predictor"):
             NormalizeSparkTelco().transform(self.train.drop("tenure"))
         from pyspark.sql import functions as F

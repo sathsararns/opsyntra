@@ -5,8 +5,8 @@ from unittest.mock import patch
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
-from opsyntra.notebook_support import analytics_snapshot
-from opsyntra.web_api import app
+from opsyntra.ml.notebooks import analytics_snapshot
+from opsyntra.api.app import app
 from tests.analytics_helpers import prediction_event, raw_event
 from tests.integration import test_analytics_storage as storage
 

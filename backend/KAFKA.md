@@ -6,7 +6,7 @@ operation, read [the verification guide](../docs/VERIFICATION.md) and
 [the submission evidence matrix](reports/submission_evidence.md).
 
 One `producer.py` supports both continuous streaming and checkpointed CSV batches.
-Reusable code lives in `src/opsyntra/kafka_events.py`, `kafka_config.py` and
+Reusable code lives in `src/opsyntra/kafka/events.py`, `kafka_config.py` and
 `kafka_publishing.py`; topic provisioning and local broker management are in
 `pipelines/`.
 

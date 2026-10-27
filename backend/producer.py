@@ -12,8 +12,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 
 def main():
-    from opsyntra.kafka_config import load_kafka_config
-    from opsyntra.kafka_publishing import run_producer
+    from opsyntra.kafka.config import load_kafka_config
+    from opsyntra.kafka.publishing import run_producer
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["streaming", "batch"], required=True)
     parser.add_argument("--config", type=Path, default=ROOT / "config.yaml")

@@ -12,9 +12,9 @@ import yaml
 import mlflow
 import mlflow.sklearn
 
-from opsyntra.data_pipeline import run_pipeline
-from opsyntra.model_inference import load_pipeline, predict_records
-from opsyntra.model_training import load_training_partitions, run_training
+from opsyntra.data.pipeline import run_pipeline
+from opsyntra.ml.inference import load_pipeline, predict_records
+from opsyntra.ml.training import load_training_partitions, run_training
 from tests.helpers import sample_data
 
 ROOT = Path(__file__).resolve().parents[2]

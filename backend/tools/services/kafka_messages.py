@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 def main():
     from confluent_kafka import Consumer
-    from opsyntra.kafka_config import load_kafka_config
+    from opsyntra.kafka.config import load_kafka_config
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--topic", choices=["raw", "predictions", "deadletter"], default="predictions")
     parser.add_argument("--max-messages", type=int, default=5)

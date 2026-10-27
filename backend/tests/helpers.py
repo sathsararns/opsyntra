@@ -1,6 +1,6 @@
 import pandas as pd
 
-from opsyntra.data_validation import EXPECTED_COLUMNS
+from opsyntra.data.validation import EXPECTED_COLUMNS
 
 
 def sample_data(size: int = 100) -> pd.DataFrame:

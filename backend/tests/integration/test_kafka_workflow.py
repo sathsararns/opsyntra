@@ -10,12 +10,12 @@ import joblib
 import pandas as pd
 import yaml
 
-from opsyntra.data_validation import FEATURE_COLUMNS
-from opsyntra.kafka_config import atomic_json
-from opsyntra.kafka_consumption import run_consumer
-from opsyntra.kafka_events import CustomerSource, customer_rows, make_event, utc_now
-from opsyntra.kafka_workflow import KafkaWorkflow, read_json, run_directory
-from opsyntra.model_building import build_model_pipeline
+from opsyntra.data.validation import FEATURE_COLUMNS
+from opsyntra.kafka.config import atomic_json
+from opsyntra.kafka.consumption import run_consumer
+from opsyntra.kafka.events import CustomerSource, customer_rows, make_event, utc_now
+from opsyntra.orchestration.kafka import KafkaWorkflow, read_json, run_directory
+from opsyntra.ml.building import build_model_pipeline
 from tests.helpers import sample_data
 from tests.integration.test_kafka_consumer import Broker, Input, Output, Record
 
@@ -69,7 +69,7 @@ class KafkaWorkflowTests(unittest.TestCase):
                 atomic_json(checkpoint, {"next_row": 10})
                 raise RuntimeError("delivery interrupted")
             return {"status": "completed", "acknowledged": 10}
-        with patch("opsyntra.kafka_workflow.run_producer", side_effect=publisher):
+        with patch("opsyntra.orchestration.kafka.run_producer", side_effect=publisher):
             with self.assertRaisesRegex(RuntimeError, "interrupted"):
                 self.workflow.publish_batch()
             self.window["partitions"]["0"]["end"] = 20
@@ -93,7 +93,7 @@ class KafkaWorkflowTests(unittest.TestCase):
         atomic_json(self.workflow.run / "window.json", window)
         def consume(configuration, **kwargs):
             return run_consumer(configuration, **kwargs, consumer=Input(broker), producer=Output(broker))
-        with patch("opsyntra.kafka_consumption.run_consumer", side_effect=consume):
+        with patch("opsyntra.kafka.consumption.run_consumer", side_effect=consume):
             self.workflow.predict_batch()
             self.workflow.predict_batch()
         report = self.workflow.summarize()
@@ -122,7 +122,7 @@ class KafkaWorkflowTests(unittest.TestCase):
             kwargs["progress_callback"]({"committed_records": 0, "predictions_published": 0, "deduplicated": 0})
             self.assertTrue(kwargs["stop"].is_set())
             return {"status": "stopped"}
-        with patch.object(workflow, "seed_stream_offsets"), patch("opsyntra.kafka_consumption.run_consumer", side_effect=managed) as consume:
+        with patch.object(workflow, "seed_stream_offsets"), patch("opsyntra.kafka.consumption.run_consumer", side_effect=managed) as consume:
             workflow.start_and_monitor_consumer()
             workflow.start_and_monitor_consumer()
             self.assertEqual(consume.call_count, 1)
